@@ -12,7 +12,6 @@ namespace Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get;private set; }
-
-
+        public String PassWord { get; set; }    
     }
 }
