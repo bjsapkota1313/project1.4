@@ -15,13 +15,9 @@ namespace ServiceLayer
         {
             employeeDAO = new EmployeeDAO();    
         }
-        public List<Employee> GetEmployees()
+        public Employee SearchByUserName(string username)
         {
-            return employeeDAO.GetEmployees();
-        }
-        public Employee SearchByID(int ID)
-        {
-            return employeeDAO.SearchByID(ID);
+            return employeeDAO.SearchByUserName(username);
         }
     }
 }

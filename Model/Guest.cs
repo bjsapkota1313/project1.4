@@ -8,8 +8,8 @@ namespace Model
 {
     public class Guest
     {
-        public int GuestId { get;  } 
-       public string FirstName { get; private set; }
-        public string LastName { get; private set; }
+        public int GuestId { get; set; } 
+       public string FirstName { get;  set; }
+        public string LastName { get;  set; }
     }
 }

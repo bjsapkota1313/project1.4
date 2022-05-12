@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-     class Chef:Employee
+    public  class HashedPasswordWithSalt
     {
+        public string HashPassword { get; set; }
+        public string Salt { get; set; }
     }
 }
