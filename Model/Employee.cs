@@ -12,6 +12,14 @@ namespace Model
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Username { get;private set; }
-        public String PassWord { get; set; }    
+        public HashedPasswordWithSalt PassWord { get; set; }
+        public Employee(int id,string firstName,string lastName,string username, HashedPasswordWithSalt passWord)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName=lastName;
+            Username = username;
+            PassWord = passWord;
+        }
     }
 }
