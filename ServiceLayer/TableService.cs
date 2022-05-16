@@ -10,18 +10,14 @@ namespace ServiceLayer
 {
     public  class TableService
     {
-        TableDAO tableDAO;
+       private  TableDAO tableDAO;
         public TableService()
         {
             tableDAO = new TableDAO();
         }
-        public List<Table> GetAllTable()
+        public Table SearchTable(int tableNumber)
         {
-            return tableDAO.GetAllTable();
-        }
-        public Table SearchByID(int ID)
-        {
-            return tableDAO.SearchByID(ID);
+            return tableDAO.SearchTable(tableNumber);
         }
     }
 }

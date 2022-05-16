@@ -19,32 +19,33 @@ namespace DataAccessLayer
             string connString = ConfigurationManager.ConnectionStrings["Chapeau"].ConnectionString;
             dbConnection = new SqlConnection(connString);
         }
-        public Employee SearchByUserName(string username)
+        public Employee SearchById(int id)
         {
-            string query = "SELECT EmployeeID, FirstName, LastName, Username, [Password] FROM Employee WHERE Username=@Username";
+            string query = "SELECT EmployeeID, FirstName, LastName, [Password],Salt FROM Employee WHERE EmployeeID=@ID";
             SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@Username", username);
+            // preventing from sql injections
+            sqlParameters[0] = new SqlParameter("@ID", id);
             return ReadTableRows(ExecuteSelectQuery(query, sqlParameters));
         }
         private Employee ReadTableRows(DataTable dataTable)
         {
+            // first making the employee null later on it will be set
             Employee employee=null;
             foreach (DataRow dr in dataTable.Rows)
             {
                 int id = (int)dr["EmployeeID"];
                 string firstName = (string)(dr["FirstName"].ToString());
                 string lastName = (string)(dr["LastName"].ToString());
-                string userName = (string)(dr["Username"]).ToString();
-                string Password = (string)(dr["Password"]).ToString();
+                string password = (string)(dr["Password"]).ToString();
+                string salt= (string)(dr["Salt"].ToString());
 
-                //creating hash passowrd 
+                //creating hash password 
                 HashedPasswordWithSalt hashedPasswordWithSalt = new HashedPasswordWithSalt();
-                //hashedPasswordWithSalt.Salt =   
-                hashedPasswordWithSalt.HashPassword = Password;
+                hashedPasswordWithSalt.Salt = salt; 
+                hashedPasswordWithSalt.HashPassword = password;
 
-                //creating a employeenwith alll read values from table 
-                employee = new Employee(id, firstName, lastName, userName, hashedPasswordWithSalt);
-               
+                //creating a employee with alll read values from table 
+                employee = new Employee(id, firstName, lastName,  hashedPasswordWithSalt);
             }
             return employee;
         }

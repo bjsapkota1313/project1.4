@@ -11,14 +11,12 @@ namespace Model
         public int Id { get; private set; } 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Username { get;private set; }
         public HashedPasswordWithSalt PassWord { get; set; }
-        public Employee(int id,string firstName,string lastName,string username, HashedPasswordWithSalt passWord)
+        public Employee(int id,string firstName,string lastName, HashedPasswordWithSalt passWord)
         {
             Id = id;
             FirstName = firstName;
             LastName=lastName;
-            Username = username;
             PassWord = passWord;
         }
     }
