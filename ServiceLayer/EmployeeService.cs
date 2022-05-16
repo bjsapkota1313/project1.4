@@ -10,14 +10,14 @@ namespace ServiceLayer
 {
     public  class EmployeeService
     {
-        EmployeeDAO employeeDAO;
+       private  EmployeeDAO employeeDAO;
         public EmployeeService()
         {
             employeeDAO = new EmployeeDAO();    
         }
-        public Employee SearchByUserName(string username)
+        public Employee SearchByID(int id)
         {
-            return employeeDAO.SearchByUserName(username);
+            return employeeDAO.SearchById(id);
         }
     }
 }

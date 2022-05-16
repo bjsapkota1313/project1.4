@@ -10,7 +10,7 @@ namespace Model
     {
         public int Number { get; set; }
         public TableStatus Status { get; set; }
-
+        
     }
     public enum TableStatus
     {
