@@ -43,18 +43,21 @@
             this.pictureBoxLogo.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(83, 150);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(73, 112);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(289, 162);
+            this.pictureBoxLogo.Size = new System.Drawing.Size(253, 122);
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
+            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // pictureBoxUSerIcon
             // 
             this.pictureBoxUSerIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUSerIcon.Image")));
-            this.pictureBoxUSerIcon.Location = new System.Drawing.Point(418, 86);
+            this.pictureBoxUSerIcon.Location = new System.Drawing.Point(366, 64);
+            this.pictureBoxUSerIcon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBoxUSerIcon.Name = "pictureBoxUSerIcon";
-            this.pictureBoxUSerIcon.Size = new System.Drawing.Size(245, 260);
+            this.pictureBoxUSerIcon.Size = new System.Drawing.Size(214, 195);
             this.pictureBoxUSerIcon.TabIndex = 1;
             this.pictureBoxUSerIcon.TabStop = false;
             // 
@@ -64,11 +67,12 @@
             this.txtBoxEmployeeId.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxEmployeeId.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBoxEmployeeId.ForeColor = System.Drawing.Color.White;
-            this.txtBoxEmployeeId.Location = new System.Drawing.Point(87, 437);
+            this.txtBoxEmployeeId.Location = new System.Drawing.Point(76, 328);
+            this.txtBoxEmployeeId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxEmployeeId.Multiline = true;
             this.txtBoxEmployeeId.Name = "txtBoxEmployeeId";
             this.txtBoxEmployeeId.PlaceholderText = "Employee ID";
-            this.txtBoxEmployeeId.Size = new System.Drawing.Size(571, 70);
+            this.txtBoxEmployeeId.Size = new System.Drawing.Size(500, 52);
             this.txtBoxEmployeeId.TabIndex = 3;
             // 
             // txtBoxPassword
@@ -77,12 +81,13 @@
             this.txtBoxPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtBoxPassword.Font = new System.Drawing.Font("Segoe UI", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtBoxPassword.ForeColor = System.Drawing.Color.White;
-            this.txtBoxPassword.Location = new System.Drawing.Point(87, 562);
+            this.txtBoxPassword.Location = new System.Drawing.Point(76, 422);
+            this.txtBoxPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxPassword.Multiline = true;
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.PasswordChar = '*';
             this.txtBoxPassword.PlaceholderText = "Password";
-            this.txtBoxPassword.Size = new System.Drawing.Size(571, 70);
+            this.txtBoxPassword.Size = new System.Drawing.Size(500, 52);
             this.txtBoxPassword.TabIndex = 4;
             // 
             // btnLogin
@@ -90,9 +95,10 @@
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnLogin.Location = new System.Drawing.Point(87, 750);
+            this.btnLogin.Location = new System.Drawing.Point(76, 562);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(571, 70);
+            this.btnLogin.Size = new System.Drawing.Size(500, 52);
             this.btnLogin.TabIndex = 5;
             this.btnLogin.Text = "Login";
             this.btnLogin.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -101,16 +107,17 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(726, 1055);
+            this.ClientSize = new System.Drawing.Size(635, 791);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxEmployeeId);
             this.Controls.Add(this.pictureBoxUSerIcon);
             this.Controls.Add(this.pictureBoxLogo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

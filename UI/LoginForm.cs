@@ -61,5 +61,10 @@ namespace UI
         {
             Login();
         }
+
+        private void pictureBoxLogo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
