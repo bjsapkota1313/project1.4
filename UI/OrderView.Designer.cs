@@ -47,11 +47,11 @@
             // 
             this.BackBtnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.BackBtnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BackBtnOrder.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BackBtnOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BackBtnOrder.ForeColor = System.Drawing.Color.Snow;
             this.BackBtnOrder.Location = new System.Drawing.Point(12, 12);
             this.BackBtnOrder.Name = "BackBtnOrder";
-            this.BackBtnOrder.Size = new System.Drawing.Size(172, 36);
+            this.BackBtnOrder.Size = new System.Drawing.Size(105, 23);
             this.BackBtnOrder.TabIndex = 0;
             this.BackBtnOrder.Text = "Back to Home";
             this.BackBtnOrder.UseVisualStyleBackColor = false;
