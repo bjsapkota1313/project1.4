@@ -17,7 +17,6 @@ namespace UI
         public NavMenu()
         {
             InitializeComponent();
-            InitializeComponent();
             control = false;
             menu_with = hamburgerMenu.Width;
 
@@ -30,6 +29,40 @@ namespace UI
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            // Expand hamburger menu
+            if (control)
+            {
+                hamburgerMenu.Width = hamburgerMenu.Width + 10;
+                if (hamburgerMenu.Width >= menu_with)
+                {
+                    timer1.Stop();
+                    control = false;
+                    this.Refresh();
+                }
+            }
+            // close the hamburger menu
+            else
+            {
+                hamburgerMenu.Width = hamburgerMenu.Width - 10;
+                if (hamburgerMenu.Width <= 0)
+                {
+                    timer1.Stop();
+                    control = true;
+                    this.Refresh();
+                    hamburgerMenu.Visible = true;
+
+                }
+            }
 
         }
     }
