@@ -11,6 +11,7 @@ namespace ServiceLayer
     public  class TableService
     {
        private  TableDAO tableDAO;
+        public int counter;
         public TableService()
         {
             tableDAO = new TableDAO();
