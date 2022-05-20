@@ -22,39 +22,27 @@ namespace UI
         public LoginForm()
         {
             InitializeComponent();
-             employeeService = new EmployeeService();
+            employeeService = new EmployeeService();
 
         }
-        //this is used when we compare to user using stored salt 
-        private bool VerifyPassword(string enteredPassword, string storedHash, string storedSalt)
-        {
-            byte[] saltBytes = Convert.FromBase64String(storedSalt);
-            Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(enteredPassword, saltBytes, 10000);
-            return Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(32)) == storedHash; // using 32 bits
-        }
+
         private void Login()
         {
-            int employeeId=int.Parse(txtBoxEmployeeId.Text);
-            loggedEmployee = employeeService.SearchByID(employeeId);
-            if (loggedEmployee==null)
+            try
             {
-                MessageBox.Show("Check your EmployeeId to login in", "Try again!");
+                loggedEmployee = employeeService.GetLoggedEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text.ToString());
+                //whenever password is verified login form is hidden
+                this.Hide();
+                // table view is shown 
+                TableView tableView = new TableView();
+                tableView.Show();
             }
-            else
+            catch (Exception e)
             {
-                if (VerifyPassword(txtBoxPassword.Text,loggedEmployee.PassWord.HashPassword, loggedEmployee.PassWord.Salt))
-                {
-                    //whenever password is verified login form is hidden
-                    this.Hide();
-                    // table view is shown 
-                    TableView tableView = new TableView();
-                    tableView.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Check your EmployeeId and Password to login in", "Try again!");
-                }
+                MessageBox.Show(e.Message);
+                
             }
+
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
