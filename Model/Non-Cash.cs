@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public class Non_Cash:Payement
+   public class Non_Cash: Payment
     {
     }
 }

@@ -10,50 +10,51 @@ using Model;
 
 namespace DataAccessLayer
 {
-    public class BillDAO:BaseDAO
+    public class PaymentTypeDAO : BaseDAO
     {
-        public List<Bill> GetAlllBills()
+        public List<PaymentType> GetAllPaymentTypes()
         {
-            string query = "SELECT BillID, OrderID, Amount, Tip FROM BILL";
+            string query = "SELECT ID, Type FROM PAYMENTTYPE";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Bill> ReadTables(DataTable dataTable)
+
+        private List<PaymentType> ReadTables(DataTable dataTable)
         {
-            List<Bill> bills = new List<Bill>();
+            List<PaymentType> PaymentTypes = new List<PaymentType>();
 
             try
             {
                 // For each data row, set all data to new Drink object
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    Bill bill = new Bill()
+                    PaymentType paymentType = new PaymentType()
                     {
+                        ID = (int)dr["ID"],
+                        Type = (string)dr["Tyoe"]
 
-                        BillID = (int)dr["BillID"],
-                        OrderID = (int)dr["OrderID"],
-                        Amount = (int)dr["Amount"],
-                        Tip = (int)dr["Tip"]
                     };
                     // Add new Drink object to list of Drinks
-                    bills.Add(bill);
+                    PaymentTypes.Add(paymentType);
                 }
-                return bills;
+                return PaymentTypes;
             }
             catch (Exception e)
             {
-                throw new Exception("There is an issue reading the bills data from the database.", e);
+                throw new Exception("There is an issue reading the payments data from the database.", e);
             }
         }
-        public Bill SearchByID(int ID)
+
+        public PaymentType SearchByID(int ID)
         {
-            string query = $"SELECT BillID, OrderID, Amount, Tip  FROM BILL WHERE BillID='{ID}'";
+            string query = $"SELECT ID, Type FROM BILL WHERE ID='{ID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
         }
+
     }
 }

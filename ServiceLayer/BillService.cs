@@ -12,9 +12,9 @@ namespace ServiceLayer
         {
             billDAO = new BillDAO();    
         }
-        public List<Bill> GetAlllBill()
+        public List<Bill> GetAlllBills()
         {
-            return billDAO.GetAlllBill();
+            return billDAO.GetAlllBills();
         }
         public Bill SearchByID(int ID)
         {

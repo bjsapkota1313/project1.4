@@ -8,7 +8,7 @@ namespace Model
 {
     public  class Income
     {
-        public Payement Payement { get; set; }  
+        public Payment Payment { get; set; }  
         public double TotalSales { get; set; }  
     }
 }

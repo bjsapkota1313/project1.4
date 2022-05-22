@@ -17,7 +17,7 @@ namespace ServiceLayer
         }
         public List<Order> GetAllOrder()
         {
-            return orderDAO.GetAllOrder();
+            return orderDAO.GetAllOrders();
         }
         public Order SearchByID(int ID)
         {
