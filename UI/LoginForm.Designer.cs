@@ -34,6 +34,8 @@
             this.txtBoxEmployeeId = new System.Windows.Forms.TextBox();
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.lblEmployeeId = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSerIcon)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +69,8 @@
             this.txtBoxEmployeeId.Location = new System.Drawing.Point(87, 437);
             this.txtBoxEmployeeId.Multiline = true;
             this.txtBoxEmployeeId.Name = "txtBoxEmployeeId";
-            this.txtBoxEmployeeId.PlaceholderText = "Employee ID";
+            this.txtBoxEmployeeId.ReadOnly = true;
+            this.txtBoxEmployeeId.ShortcutsEnabled = false;
             this.txtBoxEmployeeId.Size = new System.Drawing.Size(571, 70);
             this.txtBoxEmployeeId.TabIndex = 3;
             // 
@@ -81,7 +84,6 @@
             this.txtBoxPassword.Multiline = true;
             this.txtBoxPassword.Name = "txtBoxPassword";
             this.txtBoxPassword.PasswordChar = '*';
-            this.txtBoxPassword.PlaceholderText = "Password";
             this.txtBoxPassword.Size = new System.Drawing.Size(571, 70);
             this.txtBoxPassword.TabIndex = 4;
             // 
@@ -99,22 +101,47 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // lblEmployeeId
+            // 
+            this.lblEmployeeId.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmployeeId.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmployeeId.ForeColor = System.Drawing.Color.White;
+            this.lblEmployeeId.Location = new System.Drawing.Point(99, 399);
+            this.lblEmployeeId.Name = "lblEmployeeId";
+            this.lblEmployeeId.Size = new System.Drawing.Size(217, 25);
+            this.lblEmployeeId.TabIndex = 7;
+            this.lblEmployeeId.Text = "Employee ID";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPassword.ForeColor = System.Drawing.Color.White;
+            this.lblPassword.Location = new System.Drawing.Point(99, 523);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(97, 25);
+            this.lblPassword.TabIndex = 8;
+            this.lblPassword.Text = "Password";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(726, 1055);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblEmployeeId);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtBoxPassword);
             this.Controls.Add(this.txtBoxEmployeeId);
             this.Controls.Add(this.pictureBoxUSerIcon);
             this.Controls.Add(this.pictureBoxLogo);
+            this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "LoginForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login Form";
+            this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSerIcon)).EndInit();
@@ -130,5 +157,7 @@
         private System.Windows.Forms.TextBox txtBoxEmployeeId;
         private System.Windows.Forms.TextBox txtBoxPassword;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.Label lblEmployeeId;
+        private System.Windows.Forms.Label lblPassword;
     }
 }

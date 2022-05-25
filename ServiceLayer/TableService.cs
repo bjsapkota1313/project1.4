@@ -20,5 +20,9 @@ namespace ServiceLayer
         {
             return tableDAO.SearchTable(tableNumber);
         }
+        public List<Table> GetAllTables()
+        {
+            return tableDAO.GetAllTable();
+        }
     }
 }

@@ -23,7 +23,6 @@ namespace UI
         {
             InitializeComponent();
             employeeService = new EmployeeService();
-
         }
 
         private void Login()
@@ -44,7 +43,6 @@ namespace UI
             }
 
         }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
