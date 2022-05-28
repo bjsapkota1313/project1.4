@@ -11,13 +11,13 @@ namespace Model
         public int Id { get; private set; } 
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public HashedPasswordWithSalt PassWord { get; set; }
-        public Employee(int id,string firstName,string lastName, HashedPasswordWithSalt passWord)
+        public EmployeeType EmployeeType { get; set; }
+        public Employee(int id,string firstName,string lastName, EmployeeType employeeType)
         {
             Id = id;
             FirstName = firstName;
             LastName=lastName;
-            PassWord = passWord;
+            EmployeeType = employeeType;
         }
     }
 }

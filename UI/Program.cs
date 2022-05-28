@@ -17,7 +17,13 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Application.Run(new KitchenAndBarView());
+
+            // Application.Run(new LoginForm());
+           // Application.Run(new TableView());
+
+            Application.Run(new OrderView());
         }
     }
 }
