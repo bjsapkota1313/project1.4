@@ -19,9 +19,9 @@ namespace ServiceLayer
         {
             return feedbackDAO.GetAllFeedback() ;
         }
-        public Feedback SearchByID(int ID)
+        public void AddComment(string description)
         {
-            return feedbackDAO.SearchByID(ID);
+            feedbackDAO.EditFeedback($"INSERT INTO Feedback (Description) VALUES '{description}'");
         }
     }
 }

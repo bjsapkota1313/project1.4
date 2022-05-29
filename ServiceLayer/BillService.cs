@@ -20,5 +20,12 @@ namespace ServiceLayer
         {
             return billDAO.SearchByID(ID);
         }
+
+        public void AddTip(int ID, double value)
+        {
+            string query = $"UPDATE BILL SET Tip = '{value}' WHERE BillID='{ID}'";
+            billDAO.EditBill(query);
+
+        }
     }
 }

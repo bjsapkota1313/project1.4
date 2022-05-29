@@ -17,7 +17,7 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrderView());
+            Application.Run(new Bill(1));
         }
     }
 }

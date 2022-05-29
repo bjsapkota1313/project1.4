@@ -55,5 +55,13 @@ namespace DataAccessLayer
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
         }
+
+        public void EditBill(string query)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Return result of query
+            ExecuteEditQuery(query, sqlParameters);
+        }
     }
 }
