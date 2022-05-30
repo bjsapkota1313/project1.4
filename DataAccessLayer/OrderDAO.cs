@@ -11,12 +11,36 @@ namespace DataAccessLayer
 {
     public class OrderDAO : BaseDAO
     {
-        public List<Order> GetAllOrders()
+        public List<Order> GetAllStarters()
         {
-            string query = "Select OrderID, Time, TableNr, ItemID from [Order]";
+            string query = "Select Name,Price from [Order]";
             SqlParameter[] sqlParamenters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
+        public List<Order> GetAllMainCourse()
+        {
+            string query = "Select Name,Price from [Order]";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public List<Order> GetAllDessert()
+        {
+            string query = "Select Name,Price from [Order]";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public void AddToOrder(Order order)
+        {
+            string query = "INSERT INTO Order VALUES (@StudentNumber);";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@StudentNumber", order.Name),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -25,10 +49,8 @@ namespace DataAccessLayer
             {
                 Order order = new Order()
                 {
-                    OrderId = (int)dr["OrderID"],
-                    Time = (DateTime)dr["Time"],
-                    Table = (Table)dr["Table"],
-                    MenuItem = (MenuItem)dr["MenuItem"]
+                    Name = (string)dr["name"],
+                    Price = (double)dr["price"],
                 };
             orders.Add(order);
             }
@@ -48,10 +70,10 @@ namespace DataAccessLayer
         {
             DataRow row = dataTable.Rows[0];
             Order order = new Order();
-            order.OrderId = (int)row["OrderID"];
-            order.Time = (DateTime)row["Time"];
-            order.Table = (Table)row["Table"];
-            order.MenuItem = (MenuItem)row["MenuItem"];
+            //order.OrderId = (int)row["OrderID"];
+           // order.Time = (DateTime)row["Time"];
+           // order.Table = (Table)row["Table"];
+           // order.MenuItem = (MenuItem)row["MenuItem"];
 
             return order;
         }
