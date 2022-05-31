@@ -19,49 +19,52 @@ namespace UI
         public TableView()
         {
             InitializeComponent();
+
             tableService = new TableService();
             List<Table> tables= tableService.GetAllTables();
-            FillTable(tables, LabelsDictionary());
+
+            DisplayTables(tables, ButtonsDictionary());
         }
-        private void ChangingTheStatusOfTable(Table table, Label lblTableNumber)
+        private void DisplayingTheStatusOfTable(Table table, Button btnTable)
         {
             // using switch so that later on if table more status can be changed easily
             switch (table.Status)
             {
                 case TableStatus.Reserved:
-                    lblTableNumber.ForeColor = Color.Red;
+                    btnTable.BackColor = Color.DarkRed;
                     break;
                 case TableStatus.Unreserved:
-                    lblTableNumber.ForeColor = Color.White;
+                    btnTable.BackColor = Color.FromArgb(67, 165, 51);
+                    break;
+                case TableStatus.Occupied:
+                    btnTable.BackColor = Color.FromArgb(172, 115, 73);
                     break;
             }
         }
-        private void FillTable(List<Table> tables, Dictionary<string, Label> labelsDictionary)
+        private void DisplayTables(List<Table> tables, Dictionary<string, Button> labelsDictionary)
         {
             for (int i = 0; i < tables.Count; i++)
             {
-                string labelName = "lblTableNr" + $"{i + 1}";
-                ChangingTheStatusOfTable(tables[i], labelsDictionary[labelName]);
+                string buttonName = "BtnTableNumber" + $"{i + 1}";
+                DisplayingTheStatusOfTable(tables[i], labelsDictionary[buttonName]);
             }
         }
-        private Dictionary<string,Label> LabelsDictionary()
+        private Dictionary<string, Button> ButtonsDictionary()
         {
-            Dictionary<string, Label> listOfLabel = new Dictionary<string, Label>();
-            listOfLabel.Add("lblTableNr1", lblTableNr1);
-            listOfLabel.Add("lblTableNr2", lblTableNr2);
-            listOfLabel.Add("lblTableNr3", lblTableNr3);
-            listOfLabel.Add("lblTableNr4", lblTableNr4);
-            listOfLabel.Add("lblTableNr5", lblTableNr5);
-            listOfLabel.Add("lblTableNr6", lblTableNr6);
-            listOfLabel.Add("lblTableNr7", lblTableNr7);
-            listOfLabel.Add("lblTableNr8", lblTableNr8);
-            listOfLabel.Add("lblTableNr9", lblTableNr9);
-            listOfLabel.Add("lblTableNr10", lblTableNr10);
-            return listOfLabel; 
+            Dictionary<string, Button> listOfLabel = new Dictionary<string, Button>();
+            listOfLabel.Add("BtnTableNumber1", BtnTableNumber1);
+            listOfLabel.Add("BtnTableNumber2", BtnTableNumber2);
+            listOfLabel.Add("BtnTableNumber3", BtnTableNumber3);
+            listOfLabel.Add("BtnTableNumber4", BtnTableNumber4);
+            listOfLabel.Add("BtnTableNumber5", BtnTableNumber5);
+            listOfLabel.Add("BtnTableNumber6", BtnTableNumber6);
+            listOfLabel.Add("BtnTableNumber7", BtnTableNumber7);
+            listOfLabel.Add("BtnTableNumber8", BtnTableNumber8);
+            listOfLabel.Add("BtnTableNumber9", BtnTableNumber9);
+            listOfLabel.Add("BtnTableNumber10", BtnTableNumber10);
+            return listOfLabel;
         }
 
-        
 
-       
     }
 }

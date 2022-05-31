@@ -14,6 +14,6 @@ namespace Model
     }
     public enum TableStatus
     {
-        Unreserved,  Reserved
+        Unreserved,  Reserved,Occupied
     }
 }
