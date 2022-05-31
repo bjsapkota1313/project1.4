@@ -11,6 +11,9 @@ namespace Model
         public string Name { get; set; }
         public double Price { get; set; }
         public MenuItem MenuItem { get; set; }
+        public int OrderId { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime Time { get; set; }
         public Table Table { get; set; }
     }
 }
