@@ -29,11 +29,8 @@ namespace UI
 
            // Application.Run(new KitchenAndBarView());
 
-           //  Application.Run(new LoginForm());
-          // Application.Run(new TableView());
-
-
-            Application.Run(new OrderView());
+            // Application.Run(new LoginForm());
+          Application.Run(new TableView());
 
         }
     }
