@@ -16,6 +16,7 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
 
 
             //Application.Run(new KitchenAndBarView());
@@ -32,6 +33,9 @@ namespace UI
             // Application.Run(new LoginForm());
           Application.Run(new TableView());
 
+=======
+            Application.Run(new Bill(1));
+>>>>>>> Oliwia
         }
     }
 }

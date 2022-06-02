@@ -10,18 +10,18 @@ namespace ServiceLayer
 {
     public class PaymentService
     {
-        PayementDAO payementDAO;
+        PaymentDAO paymentDAO;
         public PaymentService()
         {
-            payementDAO = new PayementDAO();
+            paymentDAO = new PaymentDAO();
         }
-        public List<Payement> GetAllPayements()
+        public List<Payment> GetAllPayments()
         {
-            return payementDAO.GetAllPayements();
+            return paymentDAO.GetAllPayments();
         }
-        public Payement SearchByID(int ID)
+        public Payment SearchByID(int ID)
         {
-            return payementDAO.SearchByID(ID);
+            return paymentDAO.SearchByID(ID);
         }
     }
 }

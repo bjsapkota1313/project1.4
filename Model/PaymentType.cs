@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-   public class Non_Cash: Payment
+    public class PaymentType
     {
+        public int ID { get; set; }
+        public string Type { get; set; }
     }
 }

@@ -17,7 +17,11 @@ namespace ServiceLayer
         }
         public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
         {
+<<<<<<< HEAD
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+=======
+            return orderDAO.GetAllOrders();
+>>>>>>> Oliwia
         }
         public List<Order> GetAllStarters(Order order)
         {
