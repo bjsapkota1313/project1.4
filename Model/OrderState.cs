@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-<<<<<<< HEAD:Model/OrderState.cs
     public enum OrderState
-=======
-    public  class Cash: Payment
->>>>>>> Oliwia:Model/Cash.cs
     {
         PrepairingOrder,ReadyToDeliver, RunningOrder, OrderServed
     }

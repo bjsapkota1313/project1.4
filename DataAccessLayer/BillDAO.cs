@@ -26,7 +26,7 @@ namespace DataAccessLayer
 
             try
             {
-                // For each data row, set all data to new Drink object
+                // For each data row, set all data to new Bill object
                 foreach (DataRow dr in dataTable.Rows)
                 {
                     Bill bill = new Bill()
@@ -37,7 +37,7 @@ namespace DataAccessLayer
                         Amount = (int)dr["Amount"],
                         Tip = (int)dr["Tip"]
                     };
-                    // Add new Drink object to list of Drinks
+                    // Add new Drink object to list of Bills
                     bills.Add(bill);
                 }
                 return bills;

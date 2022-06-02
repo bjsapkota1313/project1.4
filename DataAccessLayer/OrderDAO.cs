@@ -74,7 +74,7 @@ namespace DataAccessLayer
 
         public Order GetOrder(int tableNr, int orderNumber)
         {
-            string query = "Select  [Order].OrderID,[Order].[Date],[Order].[Time], [Table].TableNr,[Table].[Status] from [Order] Join [Table] on [Order].TableNr=[Table].TableNr WHERE [Order].OrderID=@OrderId ANd [Table].TableNr=@TableNR";
+            string query = "Select  [Order].OrderID, [Order].[Date], [Order].[Time], [Table].TableNr, [Table].[Status], [Order].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr WHERE [Order].OrderID=@OrderId ANd [Table].TableNr=@TableNR";
             SqlParameter[] sqlParamenters = new SqlParameter[2];
             sqlParamenters[0] = new SqlParameter("@OrderId", orderNumber);
             sqlParamenters[1] = new SqlParameter("@TableNR", tableNr);
@@ -89,6 +89,7 @@ namespace DataAccessLayer
                 order.Time = (DateTime)dr["Time"];
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
+                order.Feedback = (string)dr["Feedback"];
             }
             return order;
         }
@@ -121,7 +122,6 @@ namespace DataAccessLayer
             ExecuteEditQuery(query, parameters);
         }
 
-
         private List<Order> ReadTables(DataTable dataTable)
         {
             List<Order> orders = new List<Order>();
@@ -145,6 +145,13 @@ namespace DataAccessLayer
                 new SqlParameter("@OrderID", ID)
             };
             return ReadID(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public void EditOrder(string query)
+        {
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Execute query
+            ExecuteEditQuery(query, sqlParameters);
         }
 
         private Order ReadID(DataTable dataTable)

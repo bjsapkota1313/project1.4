@@ -16,11 +16,10 @@ namespace UI
     {
 
         private BillService billService;
-        private int id;
-        public Tip(int id)
+
+        public Tip()
         {
             InitializeComponent();
-            this.id = id;
 
             btnPay.Click += new EventHandler(btnPay_Click);
 
@@ -36,7 +35,7 @@ namespace UI
 
         private void btnPay_Click(object sender, System.EventArgs e)
         {
-            billService.AddTip(id, Convert.ToDouble(txtTip.Text));
+            //billService.AddTip(id, Convert.ToDouble(txtTip.Text));
 
             var frm = new PaymentConfirmation();
             frm.Location = this.Location;

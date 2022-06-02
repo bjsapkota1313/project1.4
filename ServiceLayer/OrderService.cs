@@ -17,11 +17,9 @@ namespace ServiceLayer
         }
         public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
         {
-<<<<<<< HEAD
+
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
-=======
-            return orderDAO.GetAllOrders();
->>>>>>> Oliwia
+
         }
         public List<Order> GetAllStarters(Order order)
         {
@@ -48,6 +46,16 @@ namespace ServiceLayer
         {
             return orderdb.SearchByID(ID);
         }
+        public void AddFeedback(Order order)
+        {
+            //Create query
+            string query = $"INSERT INTO Order(Feedback) VALUES '{order.Feedback}'";
+
+            // Add Feedback to the database
+            orderdb.EditOrder(query);
+  
+        }
+
         public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
         {
             return orderdb.ListOfOrderItemsInOneOrder(OrderId);

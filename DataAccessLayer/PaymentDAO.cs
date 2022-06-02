@@ -14,7 +14,7 @@ namespace DataAccessLayer
         public List<Payment> GetAllPayments()
         {
             //Create query
-            string query = "SELECT BillID, Type FROM PAYMENT";
+            string query = "SELECT BillID, Type FROM Payment";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
