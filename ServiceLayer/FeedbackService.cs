@@ -19,7 +19,7 @@ namespace ServiceLayer
         {
             return feedbackDAO.GetAllFeedback() ;
         }
-        public void AddComment(string description)
+        public void AddFeedback(string description)
         {
             feedbackDAO.EditFeedback($"INSERT INTO Feedback (Description) VALUES '{description}'");
         }

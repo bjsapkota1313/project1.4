@@ -15,6 +15,7 @@ namespace UI
     public partial class Payment : Form
     {
         private int id;
+        private string description;
         public Payment(int id)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace UI
 
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-            var frm = new Feedback();
+            var frm = new Feedback(description);
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
