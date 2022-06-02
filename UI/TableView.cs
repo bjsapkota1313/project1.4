@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace UI
@@ -16,14 +17,28 @@ namespace UI
     public partial class TableView : Form
     {
         private TableService tableService;
+        private OrderService orderService;
         public TableView()
         {
             InitializeComponent();
 
             tableService = new TableService();
+            orderService = new OrderService();  
             List<Table> tables= tableService.GetAllTables();
+            Order order= new Order();
+            order.Table.Number = 1;
+            order.PayementStatus = 0;
+            Order GetOrder= orderService.GetOrderForSpecificTableWhichisNotPaidYet(order);
+           // List<OrderItem> items = orderService.ListOfOrderItemsInOneOrder(6);
 
             DisplayTables(tables, ButtonsDictionary());
+            //picBoxDishTable1.BackColor = BtnTableNumber1.BackColor;
+            //  picBoxDishTable1.Image = Properties.Resources.ReadyToServed;
+            pictureBox21.BackColor = BtnTableNumber2.BackColor;
+            //pictureBox21.Image = null;
+            pictureBox21.Hide();
+            picBoxDrinkTable1.Image = Properties.Resources.prepDrink3030;
+            
         }
         private void DisplayingTheStatusOfTable(Table table, Button btnTable)
         {

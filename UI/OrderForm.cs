@@ -11,11 +11,11 @@ using System.Windows.Forms;
 namespace UI
 {
 
-    public partial class Order : Form
+    public partial class OrderForm : Form
     {
         bool control;
         int menu_with;
-        public Order()
+        public OrderForm()
         {
             InitializeComponent();
             control = false;
