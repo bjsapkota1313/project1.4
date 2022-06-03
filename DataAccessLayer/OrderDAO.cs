@@ -169,8 +169,8 @@ namespace DataAccessLayer
         // Getting all the orders for kitchenAndBar
         public List<OrderItem> GetAllRunningOrder(TypeMenuItem menuItem, OrderState orderState, int orderId)
         {
-            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
-            + "Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
+            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
+            + " Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
 
             SqlParameter[] sqlParameters = new SqlParameter[3];
             sqlParameters[0] = new SqlParameter("@itemType", (int)menuItem);
@@ -180,8 +180,8 @@ namespace DataAccessLayer
         }
         public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderState orderState)
         {
-            string query = "SELECT o.OrderID, o.TableNr, o.Time, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
-            SqlParameter[] sqlParameters = new SqlParameter[3];
+            string query = "SELECT o.OrderID, o.TableNr, o.Time, o.PayementStatus,t.Status, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
             return ReadOrdersForKitchenBar(ExecuteSelectQuery(query, sqlParameters),menuItem,orderState);
         }
         private List<Order> ReadOrdersForKitchenBar (DataTable dataTable, TypeMenuItem menuItem, OrderState orderState)
@@ -195,11 +195,22 @@ namespace DataAccessLayer
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
                 order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-                order.TotalPrice = (decimal)dr["TotalPrice"];
-                order.OrderItems = GetAllRunningOrder( menuItem,  orderState, order.OrderId);
+                order.OrderItems = GetAllRunningOrder( menuItem, orderState, order.OrderId);
                 orders.Add(order);
             }
             return orders;
+        }
+
+        //update the order status from Preparing to ReadyToDeliver
+        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
+        {
+            string query = $@"update OrderItem SET OrderStatus = {(int)OrderState.ReadyToDeliver}
+                WHERE OrderItemId = @orderItemId";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
+
+            ExecuteEditQuery(query, sqlParameters);
         }
 
 

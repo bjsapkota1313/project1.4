@@ -135,7 +135,8 @@
             this.table_nr,
             this.order_status});
             this.lstViewKitchenAndBar.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lstViewKitchenAndBar.ForeColor = System.Drawing.Color.Red;
+            this.lstViewKitchenAndBar.ForeColor = System.Drawing.Color.Black;
+            this.lstViewKitchenAndBar.FullRowSelect = true;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "fgdfgdfgdfgdf";
             this.lstViewKitchenAndBar.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
@@ -147,6 +148,7 @@
             this.lstViewKitchenAndBar.TabIndex = 6;
             this.lstViewKitchenAndBar.UseCompatibleStateImageBehavior = false;
             this.lstViewKitchenAndBar.View = System.Windows.Forms.View.Details;
+            //this.lstViewKitchenAndBar.SelectedIndexChanged += new System.EventHandler(this.lstViewKitchenAndBar_SelectedIndexChanged);
             // 
             // orderId
             // 
@@ -220,7 +222,6 @@
             this.Controls.Add(this.lblKitchenView);
             this.Name = "KitchenAndBarView";
             this.Text = "KitchenAndBarView";
-            this.Load += new System.EventHandler(this.KitchenAndBarView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
