@@ -11,18 +11,31 @@ using System.Windows.Forms;
 namespace UI
 {
 
-    public partial class OrderView : Form
+    public partial class OrderForm : Form
     {
         bool control;
         int menu_with;
-        public OrderView()
+        public OrderForm()
         {
             InitializeComponent();
             control = false;
             menu_with = hamburgerMenu.Width;
 
-        }
+            BillOrderBtn.Click += new EventHandler(BillOrderBtn_Click);
 
+        }
+        public void loadform(object Form)
+        {
+            if(this.mainpanel.Controls.Count > 0)
+                this.mainpanel.Controls.RemoveAt(0);
+            Form f = Form as Form;
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            this.mainpanel.Controls.Add(f);
+            this.mainpanel.Tag = f;
+            f.Show();
+
+        }
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             timer1.Start();
@@ -53,11 +66,44 @@ namespace UI
                         hamburgerMenu.Visible = true;
 
                     }
-                }
+         
+            }
+
         }
 
         private void OrderView_Load(object sender, EventArgs e)
         {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FoodBtn_Click(object sender, EventArgs e)
+        {
+            loadform(new StarterForm());
+        }
+
+        private void MainCourseBtn_Click(object sender, EventArgs e)
+        {
+            loadform(new MainCourse());
+
+        }
+
+        private void DessertBtn_Click(object sender, EventArgs e)
+        {
+            loadform(new StarterForm());
+        }
+        private void BillOrderBtn_Click(object sender, EventArgs e)
+        {
+            var frm = new Payment();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
 
         }
     }

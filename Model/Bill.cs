@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public  class Bill
+    public class Bill
     {
-        public MenuItem MenuItem { get; set; } 
-        public Double Amount { get; set; }  
+   
+        public int BillID { get; set; }
+        public int OrderID { get; set; }
+        public double Amount { get; set; }
+        public double Tip { get; set; }
     }
 }

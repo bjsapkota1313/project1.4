@@ -12,13 +12,20 @@ namespace ServiceLayer
         {
             billDAO = new BillDAO();    
         }
-        public List<Bill> GetAlllBill()
+        public List<Bill> GetAlllBills()
         {
-            return billDAO.GetAlllBill();
+            return billDAO.GetAlllBills();
         }
         public Bill SearchByID(int ID)
         {
             return billDAO.SearchByID(ID);
+        }
+
+        public void AddTip(int ID, double value)
+        {
+            string query = $"UPDATE BILL SET Tip = '{value}' WHERE BillID='{ID}'";
+            billDAO.EditBill(query);
+
         }
     }
 }

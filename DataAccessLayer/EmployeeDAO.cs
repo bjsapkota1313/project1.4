@@ -13,12 +13,7 @@ namespace DataAccessLayer
 {
      public class EmployeeDAO:BaseDAO
        {
-        private SqlConnection dbConnection;
-        public EmployeeDAO()
-        {
-            string connString = ConfigurationManager.ConnectionStrings["Chapeau"].ConnectionString;
-            dbConnection = new SqlConnection(connString);
-        }
+       
         public Employee SearchById(int id)
         {
             string query = "SELECT EmployeeID, FirstName, LastName,FROM Employee WHERE EmployeeID=@ID";

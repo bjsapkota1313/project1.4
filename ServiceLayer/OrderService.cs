@@ -10,18 +10,55 @@ namespace ServiceLayer
 {
     public class OrderService
     {
-        OrderDAO orderDAO;
+        OrderDAO orderdb;
         public OrderService()
         {
-           orderDAO = new OrderDAO();
+           orderdb = new OrderDAO();
         }
-        public List<Order> GetAllOrder()
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
         {
-            return orderDAO.GetAllOrder();
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
         }
+        public List<Order> GetAllStarters(Order order)
+        {
+          return  orderdb.GetAllStarters();
+        }
+        public List<Order> GetAllMainCourse(Order order)
+        {
+            return orderdb.GetAllStarters();
+        }
+        public List<Order> GetAllDessert(Order order)
+        {
+            return orderdb.GetAllStarters();
+        }
+        /*public void AddToOrder(Order order)
+        {
+            oderdb.AddToOrder(order);
+        }
+        public void RemoveToOrder(Order order)  
+        {
+            oderdb.AddToOrder(order);
+        }
+        */
         public Order SearchByID(int ID)
         {
-            return orderDAO.SearchByID(ID);
+            return orderdb.SearchByID(ID);
+        }
+        public void AddFeedback(Order order)
+        {
+            //Create query
+            string query = $"INSERT INTO Order(Feedback) VALUES '{order.Feedback}'";
+
+            // Add Feedback to the database
+            orderdb.EditOrder(query);
+  
+        }
+
+        public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
+        {
+            return orderdb.ListOfOrderItemsInOneOrder(OrderId);
         }
         public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
         {
