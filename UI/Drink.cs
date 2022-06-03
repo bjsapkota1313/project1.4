@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Dessert : Form
+    public partial class Drink : Form
     {
-        public Dessert()
+        public Drink()
         {
             InitializeComponent();
         }
 
-        private void Dessert_Load(object sender, EventArgs e)
+        private void Drink_Load(object sender, EventArgs e)
         {
 
         }

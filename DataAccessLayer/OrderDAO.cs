@@ -92,71 +92,87 @@ namespace DataAccessLayer
             }
             return order;
         }
-        public List<Order> GetAllStarters()
+        public List<MenuItem> GetAllStarters()
+        {
+            string query = "Select Name,Price from [Menu_Item] WHERE ItemCatagory = 0;";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public List<MenuItem> GetAllMainCourse()
+        {
+            string query = "Select Name,Price from [Order] WHERE";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public List<MenuItem> GetAllDessert()
+y        {
+            string query = "Select Name,Price from [Order]";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+        public List<Order> GetOrder()
         {
             string query = "Select Name,Price from [Order]";
             SqlParameter[] sqlParamenters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
-        public List<Order> GetAllMainCourse()
+        public Order GetById(int tablenr)
         {
-            string query = "Select Name,Price from [Order]";
-            SqlParameter[] sqlParamenters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
-        }
-        public List<Order> GetAllDessert()
-        {
-            string query = "Select Name,Price from [Order]";
-            SqlParameter[] sqlParamenters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
-        }
-        public void AddToOrder(Order order)
-        {
-            string query = "INSERT INTO Order VALUES (@StudentNumber);";
+            string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                //new SqlParameter("@StudentNumber", order.Name),
+                new SqlParameter("@tableNr", tablenr)
+            };
+            return ReadRow(ExecuteSelectQuery(query, parameters));
+        }
+
+        public void AddToOrder(Order order)
+        {
+            string query = "INSERT INTO Order VALUES @ItemId;";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@ItemId", order.MenuItem),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+        public void RemoveOrder(Order order)
+        {
+            string query = "Delete FROM  Order WHERE OrderID = @ItemId;";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@ItemId", order.Name),
             };
 
             ExecuteEditQuery(query, parameters);
         }
 
 
-        private List<Order> ReadTables(DataTable dataTable)
+        private List<MenuItem> ReadTables(DataTable dataTable)
         {
-            List<Order> orders = new List<Order>();
+            List<MenuItem> items = new List<MenuItem>();
 
             foreach (DataRow dr in dataTable.Rows)
             {
-                Order order = new Order()
-                {
-                //    Name = (string)dr["name"],
-                //    Price = (double)dr["price"],
-                };
-            orders.Add(order);
+                MenuItem item = new MenuItem();
+                item.Name = (string)dr["name"];
+                item.Price = (double)dr["price"];
+               
+            items.Add(item);
             }
             return orders;
         }
-        public Order SearchByID(int ID)
-        {
-            string query = "Select OrderID, Time, TableNr, ItemID from [Order] WHERE OrderID = @OrderID";
-            SqlParameter[] sqlParamenters = new SqlParameter[]
-            {
-                new SqlParameter("@OrderID", ID)
-            };
-            return ReadID(ExecuteSelectQuery(query, sqlParamenters));
-        }
-
-        private Order ReadID(DataTable dataTable)
+        private Order ReadRow(DataTable dataTable)
         {
             DataRow row = dataTable.Rows[0];
             Order order = new Order();
-            //order.OrderId = (int)row["OrderID"];
-           // order.Time = (DateTime)row["Time"];
-           // order.Table = (Table)row["Table"];
-           // order.MenuItem = (MenuItem)row["MenuItem"];
+            order.Name= (string)row["Name"];
+            order.Table = (Table)row["Table"];
+            order.MenuItem = (MenuItem)row["MenuItem"];
 
             return order;
         }
+
     }
 }
