@@ -30,7 +30,7 @@ namespace UI
             // Application.Run(new KitchenAndBarView());
 
             // Application.Run(new LoginForm());
-          Application.Run(new Payment());
+          Application.Run(new LoginForm());
 
         }
     }
