@@ -33,8 +33,10 @@ namespace UI
                 //whenever password is verified login form is hidden
                 this.Hide();
                 // table view is shown 
-                TableView tableView = new TableView();
-                tableView.Show();
+                //TableView tableView = new TableView();
+                //tableView.Show();
+                KitchenAndBarView kitchenAndBarView = new KitchenAndBarView(loggedEmployee);
+                kitchenAndBarView.Show();
             }
             catch (Exception e)
             {

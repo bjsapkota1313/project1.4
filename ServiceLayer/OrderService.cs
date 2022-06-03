@@ -60,5 +60,9 @@ namespace ServiceLayer
         {
             return orderdb.ListOfOrderItemsInOneOrder(OrderId);
         }
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        {
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem,orderState);
+        }
     }
 }
