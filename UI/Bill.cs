@@ -31,7 +31,7 @@ namespace UI
             checkedListBill.CheckOnClick = true;
             checkedListBill.ItemCheck += new ItemCheckEventHandler(this.checkedListBill_ItemCheck);
             btnSelectAll.Click += new EventHandler(btnSelectAll_Click); //Adding handler for button click event
-            btnPay.Click += new EventHandler(btnPay_Click);
+            //btnPay.Click += new EventHandler(btnPay_Click);
 
         }
 
@@ -43,15 +43,15 @@ namespace UI
             }
         }
 
-        private void btnPay_Click(object sender, System.EventArgs e)
-        {
-            var frm = new Payment(id);
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
-            frm.Show();
-            this.Hide();
-        }
+        //private void btnPay_Click(object sender, System.EventArgs e)
+        //{
+        //    var frm = new Payment(id);
+        //    frm.Location = this.Location;
+        //    frm.StartPosition = FormStartPosition.Manual;
+        //    frm.FormClosing += delegate { this.Show(); };
+        //    frm.Show();
+        //    this.Hide();
+        //}
 
         // Activates the move button if there are checked items.
         private void checkedListBill_ItemCheck(object sender, ItemCheckEventArgs e)

@@ -14,30 +14,32 @@ using System.Data.SqlClient;
 
 namespace UI
 {
-    public partial class Feedback : Form
+    public partial class AddFeedback : Form
     {
-        private FeedbackService feedbackService;
-        private string description;
-        private int id;
+        private OrderService orderService;
+        private Order order;
 
-        public Feedback(string description)
+
+        public AddFeedback()
         {
             InitializeComponent();
-
-            this.description = description;
 
             btnSubmit.Click += new EventHandler(btnSubmit_Click);
         }
         private void btnSubmit_Click(object sender, System.EventArgs e)
         {
-            feedbackService.AddFeedback(description);
+            orderService.AddFeedback(order);
 
-            var frm = new Payment(id);
+            LoadNewForm(new Payment());
+            
+        }
+        private void LoadNewForm(object Form)
+        {
+            Form frm = Form as Form;
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
         }
-    }
-}
+    } }

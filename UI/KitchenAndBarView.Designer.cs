@@ -36,12 +36,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnKitchenShowCmpltOrder = new System.Windows.Forms.Button();
             this.btnKitchenReady = new System.Windows.Forms.Button();
-            this.lstViewKitchen = new System.Windows.Forms.ListView();
-            this.order_Id = new System.Windows.Forms.ColumnHeader();
+            this.lstViewKitchenAndBar = new System.Windows.Forms.ListView();
+            this.orderId = new System.Windows.Forms.ColumnHeader();
             this.item_Name = new System.Windows.Forms.ColumnHeader();
-            this.quantity = new System.Windows.Forms.ColumnHeader();
-            this.table_number = new System.Windows.Forms.ColumnHeader();
-            this.state = new System.Windows.Forms.ColumnHeader();
+            this.item_quantity = new System.Windows.Forms.ColumnHeader();
+            this.item_Comment = new System.Windows.Forms.ColumnHeader();
+            this.wait_time = new System.Windows.Forms.ColumnHeader();
+            this.table_nr = new System.Windows.Forms.ColumnHeader();
+            this.order_status = new System.Windows.Forms.ColumnHeader();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,10 +103,11 @@
             this.btnKitchenShowCmpltOrder.ForeColor = System.Drawing.Color.White;
             this.btnKitchenShowCmpltOrder.Location = new System.Drawing.Point(47, 878);
             this.btnKitchenShowCmpltOrder.Name = "btnKitchenShowCmpltOrder";
-            this.btnKitchenShowCmpltOrder.Size = new System.Drawing.Size(578, 80);
+            this.btnKitchenShowCmpltOrder.Size = new System.Drawing.Size(410, 80);
             this.btnKitchenShowCmpltOrder.TabIndex = 4;
-            this.btnKitchenShowCmpltOrder.Text = "Show Completed Order";
+            this.btnKitchenShowCmpltOrder.Text = "Completed Order";
             this.btnKitchenShowCmpltOrder.UseVisualStyleBackColor = false;
+            this.btnKitchenShowCmpltOrder.Click += new System.EventHandler(this.btnKitchenShowCmpltOrder_Click);
             // 
             // btnKitchenReady
             // 
@@ -116,58 +121,87 @@
             this.btnKitchenReady.TabIndex = 5;
             this.btnKitchenReady.Text = "Ready";
             this.btnKitchenReady.UseVisualStyleBackColor = false;
+            this.btnKitchenReady.Click += new System.EventHandler(this.btnKitchenReady_Click);
             // 
-            // lstViewKitchen
+            // lstViewKitchenAndBar
             // 
-            this.lstViewKitchen.BackColor = System.Drawing.Color.Black;
-            this.lstViewKitchen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.order_Id,
+            this.lstViewKitchenAndBar.BackColor = System.Drawing.Color.White;
+            this.lstViewKitchenAndBar.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.orderId,
             this.item_Name,
-            this.quantity,
-            this.table_number,
-            this.state});
-            this.lstViewKitchen.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lstViewKitchen.ForeColor = System.Drawing.Color.Red;
+            this.item_quantity,
+            this.item_Comment,
+            this.wait_time,
+            this.table_nr,
+            this.order_status});
+            this.lstViewKitchenAndBar.Font = new System.Drawing.Font("Segoe UI Semibold", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lstViewKitchenAndBar.ForeColor = System.Drawing.Color.Red;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "fgdfgdfgdfgdf";
-            this.lstViewKitchen.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
+            this.lstViewKitchenAndBar.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
             listViewGroup1});
-            this.lstViewKitchen.HideSelection = false;
-            this.lstViewKitchen.Location = new System.Drawing.Point(0, 221);
-            this.lstViewKitchen.Name = "lstViewKitchen";
-            this.lstViewKitchen.Size = new System.Drawing.Size(1810, 621);
-            this.lstViewKitchen.TabIndex = 6;
-            this.lstViewKitchen.UseCompatibleStateImageBehavior = false;
-            this.lstViewKitchen.View = System.Windows.Forms.View.Details;
+            this.lstViewKitchenAndBar.HideSelection = false;
+            this.lstViewKitchenAndBar.Location = new System.Drawing.Point(0, 221);
+            this.lstViewKitchenAndBar.Name = "lstViewKitchenAndBar";
+            this.lstViewKitchenAndBar.Size = new System.Drawing.Size(1810, 621);
+            this.lstViewKitchenAndBar.TabIndex = 6;
+            this.lstViewKitchenAndBar.UseCompatibleStateImageBehavior = false;
+            this.lstViewKitchenAndBar.View = System.Windows.Forms.View.Details;
             // 
-            // order_Id
+            // orderId
             // 
-            this.order_Id.Text = "ID";
-            this.order_Id.Width = 225;
+            this.orderId.Tag = "orderId";
+            this.orderId.Text = "OrderID";
+            this.orderId.Width = 200;
             // 
             // item_Name
             // 
             this.item_Name.Text = "Item Name";
-            this.item_Name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.item_Name.Width = 890;
+            this.item_Name.Width = 400;
             // 
-            // quantity
+            // item_quantity
             // 
-            this.quantity.Text = "Quantity";
-            this.quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.quantity.Width = 225;
+            this.item_quantity.Text = "Quantity";
+            this.item_quantity.Width = 200;
             // 
-            // table_number
+            // item_Comment
             // 
-            this.table_number.Text = "Table";
-            this.table_number.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.table_number.Width = 225;
+            this.item_Comment.Text = "Comment";
+            this.item_Comment.Width = 400;
             // 
-            // state
+            // wait_time
             // 
-            this.state.Text = "State";
-            this.state.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.state.Width = 225;
+            this.wait_time.Text = "Time";
+            this.wait_time.Width = 200;
+            // 
+            // table_nr
+            // 
+            this.table_nr.Text = "Table";
+            this.table_nr.Width = 200;
+            // 
+            // order_status
+            // 
+            this.order_status.Text = "Status";
+            this.order_status.Width = 200;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(741, 878);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(410, 80);
+            this.btnRefresh.TabIndex = 7;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Location = new System.Drawing.Point(1573, 45);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(151, 52);
+            this.btnLogOut.TabIndex = 8;
+            this.btnLogOut.Text = "&Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = true;
             // 
             // KitchenAndBarView
             // 
@@ -175,7 +209,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Desktop;
             this.ClientSize = new System.Drawing.Size(1792, 973);
-            this.Controls.Add(this.lstViewKitchen);
+            this.Controls.Add(this.btnLogOut);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.lstViewKitchenAndBar);
             this.Controls.Add(this.btnKitchenReady);
             this.Controls.Add(this.btnKitchenShowCmpltOrder);
             this.Controls.Add(this.button1);
@@ -184,6 +220,7 @@
             this.Controls.Add(this.lblKitchenView);
             this.Name = "KitchenAndBarView";
             this.Text = "KitchenAndBarView";
+            this.Load += new System.EventHandler(this.KitchenAndBarView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,11 +235,15 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnKitchenShowCmpltOrder;
         private System.Windows.Forms.Button btnKitchenReady;
-        private System.Windows.Forms.ListView lstViewKitchen;
-        private System.Windows.Forms.ColumnHeader order_Id;
+        private System.Windows.Forms.ListView lstViewKitchenAndBar;
+        private System.Windows.Forms.ColumnHeader orderId;
         private System.Windows.Forms.ColumnHeader item_Name;
-        private System.Windows.Forms.ColumnHeader quantity;
-        private System.Windows.Forms.ColumnHeader table_number;
-        private System.Windows.Forms.ColumnHeader state;
+        private System.Windows.Forms.Button btnRefresh;
+        private System.Windows.Forms.ColumnHeader item_quantity;
+        private System.Windows.Forms.ColumnHeader item_Comment;
+        private System.Windows.Forms.ColumnHeader wait_time;
+        private System.Windows.Forms.ColumnHeader table_nr;
+        private System.Windows.Forms.ColumnHeader order_status;
+        private System.Windows.Forms.Button btnLogOut;
     }
 }
