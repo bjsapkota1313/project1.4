@@ -23,5 +23,9 @@ namespace ServiceLayer
         {
             return orderDAO.SearchByID(ID);
         }
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        {
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem,orderState);
+        }
     }
 }
