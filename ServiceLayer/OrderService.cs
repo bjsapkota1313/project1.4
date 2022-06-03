@@ -15,7 +15,7 @@ namespace ServiceLayer
         {
            orderdb = new OrderDAO();
         }
-        public List<Order> GetAllStarters(Order order)
+        public List<Order> GetStarters()
         {
           return  orderdb.GetAllStarters();
         }
@@ -27,18 +27,18 @@ namespace ServiceLayer
         {
             return orderdb.GetAllStarters();
         }
-        /*public void AddToOrder(Order order)
+        public void AddToOrder(Order order)
         {
-            oderdb.AddToOrder(order);
+            orderdb.AddToOrder(order);
         }
         public void RemoveToOrder(Order order)  
         {
-            oderdb.AddToOrder(order);
+            orderdb.Order(order);
         }
-        */
+        
         public Order SearchByID(int ID)
         {
-            return orderdb.SearchByID(ID);
+           return orderdb.SearchByID(ID);
         }
     }
 }

@@ -94,5 +94,15 @@ namespace UI
         {
             loadform(new StarterForm());
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            loadform(new Drink());
+        }
+
+        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
