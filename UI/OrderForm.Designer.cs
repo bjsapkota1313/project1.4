@@ -44,6 +44,7 @@
             this.MainCourseBtn = new System.Windows.Forms.Button();
             this.DessertBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.BillOrderBtn = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.listView1 = new System.Windows.Forms.ListView();
@@ -171,6 +172,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.BillOrderBtn);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
             this.panel1.Controls.Add(this.listView1);
@@ -182,9 +184,21 @@
             this.panel1.Size = new System.Drawing.Size(214, 993);
             this.panel1.TabIndex = 7;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(1, 252);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(210, 51);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Drink";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // BillOrderBtn
             // 
-            this.BillOrderBtn.Location = new System.Drawing.Point(3, 611);
+            this.BillOrderBtn.Location = new System.Drawing.Point(3, 684);
             this.BillOrderBtn.Name = "BillOrderBtn";
             this.BillOrderBtn.Size = new System.Drawing.Size(208, 23);
             this.BillOrderBtn.TabIndex = 9;
@@ -193,7 +207,7 @@
             // 
             // RemoveOrderBtn
             // 
-            this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 579);
+            this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 652);
             this.RemoveOrderBtn.Name = "RemoveOrderBtn";
             this.RemoveOrderBtn.Size = new System.Drawing.Size(208, 23);
             this.RemoveOrderBtn.TabIndex = 8;
@@ -206,11 +220,12 @@
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(1, 265);
+            this.listView1.Location = new System.Drawing.Point(1, 338);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(210, 299);
             this.listView1.TabIndex = 7;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged_1);
             // 
             // mainpanel
             // 
@@ -229,8 +244,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.hamburgerMenu);
             this.Controls.Add(this.mainpanel);
+            this.MaximumSize = new System.Drawing.Size(744, 1133);
             this.Name = "Order";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.hamburgerMenu.ResumeLayout(false);
@@ -260,5 +275,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button BillOrderBtn;
         private System.Windows.Forms.Button RemoveOrderBtn;
+        private System.Windows.Forms.Button button1;
     }
 }

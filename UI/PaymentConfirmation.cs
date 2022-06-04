@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class Dessert : Form
+    public partial class PaymentConfirmation : Form
     {
-        public Dessert()
+        public PaymentConfirmation()
         {
             InitializeComponent();
-        }
-
-        private void Dessert_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

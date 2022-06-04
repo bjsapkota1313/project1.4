@@ -33,6 +33,7 @@ namespace UI
                 //whenever password is verified login form is hidden
                 this.Hide();
 
+
                 switch (loggedEmployee.EmployeeType)
                 {
                     case EmployeeType.Waiter:
@@ -45,7 +46,7 @@ namespace UI
                         break;
                     case (EmployeeType.BarTender) | (EmployeeType.Chef):
                         //whenever chef or Bar man is logged in then kitchen display is shown 
-                        KitchenAndBarView kitchenAndBarView= new KitchenAndBarView();
+                        KitchenAndBarView kitchenAndBarView= new KitchenAndBarView(loggedEmployee);
                         kitchenAndBarView.Show();
                         break;
                 }

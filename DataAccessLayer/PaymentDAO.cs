@@ -1,57 +1,57 @@
-﻿using Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
 using System.Data.SqlClient;
+using Model;
 
 namespace DataAccessLayer
 {
-     public class FeedbackDAO : BaseDAO
+    public  class PaymentDAO : BaseDAO
     {
-        public List<Feedback> GetAllFeedback()
+        public List<Payment> GetAllPayments()
         {
-            string query = "SELECT OrderID, Description FROM Feedback";
+            //Create query
+            string query = "SELECT BillID, Type FROM Payment";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Feedback> ReadTables(DataTable dataTable)
+        private List<Payment> ReadTables(DataTable dataTable)
         {
+            List<Payment> payments = new List<Payment>();
 
-            List<Feedback> feedbacks = new List<Feedback>();
             try
             {
-
                 // For each data row, set all data to new Drink object
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    Feedback feedback = new Feedback()
+                    Payment payment = new Payment()
                     {
-
-                        OrderID = (int)dr["OrderID"],
-                        Description = (string)dr["Description"],
+                  
+                        Bill = (Bill)dr["BillID"],
+                        Type = (int)dr["Type"]
                     };
                     // Add new Drink object to list of Drinks
-                    feedbacks.Add(feedback);
+                    payments.Add(payment);
                 }
-                return feedbacks;
+                return payments;
             }
             catch (Exception e)
             {
-                throw new Exception("There is an issue reading the bills data from the database.", e);
+                throw new Exception("There is an issue reading the payments data from the database.", e);
             }
         }
-        public void EditFeedback(string query)
+        public Payment SearchByID(int ID)
         {
+            string query = $"SELECT BillID, Type FROM PAYMENT WHERE BillID='{ID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
-            ExecuteEditQuery(query, sqlParameters);
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
         }
     }
 }
