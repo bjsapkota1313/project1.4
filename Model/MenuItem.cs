@@ -20,4 +20,11 @@ namespace Model
     {
         Food,Drink
     }
+<<<<<<< Updated upstream
+=======
+    public enum MenuItemCategory
+    {
+       Drink, LuchStarter,LuchMainCourse, LuchDessert , DinnerStarter, DinnerEntrements,DinnerMainCourse, DinnerDessert
+    }
+>>>>>>> Stashed changes
 }

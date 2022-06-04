@@ -15,17 +15,19 @@ namespace ServiceLayer
         {
            orderdb = new OrderDAO();
         }
+<<<<<<< Updated upstream
         public List<Order> GetStarters()
+=======
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
         {
-          return  orderdb.GetAllStarters();
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
         }
-        public List<Order> GetAllMainCourse(Order order)
+        public List<MenuItem> GetAllStarters(MenuItemCategory category)
+>>>>>>> Stashed changes
         {
-            return orderdb.GetAllStarters();
-        }
-        public List<Order> GetAllDessert(Order order)
-        {
-            return orderdb.GetAllStarters();
+            return orderdb.GetAllStarters(category);
         }
         public void AddToOrder(Order order)
         {
@@ -33,7 +35,7 @@ namespace ServiceLayer
         }
         public void RemoveToOrder(Order order)  
         {
-            orderdb.Order(order);
+            orderdb.RemoveOrder(order);
         }
         
         public Order SearchByID(int ID)

@@ -87,7 +87,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Drink";
             this.Text = "Drink";
-            this.Load += new System.EventHandler(this.Drink_Load);
+            //this.Load += new System.EventHandler(this.Drink_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

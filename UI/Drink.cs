@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
+using ServiceLayer;
 
 namespace UI
 {
@@ -15,10 +17,25 @@ namespace UI
         public Drink()
         {
             InitializeComponent();
-        }
+            ShowMenu(MenuItemCategory.Drink);
 
-        private void Drink_Load(object sender, EventArgs e)
+
+
+        }
+        private void ShowMenu(MenuItemCategory category)
         {
+            OrderService orderService = new OrderService(); ;
+            List<MenuItem> items = orderService.GetAllStarters(category);
+
+            DessertList.Items.Clear();
+
+            foreach (MenuItem o in items)
+            {
+                ListViewItem li = new ListViewItem(o.Name.ToString());
+                li.SubItems.Add(o.Price.ToString());
+                li.Tag = o;
+                DessertList.Items.Add(li);
+            }
 
         }
     }
