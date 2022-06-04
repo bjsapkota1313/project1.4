@@ -63,6 +63,26 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ArrowFatLeft {
+            get {
+                object obj = ResourceManager.GetObject("ArrowFatLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowFatLeftNew {
+            get {
+                object obj = ResourceManager.GetObject("ArrowFatLeftNew", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Drinking_Preparing {
             get {
                 object obj = ResourceManager.GetObject("Drinking Preparing", resourceCulture);
@@ -216,6 +236,26 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap RunningOrder {
             get {
                 object obj = ResourceManager.GetObject("RunningOrder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunningOrder1 {
+            get {
+                object obj = ResourceManager.GetObject("RunningOrder1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RunningOrder3030 {
+            get {
+                object obj = ResourceManager.GetObject("RunningOrder3030", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

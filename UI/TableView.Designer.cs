@@ -127,6 +127,7 @@
             this.BtnTableNumber1.TabIndex = 23;
             this.BtnTableNumber1.Text = "1";
             this.BtnTableNumber1.UseVisualStyleBackColor = false;
+            this.BtnTableNumber1.Click += new System.EventHandler(this.BtnTableNumber1_Click);
             // 
             // BtnTableNumber2
             // 
@@ -141,6 +142,7 @@
             this.BtnTableNumber2.TabIndex = 24;
             this.BtnTableNumber2.Text = "2";
             this.BtnTableNumber2.UseVisualStyleBackColor = false;
+            this.BtnTableNumber2.Click += new System.EventHandler(this.BtnTableNumber2_Click);
             // 
             // BtnTableNumber3
             // 
@@ -155,6 +157,7 @@
             this.BtnTableNumber3.TabIndex = 25;
             this.BtnTableNumber3.Text = "3";
             this.BtnTableNumber3.UseVisualStyleBackColor = false;
+            this.BtnTableNumber3.Click += new System.EventHandler(this.BtnTableNumber3_Click);
             // 
             // BtnTableNumber4
             // 
@@ -169,6 +172,7 @@
             this.BtnTableNumber4.TabIndex = 26;
             this.BtnTableNumber4.Text = "4";
             this.BtnTableNumber4.UseVisualStyleBackColor = false;
+            this.BtnTableNumber4.Click += new System.EventHandler(this.BtnTableNumber4_Click);
             // 
             // BtnTableNumber5
             // 
@@ -183,6 +187,7 @@
             this.BtnTableNumber5.TabIndex = 27;
             this.BtnTableNumber5.Text = "5";
             this.BtnTableNumber5.UseVisualStyleBackColor = false;
+            this.BtnTableNumber5.Click += new System.EventHandler(this.BtnTableNumber5_Click);
             // 
             // BtnTableNumber6
             // 
@@ -197,6 +202,7 @@
             this.BtnTableNumber6.TabIndex = 28;
             this.BtnTableNumber6.Text = "6";
             this.BtnTableNumber6.UseVisualStyleBackColor = false;
+            this.BtnTableNumber6.Click += new System.EventHandler(this.BtnTableNumber6_Click);
             // 
             // BtnTableNumber7
             // 
@@ -211,6 +217,7 @@
             this.BtnTableNumber7.TabIndex = 29;
             this.BtnTableNumber7.Text = "7";
             this.BtnTableNumber7.UseVisualStyleBackColor = false;
+            this.BtnTableNumber7.Click += new System.EventHandler(this.BtnTableNumber7_Click);
             // 
             // BtnTableNumber8
             // 
@@ -225,6 +232,7 @@
             this.BtnTableNumber8.TabIndex = 30;
             this.BtnTableNumber8.Text = "8";
             this.BtnTableNumber8.UseVisualStyleBackColor = false;
+            this.BtnTableNumber8.Click += new System.EventHandler(this.BtnTableNumber8_Click);
             // 
             // BtnTableNumber9
             // 
@@ -239,6 +247,7 @@
             this.BtnTableNumber9.TabIndex = 31;
             this.BtnTableNumber9.Text = "9";
             this.BtnTableNumber9.UseVisualStyleBackColor = false;
+            this.BtnTableNumber9.Click += new System.EventHandler(this.BtnTableNumber9_Click);
             // 
             // BtnTableNumber10
             // 
@@ -253,6 +262,7 @@
             this.BtnTableNumber10.TabIndex = 32;
             this.BtnTableNumber10.Text = "10";
             this.BtnTableNumber10.UseVisualStyleBackColor = false;
+            this.BtnTableNumber10.Click += new System.EventHandler(this.BtnTableNumber10_Click);
             // 
             // picBoxDrinkTable1
             // 
@@ -274,7 +284,6 @@
             // 
             // picBoxDrinkTable2
             // 
-            this.picBoxDrinkTable2.Image = global::UI.Properties.Resources.ReadyToBeServedDrink30x30;
             this.picBoxDrinkTable2.Location = new System.Drawing.Point(464, 192);
             this.picBoxDrinkTable2.Name = "picBoxDrinkTable2";
             this.picBoxDrinkTable2.Size = new System.Drawing.Size(30, 30);
@@ -283,7 +292,6 @@
             // 
             // picBoxFoodTable2
             // 
-            this.picBoxFoodTable2.Image = global::UI.Properties.Resources.prepDrink3030;
             this.picBoxFoodTable2.Location = new System.Drawing.Point(597, 192);
             this.picBoxFoodTable2.Name = "picBoxFoodTable2";
             this.picBoxFoodTable2.Size = new System.Drawing.Size(30, 30);
@@ -300,7 +308,7 @@
             // 
             // picBoxFoodTable3
             // 
-            this.picBoxFoodTable3.Location = new System.Drawing.Point(348, 340);
+            this.picBoxFoodTable3.Location = new System.Drawing.Point(348, 342);
             this.picBoxFoodTable3.Name = "picBoxFoodTable3";
             this.picBoxFoodTable3.Size = new System.Drawing.Size(30, 30);
             this.picBoxFoodTable3.TabIndex = 38;

@@ -53,7 +53,7 @@ namespace DataAccessLayer
             catch (Exception e)
             {
                 //Print.ErrorLog(e);
-                throw;
+                throw e;
             }
         }
 
@@ -72,7 +72,6 @@ namespace DataAccessLayer
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.Message);
                 throw;
             }
             finally
