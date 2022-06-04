@@ -39,20 +39,21 @@ namespace DataAccessLayer
                 item.MenuItem.Name = (string)dr["Name"];
                 item.MenuItem.Price = (decimal)dr["Price"];
                 item.MenuItem.Category = (MenuItemCategory)dr["ItemCategory"];
+                item.MenuItem.TypeMenuItem=(TypeMenuItem)dr["ItemType"];
                 list.Add(item); 
             }
             return list;    
         }
 
         // 
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr,PayementStatus payementStatus)
         {
             string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "
                 + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             // preventing from sql injections
-            sqlParameters[0] = new SqlParameter("@TableNr", order.Table.Number);
-            sqlParameters[1]=new SqlParameter("@PayementStatus", (int)order.PayementStatus);
+            sqlParameters[0] = new SqlParameter("@TableNr", tableNr);
+            sqlParameters[1]=new SqlParameter("@PayementStatus", (int)payementStatus);
             return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
         }
         private Order ReadingOrderofSpecificTable(DataTable dataTable)
@@ -117,7 +118,6 @@ namespace DataAccessLayer
             {
                 //new SqlParameter("@StudentNumber", order.Name),
             };
-
             ExecuteEditQuery(query, parameters);
         }
 
@@ -157,6 +157,16 @@ namespace DataAccessLayer
            // order.MenuItem = (MenuItem)row["MenuItem"];
 
             return order;
+        }
+        public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
+        {
+            // updating the time whenever order item is updated 
+            string query = "UPDATE [OrderItem] set OrderItemDateTime= GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' , OrderStatus=@OrderStatus " 
+                + " WHERE orderItemId =@orderItemId";
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@orderItemId", orderItem.OrderItemId);
+            parameters[1] = new SqlParameter("OrderStatus",(int)orderItem.OrderState);
+            ExecuteEditQuery(query, parameters);
         }
     }
 }

@@ -32,12 +32,28 @@ namespace UI
                 loggedEmployee = employeeService.GetLoggedEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text.ToString());
                 //whenever password is verified login form is hidden
                 this.Hide();
-                // table view is shown 
-                TableView tableView = new TableView();
-                tableView.Show();
+
+                switch (loggedEmployee.EmployeeType)
+                {
+                    case EmployeeType.Waiter:
+                        // When ever waitier is logged in 
+                        TableView tableView = new TableView();
+                        tableView.Show();
+                        break;
+                    case EmployeeType.Manager:
+                        // For now there is no management part so leaving it out 
+                        break;
+                    case (EmployeeType.BarTender) | (EmployeeType.Chef):
+                        //whenever chef or Bar man is logged in then kitchen display is shown 
+                        KitchenAndBarView kitchenAndBarView= new KitchenAndBarView();
+                        kitchenAndBarView.Show();
+                        break;
+                }
+               
             }
             catch (Exception e)
             {
+                // all error are catched here even they are thrown in DAL layer also 
                 MessageBox.Show(e.Message);
                 
             }
