@@ -15,22 +15,23 @@ namespace ServiceLayer
         {
            orderdb = new OrderDAO();
         }
+
         public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr,PayementStatus payementStatus)
         {
 
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr,payementStatus);
         }
-        public List<Order> GetAllStarters(Order order)
+
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+
         {
-          return  orderdb.GetAllStarters();
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
         }
-        public List<Order> GetAllMainCourse(Order order)
+        public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
-            return orderdb.GetAllStarters();
-        }
-        public List<Order> GetAllDessert(Order order)
-        {
-            return orderdb.GetAllStarters();
+            return orderdb.GetAllStarters(category);
         }
         public void AddToOrder(Order order)
         {
@@ -38,7 +39,7 @@ namespace ServiceLayer
         }
         public void RemoveToOrder(Order order)  
         {
-            orderdb.Order(order);
+            orderdb.RemoveOrder(order);
         }
         
         public Order SearchByID(int ID)
