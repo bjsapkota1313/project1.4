@@ -11,6 +11,7 @@ namespace ServiceLayer
     public  class TableService
     {
        private  TableDAO tableDAO;
+        public int counter;
         public TableService()
         {
             tableDAO = new TableDAO();
@@ -18,6 +19,14 @@ namespace ServiceLayer
         public Table SearchTable(int tableNumber)
         {
             return tableDAO.SearchTable(tableNumber);
+        }
+        public List<Table> GetAllTables()
+        {
+            return tableDAO.GetAllTable();
+        }
+         public void UpdateTheStatusOfTable(Table UpdatingTable)
+        {
+            tableDAO.UpdateTheStatusOfTable(UpdatingTable); 
         }
     }
 }

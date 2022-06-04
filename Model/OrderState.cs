@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public  class Cash: Payement
+    public enum OrderState
     {
-
+        PreparingOrder,ReadyToDeliver, RunningOrder, OrderServed
     }
 }

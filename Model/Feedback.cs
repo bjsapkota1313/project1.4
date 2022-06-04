@@ -8,13 +8,7 @@ namespace Model
 {
     public class Feedback
     {
-        public int FeedbackId { get; set; }
-        public FeedbackType FeedbackType { get; set; }
-        public DateTime FeedbackDateTime { get; set; }
-        public Guest Guest { get; set; }
-    }
-    public enum FeedbackType
-    {
-        Comments,Complaints,Commendations
+        public int OrderID { get; set; }
+        public string Description { get; set; }
     }
 }

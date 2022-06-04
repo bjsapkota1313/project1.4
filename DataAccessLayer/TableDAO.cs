@@ -21,7 +21,7 @@ namespace DataAccessLayer
         }
         public Table SearchTable(int tableNumber)
         {
-            string query = "SELECT TableNr,[Status] From [Table] WHERE TableNr=@TableNr"; 
+            string query = "SELECT TableNr,Status From [Table] WHERE TableNr=@TableNr"; 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // preventing from SQL injections
             sqlParameters[0] = new SqlParameter("@TableNr", tableNumber);
@@ -33,9 +33,36 @@ namespace DataAccessLayer
             foreach (DataRow dr in dataTable.Rows)
             {
                 table.Number = (int)(dr["TableNr"]);
-                table.Status = (TableStatus)(dr["[Status"]);
+                table.Status = (TableStatus)(dr["Status"]);
             }
             return table; 
+        }
+        public List<Table> GetAllTable()
+        {
+            string query = "SELECT TableNr,Status From [Table]";
+            SqlParameter[] sqlParameters = new SqlParameter[0];   
+            return ReadTableForList(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<Table>ReadTableForList(DataTable dataTable)
+        {
+            List<Table> tableList = new List<Table>();  
+          
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                Table table = new Table();
+                table.Number = (int)(dr["TableNr"]);
+                table.Status = (TableStatus)(dr["Status"]);
+                tableList.Add(table);
+            }
+            return tableList;
+        }
+        public void UpdateTheStatusOfTable(Table UpdatingTable)
+        {
+            string Query = " UPDATE [Table] SET  [status]=@status WHERE TableNr= @tableNr";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@tableNr", UpdatingTable.Number);
+            sqlParameters[1] = new SqlParameter("@status", (int)UpdatingTable.Status);
+
         }
     }
 }

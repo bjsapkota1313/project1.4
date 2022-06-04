@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public  class HashedPasswordWithSalt
+    public class PaymentType
     {
-        public string HashPassword { get; set; }
-        public string Salt { get; set; }
+        public int ID { get; set; }
+        public string Type { get; set; }
     }
 }

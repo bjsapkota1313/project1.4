@@ -12,13 +12,18 @@ namespace Model
         {
             get; set;
         }
-        public double Price { get; set; } 
+        public decimal Price { get; set; } 
         public string Name { get; set; }
         public TypeMenuItem TypeMenuItem { get; set; }
+        public MenuItemCategory Category { get; set; }  
     }
     public enum TypeMenuItem
     {
-        Food,Drink
+        Food=0,Drink
+    }
+    public enum MenuItemCategory
+    {
+        Drink,Lunch,Dinner,Dessert
     }
 <<<<<<< Updated upstream
 =======

@@ -11,15 +11,17 @@ using System.Windows.Forms;
 namespace UI
 {
 
-    public partial class Order : Form
+    public partial class OrderForm : Form
     {
         bool control;
         int menu_with;
-        public Order()
+        public OrderForm()
         {
             InitializeComponent();
             control = false;
             menu_with = hamburgerMenu.Width;
+
+            BillOrderBtn.Click += new EventHandler(BillOrderBtn_Click);
 
         }
         public void loadform(object Form)
@@ -101,7 +103,15 @@ namespace UI
         }
 
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {}
+        private void BillOrderBtn_Click(object sender, EventArgs e)
         {
+            var frm = new Payment();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
 
         }
     }

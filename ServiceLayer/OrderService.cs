@@ -15,17 +15,21 @@ namespace ServiceLayer
         {
            orderdb = new OrderDAO();
         }
-<<<<<<< Updated upstream
-        public List<Order> GetStarters()
-=======
+
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr,PayementStatus payementStatus)
+        {
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr,payementStatus);
+        }
+
         public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+
         {
 
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
 
         }
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
->>>>>>> Stashed changes
         {
             return orderdb.GetAllStarters(category);
         }
@@ -41,6 +45,34 @@ namespace ServiceLayer
         public Order SearchByID(int ID)
         {
            return orderdb.SearchByID(ID);
+        }
+        public void AddFeedback(Order order)
+        {
+            //Create query
+            string query = $"INSERT INTO Order(Feedback) VALUES '{order.Feedback}'";
+
+            // Add Feedback to the database
+            orderdb.EditOrder(query);
+  
+        }
+
+        public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
+        {
+            return orderdb.ListOfOrderItemsInOneOrder(OrderId);
+        }
+
+       public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
+        {
+            orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
+
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        {
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem,orderState);
+        }
+        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
+        {
+            orderdb.UpdateOrderStatusReadyToDeliver(orderItemId);
+
         }
     }
 }

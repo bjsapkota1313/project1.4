@@ -19,5 +19,9 @@ namespace ServiceLayer
         {
             return employeeDAO.SearchById(id);
         }
+        public Employee GetLoggedEmployee(int employeeId,string enteredPassword)
+        {
+            return employeeDAO.VerifyingPassword(employeeId, enteredPassword);
+        }
     }
 }
