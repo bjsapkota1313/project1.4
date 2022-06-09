@@ -21,6 +21,8 @@ namespace UI
         private int BillID;
         private Model.Payment payment;
         private int Type;
+        OrderService orderService;
+        Order order;
 
         public Tip(int tableNr, int billID)
         {
@@ -69,7 +71,8 @@ namespace UI
         }
         private void Paid()
         {
-            paymentService.ChangePaymentStatus(BillID, true);
+            order = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.Paid);
+            //paymentService.ChangePaymentStatus(BillID, true);
         }
         private void SubmitPayment()
         {

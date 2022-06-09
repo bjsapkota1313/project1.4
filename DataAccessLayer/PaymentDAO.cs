@@ -20,7 +20,6 @@ namespace DataAccessLayer
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-
         private Payment ReadTables(DataTable dataTable)
         {
             Payment payment = new Payment();
@@ -62,27 +61,25 @@ namespace DataAccessLayer
             return ReadingTableBill(ExecuteSelectQuery(query, sqlParameters));
 
         }
-        private List<OrderItem> ReadingTableBill(DataTable dataTable)
-        {
-            List<OrderItem> o = new List<OrderItem>();
-            List<MenuItem> m = new List<MenuItem>();
+        //private List<OrderItem> ReadingTableBill(DataTable dataTable)
+        //{
+        //    List<OrderItem> o = new List<OrderItem>();
 
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                OrderItem order = new OrderItem();
-                MenuItem menu = new MenuItem();
+        //    foreach (DataRow dr in dataTable.Rows)
+        //    {
+        //        MenuItem menu = new MenuItem();
 
 
-                order.OrderID = (int)dr["OrderID"];
-                order.Quantity = (int)dr["Quantity"];
-                menu.Name = (string)dr["Name"];
-                menu.Price = (decimal)dr["Price"];
-                menu.VAT = (decimal)dr["VAT"];
-                o.Add(order);
-                m.Add(menu);
-            }
-            return ;
-        }
+        //        OrderItem.OrderID = (int)dr["OrderID"];
+        //        order.Quantity = (int)dr["Quantity"];
+        //        menu.Name = (string)dr["Name"];
+        //        menu.Price = (decimal)dr["Price"];
+        //        menu.VAT = (decimal)dr["VAT"];
+        //        o.Add(order);
+
+        //    }
+        //    return ;
+        //}
         //public Payment SearchByID(int ID)
         //{
         //    string query = $"SELECT BillID, Type FROM PAYMENT WHERE BillID='{ID}'";

@@ -20,6 +20,8 @@ namespace UI
         Model.Payment payment;
         List<OrderItem> orderItems;
         private int TableNr;
+        OrderService orderService;
+        Order orderSeectedTable;
 
 
 
@@ -74,21 +76,25 @@ namespace UI
         {
             this.bill = billService.GetBill(TableNr);
             lblTableNum.Text = $"Table Number {bill.TableNr.ToString()}";
-            //FillListViewItemsOnBill();
+            ListViewItemsOnBill();
 
         }
-        private void ListViewItemsOnBill(List<MenuItem> menuItems)
+        private void ListViewItemsOnBill()
         {
 
-            menuItems = new List<MenuItem>();
+            orderService = new OrderService();
 
-            foreach (MenuItem item in menuItems)
+            orderSeectedTable = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.UnPaid);
+
+
+
+            foreach (OrderItem item in orderSeectedTable.OrderItems)
             {
 
-                ListViewItem li = new ListViewItem(item.Name.ToString());
-                //li.SubItems.Add(item.Quantity.ToString());
-                li.SubItems.Add(item.Price.ToString());
-                li.SubItems.Add(item.VAT.ToString());
+                ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
+                li.SubItems.Add(item.Quantity.ToString());
+                li.SubItems.Add(item.MenuItem.Price.ToString());
+                li.SubItems.Add(item.MenuItem.VAT.ToString());
                 listViewBill.Items.Add(li);
             }
         }
