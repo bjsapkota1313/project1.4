@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTableNum = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.listViewBill = new System.Windows.Forms.ListView();
             this.Item = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.btnAddComment = new System.Windows.Forms.Button();
             this.btnCash = new System.Windows.Forms.Button();
             this.btnCreditCard = new System.Windows.Forms.Button();
@@ -41,21 +43,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
-            // label1
+            // lblTableNum
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
-            this.label1.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-14, 97);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(744, 47);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Table Number X";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTableNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
+            this.lblTableNum.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTableNum.ForeColor = System.Drawing.Color.White;
+            this.lblTableNum.Location = new System.Drawing.Point(-14, 97);
+            this.lblTableNum.Name = "lblTableNum";
+            this.lblTableNum.Size = new System.Drawing.Size(744, 47);
+            this.lblTableNum.TabIndex = 6;
+            this.lblTableNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -89,10 +88,20 @@
             this.Item.Text = "Item";
             this.Item.Width = 360;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Quantity";
+            this.columnHeader1.Width = 110;
+            // 
             // Price
             // 
             this.Price.Text = "Total price";
             this.Price.Width = 130;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "VAT";
+            this.columnHeader2.Width = 90;
             // 
             // btnAddComment
             // 
@@ -180,16 +189,6 @@
             this.label8.Text = "Feedback";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Quantity";
-            this.columnHeader1.Width = 110;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "VAT";
-            this.columnHeader2.Width = 90;
-            // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
@@ -205,7 +204,7 @@
             this.Controls.Add(this.btnAddComment);
             this.Controls.Add(this.listViewBill);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTableNum);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment";
             this.Text = "Payment";
@@ -217,7 +216,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTableNum;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listViewBill;
         private System.Windows.Forms.Button btnAddComment;

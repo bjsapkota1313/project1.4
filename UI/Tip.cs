@@ -53,11 +53,12 @@ namespace UI
             if (Convert.ToDecimal(txtTotal.Text) >= payment.Total)
             {
                 SubmitPayment();
+                Paid();
                 LoadNewForm(new PaymentConfirmation());
             }
             else if(Convert.ToDecimal(txtTotal.Text) < payment.Total)
             {
-                LoadNewForm(new Payment());
+                LoadNewForm(new Payment(TableNr));
             }
             else
             {
@@ -65,6 +66,10 @@ namespace UI
             }
 
           
+        }
+        private void Paid()
+        {
+            paymentService.ChangePaymentStatus(BillID, true);
         }
         private void SubmitPayment()
         {

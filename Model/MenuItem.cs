@@ -16,6 +16,7 @@ namespace Model
         public string Name { get; set; }
         public TypeMenuItem TypeMenuItem { get; set; }
         public MenuItemCategory Category { get; set; }  
+        public decimal VAT { get; set; }    
     }
     public enum TypeMenuItem
     {

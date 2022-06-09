@@ -46,7 +46,6 @@ namespace DataAccessLayer
             return list;    
         }
 
-        // 
         public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr,PayementStatus payementStatus)
         {
             string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "

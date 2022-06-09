@@ -8,6 +8,7 @@ namespace Model
 {
     public class OrderItem
     {
+        public int OrderID { get; set; }    
         public int OrderItemId { get; set; }    
         public  MenuItem MenuItem { get; set; }
         public string Feedback { get; set; }    

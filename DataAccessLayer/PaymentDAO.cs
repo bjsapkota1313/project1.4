@@ -11,7 +11,7 @@ namespace DataAccessLayer
 {
     public  class PaymentDAO : BaseDAO
     {
-        public Payment aPayment(int billID)
+        public Payment GetPayment(int billID)
         {
             //Create query
             string query = $"SELECT BillID, Type, Feedback, PaymentStatus, Tip, Total, ID FROM OrderPayment WHERE BillID = '{billID}'";
@@ -20,7 +20,7 @@ namespace DataAccessLayer
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-       
+
         private Payment ReadTables(DataTable dataTable)
         {
             Payment payment = new Payment();
@@ -50,6 +50,38 @@ namespace DataAccessLayer
             {
                 throw new Exception("There is an issue reading the payments data from the database.", e);
             }
+        }
+
+        public List<Payment> GetAllOrderedItems(int orderID)
+        {
+            //Create query
+            string query = $"SELECT Quantity, OrderID, M.[Name], M.Price, M.VAT FROM OrderItem O JOIN Menu_Item M ON O.OrderItemId = M.ItemID WHERE OrderID = '{orderID}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Return result of query
+            return ReadingTableBill(ExecuteSelectQuery(query, sqlParameters));
+
+        }
+        private List<OrderItem> ReadingTableBill(DataTable dataTable)
+        {
+            List<OrderItem> o = new List<OrderItem>();
+            List<MenuItem> m = new List<MenuItem>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem order = new OrderItem();
+                MenuItem menu = new MenuItem();
+
+
+                order.OrderID = (int)dr["OrderID"];
+                order.Quantity = (int)dr["Quantity"];
+                menu.Name = (string)dr["Name"];
+                menu.Price = (decimal)dr["Price"];
+                menu.VAT = (decimal)dr["VAT"];
+                o.Add(order);
+                m.Add(menu);
+            }
+            return ;
         }
         //public Payment SearchByID(int ID)
         //{
