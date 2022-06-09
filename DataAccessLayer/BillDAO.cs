@@ -12,48 +12,38 @@ namespace DataAccessLayer
 {
     public class BillDAO:BaseDAO
     {
-        public List<Bill> GetAlllBills()
+        public Bill GetBill(int tableNr)
         {
-            string query = "SELECT BillID, OrderID, Amount, Tip FROM BILL";
+            //Create query
+            string query = $"SELECT BillId, TableNr FROM TableBill WHERE TableNr ='{tableNr}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
         }
-        private List<Bill> ReadTables(DataTable dataTable)
+        private Bill ReadTables(DataTable dataTable)
         {
-            List<Bill> bills = new List<Bill>();
+            Bill bill = new Bill();
 
             try
             {
                 // For each data row, set all data to new Bill object
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    Bill bill = new Bill()
+                  
                     {
 
-                        BillID = (int)dr["BillID"],
-                        OrderID = (int)dr["OrderID"],
-                        Amount = (int)dr["Amount"],
-                        Tip = (int)dr["Tip"]
-                    };
-                    // Add new Drink object to list of Bills
-                    bills.Add(bill);
+                        bill.BillID = (int)dr["BillID"];
+                        bill.TableNr = (int)dr["TableNr"];
+                    }        
                 }
-                return bills;
+                return bill;
             }
             catch (Exception e)
             {
                 throw new Exception("There is an issue reading the bills data from the database.", e);
             }
-        }
-        public Bill SearchByID(int ID)
-        {
-            string query = $"SELECT BillID, OrderID, Amount, Tip  FROM BILL WHERE BillID='{ID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-
-            // Return result of query
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
         }
 
         public void EditBill(string query)

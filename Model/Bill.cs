@@ -10,8 +10,8 @@ namespace Model
     {
    
         public int BillID { get; set; }
-        public int OrderID { get; set; }
-        public double Amount { get; set; }
-        public double Tip { get; set; }
+        public int TableNr { get; set; }
+       
+        
     }
 }

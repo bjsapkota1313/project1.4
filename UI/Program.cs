@@ -18,7 +18,7 @@ namespace UI
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new LoginForm());
-             Application.Run(new TableView());
+            //Application.Run(new TableView());
 
             // Application.Run(new LoginForm());
           //Application.Run(new LoginForm());
@@ -35,7 +35,7 @@ namespace UI
             // Application.Run(new TableView());
 
 
-            Application.Run(new OrderForm());
+            Application.Run(new AddFeedback());
 
             // Application.Run(new KitchenAndBarView());
 
