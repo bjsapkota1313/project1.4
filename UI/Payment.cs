@@ -44,12 +44,12 @@ namespace UI
                 listViewBill.Items.Clear();
 
                 // For each Order object in the list, create a new List Item and fill details before adding it
-                foreach (Order o in orderItems)
-                {
-                    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
-                    li.SubItems.Add(o.TotalPrice.ToString());
-                    listViewBill.Items.Add(li);
-                }
+                //foreach (Order o in orderItems)
+                //{
+                //    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
+                //    li.SubItems.Add(o.TotalPrice.ToString());
+                //    listViewBill.Items.Add(li);
+                //}
             }
             catch (Exception ex)
             {
@@ -65,7 +65,7 @@ namespace UI
        
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-            LoadNewForm(new AddFeedback());
+           // LoadNewForm(new AddFeedback());
         }
 
         private void btnCash_Click(object sender, System.EventArgs e)
