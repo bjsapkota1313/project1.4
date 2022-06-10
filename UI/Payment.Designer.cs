@@ -193,24 +193,24 @@
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtVAT
-            // 
-            this.txtVAT.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtVAT.Location = new System.Drawing.Point(314, 305);
-            this.txtVAT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtVAT.Multiline = true;
-            this.txtVAT.Name = "txtVAT";
-            this.txtVAT.Size = new System.Drawing.Size(86, 20);
-            this.txtVAT.TabIndex = 20;
-            // 
-            // txtTip
-            // 
-            this.txtTip.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTip.Location = new System.Drawing.Point(314, 325);
-            this.txtTip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTip.Multiline = true;
-            this.txtTip.Name = "txtTip";
-            this.txtTip.Size = new System.Drawing.Size(86, 20);
-            this.txtTip.TabIndex = 21;
+            //// 
+            //this.txtVAT.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            //this.txtVAT.Location = new System.Drawing.Point(314, 305);
+            //this.txtVAT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            //this.txtVAT.Multiline = true;
+            //this.txtVAT.Name = "txtVAT";
+            //this.txtVAT.Size = new System.Drawing.Size(86, 20);
+            //this.txtVAT.TabIndex = 20;
+            //// 
+            //// txtTip
+            //// 
+            //this.txtTip.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            //this.txtTip.Location = new System.Drawing.Point(314, 325);
+            //this.txtTip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            //this.txtTip.Multiline = true;
+            //this.txtTip.Name = "txtTip";
+            //this.txtTip.Size = new System.Drawing.Size(86, 20);
+            //this.txtTip.TabIndex = 21;
 
             // columnHeader1
 
