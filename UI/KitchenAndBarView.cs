@@ -62,24 +62,6 @@ namespace UI
             }
         }
 
-        //Select orderItem from the listview
-      /*  List<ListViewItem> listViewItems;
-        private void lstViewKitchenAndBar_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            *//* if (lstViewKitchenAndBar.SelectedItems.Count > 0)
-             {
-                 ListViewItem lvItem = lstViewKitchenAndBar.SelectedItems[0];
-                 *//*MessageBox.Show(lvItem.ToString());*//*
-
-                 //MessageBox.Show(listViewItem.ToString());
-                 *//*listViewItems = new List<ListViewItem>();
-
-                 foreach (ListViewItem item in lstViewKitchenAndBar.SelectedItems)
-                 {
-                     listViewItems.Add(item);
-                 }*//*
-             }*//*
-        }*/
 
         private void btnKitchenShowCmpltOrder_Click(object sender, EventArgs e)
         {
@@ -103,6 +85,11 @@ namespace UI
             checkEmployee();
         }
 
-
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
     }
 }

@@ -67,15 +67,15 @@ namespace UI
                 string picboxNameForLateServing = "PicBoxFoodForTable" + $"{ i + 1}";
                 DisplayingTheStatusOfTable(tables[i], dictionaryForButton[buttonName]);
 
-                // always getting the unpaid order and using the button's text   which have table number   
-                Order getOrder = orderService.GetOrdersForSpecificTableWhichisNotPaidYet(int.Parse(dictionaryForButton[buttonName].Text),PayementStatus.UnPaid);
+                // always getting the unpaid orderItems and using the button's text   which have table number   
+                List<OrderItem> getOrderItems = orderService.ListOfOrderItemsInSelectedTable(tables[i],PayementStatus.UnPaid);
 
                 // setting up the color of picbox with their respective table status color
                 dictionaryForPictureBoxDrink[PicboxNameForDrink].BackColor = dictionaryForButton[buttonName].BackColor;
                 dictionaryForPictureBoxFood[PicboxNameForFood].BackColor = dictionaryForButton[buttonName].BackColor;
                 dictionaryForPictureBoxLate[picboxNameForLateServing].BackColor = dictionaryForButton[buttonName].BackColor;
 
-                    ChangeTheNotificationsfOrderInTable(getOrder.OrderItems, dictionaryForPictureBoxDrink[PicboxNameForDrink], dictionaryForPictureBoxFood[PicboxNameForFood], dictionaryForPictureBoxLate[picboxNameForLateServing]);
+                    ChangeTheNotificationsfOrderInTable(getOrderItems, dictionaryForPictureBoxDrink[PicboxNameForDrink], dictionaryForPictureBoxFood[PicboxNameForFood], dictionaryForPictureBoxLate[picboxNameForLateServing]);
             }
         }
         private Dictionary<string, Button> ButtonsDictionary()

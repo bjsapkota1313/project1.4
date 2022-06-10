@@ -17,7 +17,7 @@ namespace DataAccessLayer
         {
             string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price, M.ItemType,M.ItemCategory From [OrderItem] As [O] "
                 + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
-                + " Where O.OrderId= @Id " + " ORDER BY o.OrderStatus DESC";
+                + " Where O.OrderId= @Id ";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // preventing from sql injections
@@ -49,36 +49,6 @@ namespace DataAccessLayer
             return orderlist;
         }
 
-
-        // getting order which is running on the table and according to payement status
- 
-
-        public Order GetOrdersForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
-
-        {
-            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus From [Order] AS O "
-                + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            // preventing from sql injections
-            sqlParameters[0] = new SqlParameter("@TableNr", tableNr);
-            sqlParameters[1] = new SqlParameter("@PayementStatus", (int)payementStatus);
-            return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-        private Order ReadingOrderofSpecificTable(DataTable dataTable)
-        {
-            Order order = new Order();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                order.OrderId = (int)dr["OrderID"];
-                order.Time = Convert.ToDateTime(dr["Time"].ToString());
-                order.Table.Number = (int)dr["TableNr"];
-                order.Table.Status = (TableStatus)dr["Status"];
-                order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-                order.OrderItems = ListOfOrderItemsInOneOrder(order.OrderId);
-            }
-            return order;
-        }
-
         private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)
         {
             List<OrderItem> list = new List<OrderItem>();
@@ -99,10 +69,6 @@ namespace DataAccessLayer
             }
             return list;    
         }
-
-        // 
-
-
         public Order GetOrder(int tableNr)
         {
             string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [Table].[Status], [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=@TableNr;";
@@ -272,6 +238,20 @@ namespace DataAccessLayer
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
 
             ExecuteEditQuery(query, sqlParameters);
+        }
+        public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable,PayementStatus payementStatus)
+        {
+            // arranding it so that ready to deliver order doesnot get missed 
+            string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price, M.ItemType,M.ItemCategory "
+                + " From [OrderItem] AS o" + " join [Order] AS Ord on o.OrderId=ord.OrderID"
+                + "  join [Table] As Tab on Ord.TableNr=Tab.TableNr" + " join [Menu_Item] As M on o.MenuItemId= M.ItemID"
+                + " WHERE Tab.TableNr = @Table AND ord.PayementStatus = @PayementStatus"
+                + " ORDER BY o.OrderStatus DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@Table", selectedTable.Number);
+            sqlParameters[1] = new SqlParameter("@PayementStatus", payementStatus);
+
+            return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
 
 

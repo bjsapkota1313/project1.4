@@ -41,32 +41,28 @@ namespace UI
         {
             try
             {
+                // gettting the logged employee 
                 loggedEmployee = employeeService.LogEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text);
-                //whenever password is verified login form is hidden
 
+                    //whenever password is verified login form is hidden
+                    this.Hide();
 
-                switch (loggedEmployee.EmployeeType)
+                // opening the forms according to logged employee type 
+                if (loggedEmployee.EmployeeType==EmployeeType.Chef || loggedEmployee.EmployeeType==EmployeeType.BarTender)
                 {
-                    case EmployeeType.Waiter:
-                        // When ever waitier is logged in 
-                        TableView tableView = new TableView(loggedEmployee);
-                        tableView.Show();
-                        break;
-                    case EmployeeType.BarTender | EmployeeType.Chef:
-                        //whenever chef or Barman is logged in then kitchen display is shown 
-                        KitchenAndBarView kitchenAndBarView = new KitchenAndBarView(loggedEmployee);
-                        kitchenAndBarView.Show();
-                        break;
+                    KitchenAndBarView kitchenAndBarView = new KitchenAndBarView(loggedEmployee);
+                    kitchenAndBarView.Show();   
                 }
-                this.Hide();
-
+                else if(loggedEmployee.EmployeeType==EmployeeType.Waiter)
+                {
+                    TableView tableView = new TableView(loggedEmployee);    
+                    tableView.Show();
+                }
             }
             catch (Exception e)
             {
                 // all error are catched here even they are thrown in DAL layer also 
                 MessageBox.Show(e.Message, "Try again!", MessageBoxButtons.RetryCancel, MessageBoxIcon.None);
-
-
             }
 
         }

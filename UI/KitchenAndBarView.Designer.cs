@@ -202,7 +202,8 @@
             this.btnLogOut.Size = new System.Drawing.Size(151, 52);
             this.btnLogOut.TabIndex = 8;
             this.btnLogOut.Text = "&Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = true;         
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // KitchenAndBarView
             // 
@@ -219,6 +220,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblKitchenView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KitchenAndBarView";
             this.Text = "KitchenAndBarView";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
