@@ -19,5 +19,6 @@ namespace Model
             LastName=lastName;
             EmployeeType = employeeType;
         }
+        public string FullName { get { return $"{ FirstName + " " + LastName}"; } }
     }
 }

@@ -19,10 +19,10 @@ namespace Model
     }
     public enum TypeMenuItem
     {
-        Food,Drink
+        Food=0,Drink
     }
     public enum MenuItemCategory
     {
-        Lunch,Dinner,Drink
+       Drink, LuchStarter,LuchMainCourse, LuchDessert , DinnerStarter, DinnerEntrements,DinnerMainCourse, DinnerDessert
     }
 }

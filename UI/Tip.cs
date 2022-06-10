@@ -14,30 +14,65 @@ namespace UI
 {
     public partial class Tip : Form
     {
-
+        private PaymentService paymentService;
+        private Model.Bill bill;
         private BillService billService;
+        private int TableNr;
+        private int BillID;
+        private Model.Payment payment;
+        private int Type;
 
-        public Tip()
+        public Tip(int tableNr, int billID)
         {
             InitializeComponent();
 
-            btnPay.Click += new EventHandler(btnPay_Click);
+            this.TableNr = tableNr;
+            this.BillID = billID;
 
-            txtTip.TextChanged += new EventHandler(tipTextChanged);
+            this.bill = billService.GetBill(TableNr);
+           // this.payment = paymentService.GetPayment(BillID);
+
+            btnPay.Click += new EventHandler(btnPay_Click);
            
         }
 
-        private void tipTextChanged(object sender, System.EventArgs e)
+        private void AddTip()
         {
-            double total = 3; //billService.SearchByID(id).Amount;
-            txtTotal.Text = (total + Convert.ToDouble(txtTip.Text)).ToString();
-        }
 
+            paymentService.AddTip(bill.BillID, Convert.ToDecimal(txtTip.Text));
+
+        }
+        private void AddTotal()
+        {
+
+            paymentService.AddTotal(bill.BillID, Convert.ToDecimal(txtTotal.Text));
+
+        }
         private void btnPay_Click(object sender, System.EventArgs e)
         {
-            //billService.AddTip(id, Convert.ToDouble(txtTip.Text));
+            if (Convert.ToDecimal(txtTotal.Text) >= payment.Total)
+            {
+                SubmitPayment();
+                LoadNewForm(new PaymentConfirmation());
+            }
+            else if(Convert.ToDecimal(txtTotal.Text) < payment.Total)
+            {
+                LoadNewForm(new Payment());
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
 
-            var frm = new PaymentConfirmation();
+          
+        }
+        private void SubmitPayment()
+        {
+            paymentService.AddPayment(BillID, Convert.ToDecimal(txtTotal.Text), Convert.ToDecimal(txtTip.Text), Type);
+        }
+        private void LoadNewForm(object Form)
+        {
+            Form frm = Form as Form;
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };

@@ -16,19 +16,27 @@ namespace UI
 {
     public partial class AddFeedback : Form
     {
-        private OrderService orderService;
-        private Order order;
+        private Model.Bill bill;
+        private PaymentService paymentService;
+        private Payment payment;
+        private BillService billService;
+        private int TableNr;
+     
 
 
-        public AddFeedback()
+        public AddFeedback(int tableNr)
         {
             InitializeComponent();
+
+            this.TableNr = tableNr;
+            this.bill = billService.GetBill(TableNr);
 
             btnSubmit.Click += new EventHandler(btnSubmit_Click);
         }
         private void btnSubmit_Click(object sender, System.EventArgs e)
         {
-            orderService.AddFeedback(order);
+
+            SubmitFeedback();
 
             LoadNewForm(new Payment());
             
@@ -41,5 +49,10 @@ namespace UI
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
+        }
+        private void SubmitFeedback()
+        {
+            
+            paymentService.AddFeedback(bill.BillID, txtBoxComment.Text);
         }
     } }

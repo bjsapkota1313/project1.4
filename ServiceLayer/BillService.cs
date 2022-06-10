@@ -7,25 +7,16 @@ namespace ServiceLayer
 {
     public class BillService
     {
-        BillDAO billDAO;
+        BillDAO billdb;
         public BillService()
         {
-            billDAO = new BillDAO();    
-        }
-        public List<Bill> GetAlllBills()
-        {
-            return billDAO.GetAlllBills();
-        }
-        public Bill SearchByID(int ID)
-        {
-            return billDAO.SearchByID(ID);
+            billdb = new BillDAO();    
         }
 
-        public void AddTip(int ID, double value)
+        public Bill GetBill(int tableNr)
         {
-            string query = $"UPDATE BILL SET Tip = '{value}' WHERE BillID='{ID}'";
-            billDAO.EditBill(query);
-
+            return billdb.GetBill(tableNr);
         }
+
     }
 }

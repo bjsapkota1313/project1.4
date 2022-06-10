@@ -33,6 +33,7 @@
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.MainCourseAdd = new System.Windows.Forms.Button();
+            this.CommentMainCourse = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -43,17 +44,17 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(190, 80);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 32);
+            this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Main Course";
             // 
             // MainCourseList
             // 
             this.MainCourseList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MainCourseListName,
             this.MainCourseListPrice});
+            this.MainCourseList.FullRowSelect = true;
             this.MainCourseList.HideSelection = false;
-            this.MainCourseList.Location = new System.Drawing.Point(11, 115);
+            this.MainCourseList.Location = new System.Drawing.Point(12, 12);
             this.MainCourseList.Name = "MainCourseList";
             this.MainCourseList.Size = new System.Drawing.Size(494, 268);
             this.MainCourseList.TabIndex = 1;
@@ -63,21 +64,32 @@
             // MainCourseListName
             // 
             this.MainCourseListName.Text = "Name";
-            this.MainCourseListName.Width = 400;
+            this.MainCourseListName.Width = 395;
             // 
             // MainCourseListPrice
             // 
             this.MainCourseListPrice.Text = "Price";
-            this.MainCourseListPrice.Width = 102;
+            this.MainCourseListPrice.Width = 95;
             // 
             // MainCourseAdd
             // 
-            this.MainCourseAdd.Location = new System.Drawing.Point(11, 401);
+            this.MainCourseAdd.Location = new System.Drawing.Point(12, 371);
             this.MainCourseAdd.Name = "MainCourseAdd";
             this.MainCourseAdd.Size = new System.Drawing.Size(494, 37);
             this.MainCourseAdd.TabIndex = 2;
             this.MainCourseAdd.Text = "Add";
             this.MainCourseAdd.UseVisualStyleBackColor = true;
+            this.MainCourseAdd.Click += new System.EventHandler(this.MainCourseAdd_Click);
+            // 
+            // CommentMainCourse
+            // 
+            this.CommentMainCourse.ForeColor = System.Drawing.Color.DarkGray;
+            this.CommentMainCourse.Location = new System.Drawing.Point(13, 286);
+            this.CommentMainCourse.Multiline = true;
+            this.CommentMainCourse.Name = "CommentMainCourse";
+            this.CommentMainCourse.Size = new System.Drawing.Size(493, 79);
+            this.CommentMainCourse.TabIndex = 3;
+            this.CommentMainCourse.Text = "Comment...";
             // 
             // MainCourse
             // 
@@ -85,6 +97,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(530, 450);
+            this.Controls.Add(this.CommentMainCourse);
             this.Controls.Add(this.MainCourseAdd);
             this.Controls.Add(this.MainCourseList);
             this.Controls.Add(this.label1);
@@ -103,5 +116,6 @@
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
         private System.Windows.Forms.Button MainCourseAdd;
+        private System.Windows.Forms.TextBox CommentMainCourse;
     }
 }

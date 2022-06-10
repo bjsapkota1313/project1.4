@@ -24,5 +24,9 @@ namespace ServiceLayer
         {
             return tableDAO.GetAllTable();
         }
+         public void UpdateTheStatusOfTable(Table UpdatingTable)
+        {
+            tableDAO.UpdateTheStatusOfTable(UpdatingTable); 
+        }
     }
 }

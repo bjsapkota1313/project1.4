@@ -8,6 +8,6 @@ namespace Model
 {
     public enum OrderState
     {
-        PrepairingOrder,ReadyToDeliver, RunningOrder, OrderServed
+        ReadyToDeliver,PreparingOrder, RunningOrder, OrderServed
     }
 }

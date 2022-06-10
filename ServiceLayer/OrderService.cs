@@ -13,35 +13,40 @@ namespace ServiceLayer
         OrderDAO orderdb;
         public OrderService()
         {
-           orderdb = new OrderDAO();
+            orderdb = new OrderDAO();
         }
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr, PayementStatus payementStatus)
+        {
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
+        }
+
+       public List<OrderItem> GetOrderTableNotPayed(Table table)
+        {
+           return orderdb.GetOrderTableNotPayed(table);
+        }
+
+       /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+
         {
 
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
 
-        }
-        public List<Order> GetAllStarters(Order order)
+        }*/
+        public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
-          return  orderdb.GetAllStarters();
+            return orderdb.GetAllStarters(category);
         }
-        public List<Order> GetAllMainCourse(Order order)
+        public void AddToOrder(Table selectedtable, TimeoutException time, DateTime date)
         {
-            return orderdb.GetAllStarters();
+            orderdb.AddToOrder(selectedtable, time, date);
         }
-        public List<Order> GetAllDessert(Order order)
+        public void RemoveFromOrder(OrderItem order)
         {
-            return orderdb.GetAllStarters();
+            orderdb.RemoveFromOrder(order);
         }
-        /*public void AddToOrder(Order order)
-        {
-            oderdb.AddToOrder(order);
-        }
-        public void RemoveToOrder(Order order)  
-        {
-            oderdb.AddToOrder(order);
-        }
-        */
+
         public Order SearchByID(int ID)
         {
             return orderdb.SearchByID(ID);
@@ -53,20 +58,27 @@ namespace ServiceLayer
 
             // Add Feedback to the database
             orderdb.EditOrder(query);
-  
-        }
 
+        }
         public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
         {
             return orderdb.ListOfOrderItemsInOneOrder(OrderId);
         }
+
+        public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
+        {
+            orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
+        }
+
         public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
         {
-            return orderdb.GetAllOrderForKitchenAndBar(menuItem,orderState);
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
         }
         public void UpdateOrderStatusReadyToDeliver(int orderItemId, OrderState orderState)
         {
-            orderdb.UpdateOrderStatusReadyToDeliver(orderItemId, orderState);
+
+            orderdb.UpdateOrderStatusReadyToDeliver(orderItemId);
+
         }
     }
 }

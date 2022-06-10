@@ -118,35 +118,89 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Getting late1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Getting late1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Getting late" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Getting late.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SandTimer20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SandTimer20X20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prepdrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prepdrink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PrepOrder5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrepOrder5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prepOrder3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prepOrder3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="drinkPrep30X17" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\drinkPrep30X17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DrinkReadyToserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DrinkReadyToserved.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Drinking Preparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Drinking Preparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="DrinkReadyToBeserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DrinkReadyToBeserved.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ReadyToBeServedDrink30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ReadyToBeServedDrink30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ReadyToDeliver5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReadyToDeliver5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReadyToServed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReadyToServed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Drink5050Ready" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drink5050Ready.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Preparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Preparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RunningOrder1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RunningOrder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BellNotification" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BellNotification.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RunningOrder3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RunningOrder3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GotOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GotOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RunningOrder5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RunningOrder5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="DrinkingPreparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DrinkingPreparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepOrder3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepOrder3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="prepDrink3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepDrink3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="coffeeReadyToDeliver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffeeReadyToDeliver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="eyesClosed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\eyesClosed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrepCoffee5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrepCoffee5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ArrowFatLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ArrowFatLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="drinkPrep30X17" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\drinkPrep30X17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ReadyToBeServedDrink30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ReadyToBeServedDrink30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Getting late" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Getting late.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CoffeeRunning5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoffeeRunning5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DrinkReadyToBeserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DrinkReadyToBeserved.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EyesOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EyesOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ArrowFatLeftNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ArrowFatLeftNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OrderRunning3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrderRunning3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,25 +208,19 @@
   <data name="SandTimer20x14" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SandTimer20x14.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Preparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Preparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DrinkReadyToserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DrinkReadyToserved.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="SandTimer20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SandTimer20X20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Late" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Late.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="RunningOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RunningOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Getting late1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Getting late1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="GotOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GotOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="prepdrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\prepdrink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="prepDrink3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\prepDrink3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="EyesOpened6040" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EyesOpened6040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

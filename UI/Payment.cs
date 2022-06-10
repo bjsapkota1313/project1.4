@@ -14,12 +14,11 @@ namespace UI
 {   
     public partial class Payment : Form
     {
-        OrderService orderService;
-        List<Order> orderItems;
-        Bill bill;
-        double total;
-        double tip;
-        double vat;
+        PaymentService paymentService;
+        
+        Model.Bill bill;
+
+        
 
         public Payment()
         {
@@ -27,7 +26,7 @@ namespace UI
 
             //ListOrderedItems();
 
-            AddTip();
+            
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
             btnCash.Click += new EventHandler(btnCash_Click);
@@ -39,19 +38,18 @@ namespace UI
             try
             {
                 // fill the bill listview with a list of ordered items
-                orderService = new OrderService();
-                //orderItems = orderService.GetAll...;
+        
 
                 // clear the listview items before filling it again
                 listViewBill.Items.Clear();
 
                 // For each Order object in the list, create a new List Item and fill details before adding it
-                foreach (Order o in orderItems)
-                {
-                    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
-                    li.SubItems.Add(o.TotalPrice.ToString());
-                    listViewBill.Items.Add(li);
-                }
+                //foreach (Order o in orderItems)
+                //{
+                //    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
+                //    li.SubItems.Add(o.TotalPrice.ToString());
+                //    listViewBill.Items.Add(li);
+                //}
             }
             catch (Exception ex)
             {
@@ -64,15 +62,10 @@ namespace UI
             }
 
         }
-        private void AddTip()
-        {
-            //total = 10;
-            //txtTotal.Text = (total + Convert.ToDouble(txtTip.Text)).ToString();
-
-        }
+       
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-            LoadNewForm(new AddFeedback());
+           // LoadNewForm(new AddFeedback());
         }
 
         private void btnCash_Click(object sender, System.EventArgs e)
@@ -97,6 +90,11 @@ namespace UI
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
+        }
+
+        private void Payment_Load(object sender, EventArgs e)
+        {
+
         }
         //private void txtTip_KeyPress(object sender, KeyPressEventArgs e)
         //{
