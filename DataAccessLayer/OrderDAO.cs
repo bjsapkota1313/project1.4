@@ -166,6 +166,8 @@ namespace DataAccessLayer
             return order;
         }
 
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
         // Getting all the orders for kitchenAndBar
         public List<OrderItem> GetAllRunningOrder(TypeMenuItem menuItem, OrderState orderState, int orderId)
         {
@@ -202,16 +204,22 @@ namespace DataAccessLayer
         }
 
         //update the order status from Preparing to ReadyToDeliver
-        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
+        public void UpdateOrderStatusReadyToDeliver(int orderItemId, OrderState orderState)
         {
-            string query = $@"update OrderItem SET OrderStatus = {(int)OrderState.ReadyToDeliver}
-                WHERE OrderItemId = @orderItemId";
+            string query = $@"update OrderItem SET OrderStatus = @OrderState
+                 WHERE OrderItemId = @orderItemId";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
+            SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
+            sqlParameters[1] = new SqlParameter("@OrderState", (int)orderState);
 
             ExecuteEditQuery(query, sqlParameters);
         }
+
+       /* //public List<OrderItem> GetAllCompletedOrder()
+        {
+
+        }*/
 
 
     }
