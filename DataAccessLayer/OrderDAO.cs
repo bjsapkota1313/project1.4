@@ -106,28 +106,47 @@ namespace DataAccessLayer
             sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
-       /* public List<Order> GetOrder()
+        private List<MenuItem> ReadTables(DataTable dataTable)
         {
+            List<MenuItem> items = new List<MenuItem>();
 
-            string query = "Select Name,Price from [Order]";
-            SqlParameter[] sqlParamenters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
-        }*/
-       /* public Order GetById(int tablenr)
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                MenuItem item = new MenuItem();
+                item.Name = (string)dr["name"];
+
+                item.Price = (decimal)dr["Price"];
+
+                items.Add(item);
+            }
+            return items;
+        }
+
+        /* public List<Order> GetOrder()
+         {
+
+             string query = "Select Name,Price from [Order]";
+             SqlParameter[] sqlParamenters = new SqlParameter[0];
+             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+         }*/
+        /* public Order GetById(int tablenr)
+         {
+             string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
+             SqlParameter[] parameters = new SqlParameter[]
+             {
+                 new SqlParameter("@tableNr", tablenr)
+             };
+             return ReadRow(ExecuteSelectQuery(query, parameters));
+         }*/
+
+        public void AddToOrder(Table selectedtable, TimeoutException time, DateTime date)
         {
-            string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
+            string query = "INSERT into [Order] (TableNr,Date,Time,TotalPrice,PayementStatus,BillID) values (@TableNr,'@Date','@Time',0.00,0,Null);";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
-                    + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
-                    + " Where O.OrderId= @Id ";
-
-        public void AddToOrder(Order order)
-        {
-            string query = "INSERT INTO Order VALUES @ItemId;";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@ItemId", order),
+                new SqlParameter("@TableNr", selectedtable),
+                new SqlParameter("@Time", time),
+                new SqlParameter("@Date", date),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -145,21 +164,10 @@ namespace DataAccessLayer
         }
 
 
-        private List<MenuItem> ReadTables(DataTable dataTable)
+        public Order SearchByID(int ID)
         {
-            List<MenuItem> items = new List<MenuItem>();
-
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                MenuItem item = new MenuItem();
-                item.Name = (string)dr["name"];
-
-                item.Price = (decimal)dr["Price"];
-               
-            items.Add(item);
-            }
-
-            private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)
+            string query = "Select OrderID, Time, TableNr, ItemID from [Order] WHERE OrderID = @OrderID";
+            SqlParameter[] sqlParamenters = new SqlParameter[]
             {
                 List<OrderItem> list = new List<OrderItem>();
                 foreach (DataRow dr in dataTable.Rows)
