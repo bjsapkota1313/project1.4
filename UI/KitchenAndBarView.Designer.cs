@@ -148,7 +148,6 @@
             this.lstViewKitchenAndBar.TabIndex = 6;
             this.lstViewKitchenAndBar.UseCompatibleStateImageBehavior = false;
             this.lstViewKitchenAndBar.View = System.Windows.Forms.View.Details;
-            //this.lstViewKitchenAndBar.SelectedIndexChanged += new System.EventHandler(this.lstViewKitchenAndBar_SelectedIndexChanged);
             // 
             // orderId
             // 
@@ -203,7 +202,7 @@
             this.btnLogOut.Size = new System.Drawing.Size(151, 52);
             this.btnLogOut.TabIndex = 8;
             this.btnLogOut.Text = "&Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.UseVisualStyleBackColor = true;         
             // 
             // KitchenAndBarView
             // 

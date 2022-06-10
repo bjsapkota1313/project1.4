@@ -15,7 +15,7 @@ namespace DataAccessLayer
     {          //Getting the list of orderItem having the same order
         public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
         {
-            string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
+            string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price, M.ItemType,M.ItemCategory From [OrderItem] As [O] "
                 + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
                 + " Where O.OrderId= @Id " + " ORDER BY o.OrderStatus DESC";
 
@@ -50,13 +50,13 @@ namespace DataAccessLayer
         }
 
 
-        // getting order which is running on the table and accordinh to payement status
+        // getting order which is running on the table and according to payement status
  
 
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
+        public Order GetOrdersForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
 
         {
-            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "
+            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus From [Order] AS O "
                 + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             // preventing from sql injections
@@ -74,7 +74,6 @@ namespace DataAccessLayer
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
                 order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-                order.TotalPrice = (decimal)dr["TotalPrice"];
                 order.OrderItems = ListOfOrderItemsInOneOrder(order.OrderId);
             }
             return order;
@@ -231,7 +230,7 @@ namespace DataAccessLayer
         // Getting all the orders for kitchenAndBar
         public List<OrderItem> GetAllRunningOrder(TypeMenuItem menuItem, OrderState orderState, int orderId)
         {
-            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
+            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId,m.ItemType From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
             + " Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
 
             SqlParameter[] sqlParameters = new SqlParameter[3];

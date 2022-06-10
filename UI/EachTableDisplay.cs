@@ -18,10 +18,10 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
-        private  Order SelectedTableOrder { get { return orderService.GetOrderForSpecificTableWhichisNotPaidYet(selectedTable.Number, PayementStatus.UnPaid); } }
+        private  Order SelectedTableOrder { get { return orderService.GetOrdersForSpecificTableWhichisNotPaidYet(selectedTable.Number, PayementStatus.UnPaid); } }
         public EachTableDisplay( Table selectedTable)
         {
-            // With passing Table and orders for specific table you can see the whole details for e=selected table 
+            // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
 
             //making the new order service when eachdisplay form is called
@@ -207,5 +207,6 @@ namespace UI
             OrderForm orderForm = new OrderForm(selectedTable);
             orderForm.Show();
         }
+        
     }
 }

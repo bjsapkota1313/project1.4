@@ -50,12 +50,10 @@ namespace UI
             switch (loggedEmployee.EmployeeType)
             {
                 case EmployeeType.Chef:
-                    typeMenuItem = TypeMenuItem.Food;
-                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
+                    orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Food, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
                     break;
                 case EmployeeType.BarTender:
-                    typeMenuItem = TypeMenuItem.Drink;
                     orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Drink, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
                     break;
@@ -104,5 +102,7 @@ namespace UI
             }
             checkEmployee();
         }
+
+
     }
 }
