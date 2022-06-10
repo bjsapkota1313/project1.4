@@ -48,18 +48,18 @@ namespace UI
                 //    li.SubItems.Add(o.TotalPrice.ToString());
                 //    listViewBill.Items.Add(li);
                 //}
-            }
-            catch (Exception ex)
-            {
-                // Write error to log and get file path
-                string filePath = ErrorLogger.LogError(ex);
+            
+            //catch (Exception ex)
+            //{
+            //    // Write error to log and get file path
+            //    string filePath = ErrorLogger.LogError(ex);
 
-                // Display message box when an error occured with the appropiate error
-                MessageBox.Show("Something went wrong while loading the Bill: " + ex.Message + Environment.NewLine
-                    + Environment.NewLine + "Error log location: " + filePath);
-            }
+            //    // Display message box when an error occured with the appropiate error
+            //    MessageBox.Show("Something went wrong while loading the Bill: " + ex.Message + Environment.NewLine
+            //        + Environment.NewLine + "Error log location: " + filePath);
+            //}
 
-        }
+        
        
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
@@ -114,7 +114,7 @@ namespace UI
                 ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
                 li.SubItems.Add(item.Quantity.ToString());
                 li.SubItems.Add(item.MenuItem.Price.ToString());
-                li.SubItems.Add(item.MenuItem.VAT.ToString());
+                li.SubItems.Add(item.MenuItem.VAT.ToString("0.00"));
                 listViewBill.Items.Add(li);
             }
         }

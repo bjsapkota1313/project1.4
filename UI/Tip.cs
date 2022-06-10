@@ -23,6 +23,12 @@ namespace UI
         private int Type;
         OrderService orderService;
         Order order;
+        private decimal tip;
+        private decimal total;
+        private decimal totalToPay;
+        private decimal vatHigh;
+        private decimal vatLow;
+        private decimal vatTotal;
 
         public Tip(int tableNr, int billID)
         {
@@ -30,6 +36,7 @@ namespace UI
 
             this.TableNr = tableNr;
             this.BillID = billID;
+            
 
             this.bill = billService.GetBill(TableNr);
            // this.payment = paymentService.GetPayment(BillID);
@@ -38,13 +45,13 @@ namespace UI
            
         }
 
-        private void AddTip()
+        private void btnSubmitTip_Click()
         {
 
             paymentService.AddTip(bill.BillID, Convert.ToDecimal(txtTip.Text));
 
         }
-        private void AddTotal()
+        private void btnSubmitTotal_Click()
         {
 
             paymentService.AddTotal(bill.BillID, Convert.ToDecimal(txtTotal.Text));
@@ -78,6 +85,29 @@ namespace UI
         {
             paymentService.AddPayment(BillID, Convert.ToDecimal(txtTotal.Text), Convert.ToDecimal(txtTip.Text), Type);
         }
+
+        private void Tip_Load(object sender, EventArgs e)
+        {
+
+            tip = Convert.ToDecimal(txtTip.Text);
+            total = tip + Convert.ToDecimal(txtTotal.Text);
+
+            //oreach ()
+            {
+
+                ListViewItem li = new ListViewItem(vatLow.ToString());
+                li.SubItems.Add(vatHigh.ToString());
+                li.SubItems.Add(vatTotal.ToString());
+                li.SubItems.Add(total.ToString());
+                li.SubItems.Add(tip.ToString());
+                li.SubItems.Add(totalToPay.ToString());
+                listViewTotal.Items.Add(li);
+            }
+        }
+
+
+
+
         private void LoadNewForm(object Form)
         {
             Form frm = Form as Form;

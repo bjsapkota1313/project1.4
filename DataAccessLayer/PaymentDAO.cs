@@ -51,16 +51,16 @@ namespace DataAccessLayer
             }
         }
 
-        public List<Payment> GetAllOrderedItems(int orderID)
-        {
-            //Create query
-            string query = $"SELECT Quantity, OrderID, M.[Name], M.Price, M.VAT FROM OrderItem O JOIN Menu_Item M ON O.OrderItemId = M.ItemID WHERE OrderID = '{orderID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+        //public List<Payment> GetAllOrderedItems(int orderID)
+        //{
+        //    //Create query
+        //    string query = $"SELECT Quantity, OrderID, M.[Name], M.Price, M.VAT FROM OrderItem O JOIN Menu_Item M ON O.OrderItemId = M.ItemID WHERE OrderID = '{orderID}'";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            // Return result of query
-            return ReadingTableBill(ExecuteSelectQuery(query, sqlParameters));
+        //    // Return result of query
+        //    return ReadingTableBill(ExecuteSelectQuery(query, sqlParameters));
 
-        }
+        //}
         //private List<OrderItem> ReadingTableBill(DataTable dataTable)
         //{
         //    List<OrderItem> o = new List<OrderItem>();

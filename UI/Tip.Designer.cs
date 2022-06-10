@@ -184,6 +184,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tip";
             this.Text = "Tip";
+            this.Load += new System.EventHandler(this.Tip_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
