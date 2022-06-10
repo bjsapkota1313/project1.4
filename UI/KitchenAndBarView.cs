@@ -76,7 +76,17 @@ namespace UI
         //Ready Button For kitchenandBar
         private void btnKitchenReady_Click(object sender, EventArgs e)
         {
-            if (lstViewKitchenAndBar.SelectedItems.Count > 0)
+
+            foreach(ListViewItem lvI in lstViewKitchenAndBar.SelectedItems)
+            {
+                orderItem = (OrderItem)lvI.Tag;
+                orderItem.OrderState = OrderState.ReadyToDeliver;
+                orderService.UpdateStatusOfSpecficOrderItem(orderItem); 
+               // orderService.UpdateOrderStatusReadyToDeliver(orderItem.OrderItemId, OrderState.ReadyToDeliver);
+
+            }
+            /*if (lstViewKitchenAndBar.SelectedItems.Count > 0)
+
             {
                 ListViewItem lvItem = lstViewKitchenAndBar.SelectedItems[0];
                 orderItem = (OrderItem)lvItem.Tag;
