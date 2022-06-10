@@ -17,7 +17,7 @@ namespace DataAccessLayer
         {
             string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
                 + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
-                + " Where O.OrderId= @Id ";
+                + " Where O.OrderId= @Id " + " ORDER BY o.OrderStatus DESC";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // preventing from sql injections
@@ -46,7 +46,12 @@ namespace DataAccessLayer
             return list;
         }
 
+
+        // getting order which is running on the table and accordinh to payement status
+ 
+
         public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
+
         {
             string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "
                 + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
@@ -95,21 +100,63 @@ namespace DataAccessLayer
             return order;
         }
 
+        {
+            string query = "Select Name,Price from [Menu_Item] WHERE ItemCategory = @itemCategory;";
+            SqlParameter[] sqlParamenters = new SqlParameter[1];
+            sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }
+       /* public List<Order> GetOrder()
+        {
 
-
-        //public List<MenuItem> GetAllStarters()
-
-                  //Getting the list of orderItem having the same order
-            public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
+            string query = "Select Name,Price from [Order]";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
+        }*/
+       /* public Order GetById(int tablenr)
+        {
+            string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
+            SqlParameter[] parameters = new SqlParameter[]
             {
                 string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
                     + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
                     + " Where O.OrderId= @Id ";
 
-                SqlParameter[] sqlParameters = new SqlParameter[1];
-                // preventing from sql injections
-                sqlParameters[0] = new SqlParameter("@ID", OrderId);
-                return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
+        public void AddToOrder(Order order)
+        {
+            string query = "INSERT INTO Order VALUES @ItemId;";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@ItemId", order),
+            };
+
+            ExecuteEditQuery(query, parameters);
+        }
+
+        public void RemoveFromOrder(OrderItem order)
+        {
+            string query = "Delete OrderItem FROM OrderItem INNER JOIN[Order] ON OrderItem.OrderId = [Order].OrderID WHERE [Order].OrderID = @ItemId AND OrderItem.OrderId = @ItemId;";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+
+                new SqlParameter("@ItemId", order),
+            };
+            ExecuteEditQuery(query, parameters);
+        }
+
+
+        private List<MenuItem> ReadTables(DataTable dataTable)
+        {
+            List<MenuItem> items = new List<MenuItem>();
+
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                MenuItem item = new MenuItem();
+                item.Name = (string)dr["name"];
+
+                item.Price = (decimal)dr["Price"];
+               
+            items.Add(item);
             }
 
             private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)

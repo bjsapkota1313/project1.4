@@ -110,7 +110,9 @@ namespace UI
             return feedback;
         }
 
+        private void StarterForm_Load(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

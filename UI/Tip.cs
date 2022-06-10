@@ -32,7 +32,7 @@ namespace UI
             this.BillID = billID;
 
             this.bill = billService.GetBill(TableNr);
-            this.payment = paymentService.GetPayment(BillID);
+           // this.payment = paymentService.GetPayment(BillID);
 
             btnPay.Click += new EventHandler(btnPay_Click);
            

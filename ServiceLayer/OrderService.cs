@@ -22,6 +22,11 @@ namespace ServiceLayer
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
         }
 
+       public List<OrderItem> GetOrderTableNotPayed(Table table)
+        {
+           return orderdb.GetOrderTableNotPayed(table);
+        }
+
        /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
 
         {
@@ -57,8 +62,6 @@ namespace ServiceLayer
             orderdb.EditOrder(query);
 
         }
-      
-
         public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
         {
             return orderdb.ListOfOrderItemsInOneOrder(OrderId);

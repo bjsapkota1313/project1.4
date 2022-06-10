@@ -15,10 +15,10 @@ namespace ServiceLayer
         {
             paymentdb = new PaymentDAO();
         }
-        public Payment GetPayment(int billID)
-        {
-            return paymentdb.GetPayment(billID);
-        }
+        //public Payment GetPayment(int billID)
+        //{
+        //   // return paymentdb.GetPayment(billID);
+        //}
         //public Payment SearchByID(int ID)
         //{
         //    return paymentdb.SearchByID(ID);

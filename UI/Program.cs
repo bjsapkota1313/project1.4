@@ -17,21 +17,20 @@ namespace UI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+           Application.Run(new LoginForm());
+            // Application.Run(new TableView());
+
+            // Application.Run(new LoginForm());
+          //Application.Run(new LoginForm());
+
+
+
             //Application.Run(new LoginForm());
             //Application.Run(new TableView());
             //Application.Run(new Order());
             //Application.Run(new KitchenAndBarView());
-
-
-            // Application.Run(new LoginForm());
-            // Application.Run(new TableView());
-
-
-            Application.Run(new Payment(1));
-
-            // Application.Run(new KitchenAndBarView());
-
-            // Application.Run(new LoginForm());
+            //Application.Run(new AddFeedback());
+            //Application.Run(new OrderForm());
          // Application.Run(new Payment());
 
         }

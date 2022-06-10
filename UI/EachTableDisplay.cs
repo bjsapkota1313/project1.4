@@ -18,15 +18,22 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
-        public  Order selectedTableOrder { get { return orderService.GetOrderForSpecificTableWhichisNotPaidYet(selectedTable.Number, PayementStatus.UnPaid); } }
-        public EachTableDisplay(Order order,Table selectedTable)
+        private  Order SelectedTableOrder { get { return orderService.GetOrderForSpecificTableWhichisNotPaidYet(selectedTable.Number, PayementStatus.UnPaid); } }
+        public EachTableDisplay( Table selectedTable)
         {
             // With passing Table and orders for specific table you can see the whole details for e=selected table 
             InitializeComponent();
 
             //making the new order service when eachdisplay form is called
-            orderService= new OrderService();   
-           this.selectedTable  = selectedTable;
+            orderService = new OrderService();
+            tableService = new TableService();
+            this.selectedTable = selectedTable;
+            RefreshDisplay(selectedTable);
+
+        }
+
+        private void RefreshDisplay(Table selectedTable)
+        {
 
             //At first disabling the button mark as served and hiding the info
             btnMarkAsServed.Enabled = false;
@@ -35,28 +42,48 @@ namespace UI
             lblTableNumber.Text = "Table Number: " + $"{selectedTable.Number}";
             lblCurrentTableStatus.Text = $"{selectedTable.Status}";
 
-            if (selectedTable.Status==TableStatus.Occupied && order.OrderItems.Count == 0)
+            // making some default setting
+            BtnMakeTableFree.Hide();
+            btnMarkAsServed.Hide();
+            btnOccupyTable.Hide();
+            LblInfoAboveButton.Hide();
+            lblInfoOccupyTable.Hide();
+            pnlForOtherInfo.Visible = false;
+            btnTakeOrder.Enabled = false;
+            BtnCheckout.Enabled = false;
+
+            if (selectedTable.Status == TableStatus.Occupied && SelectedTableOrder.OrderItems.Count == 0)
             {
-                pnlForOccupyingTable.Visible = true;
+                pnlForOtherInfo.Visible = true;
                 btnMarkAsServed.Hide();
+                BtnCheckout.Enabled = false;
+                BtnMakeTableFree.Show();
             }
-            else if(selectedTable.Status==TableStatus.Reserved && order.OrderItems.Count ==0 )
+            else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrder.OrderItems.Count == 0)
             {
-                pnlForOccupyingTable.Visible = true;
-                BtnMakeTableFree.Hide();
-                btnMarkAsServed.Hide();
-                labelInPaneInfo.Text = "Nice! Guest is here. Let's take some orders now !!";
-                lblJustInfo.Hide();
+                LblInfoAboveButton.Show();
+                BtnMakeTableFree.Show();
+                pnlForOtherInfo.Visible = true;
+            }
+            else if (selectedTable.Status == TableStatus.Free)
+            {
+                lblInfoOccupyTable.Text = "This table is free at the moment. ";
+                lblInfoOccupyTable.Show();
+                pnlForOtherInfo.Visible = true;
+                btnOccupyTable.Visible = true;
+                btnOccupyTable.Location = new Point(180, 153);
             }
             else
             {
-                pnlForOccupyingTable.Visible = false;
-                FillListViewItems(selectedTableOrder.OrderItems);
+                pnlForOtherInfo.Visible = false;
+                FillListViewItems(SelectedTableOrder.OrderItems);
                 DesiredColumnsOfListView();
+                btnTakeOrder.Enabled = true;
+                BtnCheckout.Enabled = true;
+                btnMarkAsServed.Visible = true;
             }
-           
-
         }
+
         private void FillListViewItems(List<OrderItem> orderItems)
         {
             // All setting to Listview item 
@@ -104,8 +131,8 @@ namespace UI
         //  checking if order is either preparing or ready to deliver 
         private bool CheckOrderTime(OrderItem orderItem)
         {
-           return orderItem.OrderState==OrderState.PreparingOrder || orderItem.OrderState == OrderState.ReadyToDeliver;
-           
+            return orderItem.OrderState == OrderState.PreparingOrder || orderItem.OrderState == OrderState.ReadyToDeliver;
+
         }
 
         private void BtnBackToTableView_Click(object sender, EventArgs e)
@@ -113,17 +140,17 @@ namespace UI
             this.Close();
         }
 
-     
+
 
         private void btnMarkAsServed_Click(object sender, EventArgs e)
         {
             foreach (OrderItem item in SelectedOrderItems)
             {
-                orderService.UpdateStatusOfSpecficOrderItem(item);  
+                orderService.UpdateStatusOfSpecficOrderItem(item);
             }
 
             // showing again new listr view 
-            FillListViewItems(selectedTableOrder.OrderItems);
+            FillListViewItems(SelectedTableOrder.OrderItems);
         }
 
         private void ListViewOfOrderItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,17 +166,41 @@ namespace UI
                 for (int i = 0; i < ListViewOfOrderItems.SelectedItems.Count; i++)
                 {
                     OrderItem item = (OrderItem)ListViewOfOrderItems.SelectedItems[i].Tag;
-                    // Changing the status of order and storing ton list 
-                    item.OrderState = OrderState.OrderServed;
-                    // Getting all the list that is added 
-                    SelectedOrderItems.Add(item);
+                    // only adding to list which have state ready to deliver 
+                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    {
+                        // Changing the status of order and storing on list and preventing other state cannot be updated 
+                        item.OrderState = OrderState.OrderServed;
+                        SelectedOrderItems.Add(item);
+                    }                   
                 }
-                //MessageBox.Show(SelectedOrderItems.Count.ToString());
             }
             else
             {
                 return;
             }
         }
+
+        private void BtnMakeTableFree_Click(object sender, EventArgs e)
+        {
+            // changing the status 
+            selectedTable.Status=TableStatus.Free;
+            // updating in database
+            tableService.UpdateTheStatusOfTable(selectedTable);
+            // refreshing the tab
+            RefreshDisplay(selectedTable);
+        }
+
+        private void btnOccupyTable_Click(object sender, EventArgs e)
+        {
+            // changing the status 
+            selectedTable.Status = TableStatus.Occupied;
+            // updating in database
+            tableService.UpdateTheStatusOfTable(selectedTable);
+            // refreshing the tab
+            RefreshDisplay(selectedTable);
+        }
+
+       
     }
 }
