@@ -225,18 +225,6 @@ namespace DataAccessLayer
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
 
-        public void AddToOrder(Order order)
-                MenuItem item = new MenuItem();
-                item.Name = (string)dr["name"];
-                item.ItemId = (int)dr["ItemId"];
-                item.Price = (decimal)dr["Price"];
-
-                items.Add(item);
-            }
-            return items;
-        }
-
-
         public void AddToOrderItems(OrderItem item)
         {
             string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback','@Quantity','@Time');";

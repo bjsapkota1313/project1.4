@@ -1,122 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Model.Alcoholic">
-    <Position X="14.5" Y="4.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Alcoholic.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Barman">
-    <Position X="4.75" Y="1.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Barman.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Model.Bill">
-    <Position X="16.25" Y="0.75" Width="1.5" />
+    <Position X="10" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Bill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Model.Employee">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Employee.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="EmployeeType" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.MenuItem">
+    <Position X="14.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAgAAAAAQAAAAAAAAAACAAAAAACAA=</HashCode>
+      <FileName>MenuItem.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="TypeMenuItem" />
+      <Property Name="Category" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Model.OrderItem">
+    <Position X="19.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAGAAAAAAQAAAQAAAAAgAAAAAA=</HashCode>
+      <FileName>OrderItem.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="MenuItem" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Model.Chef">
-    <Position X="7.75" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Chef.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Drink">
-    <Position X="13" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Drink.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Employee">
-    <Position X="8" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Employee.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Feedback">
-    <Position X="11.25" Y="5.75" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAABAAQAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Feedback.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Guest" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Model.Food">
-    <Position X="16" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Food.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Guest">
-    <Position X="10.25" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAEAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
-      <FileName>Guest.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Manager" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Manager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.MenuItem">
-    <Position X="14" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAgAAAAAQAAAAAAAAAACAAAAAAAAA=</HashCode>
-      <FileName>MenuItem.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Model.Order">
-    <Position X="12" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Model.Order.PayementStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Order.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAAEAAAAAAAACQAAAAAAAAEABAAAAAAAAAQA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="menuItem" />
       <Property Name="Table" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="Model.Payement">
-    <Position X="19" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
-      <FileName>Payement.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Bill" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Model.Reserve">
-    <Position X="8.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAQAAAAAAAAAAAg=</HashCode>
-      <FileName>Reserve.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Guest" />
-      <Property Name="Table" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderItems" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Model.Table">
-    <Position X="10" Y="0.5" Width="1.5" />
+    <Position X="10.25" Y="3" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Table.cs</FileName>
@@ -125,82 +71,62 @@
       <Property Name="Status" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Model.Tip">
-    <Position X="6.75" Y="5.5" Width="1.5" />
+  <Class Name="Model.Payment">
+    <Position X="3.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAAAAg=</HashCode>
-      <FileName>Tip.cs</FileName>
+      <HashCode>AAACAIAAAAAAAAAAACACEAAAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Payment.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Guest" />
+      <Property Name="Bill" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Model.Waiter">
-    <Position X="5.5" Y="2.5" Width="1.5" />
+  <Class Name="Model.PaymentType">
+    <Position X="6.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Waiter.cs</FileName>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>PaymentType.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.Non_Alcoholic">
-    <Position X="11.75" Y="4.5" Width="1.5" />
+  <Class Name="Model.StarterModel">
+    <Position X="10" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Non-Alcoholic.cs</FileName>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>StarterModel.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Model.Cash">
-    <Position X="20" Y="4.25" Width="1.5" />
+  <Enum Name="Model.EmployeeType">
+    <Position X="14.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Cash.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Non_Cash">
-    <Position X="17.5" Y="4" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Non-Cash.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Model.Stock">
-    <Position X="19" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Stock.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Order" />
-    </ShowAsAssociation>
-  </Class>
-  <Class Name="Model.Income">
-    <Position X="21.75" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Income.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Payement" />
-    </ShowAsAssociation>
-  </Class>
-  <Enum Name="Model.FeedbackType">
-    <Position X="1.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAQAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
-      <FileName>Feedback.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACBCAAAAgAAAAAAAA=</HashCode>
+      <FileName>EmployeeType.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Model.TypeMenuItem">
-    <Position X="16" Y="5.5" Width="1.5" />
+  <Enum Name="Model.TypeMenuItem" Collapsed="true">
+    <Position X="16.75" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>MenuItem.cs</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="Model.TableStatus">
-    <Position X="11.5" Y="2" Width="1.5" />
+  <Enum Name="Model.MenuItemCategory">
+    <Position X="14.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAiAAACAAACQAAAAAAIIAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Model.OrderState">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAgAAAAABAAAA=</HashCode>
+      <FileName>OrderState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Model.TableStatus">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Table.cs</FileName>
     </TypeIdentifier>
   </Enum>

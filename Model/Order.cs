@@ -9,7 +9,6 @@ namespace Model
     public  class Order
     {
         public List<OrderItem> OrderItems { get; set; }
-        public int OrderStatus { get; set; }    
         public int OrderId { get; set; }
          public DateTime Date { get; set; }
         public DateTime Time { get; set; }
