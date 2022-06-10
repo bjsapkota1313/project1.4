@@ -51,12 +51,12 @@ namespace UI
             {
                 case EmployeeType.Chef:
                     typeMenuItem = TypeMenuItem.Food;
-                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PrepairingOrder);
+                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
                     break;
                 case EmployeeType.BarTender:
                     typeMenuItem = TypeMenuItem.Drink;
-                    orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Drink, OrderState.PrepairingOrder);
+                    orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Drink, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
                     break;
                 default:
