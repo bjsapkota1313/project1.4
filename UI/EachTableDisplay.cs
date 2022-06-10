@@ -201,6 +201,11 @@ namespace UI
             RefreshDisplay(selectedTable);
         }
 
-       
+        private void btnTakeOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            OrderForm orderForm = new OrderForm(selectedTable);
+            orderForm.Show();
+        }
     }
 }

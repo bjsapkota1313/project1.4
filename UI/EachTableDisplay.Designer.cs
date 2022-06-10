@@ -134,6 +134,7 @@
             this.btnTakeOrder.TabIndex = 9;
             this.btnTakeOrder.Text = "Take Order";
             this.btnTakeOrder.UseVisualStyleBackColor = false;
+            this.btnTakeOrder.Click += new System.EventHandler(this.btnTakeOrder_Click);
             // 
             // lblCurrentTableStatus
             // 

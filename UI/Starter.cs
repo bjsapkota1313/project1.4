@@ -16,8 +16,10 @@ namespace UI
     public partial class StarterForm : Form
     {
         private OrderForm orderform;
-        public StarterForm(OrderForm orderForm )
+        private List<OrderItem> orders;
+        public StarterForm(OrderForm orderForm,List<OrderItem> orderItems )
         {
+            orders = orderItems;
             InitializeComponent();
             TimeSpan startLuch = new TimeSpan(10, 0, 0); //10 o'clock
             TimeSpan endLuch = new TimeSpan(17, 0, 0); //17 o'clock
@@ -85,15 +87,19 @@ namespace UI
             string feedback = GetFeedback();
 
             OrderItem item = new OrderItem(Quantity, menuItem, feedback);
-
+            AddToListOrderItems(item);
             ListViewItem li = new ListViewItem(item.MenuItem.Name);
-            li.Tag =item;
             li.SubItems.Add(item.Quantity.ToString());
             li.SubItems.Add(item.Feedback.ToString());
+            li.Tag = item;
 
             orderform.OrderListView.Items.Add(li);
             
 
+        }
+        private void  AddToListOrderItems(OrderItem item)
+        {
+            orders.Add(item);
         }
         private string GetFeedback()
         {

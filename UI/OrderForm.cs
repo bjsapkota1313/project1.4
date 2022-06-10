@@ -17,10 +17,12 @@ namespace UI
     {
         bool control;
         int menu_with;
-        public OrderForm()
+        private List<OrderItem> orders;
+        public OrderForm( Table selectedTable)
         {
             InitializeComponent();
             control = false;
+            orders = new List<OrderItem>();
            // menu_with = hamburgerMenu.Width;
 
             //BillOrderBtn.Click += new EventHandler(BillOrderBtn_Click);
@@ -103,6 +105,7 @@ namespace UI
         private void FoodBtn_Click(object sender, EventArgs e)
         {
             loadform(new StarterForm(this));
+
         }
 
         private void MainCourseBtn_Click(object sender, EventArgs e)
@@ -184,7 +187,11 @@ private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
 
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
-            List<Order> orders = new List<Order>();
+
+            List<OrderItem> orders = new List<OrderItem>();
+           // orders.Add();
+
+
            ///Order order = new Order(TotalPrice,OrderItems,OrderId,Time, Table, PayementStatus.UnPaid,Feedback);
 
 
