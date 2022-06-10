@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.DessertList = new System.Windows.Forms.ListView();
+            this.DessertListView = new System.Windows.Forms.ListView();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.DessertAddBtn = new System.Windows.Forms.Button();
+            this.CommentDessert = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -42,22 +43,23 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(219, 77);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 32);
+            this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Dessert";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // DessertList
+            // DessertListView
             // 
-            this.DessertList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DessertListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MainCourseListName,
             this.MainCourseListPrice});
-            this.DessertList.HideSelection = false;
-            this.DessertList.Location = new System.Drawing.Point(12, 112);
-            this.DessertList.Name = "DessertList";
-            this.DessertList.Size = new System.Drawing.Size(494, 268);
-            this.DessertList.TabIndex = 2;
-            this.DessertList.UseCompatibleStateImageBehavior = false;
-            this.DessertList.View = System.Windows.Forms.View.Details;
+            this.DessertListView.FullRowSelect = true;
+            this.DessertListView.HideSelection = false;
+            this.DessertListView.Location = new System.Drawing.Point(12, 12);
+            this.DessertListView.Name = "DessertListView";
+            this.DessertListView.Size = new System.Drawing.Size(494, 268);
+            this.DessertListView.TabIndex = 2;
+            this.DessertListView.UseCompatibleStateImageBehavior = false;
+            this.DessertListView.View = System.Windows.Forms.View.Details;
             // 
             // MainCourseListName
             // 
@@ -71,12 +73,23 @@
             // 
             // DessertAddBtn
             // 
-            this.DessertAddBtn.Location = new System.Drawing.Point(12, 395);
+            this.DessertAddBtn.Location = new System.Drawing.Point(12, 357);
             this.DessertAddBtn.Name = "DessertAddBtn";
             this.DessertAddBtn.Size = new System.Drawing.Size(494, 43);
             this.DessertAddBtn.TabIndex = 3;
             this.DessertAddBtn.Text = "Add";
             this.DessertAddBtn.UseVisualStyleBackColor = true;
+            this.DessertAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
+            // 
+            // CommentDessert
+            // 
+            this.CommentDessert.ForeColor = System.Drawing.Color.DarkGray;
+            this.CommentDessert.Location = new System.Drawing.Point(12, 286);
+            this.CommentDessert.Multiline = true;
+            this.CommentDessert.Name = "CommentDessert";
+            this.CommentDessert.Size = new System.Drawing.Size(494, 65);
+            this.CommentDessert.TabIndex = 4;
+            this.CommentDessert.Text = "Comment...";
             // 
             // Dessert
             // 
@@ -84,8 +97,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(519, 450);
+            this.Controls.Add(this.CommentDessert);
             this.Controls.Add(this.DessertAddBtn);
-            this.Controls.Add(this.DessertList);
+            this.Controls.Add(this.DessertListView);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dessert";
@@ -99,9 +113,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView DessertList;
+        private System.Windows.Forms.ListView DessertListView;
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
         private System.Windows.Forms.Button DessertAddBtn;
+        private System.Windows.Forms.TextBox CommentDessert;
     }
 }

@@ -18,6 +18,12 @@ namespace Model
         {
             MenuItem = new MenuItem();  
         }
+        public OrderItem(int Quantity, MenuItem MenuItem, string Feedback)
+        {
+            this.Quantity = Quantity;
+            this.MenuItem = MenuItem;
+            this.Feedback = Feedback;
+        }
 
     }
 }
