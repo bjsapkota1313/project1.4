@@ -122,10 +122,10 @@ namespace UI
         }
         private void OrderDBView_Click(object sender, EventArgs e)
         {
+            //loadform(new OrderDisplay(this));
         }
         private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            loadform(new OrderDisplay(this));
 
         }
         private void BillOrderBtn_Click(object sender, EventArgs e)
