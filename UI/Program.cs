@@ -26,11 +26,11 @@ namespace UI
 
 
 
-            //Application.Run(new LoginForm());
+            Application.Run(new LoginForm());
             //Application.Run(new TableView());
             //Application.Run(new KitchenAndBarView());
             //Application.Run(new AddFeedback());
-            Application.Run(new OrderForm());
+           // Application.Run(new OrderForm());
          // Application.Run(new Payment());
 
         }

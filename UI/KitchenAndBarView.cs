@@ -109,7 +109,10 @@ namespace UI
             foreach(ListViewItem lvI in lstViewKitchenAndBar.SelectedItems)
             {
                 orderItem = (OrderItem)lvI.Tag;
-                orderService.UpdateOrderStatusReadyToDeliver(orderItem.OrderItemId, OrderState.ReadyToDeliver);
+                orderItem.OrderState = OrderState.ReadyToDeliver;
+                orderService.UpdateStatusOfSpecficOrderItem(orderItem); 
+               // orderService.UpdateOrderStatusReadyToDeliver(orderItem.OrderItemId, OrderState.ReadyToDeliver);
+
             }
             /*if (lstViewKitchenAndBar.SelectedItems.Count > 0)
             {
