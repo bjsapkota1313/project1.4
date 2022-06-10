@@ -24,13 +24,6 @@ namespace Model
     }
     public enum MenuItemCategory
     {
-        Drink,Lunch,Dinner,Dessert
-    }
-<<<<<<< Updated upstream
-=======
-    public enum MenuItemCategory
-    {
        Drink, LuchStarter,LuchMainCourse, LuchDessert , DinnerStarter, DinnerEntrements,DinnerMainCourse, DinnerDessert
     }
->>>>>>> Stashed changes
 }

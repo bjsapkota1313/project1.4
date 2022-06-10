@@ -73,9 +73,9 @@ namespace DataAccessLayer
         }
 
 
-        public Order GetOrder(int tableNr, int orderNumber)
+        public Order GetOrder(int tableNr)
         {
-            string query = "Select  [Order].OrderID, [Order].[Date], [Order].[Time], [Table].TableNr, [Table].[Status], [Order].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr WHERE [Order].OrderID=@OrderId ANd [Table].TableNr=@TableNR";
+            string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [Table].[Status], [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=@TableNr;";
             SqlParameter[] sqlParamenters = new SqlParameter[2];
             sqlParamenters[0] = new SqlParameter("@OrderId", orderNumber);
             sqlParamenters[1] = new SqlParameter("@TableNR", tableNr);

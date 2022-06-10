@@ -22,24 +22,26 @@ namespace ServiceLayer
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
         }
 
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+       /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
 
         {
 
             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
 
-        }
+        }*/
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
             return orderdb.GetAllStarters(category);
         }
-        public void AddToOrder(Order order)
+        public void AddToOrder(Order order, string comment)
         {
             orderdb.AddToOrder(order);
         }
-        public void RemoveToOrder(Order order)
+
+        public void RemoveFromOrder(OrderItem order)
+
         {
-            orderdb.RemoveOrder(order);
+            orderdb.RemoveFromOrder(order);
         }
 
         public Order SearchByID(int ID)
@@ -65,6 +67,7 @@ namespace ServiceLayer
         public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
         {
             orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
+        }
 
             public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
             {

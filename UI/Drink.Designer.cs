@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.DessertList = new System.Windows.Forms.ListView();
+            this.DrinkListView = new System.Windows.Forms.ListView();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
-            this.DessertAddBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DrinkAddBtn = new System.Windows.Forms.Button();
+            this.CommentDrink = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // DessertList
+            // DrinkListView
             // 
-            this.DessertList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.DrinkListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.MainCourseListName,
             this.MainCourseListPrice});
-            this.DessertList.HideSelection = false;
-            this.DessertList.Location = new System.Drawing.Point(4, 13);
-            this.DessertList.Name = "DessertList";
-            this.DessertList.Size = new System.Drawing.Size(494, 268);
-            this.DessertList.TabIndex = 3;
-            this.DessertList.UseCompatibleStateImageBehavior = false;
-            this.DessertList.View = System.Windows.Forms.View.Details;
+            this.DrinkListView.FullRowSelect = true;
+            this.DrinkListView.HideSelection = false;
+            this.DrinkListView.Location = new System.Drawing.Point(4, 13);
+            this.DrinkListView.Name = "DrinkListView";
+            this.DrinkListView.Size = new System.Drawing.Size(494, 268);
+            this.DrinkListView.TabIndex = 3;
+            this.DrinkListView.UseCompatibleStateImageBehavior = false;
+            this.DrinkListView.View = System.Windows.Forms.View.Details;
             // 
             // MainCourseListName
             // 
@@ -58,22 +59,24 @@
             this.MainCourseListPrice.Text = "Price";
             this.MainCourseListPrice.Width = 95;
             // 
-            // DessertAddBtn
+            // DrinkAddBtn
             // 
-            this.DessertAddBtn.Location = new System.Drawing.Point(3, 359);
-            this.DessertAddBtn.Name = "DessertAddBtn";
-            this.DessertAddBtn.Size = new System.Drawing.Size(494, 43);
-            this.DessertAddBtn.TabIndex = 4;
-            this.DessertAddBtn.Text = "Add";
-            this.DessertAddBtn.UseVisualStyleBackColor = true;
+            this.DrinkAddBtn.Location = new System.Drawing.Point(3, 359);
+            this.DrinkAddBtn.Name = "DrinkAddBtn";
+            this.DrinkAddBtn.Size = new System.Drawing.Size(494, 43);
+            this.DrinkAddBtn.TabIndex = 4;
+            this.DrinkAddBtn.Text = "Add";
+            this.DrinkAddBtn.UseVisualStyleBackColor = true;
+            this.DrinkAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
             // 
-            // textBox1
+            // CommentDrink
             // 
-            this.textBox1.Location = new System.Drawing.Point(4, 287);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(495, 66);
-            this.textBox1.TabIndex = 5;
+            this.CommentDrink.Location = new System.Drawing.Point(4, 287);
+            this.CommentDrink.Multiline = true;
+            this.CommentDrink.Name = "CommentDrink";
+            this.CommentDrink.Size = new System.Drawing.Size(495, 66);
+            this.CommentDrink.TabIndex = 5;
+            this.CommentDrink.Text = "Comment...";
             // 
             // Drink
             // 
@@ -81,13 +84,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(503, 411);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.DessertAddBtn);
-            this.Controls.Add(this.DessertList);
+            this.Controls.Add(this.CommentDrink);
+            this.Controls.Add(this.DrinkAddBtn);
+            this.Controls.Add(this.DrinkListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Drink";
             this.Text = "Drink";
-            //this.Load += new System.EventHandler(this.Drink_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,10 +97,10 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView DessertList;
+        private System.Windows.Forms.ListView DrinkListView;
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
-        private System.Windows.Forms.Button DessertAddBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button DrinkAddBtn;
+        private System.Windows.Forms.TextBox CommentDrink;
     }
 }

@@ -19,15 +19,7 @@ namespace UI
 
             //Application.Run(new LoginForm());
             //Application.Run(new TableView());
-
-            // Application.Run(new LoginForm());
-          //Application.Run(new LoginForm());
-
-
-
             //Application.Run(new Order());
-
-
             //Application.Run(new KitchenAndBarView());
 
 
