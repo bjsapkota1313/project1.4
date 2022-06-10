@@ -224,19 +224,6 @@ namespace DataAccessLayer
             sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
-
-        public void AddToOrder(Order order)
-                MenuItem item = new MenuItem();
-                item.Name = (string)dr["name"];
-                item.ItemId = (int)dr["ItemId"];
-                item.Price = (decimal)dr["Price"];
-
-                items.Add(item);
-            }
-            return items;
-        }
-
-
         public void AddToOrderItems(OrderItem item)
         {
             string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback','@Quantity','@Time');";
@@ -359,7 +346,19 @@ namespace DataAccessLayer
 
             ExecuteEditQuery(query, sqlParameters);
         }
+        public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
+        {
+            // arranding it so that ready to deliver order doesnot get missed 
+            string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price, M.ItemType,M.ItemCategory "
+                + " From [OrderItem] AS o" + " join [Order] AS Ord on o.OrderId=ord.OrderID"
+                + "  join [Table] As Tab on Ord.TableNr=Tab.TableNr" + " join [Menu_Item] As M on o.MenuItemId= M.ItemID"
+                + " WHERE Tab.TableNr = @Table AND ord.PayementStatus = @PayementStatus"
+                + " ORDER BY o.OrderStatus DESC";
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@Table", selectedTable.Number);
+            sqlParameters[1] = new SqlParameter("@PayementStatus", payementStatus);
 
-
+            return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
+        }
     }
 }

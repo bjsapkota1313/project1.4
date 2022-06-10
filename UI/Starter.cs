@@ -17,10 +17,10 @@ namespace UI
     {
         private OrderForm orderform;
         private List<OrderItem> orders;
-        public StarterForm(OrderForm orderForm,List<OrderItem> orderItems )
+        public StarterForm(OrderForm orderForm, List<OrderItem> orderItems)
         {
             orders = orderItems;
-        private List<OrderItem> orders;
+        }
         public StarterForm(OrderForm orderForm)
         {
             InitializeComponent();
@@ -119,7 +119,7 @@ namespace UI
                 MenuItem menuItem = (MenuItem)LvStarterList.SelectedItems[0].Tag;
                 string feedback = GetFeedback();
 
-                OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+                //OrderItem item = new OrderItem(Quantity, menuItem, feedback);
                 ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
                 li.SubItems.Add(item.MenuItem.Name);
                 li.SubItems.Add(item.Quantity.ToString());

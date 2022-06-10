@@ -36,10 +36,6 @@ namespace ServiceLayer
         {
             return orderdb.GetAllStarters(category);
         }
-        public void AddToOrder(Table selectedtable, TimeSpan time, DateTime date)
-        {
-            orderdb.AddToOrder(selectedtable, time, date);
-        }
         public void RemoveFromOrder(OrderItem order)
         {
             orderdb.RemoveFromOrder(order);

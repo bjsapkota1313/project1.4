@@ -16,11 +16,8 @@ namespace UI
 
     public partial class OrderForm : Form
     {
-      
-        
         bool control;
         int menu_with;
-        public OrderForm()
         private List<OrderItem> orders;
         Table selectedTable;
         TimeSpan time = DateTime.Now.TimeOfDay;
