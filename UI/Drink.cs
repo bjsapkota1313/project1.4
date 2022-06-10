@@ -19,7 +19,14 @@ namespace UI
         public Drink(OrderForm orderform)
         {
             InitializeComponent();
+            try
+            {
             ShowMenu(MenuItemCategory.Drink);
+            }
+            catch
+            {
+                MessageBox.Show("Ups. Something when wrong. While loading the Drinks");
+            }
             this.orderform = orderform;
 
 
@@ -41,7 +48,7 @@ namespace UI
 
         }
 
-        private void DessertAddBtn_Click(object sender, EventArgs e)
+        private void DrinkAddBtn_Click(object sender, EventArgs e)
         {
             int Quantity = 1;
             MenuItem menuItem = (MenuItem)DrinkListView.SelectedItems[0].Tag;

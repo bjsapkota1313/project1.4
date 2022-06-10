@@ -18,23 +18,37 @@ namespace UI
         private OrderForm orderform;
         public StarterForm(OrderForm orderForm )
         {
+        private List<OrderItem> orders;
+        public StarterForm(OrderForm orderForm)
+        {
             InitializeComponent();
             TimeSpan startLuch = new TimeSpan(10, 0, 0); //10 o'clock
             TimeSpan endLuch = new TimeSpan(17, 0, 0); //17 o'clock
             TimeSpan startDinner = new TimeSpan(17, 0, 0); //17 o'clock
-            TimeSpan endDinner = new TimeSpan(22, 0, 0); //22 o'clock
-            //Testing
-           //TimeSpan now = new TimeSpan(18, 0, 0);
-
+            TimeSpan endDinner = new TimeSpan(23, 0, 0); //22 o'clock
           TimeSpan now = DateTime.Now.TimeOfDay;
             string closed = "Restaurant is closed!";
             if ((now > startLuch) && (now < endLuch))
             {
-                ShowMenu(MenuItemCategory.LuchStarter);
-
+                try
+                {
+                    ShowMenu(MenuItemCategory.LuchStarter);
+                }
+                catch
+                {
+                    MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
+                }
             }else if ((now >= startDinner) && (now <= endDinner))
             {
+                try
+                {
                 ShowMenu(MenuItemCategory.DinnerStarter);
+                }
+                catch 
+                {
+                    MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
+
+                }
             }
             else
             {
@@ -52,7 +66,8 @@ namespace UI
 
             foreach (MenuItem o in items)
             {
-                ListViewItem li = new ListViewItem(o.Name.ToString());
+                ListViewItem li = new ListViewItem(o.ItemId.ToString());
+                li.SubItems.Add(o.Name.ToString());
                 li.SubItems.Add(o.Price.ToString());
                 li.Tag = o;
                 LvStarterList.Items.Add(li);
@@ -95,6 +110,28 @@ namespace UI
             
 
         }
+            try
+            {
+                int Quantity = 1;
+                MenuItem menuItem = (MenuItem)LvStarterList.SelectedItems[0].Tag;
+                string feedback = GetFeedback();
+
+                OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
+                li.SubItems.Add(item.MenuItem.Name);
+                li.SubItems.Add(item.Quantity.ToString());
+                li.SubItems.Add(item.Feedback.ToString());
+                li.Tag = item;
+
+                orderform.OrderListView.Items.Add(li);
+            }
+            catch
+            {
+                MessageBox.Show("Ups.Something went wrong. While adding the Item.");
+            }
+
+        }
+
         private string GetFeedback()
         {
             string feedback;

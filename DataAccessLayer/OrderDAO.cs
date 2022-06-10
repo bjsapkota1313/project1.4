@@ -24,7 +24,104 @@ namespace DataAccessLayer
             sqlParameters[0] = new SqlParameter("@ID", OrderId);
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
+        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr )
+        {
+            string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PaymentStatus = 0;";
 
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            // preventing from sql injections
+            sqlParameters[0] = new SqlParameter("@TableNr", TableNr);
+
+            int orderId = RunningOrder(ExecuteSelectQuery(query,sqlParameters));
+            // if order id is not 0 add to orderid else create a new order
+            if(orderId != 0)
+            {
+                AddToExisting(list, orderId);
+            }
+            else
+            {
+                AddNew(list, orderId);
+            }
+
+
+        }
+        private int RunningOrder(DataTable dataTable)
+        {
+            if (dataTable != null)
+            {
+                if(dataTable.Rows.Count > 0)
+                {
+                    return int.Parse(dataTable.Rows[0]["OrderID"].ToString());
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                throw new Exception("Error");
+            }
+        }
+        private void AddToExisting(List<OrderItem> orderItems, int orderID)
+        {
+            foreach (OrderItem item in orderItems)
+            {
+                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
+
+                SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
+                    new SqlParameter("MenuItemId", item.OrderItemId),
+                    new SqlParameter("@Quantity", item.Quantity),
+                    new SqlParameter("@datetime", DateTime.Now),
+                    new SqlParameter("@feedback", item.Feedback)
+                };
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
+        private void AddNew(List<OrderItem> orderItem, int TableNr)
+        {
+            string query = "INSERT INTO [Order] (TableNr) VALUES (@TableNr)";
+
+            SqlParameter[] sqlParameters =
+            {
+                new SqlParameter("@TableNr", TableNr)
+            };
+            ExecuteEditQuery(query,sqlParameters);
+
+            int highestID = GetHighId();
+
+            foreach (OrderItem item in orderItem)
+            {
+                string query2 = "INSERT INTO OrderItem (OrderId, MenuItemId, OrderItemDateTime,Feedback) VALUES (@HighOrderId, @MenuItemId, @datetime,@feedback)";
+
+                SqlParameter[] sqlParameters1 =
+                {
+                    new SqlParameter("@HighOrderId",highestID ),
+                    new SqlParameter(" @MenuItemId", item.OrderItemId),
+                    new SqlParameter("@datetime",DateTime.Now),
+                    new SqlParameter("@feedback",item.Feedback)
+                };
+                ExecuteEditQuery(query2,sqlParameters1);
+            }
+
+        }
+        private int GetHighId()
+        {
+            string query = "SELECT MAX(OrderId) AS 'MAXID' from [Order]";
+            return ReadHighestID(ExecuteSelectQuery(query, new SqlParameter[0]));
+        }
+        private int ReadHighestID(DataTable dataTable)
+        {
+            if(dataTable != null && dataTable.Rows.Count > 0)
+            {
+                return int.Parse(dataTable.Rows[0]["MAXID"].ToString());
+            }
+            else
+            {
+                return 0;
+            }
+        }
         public List<OrderItem> GetOrderTableNotPayed(Table table)
         {
             string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [OrderItem].OrderStatus, [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=2;";
@@ -50,7 +147,7 @@ namespace DataAccessLayer
         }
         public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
         {
-            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "
+            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus  From [Order] AS O "
                 + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             // preventing from sql injections
@@ -68,7 +165,7 @@ namespace DataAccessLayer
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
                 order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-                order.TotalPrice = (decimal)dr["TotalPrice"];
+               
                 order.OrderItems = ListOfOrderItemsInOneOrder(order.OrderId);
             }
             return order;
@@ -108,6 +205,7 @@ namespace DataAccessLayer
         private Order ReadTable(DataTable dataTable)
         {
             Order order = new Order();
+            OrderItem item = new OrderItem();
             foreach (DataRow dr in dataTable.Rows)
             {
                 order.OrderId = (int)dr["OrderID"];
@@ -121,39 +219,37 @@ namespace DataAccessLayer
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
 
         {
-            string query = "Select Name,Price from [Menu_Item] WHERE ItemCategory = @itemCategory;";
+            string query = "Select Name,ItemId,Price from [Menu_Item] WHERE ItemCategory = @itemCategory;";
             SqlParameter[] sqlParamenters = new SqlParameter[1];
             sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
-       /* public List<Order> GetOrder()
-        {
-            string query = "Select Name,Price from [Order]";
-            SqlParameter[] sqlParamenters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
-        }*/
-       /* public Order GetById(int tablenr)
-        {
-            string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@tableNr", tablenr)
-            };
-            return ReadRow(ExecuteSelectQuery(query, parameters));
-        }*/
 
         public void AddToOrder(Order order)
+                MenuItem item = new MenuItem();
+                item.Name = (string)dr["name"];
+                item.ItemId = (int)dr["ItemId"];
+                item.Price = (decimal)dr["Price"];
+
+                items.Add(item);
+            }
+            return items;
+        }
+
+
+        public void AddToOrderItems(OrderItem item)
         {
-            string query = "INSERT INTO Order VALUES @ItemId;";
+            string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback','@Quantity','@Time');";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@ItemId", order),
-
+                new SqlParameter("@OrderStatus",item.OrderState),
+                new SqlParameter("@Feedback",item.Feedback),
+                 new SqlParameter("@Quantity",item.Quantity),
+                new SqlParameter("@Time", item.DateTime)
             };
 
             ExecuteEditQuery(query, parameters);
         }
-
         public void RemoveFromOrder(OrderItem order)
         {
             string query = "Delete OrderItem FROM OrderItem INNER JOIN[Order] ON OrderItem.OrderId = [Order].OrderID WHERE [Order].OrderID = @ItemId AND OrderItem.OrderId = @ItemId;";

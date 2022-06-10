@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.StarterAddBtn = new System.Windows.Forms.Button();
             this.LvStarterList = new System.Windows.Forms.ListView();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.StarterListName = new System.Windows.Forms.ColumnHeader("(none)");
             this.StarterListPrice = new System.Windows.Forms.ColumnHeader();
             this.CommentStarters = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             // LvStarterList
             // 
             this.LvStarterList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ItemId,
             this.StarterListName,
             this.StarterListPrice});
             this.LvStarterList.FullRowSelect = true;
@@ -73,15 +75,18 @@
             this.LvStarterList.View = System.Windows.Forms.View.Details;
             this.LvStarterList.SelectedIndexChanged += new System.EventHandler(this.StarterList_SelectedIndexChanged);
             // 
+            // ItemId
+            // 
+            this.ItemId.Text = "ItemId";
+            // 
             // StarterListName
             // 
             this.StarterListName.Text = "Name";
-            this.StarterListName.Width = 395;
+            this.StarterListName.Width = 370;
             // 
             // StarterListPrice
             // 
             this.StarterListPrice.Text = "Price";
-            this.StarterListPrice.Width = 95;
             // 
             // CommentStarters
             // 
@@ -119,5 +124,6 @@
         private System.Windows.Forms.ColumnHeader StarterListName;
         private System.Windows.Forms.ColumnHeader StarterListPrice;
         private System.Windows.Forms.TextBox CommentStarters;
+        private System.Windows.Forms.ColumnHeader ItemId;
     }
 }

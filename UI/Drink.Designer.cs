@@ -61,14 +61,14 @@
             // 
             // DrinkAddBtn
             // 
-            this.DrinkAddBtn.Location = new System.Drawing.Point(3, 359);
-            this.DrinkAddBtn.Name = "DrinkAddBtn";
-            this.DrinkAddBtn.Size = new System.Drawing.Size(494, 43);
-            this.DrinkAddBtn.TabIndex = 4;
-            this.DrinkAddBtn.Text = "Add";
-            this.DrinkAddBtn.UseVisualStyleBackColor = true;
-            this.DrinkAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
-            // 
+            //this.DrinkAddBtn.Location = new System.Drawing.Point(3, 359);
+            //this.DrinkAddBtn.Name = "DrinkAddBtn";
+            //this.DrinkAddBtn.Size = new System.Drawing.Size(494, 43);
+            //this.DrinkAddBtn.TabIndex = 4;
+            //this.DrinkAddBtn.Text = "Add";
+            //this.DrinkAddBtn.UseVisualStyleBackColor = true;
+            //this.DrinkAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
+            //// 
             // CommentDrink
             // 
             this.CommentDrink.Location = new System.Drawing.Point(4, 287);

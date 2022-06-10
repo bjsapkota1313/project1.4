@@ -26,24 +26,32 @@ namespace ServiceLayer
            return orderdb.GetOrderTableNotPayed(table);
         }
 
-       /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+        /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
 
+         {
+
+             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
+         }*/
+        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
-
-            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
-
-        }*/
+            orderdb.GetIdFromUnpaied(list, TableNr);
+        }
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
             return orderdb.GetAllStarters(category);
         }
-        public void AddToOrder(Order order, string comment)
+        public void AddToOrder(Table selectedtable, TimeSpan time, DateTime date)
         {
             orderdb.AddToOrder(order);
         }
         public void RemoveFromOrder(OrderItem order)
         {
             orderdb.RemoveFromOrder(order);
+        }
+        public void AddToOrderItem(OrderItem item)
+        {
+             orderdb.AddToOrderItems(item);
         }
 
         public Order SearchByID(int ID)
