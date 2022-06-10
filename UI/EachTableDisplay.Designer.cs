@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EachTableDisplay));
             this.lblFormName = new System.Windows.Forms.Label();
             this.BtnBackToTableView = new System.Windows.Forms.Button();
             this.lblTableNumber = new System.Windows.Forms.Label();
@@ -36,14 +37,13 @@
             this.BtnCheckout = new System.Windows.Forms.Button();
             this.btnTakeOrder = new System.Windows.Forms.Button();
             this.lblCurrentTableStatus = new System.Windows.Forms.Label();
-            this.pnlForOccupyingTable = new System.Windows.Forms.Panel();
-            this.lblJustInfo = new System.Windows.Forms.Label();
+            this.pnlForOtherInfo = new System.Windows.Forms.Panel();
+            this.lblInfoOccupyTable = new System.Windows.Forms.Label();
+            this.btnOccupyTable = new System.Windows.Forms.Button();
+            this.LblInfoAboveButton = new System.Windows.Forms.Label();
             this.BtnMakeTableFree = new System.Windows.Forms.Button();
-            this.labelInfoPayement = new System.Windows.Forms.Label();
-            this.labelInPaneInfo = new System.Windows.Forms.Label();
-            this.LabelnPanel = new System.Windows.Forms.Label();
             this.ListViewOfOrderItems = new System.Windows.Forms.ListView();
-            this.pnlForOccupyingTable.SuspendLayout();
+            this.pnlForOtherInfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblFormName
@@ -64,7 +64,7 @@
             this.BtnBackToTableView.ForeColor = System.Drawing.Color.White;
             this.BtnBackToTableView.Image = global::UI.Properties.Resources.ArrowFatLeftNew;
             this.BtnBackToTableView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBackToTableView.Location = new System.Drawing.Point(6, 12);
+            this.BtnBackToTableView.Location = new System.Drawing.Point(4, 8);
             this.BtnBackToTableView.Name = "BtnBackToTableView";
             this.BtnBackToTableView.Size = new System.Drawing.Size(128, 51);
             this.BtnBackToTableView.TabIndex = 3;
@@ -92,7 +92,7 @@
             this.lblForUserInfoTomarkServe.Name = "lblForUserInfoTomarkServe";
             this.lblForUserInfoTomarkServe.Size = new System.Drawing.Size(365, 71);
             this.lblForUserInfoTomarkServe.TabIndex = 6;
-            this.lblForUserInfoTomarkServe.Text = "You can select the order that is already served";
+            this.lblForUserInfoTomarkServe.Text = "Selected order will change their  order status to served";
             // 
             // btnMarkAsServed
             // 
@@ -146,74 +146,71 @@
             this.lblCurrentTableStatus.TabIndex = 11;
             this.lblCurrentTableStatus.Text = "Table Status";
             // 
-            // pnlForOccupyingTable
+            // pnlForOtherInfo
             // 
-            this.pnlForOccupyingTable.Controls.Add(this.lblJustInfo);
-            this.pnlForOccupyingTable.Controls.Add(this.BtnMakeTableFree);
-            this.pnlForOccupyingTable.Controls.Add(this.labelInfoPayement);
-            this.pnlForOccupyingTable.Controls.Add(this.labelInPaneInfo);
-            this.pnlForOccupyingTable.Controls.Add(this.LabelnPanel);
-            this.pnlForOccupyingTable.Location = new System.Drawing.Point(12, 153);
-            this.pnlForOccupyingTable.Name = "pnlForOccupyingTable";
-            this.pnlForOccupyingTable.Size = new System.Drawing.Size(683, 341);
-            this.pnlForOccupyingTable.TabIndex = 12;
+            this.pnlForOtherInfo.Controls.Add(this.lblInfoOccupyTable);
+            this.pnlForOtherInfo.Controls.Add(this.btnOccupyTable);
+            this.pnlForOtherInfo.Controls.Add(this.LblInfoAboveButton);
+            this.pnlForOtherInfo.Controls.Add(this.BtnMakeTableFree);
+            this.pnlForOtherInfo.Location = new System.Drawing.Point(12, 153);
+            this.pnlForOtherInfo.Name = "pnlForOtherInfo";
+            this.pnlForOtherInfo.Size = new System.Drawing.Size(683, 341);
+            this.pnlForOtherInfo.TabIndex = 12;
             // 
-            // lblJustInfo
+            // lblInfoOccupyTable
             // 
-            this.lblJustInfo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblJustInfo.ForeColor = System.Drawing.Color.White;
-            this.lblJustInfo.Location = new System.Drawing.Point(99, 245);
-            this.lblJustInfo.Name = "lblJustInfo";
-            this.lblJustInfo.Size = new System.Drawing.Size(386, 39);
-            this.lblJustInfo.TabIndex = 9;
-            this.lblJustInfo.Text = "If you take the order , it is going to be occupied.";
+            this.lblInfoOccupyTable.BackColor = System.Drawing.Color.Black;
+            this.lblInfoOccupyTable.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblInfoOccupyTable.ForeColor = System.Drawing.Color.White;
+            this.lblInfoOccupyTable.Location = new System.Drawing.Point(114, 63);
+            this.lblInfoOccupyTable.Name = "lblInfoOccupyTable";
+            this.lblInfoOccupyTable.Size = new System.Drawing.Size(444, 46);
+            this.lblInfoOccupyTable.TabIndex = 11;
+            // 
+            // btnOccupyTable
+            // 
+            this.btnOccupyTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(73)))));
+            this.btnOccupyTable.FlatAppearance.BorderSize = 0;
+            this.btnOccupyTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnOccupyTable.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOccupyTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnOccupyTable.Location = new System.Drawing.Point(192, 239);
+            this.btnOccupyTable.Name = "btnOccupyTable";
+            this.btnOccupyTable.Size = new System.Drawing.Size(293, 80);
+            this.btnOccupyTable.TabIndex = 10;
+            this.btnOccupyTable.Text = "Occupy this Table";
+            this.btnOccupyTable.UseVisualStyleBackColor = false;
+            this.btnOccupyTable.Click += new System.EventHandler(this.btnOccupyTable_Click);
+            // 
+            // LblInfoAboveButton
+            // 
+            this.LblInfoAboveButton.BackColor = System.Drawing.Color.Black;
+            this.LblInfoAboveButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblInfoAboveButton.ForeColor = System.Drawing.Color.White;
+            this.LblInfoAboveButton.Location = new System.Drawing.Point(50, 63);
+            this.LblInfoAboveButton.Name = "LblInfoAboveButton";
+            this.LblInfoAboveButton.Size = new System.Drawing.Size(561, 46);
+            this.LblInfoAboveButton.TabIndex = 9;
+            this.LblInfoAboveButton.Text = "There are no orders currently in this table ";
             // 
             // BtnMakeTableFree
             // 
-            this.BtnMakeTableFree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(50)))), ((int)(((byte)(27)))));
+            this.BtnMakeTableFree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(129)))), ((int)(((byte)(36)))));
             this.BtnMakeTableFree.FlatAppearance.BorderSize = 0;
             this.BtnMakeTableFree.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnMakeTableFree.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnMakeTableFree.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnMakeTableFree.Location = new System.Drawing.Point(176, 124);
+            this.BtnMakeTableFree.Location = new System.Drawing.Point(180, 153);
             this.BtnMakeTableFree.Name = "BtnMakeTableFree";
             this.BtnMakeTableFree.Size = new System.Drawing.Size(293, 80);
             this.BtnMakeTableFree.TabIndex = 8;
             this.BtnMakeTableFree.Text = "Make Table Free ";
             this.BtnMakeTableFree.UseVisualStyleBackColor = false;
-            // 
-            // labelInfoPayement
-            // 
-            this.labelInfoPayement.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelInfoPayement.ForeColor = System.Drawing.Color.White;
-            this.labelInfoPayement.Location = new System.Drawing.Point(109, 309);
-            this.labelInfoPayement.Name = "labelInfoPayement";
-            this.labelInfoPayement.Size = new System.Drawing.Size(472, 39);
-            this.labelInfoPayement.TabIndex = 2;
-            this.labelInfoPayement.Text = "Note:  \" Check out \" button only will work when there is an order in a table.";
-            // 
-            // labelInPaneInfo
-            // 
-            this.labelInPaneInfo.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelInPaneInfo.ForeColor = System.Drawing.Color.White;
-            this.labelInPaneInfo.Location = new System.Drawing.Point(54, 71);
-            this.labelInPaneInfo.Name = "labelInPaneInfo";
-            this.labelInPaneInfo.Size = new System.Drawing.Size(559, 35);
-            this.labelInPaneInfo.TabIndex = 1;
-            this.labelInPaneInfo.Text = "Did you made the table status ocupied mistakenly?";
-            // 
-            // LabelnPanel
-            // 
-            this.LabelnPanel.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LabelnPanel.ForeColor = System.Drawing.Color.White;
-            this.LabelnPanel.Location = new System.Drawing.Point(43, 12);
-            this.LabelnPanel.Name = "LabelnPanel";
-            this.LabelnPanel.Size = new System.Drawing.Size(551, 46);
-            this.LabelnPanel.TabIndex = 0;
-            this.LabelnPanel.Text = "There are no orders in this table currently. ";
+            this.BtnMakeTableFree.Click += new System.EventHandler(this.BtnMakeTableFree_Click);
             // 
             // ListViewOfOrderItems
             // 
+            this.ListViewOfOrderItems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ListViewOfOrderItems.HideSelection = false;
             this.ListViewOfOrderItems.Location = new System.Drawing.Point(26, 153);
             this.ListViewOfOrderItems.Name = "ListViewOfOrderItems";
@@ -236,10 +233,11 @@
             this.Controls.Add(this.lblTableNumber);
             this.Controls.Add(this.BtnBackToTableView);
             this.Controls.Add(this.lblFormName);
-            this.Controls.Add(this.pnlForOccupyingTable);
+            this.Controls.Add(this.pnlForOtherInfo);
             this.Controls.Add(this.ListViewOfOrderItems);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EachTableDisplay";
-            this.pnlForOccupyingTable.ResumeLayout(false);
+            this.pnlForOtherInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -254,12 +252,11 @@
         private System.Windows.Forms.Button BtnCheckout;
         private System.Windows.Forms.Button btnTakeOrder;
         private System.Windows.Forms.Label lblCurrentTableStatus;
-        private System.Windows.Forms.Panel pnlForOccupyingTable;
-        private System.Windows.Forms.Label LabelnPanel;
-        private System.Windows.Forms.Label lblJustInfo;
+        private System.Windows.Forms.Panel pnlForOtherInfo;
         private System.Windows.Forms.Button BtnMakeTableFree;
-        private System.Windows.Forms.Label labelInfoPayement;
-        private System.Windows.Forms.Label labelInPaneInfo;
         private System.Windows.Forms.ListView ListViewOfOrderItems;
+        private System.Windows.Forms.Label LblInfoAboveButton;
+        private System.Windows.Forms.Button btnOccupyTable;
+        private System.Windows.Forms.Label lblInfoOccupyTable;
     }
 }

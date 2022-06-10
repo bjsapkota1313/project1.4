@@ -16,7 +16,7 @@ namespace DataAccessLayer
         {
             string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
                 + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
-                + " Where O.OrderId= @Id ";
+                + " Where O.OrderId= @Id " + " ORDER BY o.OrderStatus DESC";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // preventing from sql injections
@@ -45,7 +45,7 @@ namespace DataAccessLayer
             return list;    
         }
 
-        // 
+        // getting order which is running on the table and accordinh to payement status
         public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr,PayementStatus payementStatus)
         {
             string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus,o.TotalPrice  From [Order] AS O "
@@ -107,33 +107,33 @@ namespace DataAccessLayer
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
         public List<MenuItem> GetAllDessert()
-y        {
-            string query = "Select Name,Price from [Order]";
-            SqlParameter[] sqlParamenters = new SqlParameter[0];
-            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
-        }
-        public List<Order> GetOrder()
         {
             string query = "Select Name,Price from [Order]";
             SqlParameter[] sqlParamenters = new SqlParameter[0];
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
-        public Order GetById(int tablenr)
+        public List<MenuItem> GetOrder()
         {
-            string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
-            SqlParameter[] parameters = new SqlParameter[]
-            {
-                new SqlParameter("@tableNr", tablenr)
-            };
-            return ReadRow(ExecuteSelectQuery(query, parameters));
+            string query = "Select Name,Price from [Order]";
+            SqlParameter[] sqlParamenters = new SqlParameter[0];
+            return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
+        //public Order GetById(int tablenr)
+        //{
+        //    string query = "Select Name,Price from [Order] WHERE student_number = tableNr";
+        //    SqlParameter[] parameters = new SqlParameter[]
+        //    {
+        //        new SqlParameter("@tableNr", tablenr)
+        //    };
+        //    return ReadRow(ExecuteSelectQuery(query, parameters));
+        //}
 
         public void AddToOrder(Order order)
         {
             string query = "INSERT INTO Order VALUES @ItemId;";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@ItemId", order.MenuItem),
+                new SqlParameter("@ItemId", order),
             };
 
             ExecuteEditQuery(query, parameters);
@@ -144,7 +144,7 @@ y        {
             string query = "Delete FROM  Order WHERE OrderID = @ItemId;";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@ItemId", order.Name),
+                new SqlParameter("@ItemId", order.OrderId),
             };
             ExecuteEditQuery(query, parameters);
         }
@@ -158,11 +158,10 @@ y        {
             {
                 MenuItem item = new MenuItem();
                 item.Name = (string)dr["name"];
-                item.Price = (double)dr["price"];
                
             items.Add(item);
             }
-            return orders;
+            return items;
         }
         public Order SearchByID(int ID)
         {
@@ -185,9 +184,7 @@ y        {
         {
             DataRow row = dataTable.Rows[0];
             Order order = new Order();
-            order.Name= (string)row["Name"];
             order.Table = (Table)row["Table"];
-            order.MenuItem = (MenuItem)row["MenuItem"];
 
             return order;
         }
