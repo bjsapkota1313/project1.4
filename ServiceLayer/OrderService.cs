@@ -38,9 +38,9 @@ namespace ServiceLayer
         {
             return orderdb.GetAllStarters(category);
         }
-        public void AddToOrder(Order order, string comment)
+        public void AddToOrder(Table selectedtable, TimeoutException time, DateTime date)
         {
-            orderdb.AddToOrder(order);
+            orderdb.AddToOrder(selectedtable, time, date);
         }
         public void RemoveFromOrder(OrderItem order)
         {
