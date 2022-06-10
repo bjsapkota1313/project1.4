@@ -19,7 +19,7 @@ namespace Model
     }
     public enum TypeMenuItem
     {
-        Food=0,Drink
+        Food=1,Drink
     }
     public enum MenuItemCategory
     {

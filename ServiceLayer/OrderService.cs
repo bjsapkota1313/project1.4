@@ -68,11 +68,6 @@ namespace ServiceLayer
         {
             return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
         }
-
-        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
-        {
-            orderdb.UpdateOrderStatusReadyToDeliver(orderItemId);
-        }
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
            return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);

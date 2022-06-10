@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenAndBarView));
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
-            this.lblKitchenView = new System.Windows.Forms.Label();
+            this.lblKitchenAndBarView = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnKitchenShowCmpltOrder = new System.Windows.Forms.Button();
             this.btnKitchenReady = new System.Windows.Forms.Button();
@@ -49,38 +48,28 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblKitchenView
+            // lblKitchenAndBarView
             // 
-            this.lblKitchenView.AutoSize = true;
-            this.lblKitchenView.Font = new System.Drawing.Font("Calibri", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblKitchenView.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.lblKitchenView.Location = new System.Drawing.Point(752, 33);
-            this.lblKitchenView.Name = "lblKitchenView";
-            this.lblKitchenView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblKitchenView.Size = new System.Drawing.Size(399, 82);
-            this.lblKitchenView.TabIndex = 0;
-            this.lblKitchenView.Text = "Kitchen View";
-            this.lblKitchenView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblKitchenAndBarView.AccessibleDescription = "";
+            this.lblKitchenAndBarView.Font = new System.Drawing.Font("Calibri", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblKitchenAndBarView.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblKitchenAndBarView.Location = new System.Drawing.Point(752, 33);
+            this.lblKitchenAndBarView.Name = "lblKitchenAndBarView";
+            this.lblKitchenAndBarView.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblKitchenAndBarView.Size = new System.Drawing.Size(399, 82);
+            this.lblKitchenAndBarView.TabIndex = 0;
+            this.lblKitchenAndBarView.Text = ".......";
+            this.lblKitchenAndBarView.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(68, 24);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 73);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 128);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(154, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(391, 54);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "You are logged in as:";
             // 
             // button1
             // 
@@ -217,23 +206,21 @@
             this.Controls.Add(this.btnKitchenReady);
             this.Controls.Add(this.btnKitchenShowCmpltOrder);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lblKitchenView);
+            this.Controls.Add(this.lblKitchenAndBarView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KitchenAndBarView";
             this.Text = "KitchenAndBarView";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lblKitchenView;
+        private System.Windows.Forms.Label lblKitchenAndBarView;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnKitchenShowCmpltOrder;
         private System.Windows.Forms.Button btnKitchenReady;

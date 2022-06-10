@@ -233,25 +233,6 @@ namespace DataAccessLayer
             return orders;
         }
 
-
-      /*  //update the order status from Preparing to ReadyToDeliver
-        public void UpdateOrderStatusReadyToDeliver(int orderItemId, OrderState orderState)
-
-        //update the order status from Preparing to ReadyToDeliver
-        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
-
-        {
-            string query = $@"update OrderItem SET OrderStatus = {(int)OrderState.ReadyToDeliver}
-                WHERE OrderItemId = @orderItemId";
-
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
-
-            ExecuteEditQuery(query, sqlParameters);
-
-        }*/
-=======
-        }
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable,PayementStatus payementStatus)
         {
             // arranding it so that ready to deliver order doesnot get missed 

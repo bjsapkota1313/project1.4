@@ -50,12 +50,16 @@ namespace UI
             switch (loggedEmployee.EmployeeType)
             {
                 case EmployeeType.Chef:
-                    orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Food, OrderState.PreparingOrder);
+                    typeMenuItem = TypeMenuItem.Food;
+                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
+                    lblKitchenAndBarView.Text = "Kitchen View";
                     break;
                 case EmployeeType.BarTender:
-                    orders = orderService.ReadOrdersForKitchenBar(TypeMenuItem.Drink, OrderState.PreparingOrder);
+                    typeMenuItem = TypeMenuItem.Drink;    
+                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
                     FillInKitchenAndBarView(orders);
+                    lblKitchenAndBarView.Text = "Bar View";
                     break;
                 default:
                     break;
@@ -65,7 +69,10 @@ namespace UI
 
         private void btnKitchenShowCmpltOrder_Click(object sender, EventArgs e)
         {
+            checkEmployee();
 
+            //FillInKitchenAndBarView(orders);
+            FillInKitchenAndBarView(orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver));
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -76,23 +83,13 @@ namespace UI
         //Ready Button For kitchenandBar
         private void btnKitchenReady_Click(object sender, EventArgs e)
         {
-
             foreach(ListViewItem lvI in lstViewKitchenAndBar.SelectedItems)
             {
                 orderItem = (OrderItem)lvI.Tag;
                 orderItem.OrderState = OrderState.ReadyToDeliver;
                 orderService.UpdateStatusOfSpecficOrderItem(orderItem); 
-               // orderService.UpdateOrderStatusReadyToDeliver(orderItem.OrderItemId, OrderState.ReadyToDeliver);
-
-            }
-            /*if (lstViewKitchenAndBar.SelectedItems.Count > 0)
-
-            {
-                ListViewItem lvItem = lstViewKitchenAndBar.SelectedItems[0];
-                orderItem = (OrderItem)lvItem.Tag;
-                orderService.UpdateOrderStatusReadyToDeliver(orderItem.OrderItemId);
-            }
-            checkEmployee();
+            } 
+            checkEmployee();    
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
