@@ -106,6 +106,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StarterForm";
             this.Text = "Starter";
+            this.Load += new System.EventHandler(this.StarterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
