@@ -58,10 +58,11 @@ namespace DataAccessLayer
         }
         public void UpdateTheStatusOfTable(Table UpdatingTable)
         {
-            string Query = " UPDATE [Table] SET  [status]=@status WHERE TableNr= @tableNr";
+            string query = " UPDATE [Table] SET  [status]=@status WHERE TableNr= @tableNr";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             sqlParameters[0] = new SqlParameter("@tableNr", UpdatingTable.Number);
             sqlParameters[1] = new SqlParameter("@status", (int)UpdatingTable.Status);
+            ExecuteEditQuery(query, sqlParameters);
 
         }
     }

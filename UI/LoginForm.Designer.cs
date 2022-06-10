@@ -36,8 +36,12 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblEmployeeId = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
+            this.picBoxShowPass = new System.Windows.Forms.PictureBox();
+            this.picBoxHidePass = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSerIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowPass)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHidePass)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxLogo
@@ -53,7 +57,6 @@
             this.pictureBoxLogo.Size = new System.Drawing.Size(289, 163);
             this.pictureBoxLogo.TabIndex = 0;
             this.pictureBoxLogo.TabStop = false;
-            this.pictureBoxLogo.Click += new System.EventHandler(this.pictureBoxLogo_Click);
             // 
             // pictureBoxUSerIcon
             // 
@@ -104,6 +107,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnLogin.Location = new System.Drawing.Point(87, 749);
@@ -142,13 +147,36 @@
             this.lblPassword.TabIndex = 8;
             this.lblPassword.Text = "Password";
             // 
+            // picBoxShowPass
+            // 
+            this.picBoxShowPass.Image = global::UI.Properties.Resources.EyesOpened6040;
+            this.picBoxShowPass.Location = new System.Drawing.Point(582, 579);
+            this.picBoxShowPass.Name = "picBoxShowPass";
+            this.picBoxShowPass.Size = new System.Drawing.Size(60, 40);
+            this.picBoxShowPass.TabIndex = 9;
+            this.picBoxShowPass.TabStop = false;
+            this.picBoxShowPass.Click += new System.EventHandler(this.picBoxShowPass_Click);
+            // 
+            // picBoxHidePass
+            // 
+            this.picBoxHidePass.Image = global::UI.Properties.Resources.eyesClosed;
+            this.picBoxHidePass.Location = new System.Drawing.Point(594, 573);
+            this.picBoxHidePass.Name = "picBoxHidePass";
+            this.picBoxHidePass.Size = new System.Drawing.Size(50, 50);
+            this.picBoxHidePass.TabIndex = 10;
+            this.picBoxHidePass.TabStop = false;
+            this.picBoxHidePass.Click += new System.EventHandler(this.picBoxHidePass_Click);
+            // 
             // LoginForm
             // 
+            this.AcceptButton = this.btnLogin;
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(726, 1055);
+            this.Controls.Add(this.picBoxHidePass);
+            this.Controls.Add(this.picBoxShowPass);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.lblEmployeeId);
             this.Controls.Add(this.btnLogin);
@@ -157,7 +185,7 @@
             this.Controls.Add(this.pictureBoxUSerIcon);
             this.Controls.Add(this.pictureBoxLogo);
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "LoginForm";
@@ -165,8 +193,11 @@
             this.Text = "Login Form";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUSerIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxShowPass)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxHidePass)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,5 +212,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblEmployeeId;
         private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.PictureBox picBoxShowPass;
+        private System.Windows.Forms.PictureBox picBoxHidePass;
     }
 }
