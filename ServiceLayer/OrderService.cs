@@ -13,26 +13,43 @@ namespace ServiceLayer
         OrderDAO orderdb;
         public OrderService()
         {
-           orderdb = new OrderDAO();
+            orderdb = new OrderDAO();
         }
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr,PayementStatus payementStatus)
+
+        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr, PayementStatus payementStatus)
         {
 
-            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr,payementStatus);
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
         }
-       
-        public void AddToOrder(Order order)
+
+       public List<OrderItem> GetOrderTableNotPayed(Table table)
+        {
+           return orderdb.GetOrderTableNotPayed(table);
+        }
+
+       /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+
+        {
+
+            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
+        }*/
+        public List<MenuItem> GetAllStarters(MenuItemCategory category)
+        {
+            return orderdb.GetAllStarters(category);
+        }
+        public void AddToOrder(Order order, string comment)
         {
             orderdb.AddToOrder(order);
         }
-        public void RemoveToOrder(Order order)  
+        public void RemoveFromOrder(OrderItem order)
         {
-          //  orderdb.Order(order);
+            orderdb.RemoveFromOrder(order);
         }
-        
+
         public Order SearchByID(int ID)
         {
-           return orderdb.SearchByID(ID);
+            return orderdb.SearchByID(ID);
         }
         public void AddFeedback(Order order)
         {
@@ -41,7 +58,7 @@ namespace ServiceLayer
 
             // Add Feedback to the database
             orderdb.EditOrder(query);
-  
+
         }
         public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
         {
@@ -55,7 +72,7 @@ namespace ServiceLayer
 
         public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
         {
-            return orderdb.GetAllOrderForKitchenAndBar(menuItem,orderState);
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
         }
         public void UpdateOrderStatusReadyToDeliver(int orderItemId)
         {

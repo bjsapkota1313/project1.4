@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentConfirmation));
-            this.btnBackMainMenu = new System.Windows.Forms.Button();
+            this.btnBackTableView = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnBackMainMenu
+            // btnBackTableView
             // 
-            this.btnBackMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnBackMainMenu.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnBackMainMenu.ForeColor = System.Drawing.Color.Black;
-            this.btnBackMainMenu.Location = new System.Drawing.Point(70, 715);
-            this.btnBackMainMenu.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btnBackMainMenu.Name = "btnBackMainMenu";
-            this.btnBackMainMenu.Size = new System.Drawing.Size(571, 64);
-            this.btnBackMainMenu.TabIndex = 14;
-            this.btnBackMainMenu.Text = "Back to Main Menu";
-            this.btnBackMainMenu.UseVisualStyleBackColor = false;
+            this.btnBackTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnBackTableView.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnBackTableView.ForeColor = System.Drawing.Color.Black;
+            this.btnBackTableView.Location = new System.Drawing.Point(70, 715);
+            this.btnBackTableView.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
+            this.btnBackTableView.Name = "btnBackTableView";
+            this.btnBackTableView.Size = new System.Drawing.Size(571, 64);
+            this.btnBackTableView.TabIndex = 14;
+            this.btnBackTableView.Text = "Back to Table View";
+            this.btnBackTableView.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -92,7 +92,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnBackMainMenu);
+            this.Controls.Add(this.btnBackTableView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaymentConfirmation";
             this.Text = "PaymentConfirmation";
@@ -103,7 +103,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnBackMainMenu;
+        private System.Windows.Forms.Button btnBackTableView;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;

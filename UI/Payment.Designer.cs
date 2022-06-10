@@ -39,14 +39,11 @@
             this.btnCreditCard = new System.Windows.Forms.Button();
             this.btnPIN = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtVAT = new System.Windows.Forms.TextBox();
-            this.txtTip = new System.Windows.Forms.TextBox();
-            this.txtTotal = new System.Windows.Forms.TextBox();
+
+            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label1
@@ -79,12 +76,14 @@
             // 
             this.listViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Item,
-            this.Price});
+            this.columnHeader1,
+            this.Price,
+            this.columnHeader2});
             this.listViewBill.HideSelection = false;
-            this.listViewBill.Location = new System.Drawing.Point(42, 99);
-            this.listViewBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+
+            this.listViewBill.Location = new System.Drawing.Point(12, 158);
             this.listViewBill.Name = "listViewBill";
-            this.listViewBill.Size = new System.Drawing.Size(361, 204);
+            this.listViewBill.Size = new System.Drawing.Size(694, 428);
             this.listViewBill.TabIndex = 9;
             this.listViewBill.UseCompatibleStateImageBehavior = false;
             this.listViewBill.View = System.Windows.Forms.View.Details;
@@ -92,11 +91,13 @@
             // Item
             // 
             this.Item.Text = "Item";
-            this.Item.Width = 450;
+
+
+            this.Item.Width = 360;
             // 
             // Price
             // 
-            this.Price.Text = "Price";
+            this.Price.Text = "Total price";
             this.Price.Width = 130;
             // 
             // btnAddComment
@@ -164,17 +165,8 @@
             this.label3.Text = "Payment method";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(274, 306);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 20);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "VAT:";
-            // 
+
+
             // label5
             // 
             this.label5.AutoSize = true;
@@ -186,28 +178,7 @@
             this.label5.Size = new System.Drawing.Size(0, 20);
             this.label5.TabIndex = 16;
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(268, 346);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 20);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Total:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(279, 326);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(33, 20);
-            this.label7.TabIndex = 18;
-            this.label7.Text = "Tip:";
-            // 
+
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
@@ -240,31 +211,28 @@
             this.txtTip.Name = "txtTip";
             this.txtTip.Size = new System.Drawing.Size(86, 20);
             this.txtTip.TabIndex = 21;
+
+            // columnHeader1
+
             // 
-            // txtTotal
+            this.columnHeader1.Text = "Quantity";
+            this.columnHeader1.Width = 110;
             // 
-            this.txtTotal.Font = new System.Drawing.Font("Segoe UI", 7.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotal.Location = new System.Drawing.Point(314, 345);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtTotal.Multiline = true;
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(86, 20);
-            this.txtTotal.TabIndex = 22;
+
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "VAT";
+            this.columnHeader2.Width = 90;
             // 
             // Payment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(442, 659);
-            this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.txtTip);
-            this.Controls.Add(this.txtVAT);
+
+            this.ClientSize = new System.Drawing.Size(718, 1062);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnPIN);
             this.Controls.Add(this.btnCreditCard);
@@ -277,6 +245,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Payment";
             this.Text = "Payment";
+            this.Load += new System.EventHandler(this.Payment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,15 +261,11 @@
         private System.Windows.Forms.Button btnCreditCard;
         private System.Windows.Forms.Button btnPIN;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtVAT;
-        private System.Windows.Forms.TextBox txtTip;
-        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.ColumnHeader Item;
         private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

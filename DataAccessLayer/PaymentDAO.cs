@@ -11,47 +11,60 @@ namespace DataAccessLayer
 {
     public  class PaymentDAO : BaseDAO
     {
-        public List<Payment> GetAllPayments()
+        public Payment aPayment(int billID)
         {
             //Create query
-            string query = "SELECT BillID, Type FROM Payment";
+            string query = $"SELECT BillID, Type, Feedback, PaymentStatus, Tip, Total, ID FROM OrderPayment WHERE BillID = '{billID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
-        private List<Payment> ReadTables(DataTable dataTable)
+       
+        private Payment ReadTables(DataTable dataTable)
         {
-            List<Payment> payments = new List<Payment>();
+            Payment payment = new Payment();
 
             try
             {
-                // For each data row, set all data to new Drink object
+                // For each data row, set all data to new Payment object
                 foreach (DataRow dr in dataTable.Rows)
                 {
-                    Payment payment = new Payment()
+                    
                     {
-                  
-                        Bill = (Bill)dr["BillID"],
-                        Type = (int)dr["Type"]
-                    };
-                    // Add new Drink object to list of Drinks
-                    payments.Add(payment);
+
+                        payment.Bill = (Bill)dr["BillID"];
+                        payment.Type = (int)dr["Type"];
+                        payment.Feedback = (string)dr["Feedback"];
+                        payment.PaymentStatus = (bool)dr["PaymentStatus"];
+                        payment.Tip = (decimal)dr["Tip"];
+                        payment.Total = (decimal)dr["Total"];
+                        payment.Id = (int)dr["ID"];
+
+                    }
+
                 }
-                return payments;
+                return payment;
             }
             catch (Exception e)
             {
                 throw new Exception("There is an issue reading the payments data from the database.", e);
             }
         }
-        public Payment SearchByID(int ID)
+        //public Payment SearchByID(int ID)
+        //{
+        //    string query = $"SELECT BillID, Type FROM PAYMENT WHERE BillID='{ID}'";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+
+        //    // Return result of query
+        //    return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
+        //}
+        public void EditPayment(string query)
         {
-            string query = $"SELECT BillID, Type FROM PAYMENT WHERE BillID='{ID}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            // Return result of query
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
+            // Execute query
+            ExecuteEditQuery(query, sqlParameters);
         }
     }
 }

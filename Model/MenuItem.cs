@@ -23,6 +23,6 @@ namespace Model
     }
     public enum MenuItemCategory
     {
-        Drink,Lunch,Dinner,Dessert
+       Drink, LuchStarter,LuchMainCourse, LuchDessert , DinnerStarter, DinnerEntrements,DinnerMainCourse, DinnerDessert
     }
 }
