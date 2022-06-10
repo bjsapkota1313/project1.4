@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Model;
 
 namespace UI
 {
@@ -16,14 +17,10 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-             //Application.Run(new OrderForm());  
-          // Application.Run(new LoginForm());
-            // Application.Run(new TableView());
-
-            // Application.Run(new LoginForm());
-          //Application.Run(new LoginForm());
-
+ 
+              // Application.Run(new LoginForm());
+            Employee employee = new Employee(1,"Name","LastNAme",EmployeeType.Chef);
+            Application.Run(new KitchenAndBarView(employee));   
 
 
             Application.Run(new LoginForm());

@@ -16,10 +16,10 @@ namespace ServiceLayer
             orderdb = new OrderDAO();
         }
 
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr, PayementStatus payementStatus)
+        public Order GetOrdersForSpecificTableWhichisNotPaidYet(int tablenr, PayementStatus payementStatus)
         {
 
-            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
+            return orderdb.GetOrdersForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
         }
 
        public List<OrderItem> GetOrderTableNotPayed(Table table)
@@ -74,6 +74,12 @@ namespace ServiceLayer
         {
             return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
         }
-       
+
+        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
+        {
+            orderdb.UpdateOrderStatusReadyToDeliver(orderItemId);
+
+        }
+
     }
 }

@@ -8,10 +8,8 @@ namespace Model
 {
     public class Bill
     {
-   
         public int BillID { get; set; }
         public int TableNr { get; set; }
        
-        
     }
 }

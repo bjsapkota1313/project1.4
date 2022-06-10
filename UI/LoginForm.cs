@@ -43,7 +43,6 @@ namespace UI
             {
                 loggedEmployee = employeeService.LogEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text);
                 //whenever password is verified login form is hidden
-                this.Hide();
 
 
                 switch (loggedEmployee.EmployeeType)
@@ -53,15 +52,13 @@ namespace UI
                         TableView tableView = new TableView(loggedEmployee);
                         tableView.Show();
                         break;
-                    case EmployeeType.Manager:
-                        // For now there is no management part so leaving it out 
-                        break;
-                    case (EmployeeType.BarTender) | (EmployeeType.Chef):
-                        //whenever chef or Bar man is logged in then kitchen display is shown 
+                    case EmployeeType.BarTender | EmployeeType.Chef:
+                        //whenever chef or Barman is logged in then kitchen display is shown 
                         KitchenAndBarView kitchenAndBarView = new KitchenAndBarView(loggedEmployee);
                         kitchenAndBarView.Show();
                         break;
                 }
+                this.Hide();
 
             }
             catch (Exception e)

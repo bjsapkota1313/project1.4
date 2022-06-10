@@ -104,7 +104,9 @@ namespace UI
 
         private void FoodBtn_Click(object sender, EventArgs e)
         {
-            //loadform(new StarterForm(this));
+
+           // loadform(new StarterForm(this));
+
 
         }
 
@@ -192,7 +194,6 @@ private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
            // orders.Add();
 
 
-           //Order order = new Order(TotalPrice,OrderItems,OrderId,Time, Table, PayementStatus.UnPaid,Feedback);
 
 
         }
