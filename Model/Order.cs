@@ -25,6 +25,6 @@ namespace Model
     }
     public enum PayementStatus
     {
-        UnPaid=0,Paid
+        UnPaid=0 ,Paid
     }
 }

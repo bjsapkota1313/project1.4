@@ -35,7 +35,7 @@ namespace UI
             // Application.Run(new TableView());
 
 
-            Application.Run(new AddFeedback());
+            Application.Run(new Payment(1));
 
             // Application.Run(new KitchenAndBarView());
 

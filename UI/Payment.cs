@@ -22,6 +22,8 @@ namespace UI
         private int TableNr;
         OrderService orderService;
         Order orderSeectedTable;
+        PaymentType paymentType;
+        PaymentTypeService paymentTypeService;
 
 
 
@@ -47,19 +49,19 @@ namespace UI
 
         private void btnCash_Click(object sender, System.EventArgs e)
         {
-            payment.Type = 0;
+            paymentTypeService.Type(0);
             LoadNewForm(new PaymentConfirmation());       
         }
 
         private void btnCreditCard_Click(object sender, System.EventArgs e)
         {
-            payment.Type = 1;
+            paymentTypeService.Type(1);
             LoadNewForm(new PaymentConfirmation());
         }
 
         private void btnPIN_Click(object sender, System.EventArgs e)
         {
-            payment.Type = 3;
+            paymentTypeService.Type(2);
             LoadNewForm(new PaymentConfirmation());
         }
         private void LoadNewForm(object Form)
@@ -85,7 +87,6 @@ namespace UI
             orderService = new OrderService();
 
             orderSeectedTable = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.UnPaid);
-
 
 
             foreach (OrderItem item in orderSeectedTable.OrderItems)

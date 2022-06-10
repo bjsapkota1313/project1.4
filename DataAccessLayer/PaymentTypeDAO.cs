@@ -14,7 +14,7 @@ namespace DataAccessLayer
     {
         public List<PaymentType> GetAllPaymentTypes()
         {
-            string query = "SELECT ID, Type FROM PAYMENTTYPE";
+            string query = "SELECT ID, Type FROM PaymentType";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
@@ -33,10 +33,10 @@ namespace DataAccessLayer
                     PaymentType paymentType = new PaymentType()
                     {
                         ID = (int)dr["ID"],
-                        Type = (string)dr["Tyoe"]
+                        Type = (PaymentTypes)dr["Type"]
 
                     };
-                    // Add new Drink object to list of Drinks
+                    // Add new Payment Type object to list of Payment types
                     PaymentTypes.Add(paymentType);
                 }
                 return PaymentTypes;
@@ -47,9 +47,9 @@ namespace DataAccessLayer
             }
         }
 
-        public PaymentType SearchByID(int ID)
+        public PaymentType Type(int id)
         {
-            string query = $"SELECT ID, Type FROM BILL WHERE ID='{ID}'";
+            string query = $"SELECT ID, Type FROM PaymentType WHERE ID='{id}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query

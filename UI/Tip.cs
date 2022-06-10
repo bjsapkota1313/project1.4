@@ -65,14 +65,14 @@ namespace UI
             else
             {
                 MessageBox.Show("Error");
-            }
-
-          
+            }          
         }
         private void Paid()
         {
+            
             order = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.Paid);
-            //paymentService.ChangePaymentStatus(BillID, true);
+            paymentService.ChangePaymentStatus(BillID, true);
+
         }
         private void SubmitPayment()
         {

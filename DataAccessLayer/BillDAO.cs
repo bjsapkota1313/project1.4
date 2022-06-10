@@ -15,7 +15,7 @@ namespace DataAccessLayer
         public Bill GetBill(int tableNr)
         {
             //Create query
-            string query = $"SELECT BillId, TableNr FROM TableBill WHERE TableNr ='{tableNr}'";
+            string query = $"SELECT BillId, TableNr, OrderID FROM TableBill WHERE TableNr ='{tableNr}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
@@ -36,6 +36,7 @@ namespace DataAccessLayer
 
                         bill.BillID = (int)dr["BillID"];
                         bill.TableNr = (int)dr["TableNr"];
+                        bill.OrderID = (int)dr["OrderID"];
                     }        
                 }
                 return bill;

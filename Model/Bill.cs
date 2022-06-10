@@ -11,6 +11,7 @@ namespace Model
    
         public int BillID { get; set; }
         public int TableNr { get; set; }
+        public int OrderID { get; set; }
        
         
     }

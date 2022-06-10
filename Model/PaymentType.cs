@@ -9,6 +9,12 @@ namespace Model
     public class PaymentType
     {
         public int ID { get; set; }
-        public string Type { get; set; }
+
+        public PaymentTypes Type { get; set; }
     }
+    public enum PaymentTypes
+    {
+        Cash = 0, CreditCard, PIN
+    }
+
 }
