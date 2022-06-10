@@ -18,6 +18,7 @@ namespace UI
             orderService = new OrderService();
             loggedEmployee = employee;
             checkEmployee();
+            btnRunningOrder.Visible = false;
         }
 
         // Display Orders In Listview
@@ -29,8 +30,7 @@ namespace UI
             {
                 foreach (OrderItem item in order.OrderItems)
                 {
-                    ListViewItem li = new ListViewItem(item.OrderItemId.ToString()); //first column
-                    li.SubItems.Add(item.MenuItem.Name);
+                    ListViewItem li = new ListViewItem(item.MenuItem.Name);
                     li.SubItems.Add(item.Quantity.ToString());
                     li.SubItems.Add(item.Feedback.ToString());
                     li.SubItems.Add(item.DateTime.ToString("HH:mm"));
@@ -67,14 +67,6 @@ namespace UI
         }
 
 
-        private void btnKitchenShowCmpltOrder_Click(object sender, EventArgs e)
-        {
-            checkEmployee();
-
-            //FillInKitchenAndBarView(orders);
-            FillInKitchenAndBarView(orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver));
-        }
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             checkEmployee();
@@ -97,6 +89,26 @@ namespace UI
             this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+        }
+
+        private void btnRunningOrder_Click(object sender, EventArgs e)
+        {
+            List<Order> orders;
+            checkEmployee();
+            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
+            FillInKitchenAndBarView(orders);
+            lstViewKitchenAndBar.Show();
+            btnRunningOrder.Visible = false;
+            btnCompletedOrder.Visible = true;
+        }
+
+        private void btnCompletedOrder_Click_1(object sender, EventArgs e)
+        {
+            checkEmployee();
+            btnRunningOrder.Visible = true;
+            btnCompletedOrder.Visible = false;
+
+            FillInKitchenAndBarView(orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver));
         }
     }
 }

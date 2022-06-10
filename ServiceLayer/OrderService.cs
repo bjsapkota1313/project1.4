@@ -70,7 +70,7 @@ namespace ServiceLayer
 
         public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
         {
-            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
+            return orderdb.GetAllOrdersByTableNumber(menuItem, orderState);
         }
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
