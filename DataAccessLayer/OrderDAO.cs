@@ -312,13 +312,14 @@ namespace DataAccessLayer
             sqlParameters[2] = new SqlParameter("@orderId", orderId);
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
-<<<<<<< Updated upstream
-        public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderState orderState)
-=======
-
-
         public List<Order> GetAllOrdersByTableNumber(TypeMenuItem menuItem, OrderState orderState)
->>>>>>> Stashed changes
+        {
+            string query = "SELECT o.OrderID, o.TableNr, o.Time, o.PayementStatus,t.Status, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+            return ReadOrdersForKitchenBar(ExecuteSelectQuery(query, sqlParameters), menuItem, orderState);
+        }
+        public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderState orderState)
+
         {
             string query = "SELECT o.OrderID, o.TableNr, o.Time, o.PayementStatus,t.Status, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
             SqlParameter[] sqlParameters = new SqlParameter[0];
