@@ -38,7 +38,7 @@ namespace UI
 
             SubmitFeedback();
 
-            LoadNewForm(new Payment());
+            LoadNewForm(new Payment(1));
             
         }
         private void LoadNewForm(object Form)

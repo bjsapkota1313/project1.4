@@ -24,10 +24,10 @@ namespace ServiceLayer
         //    return paymentdb.SearchByID(ID);
         //}
 
-        public List<Payment> GetAllOrderedItems(int orderID)
-        {
-            return paymentdb.GetAllOrderedItems(orderID);
-        }
+        //public List<Payment> GetAllOrderedItems(int orderID)
+        //{
+        //    //return paymentdb.GetAllOrderedItems(orderID);
+        //}
 
         public void AddFeedback(int id, string feedback)
         {
@@ -37,7 +37,7 @@ namespace ServiceLayer
             // Add Feedback to the database
             paymentdb.EditPayment(query);
 
-        }      
+        }
         public void AddTip(int id, decimal tip)
         {
             //Create query
@@ -77,3 +77,4 @@ namespace ServiceLayer
 
     }
 }
+

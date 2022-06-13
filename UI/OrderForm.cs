@@ -87,7 +87,7 @@ namespace UI
         }
         private void BillOrderBtn_Click(object sender, EventArgs e)
         {
-            var frm = new Payment();
+            var frm = new Payment(1);
             frm.Location = this.Location;
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };

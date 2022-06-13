@@ -105,7 +105,7 @@ namespace UI
 
             orderService = new OrderService();
 
-            orderSeectedTable = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.UnPaid);
+            //orderSeectedTable = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.UnPaid);
 
 
             foreach (OrderItem item in orderSeectedTable.OrderItems)
