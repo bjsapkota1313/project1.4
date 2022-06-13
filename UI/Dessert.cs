@@ -30,12 +30,27 @@ namespace UI
 
             if ((now > startLuch) && (now < endLuch))
             {
+                try
+                {
                 ShowMenu(MenuItemCategory.LuchDessert);
+
+                }
+                catch
+                {
+                    MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
+                }
 
             }
             else if ((now >= startDinner) && (now <= endDinner))
             {
+                try
+                {
                 ShowMenu(MenuItemCategory.DinnerDessert);
+                }
+                catch
+                {
+                    MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
+                }
             }
 
 

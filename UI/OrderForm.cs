@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Model;
 using ServiceLayer;
+using UI;
 
 namespace UI
 {
@@ -17,34 +18,22 @@ namespace UI
     {
         bool control;
         int menu_with;
-        public OrderForm()
+        private List<OrderItem> orders;
+        Table selectedTable;
+        TimeSpan time = DateTime.Now.TimeOfDay;
+        OrderService orderService1 = new OrderService();
+        DateTime dateTime = DateTime.Now;
+
+        public OrderForm(Table selectedTable)
         {
+            this.selectedTable = selectedTable;
             InitializeComponent();
             control = false;
-           // menu_with = hamburgerMenu.Width;
-
-            //BillOrderBtn.Click += new EventHandler(BillOrderBtn_Click);
-
+            orders = new List<OrderItem>();
         }
-       /* private void ShowMenu(MenuItemCategory category)
-        {
-            OrderService orderService = new OrderService(); ;
-            List<Order> orders = orderService.GetOrderTableNotPayed(table);
-
-            OrderListView.Items.Clear();
-
-            foreach (Order o in orders)
-            {
-                ListViewItem li = new ListViewItem(o.);
-                li.SubItems.Add(o.Price.ToString());
-                li.Tag = o;
-                DessertList.Items.Add(li);
-            }
-
-        }*/
         public void loadform(object Form)
         {
-            if(this.mainpanel.Controls.Count > 0)
+            if (this.mainpanel.Controls.Count > 0)
                 this.mainpanel.Controls.RemoveAt(0);
             Form f = Form as Form;
             f.TopLevel = false;
@@ -54,41 +43,6 @@ namespace UI
             f.Show();
 
         }
-        //hamburger
-       /* private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-                // Expand hamburger menu
-                if (control)
-                {
-                    hamburgerMenu.Width = hamburgerMenu.Width + 10;
-                    if (hamburgerMenu.Width >= menu_with)
-                    {
-                        timer1.Stop();
-                        control = false;
-                        this.Refresh();
-                    }
-                }
-                // close the hamburger menu
-                else
-                {
-                    hamburgerMenu.Width = hamburgerMenu.Width - 10;
-                    if (hamburgerMenu.Width <= 0)
-                    {
-                        timer1.Stop();
-                        control = true;
-                        this.Refresh();
-                        hamburgerMenu.Visible = true;
-
-                    }
-         
-            }
-
-        }*/
 
         private void OrderView_Load(object sender, EventArgs e)
         {
@@ -102,7 +56,10 @@ namespace UI
 
         private void FoodBtn_Click(object sender, EventArgs e)
         {
-            loadform(new StarterForm(this));
+
+           // loadform(new StarterForm(this));
+
+
         }
 
         private void MainCourseBtn_Click(object sender, EventArgs e)
@@ -150,50 +107,40 @@ namespace UI
                 OrderListView.Items.RemoveAt(Item);
             }
         }
-           /*     {
-            OrderItem order = (OrderItem)OrderLIstView.SelectedItems[0].Tag;
-
-        DialogResult result = MessageBox.Show($"Are you sure?",
-                                              "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-            {
-                OrderService orders = new OrderService();
-        orders.RemoveFromOrder(order);
-            }
-        }*/
-private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
+        private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
-        /*public void ShowOrder(int tablenr, PayementStatus payementStatus)
-        {
-            OrderService orderService = new OrderService(); ;
-            List<Order> orders = orderService.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
-
-            OrderLIstView.Items.Clear();
-
-            foreach (Order o in orders)
-            {
-                ListViewItem li = new ListViewItem(o.Menu.ToString());
-                li.SubItems.Add(o.TotalPrice.ToString());
-                li.Tag = o;
-                LvStarterList.Items.Add(li);
-            }
-
-
-        }*/
 
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
             List<Order> orders = new List<Order>();
-           //Order order = new Order(TotalPrice,OrderItems,OrderId,Time, Table, PayementStatus.UnPaid,Feedback);
+            OrderService orderService = new OrderService();
+            foreach (ListViewItem item in OrderListView.Items)
+            {
+                OrderItem orderItem = new OrderItem();
+                orderService.AddToOrderItem(orderItem);
+            }
 
+        }
+        private void CreateOrder()
+        {
+            List<OrderItem> orders = new List<OrderItem>();
 
+            try
+            {
+                orderService1.GetIdFromUnpaied(orders, selectedTable);
+
+            }
+            catch
+            {
+                MessageBox.Show("uPs SoMeThInG wEnT wRoNg");
+            }
         }
         public List<OrderItem> GetOrderItem()
         {
             List<OrderItem> orders = new List<OrderItem>();
 
-            foreach(ListViewItem item in OrderLIstView.Items)
+            foreach (ListViewItem item in OrderLIstView.Items)
             {
                 OrderItem order = (OrderItem)item.Tag;
                 orders.Add(order);
@@ -211,7 +158,7 @@ private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
         }
 
 
-        }
-
-
     }
+
+
+}

@@ -18,10 +18,10 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
-        private  Order SelectedTableOrder { get { return orderService.GetOrderForSpecificTableWhichisNotPaidYet(selectedTable.Number, PayementStatus.UnPaid); } }
+        private  List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
         public EachTableDisplay( Table selectedTable)
         {
-            // With passing Table and orders for specific table you can see the whole details for e=selected table 
+            // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
 
             //making the new order service when eachdisplay form is called
@@ -52,14 +52,14 @@ namespace UI
             btnTakeOrder.Enabled = false;
             BtnCheckout.Enabled = false;
 
-            if (selectedTable.Status == TableStatus.Occupied && SelectedTableOrder.OrderItems.Count == 0)
+            if (selectedTable.Status == TableStatus.Occupied && SelectedTableOrderItems.Count == 0)
             {
                 pnlForOtherInfo.Visible = true;
                 btnMarkAsServed.Hide();
                 BtnCheckout.Enabled = false;
                 BtnMakeTableFree.Show();
             }
-            else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrder.OrderItems.Count == 0)
+            else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrderItems.Count == 0)
             {
                 LblInfoAboveButton.Show();
                 BtnMakeTableFree.Show();
@@ -76,7 +76,7 @@ namespace UI
             else
             {
                 pnlForOtherInfo.Visible = false;
-                FillListViewItems(SelectedTableOrder.OrderItems);
+                FillListViewItems(SelectedTableOrderItems);
                 DesiredColumnsOfListView();
                 btnTakeOrder.Enabled = true;
                 BtnCheckout.Enabled = true;
@@ -150,7 +150,7 @@ namespace UI
             }
 
             // showing again new listr view 
-            FillListViewItems(SelectedTableOrder.OrderItems);
+            FillListViewItems(SelectedTableOrderItems);
         }
 
         private void ListViewOfOrderItems_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +201,12 @@ namespace UI
             RefreshDisplay(selectedTable);
         }
 
-       
+        private void btnTakeOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            OrderForm orderForm = new OrderForm(selectedTable);
+            orderForm.Show();
+        }
+        
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.BackBtnOrder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.OrderDBView = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.StarterBtn = new System.Windows.Forms.Button();
@@ -42,6 +41,7 @@
             this.OrderLIstView = new System.Windows.Forms.ListView();
             this.Name = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
+            this.Id = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
@@ -65,25 +65,12 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
-            this.panel2.Controls.Add(this.OrderDBView);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.BackBtnOrder);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(728, 68);
             this.panel2.TabIndex = 2;
-            // 
-            // OrderDBView
-            // 
-            this.OrderDBView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.OrderDBView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.OrderDBView.Location = new System.Drawing.Point(288, 9);
-            this.OrderDBView.Name = "OrderDBView";
-            this.OrderDBView.Size = new System.Drawing.Size(210, 51);
-            this.OrderDBView.TabIndex = 13;
-            this.OrderDBView.Text = "The Order";
-            this.OrderDBView.UseVisualStyleBackColor = false;
-            this.OrderDBView.Click += new System.EventHandler(this.OrderDBView_Click);
             // 
             // button2
             // 
@@ -163,6 +150,7 @@
             // OrderLIstView
             // 
             this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Id,
             this.Name,
             this.Price});
             this.OrderLIstView.HideSelection = false;
@@ -177,12 +165,17 @@
             // Name
             // 
             this.Name.Text = "Name";
-            this.Name.Width = 140;
+            this.Name.Width = 120;
             // 
             // Price
             // 
             this.Price.Text = "Quantity";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 30;
             // 
             // button1
             // 
@@ -249,6 +242,6 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button OrderDBView;
+        private System.Windows.Forms.ColumnHeader Id;
     }
 }

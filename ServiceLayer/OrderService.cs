@@ -16,37 +16,34 @@ namespace ServiceLayer
             orderdb = new OrderDAO();
         }
 
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tablenr, PayementStatus payementStatus)
-        {
-
-            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(tablenr, payementStatus);
-        }
-
        public List<OrderItem> GetOrderTableNotPayed(Table table)
         {
            return orderdb.GetOrderTableNotPayed(table);
         }
 
-       /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
+        /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
 
+         {
+
+             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
+
+         }*/
+        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
-
-            return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
-
-        }*/
+            orderdb.GetIdFromUnpaied(list, TableNr);
+        }
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
             return orderdb.GetAllStarters(category);
         }
-        public void AddToOrder(Table selectedtable, TimeoutException time, DateTime date)
-        {
-            orderdb.AddToOrder(selectedtable, time, date);
-        }
-
         public void RemoveFromOrder(OrderItem order)
 
         {
             orderdb.RemoveFromOrder(order);
+        }
+        public void AddToOrderItem(OrderItem item)
+        {
+             orderdb.AddToOrderItems(item);
         }
 
         public Order SearchByID(int ID)
@@ -72,15 +69,14 @@ namespace ServiceLayer
             orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
         }
 
-            public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
-            {
-                return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
-            }
-            public void UpdateOrderStatusReadyToDeliver(int orderItemId)
-            {
-                orderdb.UpdateOrderStatusReadyToDeliver(orderItemId);
-
-            }
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        {
+            return orderdb.GetAllOrdersByTableNumber(menuItem, orderState);
         }
-       
-    } }
+        public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
+        {
+           return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);
+        }
+
+    }
+}
