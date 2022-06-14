@@ -35,8 +35,15 @@ namespace UI
                     li.SubItems.Add(item.Feedback.ToString());
                     li.SubItems.Add(item.DateTime.ToString("HH:mm"));
                     li.SubItems.Add(order.Table.Number.ToString());
-                    li.SubItems.Add(item.OrderState.ToString());
-                    //li.SubItems.Add(order.OrderItemsToString());
+
+                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    {
+                        li.SubItems.Add("Ready");
+                    }
+                    else if (item.OrderState == OrderState.PreparingOrder)
+                    {
+                        li.SubItems.Add("Preparing");
+                    }
                     li.Tag = item;
                     lstViewKitchenAndBar.Items.Add(li);
                 }
