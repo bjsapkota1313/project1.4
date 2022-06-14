@@ -35,8 +35,15 @@ namespace UI
                     li.SubItems.Add(item.Feedback.ToString());
                     li.SubItems.Add(item.DateTime.ToString("HH:mm"));
                     li.SubItems.Add(order.Table.Number.ToString());
-                    li.SubItems.Add(item.OrderState.ToString());
-                    //li.SubItems.Add(order.OrderItemsToString());
+
+                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    {
+                        li.SubItems.Add("Ready");
+                    }
+                    else if (item.OrderState == OrderState.PreparingOrder)
+                    {
+                        li.SubItems.Add("Preparing");
+                    }
                     li.Tag = item;
                     lstViewKitchenAndBar.Items.Add(li);
                 }
@@ -44,7 +51,7 @@ namespace UI
         }
 
         // Check if the employee is chef then show KitchenView and if the employee is Bartender then show BarView
-        public void checkEmployee()
+        private  void checkEmployee()
         {
             List<Order> orders;
             switch (loggedEmployee.EmployeeType)
@@ -61,8 +68,6 @@ namespace UI
                     FillInKitchenAndBarView(orders);
                     lblKitchenAndBarView.Text = "Bar View";
                     break;
-                default:
-                    break;
             }
         }
 
@@ -75,6 +80,7 @@ namespace UI
         //Ready Button For kitchenandBar
         private void btnKitchenReady_Click(object sender, EventArgs e)
         {
+            // enabling multiple selection true 
             foreach(ListViewItem lvI in lstViewKitchenAndBar.SelectedItems)
             {
                 orderItem = (OrderItem)lvI.Tag;
@@ -94,21 +100,20 @@ namespace UI
         private void btnRunningOrder_Click(object sender, EventArgs e)
         {
             List<Order> orders;
-            checkEmployee();
             orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
             FillInKitchenAndBarView(orders);
-            lstViewKitchenAndBar.Show();
             btnRunningOrder.Visible = false;
             btnCompletedOrder.Visible = true;
         }
 
         private void btnCompletedOrder_Click_1(object sender, EventArgs e)
         {
-            checkEmployee();
             btnRunningOrder.Visible = true;
             btnCompletedOrder.Visible = false;
 
-            FillInKitchenAndBarView(orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver));
+            List<Order> orders;
+            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver);
+            FillInKitchenAndBarView(orders);
         }
     }
 }

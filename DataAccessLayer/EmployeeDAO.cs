@@ -13,7 +13,6 @@ namespace DataAccessLayer
 {
      public class EmployeeDAO:BaseDAO
        {
-       
         public Employee SearchById(int id)
         {
             string query = "SELECT EmployeeID, FirstName, LastName,FROM Employee WHERE EmployeeID=@ID";

@@ -11,14 +11,7 @@ using Model;
 namespace DataAccessLayer
 {
    public   class TableDAO:BaseDAO
-    {
-        private SqlConnection dbConnection;
-        public TableDAO()
-        {
-            // connecting to database
-            string connString = ConfigurationManager.ConnectionStrings["Chapeau"].ConnectionString;
-            dbConnection = new SqlConnection(connString);
-        }
+   {
         public Table SearchTable(int tableNumber)
         {
             string query = "SELECT TableNr,Status From [Table] WHERE TableNr=@TableNr"; 
@@ -65,5 +58,5 @@ namespace DataAccessLayer
             ExecuteEditQuery(query, sqlParameters);
 
         }
-    }
+   }
 }

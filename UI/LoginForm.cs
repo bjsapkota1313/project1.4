@@ -37,6 +37,7 @@ namespace UI
             picBoxShowPass.BackColor = txtBoxPassword.BackColor;
             picBoxHidePass.BackColor = txtBoxPassword.BackColor;
         }
+
         private void Login()
         {
             try
@@ -66,6 +67,7 @@ namespace UI
             }
 
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
@@ -88,6 +90,7 @@ namespace UI
             txtBoxPassword.PasswordChar = '*';
             picBoxShowPass.Show();
         }
+
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // whenever form exit button is pressed it closes the application

@@ -57,6 +57,7 @@ namespace UI
                 pnlForOtherInfo.Visible = true;
                 btnMarkAsServed.Hide();
                 BtnCheckout.Enabled = false;
+                btnTakeOrder.Enabled = true;
                 BtnMakeTableFree.Show();
             }
             else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrderItems.Count == 0)
@@ -105,8 +106,6 @@ namespace UI
                 {
                     dateTimeToShow = item.DateTime.ToString("HH:mm");
                 }
-
-                // )
                 ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString()); //first column
                 li.SubItems.Add(item.Quantity.ToString());
                 li.SubItems.Add(dateTimeToShow);
@@ -139,8 +138,6 @@ namespace UI
         {
             this.Close();
         }
-
-
 
         private void btnMarkAsServed_Click(object sender, EventArgs e)
         {
