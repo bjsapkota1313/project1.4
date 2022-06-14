@@ -92,8 +92,14 @@ namespace UI
             return feedback;
         }
 
-        private void DrinkAddBtn_Click_1(object sender, EventArgs e)
+        private void AddDrinksBtn_Click(object sender, EventArgs e)
         {
+            int Quantity = 1;
+            MenuItem menuItem = (MenuItem)DrinkListView.SelectedItems[0].Tag;
+            string feedback = GetFeedback();
+
+            OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+            AddToListOrderItems(item);
 
         }
     }

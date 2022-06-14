@@ -32,8 +32,8 @@
             this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
-            this.DrinkAddBtn = new System.Windows.Forms.Button();
             this.CommentDrink = new System.Windows.Forms.TextBox();
+            this.AddDrinksBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DrinkListView
@@ -65,17 +65,6 @@
             // 
             this.MainCourseListPrice.Text = "Price";
             // 
-            // DrinkAddBtn
-            // 
-            this.DrinkAddBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.DrinkAddBtn.Location = new System.Drawing.Point(4, 359);
-            this.DrinkAddBtn.Name = "DrinkAddBtn";
-            this.DrinkAddBtn.Size = new System.Drawing.Size(495, 27);
-            this.DrinkAddBtn.TabIndex = 6;
-            this.DrinkAddBtn.Text = "Add";
-            this.DrinkAddBtn.UseVisualStyleBackColor = false;
-            this.DrinkAddBtn.Click += new System.EventHandler(this.DrinkAddBtn_Click_1);
-            // 
             // CommentDrink
             // 
             this.CommentDrink.Location = new System.Drawing.Point(4, 287);
@@ -85,14 +74,24 @@
             this.CommentDrink.TabIndex = 5;
             this.CommentDrink.Text = "Comment...";
             // 
+            // AddDrinksBtn
+            // 
+            this.AddDrinksBtn.Location = new System.Drawing.Point(4, 359);
+            this.AddDrinksBtn.Name = "AddDrinksBtn";
+            this.AddDrinksBtn.Size = new System.Drawing.Size(495, 40);
+            this.AddDrinksBtn.TabIndex = 6;
+            this.AddDrinksBtn.Text = "Add";
+            this.AddDrinksBtn.UseVisualStyleBackColor = true;
+            this.AddDrinksBtn.Click += new System.EventHandler(this.AddDrinksBtn_Click);
+            // 
             // Drink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(503, 411);
+            this.Controls.Add(this.AddDrinksBtn);
             this.Controls.Add(this.CommentDrink);
-            this.Controls.Add(this.DrinkAddBtn);
             this.Controls.Add(this.DrinkListView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Drink";
@@ -107,8 +106,8 @@
         private System.Windows.Forms.ListView DrinkListView;
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
-        private System.Windows.Forms.Button DrinkAddBtn;
         private System.Windows.Forms.TextBox CommentDrink;
         private System.Windows.Forms.ColumnHeader ItemId;
+        private System.Windows.Forms.Button AddDrinksBtn;
     }
 }
