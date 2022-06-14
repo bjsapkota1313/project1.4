@@ -40,7 +40,8 @@ namespace UI
 
             foreach (MenuItem o in items)
             {
-                ListViewItem li = new ListViewItem(o.Name.ToString());
+                ListViewItem li = new ListViewItem(o.ItemId.ToString());
+                li.SubItems.Add(o.Name.ToString());
                 li.SubItems.Add(o.Price.ToString());
                 li.Tag = o;
                 DrinkListView.Items.Add(li);
@@ -55,14 +56,25 @@ namespace UI
             string feedback = GetFeedback();
 
             OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+            AddToListOrderItems(item);
 
-            ListViewItem li = new ListViewItem(item.MenuItem.Name);
-            li.Tag = item;
-            li.SubItems.Add(item.Quantity.ToString());
-            li.SubItems.Add(item.Feedback.ToString());
+        }
+        private void AddToListOrderItems(OrderItem item)
+        {
+            try
+            {
+                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
+                li.SubItems.Add(item.MenuItem.Name);
+                li.SubItems.Add(item.Quantity.ToString());
+                li.SubItems.Add(item.Feedback.ToString());
+                li.Tag = item;
 
-            orderform.OrderListView.Items.Add(li);
-
+                orderform.OrderListView.Items.Add(li);
+            }
+            catch
+            {
+                MessageBox.Show("Ups.Something went wrong. While adding the Item.");
+            }
 
         }
         private string GetFeedback()
@@ -80,7 +92,10 @@ namespace UI
             return feedback;
         }
 
+        private void DrinkAddBtn_Click_1(object sender, EventArgs e)
+        {
 
+        }
     }
 }
 

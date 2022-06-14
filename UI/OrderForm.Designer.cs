@@ -39,9 +39,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.SubmitOrder = new System.Windows.Forms.Button();
             this.OrderLIstView = new System.Windows.Forms.ListView();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.Name = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
-            this.Id = new System.Windows.Forms.ColumnHeader();
             this.button1 = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
@@ -61,6 +61,7 @@
             this.BackBtnOrder.TabIndex = 0;
             this.BackBtnOrder.Text = "Back to Home";
             this.BackBtnOrder.UseVisualStyleBackColor = false;
+            this.BackBtnOrder.Click += new System.EventHandler(this.BackBtnOrder_Click);
             // 
             // panel2
             // 
@@ -150,7 +151,7 @@
             // OrderLIstView
             // 
             this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
+            this.ItemId,
             this.Name,
             this.Price});
             this.OrderLIstView.HideSelection = false;
@@ -162,20 +163,20 @@
             this.OrderLIstView.View = System.Windows.Forms.View.Details;
             this.OrderLIstView.SelectedIndexChanged += new System.EventHandler(this.OrderLIstView_SelectedIndexChanged);
             // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            this.ItemId.Width = 40;
+            // 
             // Name
             // 
             this.Name.Text = "Name";
-            this.Name.Width = 120;
+            this.Name.Width = 100;
             // 
             // Price
             // 
             this.Price.Text = "Quantity";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // Id
-            // 
-            this.Id.Text = "Id";
-            this.Id.Width = 30;
             // 
             // button1
             // 
@@ -242,6 +243,6 @@
         private System.Windows.Forms.ColumnHeader Price;
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader ItemId;
     }
 }

@@ -26,15 +26,16 @@ namespace DataAccessLayer
         }
         public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr )
         {
+            // get the Order Id from table where order(s) have not beeen payed yet
             string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PaymentStatus = 0;";
 
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-            // preventing from sql injections
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            // security sql layer
             sqlParameters[0] = new SqlParameter("@TableNr", TableNr);
 
             int orderId = RunningOrder(ExecuteSelectQuery(query,sqlParameters));
-            // if order id is not 0 add to orderid else create a new order
+            //if order already exists 
             if(orderId != 0)
             {
                 AddToExisting(list, orderId);
@@ -43,7 +44,6 @@ namespace DataAccessLayer
             {
                 AddNew(list, orderId);
             }
-
 
         }
         private int RunningOrder(DataTable dataTable)
@@ -68,6 +68,7 @@ namespace DataAccessLayer
         {
             foreach (OrderItem item in orderItems)
             {
+                // if exists add 1 to the quantity else insert new OrderItem
                 string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
 
                 SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
@@ -79,9 +80,9 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-        private void AddNew(List<OrderItem> orderItem, int TableNr)
+        private void AddNew(List<OrderItem> orderItem, int TableNr)// no order existing create new one and add into it
         {
-            string query = "INSERT INTO [Order] (TableNr) VALUES (@TableNr)";
+            string query = "INSERT INTO [Order] (TableNr) VALUES (@TableNr)";// add new
 
             SqlParameter[] sqlParameters =
             {
@@ -94,6 +95,7 @@ namespace DataAccessLayer
             foreach (OrderItem item in orderItem)
             {
                 string query2 = "INSERT INTO OrderItem (OrderId, MenuItemId, OrderItemDateTime,Feedback) VALUES (@HighOrderId, @MenuItemId, @datetime,@feedback)";
+                // insert into newly created order highest Id is the lastest created order which means all these vallues will be inserted into the newst order.
 
                 SqlParameter[] sqlParameters1 =
                 {
@@ -106,7 +108,7 @@ namespace DataAccessLayer
             }
 
         }
-        private int GetHighId()
+        private int GetHighId()// get the latest orderer created
         {
             string query = "SELECT MAX(OrderId) AS 'MAXID' from [Order]";
             return ReadHighestID(ExecuteSelectQuery(query, new SqlParameter[0]));
@@ -122,7 +124,7 @@ namespace DataAccessLayer
                 return 0;
             }
         }
-        public List<OrderItem> GetOrderTableNotPayed(Table table)
+        public List<OrderItem> GetOrderTableNotPayed(Table table)// dispaly the order(s) of the table which have not been paed yet which means the customer is still in the resaturant.
         {
             string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [OrderItem].OrderStatus, [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=2;";
             SqlParameter[] sqlParameters = new SqlParameter[2];
@@ -145,7 +147,7 @@ namespace DataAccessLayer
             }
             return orderlist;
         }
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
+        /*public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
         {
             string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus  From [Order] AS O "
                 + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
@@ -169,7 +171,7 @@ namespace DataAccessLayer
                 order.OrderItems = ListOfOrderItemsInOneOrder(order.OrderId);
             }
             return order;
-        }
+        }*/
 
         private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)
         {
@@ -194,28 +196,6 @@ namespace DataAccessLayer
 
         // 
 
-
-        public Order GetOrder(int tableNr)
-        {
-            string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [Table].[Status], [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=@TableNr;";
-            SqlParameter[] sqlParamenters = new SqlParameter[2];
-            sqlParamenters[1] = new SqlParameter("@TableNR", tableNr);
-            return ReadTable(ExecuteSelectQuery(query, sqlParamenters));
-        }
-        private Order ReadTable(DataTable dataTable)
-        {
-            Order order = new Order();
-            OrderItem item = new OrderItem();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                order.OrderId = (int)dr["OrderID"];
-                order.Time = (DateTime)dr["Time"];
-                order.Table.Number = (int)dr["TableNr"];
-                order.Table.Status = (TableStatus)dr["Status"];
-                order.Feedback = (string)dr["Feedback"];
-            }
-            return order;
-        }
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
 
         {
@@ -226,13 +206,13 @@ namespace DataAccessLayer
         }
         public void AddToOrderItems(OrderItem item)
         {
-            string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback','@Quantity','@Time');";
+            string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback',@Quantity,@Time);";
             SqlParameter[] parameters = new SqlParameter[]
             {
-                new SqlParameter("@OrderStatus",item.OrderState),
+                new SqlParameter("@OrderStatus",(int)OrderState.RunningOrder),
                 new SqlParameter("@Feedback",item.Feedback),
                  new SqlParameter("@Quantity",item.Quantity),
-                new SqlParameter("@Time", item.DateTime)
+                new SqlParameter("@Time", item.DateTime.ToString("HH:mm"))
             };
 
             ExecuteEditQuery(query, parameters);
@@ -255,6 +235,7 @@ namespace DataAccessLayer
             foreach (DataRow dr in dataTable.Rows)
             {
                 MenuItem item = new MenuItem();
+                item.ItemId = (int)dr["ItemId"];
                 item.Name = (string)dr["name"];
                 item.Price = (decimal)dr["Price"];
                

@@ -34,6 +34,7 @@
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.DessertAddBtn = new System.Windows.Forms.Button();
             this.CommentDessert = new System.Windows.Forms.TextBox();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +51,7 @@
             // DessertListView
             // 
             this.DessertListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ItemId,
             this.MainCourseListName,
             this.MainCourseListPrice});
             this.DessertListView.FullRowSelect = true;
@@ -69,7 +71,6 @@
             // MainCourseListPrice
             // 
             this.MainCourseListPrice.Text = "Price";
-            this.MainCourseListPrice.Width = 95;
             // 
             // DessertAddBtn
             // 
@@ -90,6 +91,12 @@
             this.CommentDessert.Size = new System.Drawing.Size(494, 65);
             this.CommentDessert.TabIndex = 4;
             this.CommentDessert.Text = "Comment...";
+            // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            this.ItemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ItemId.Width = 30;
             // 
             // Dessert
             // 
@@ -118,5 +125,6 @@
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
         private System.Windows.Forms.Button DessertAddBtn;
         private System.Windows.Forms.TextBox CommentDessert;
+        private System.Windows.Forms.ColumnHeader ItemId;
     }
 }

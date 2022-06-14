@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.DrinkListView = new System.Windows.Forms.ListView();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.DrinkAddBtn = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@
             // DrinkListView
             // 
             this.DrinkListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ItemId,
             this.MainCourseListName,
             this.MainCourseListPrice});
             this.DrinkListView.FullRowSelect = true;
@@ -49,6 +51,11 @@
             this.DrinkListView.UseCompatibleStateImageBehavior = false;
             this.DrinkListView.View = System.Windows.Forms.View.Details;
             // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            this.ItemId.Width = 30;
+            // 
             // MainCourseListName
             // 
             this.MainCourseListName.Text = "Name";
@@ -57,18 +64,18 @@
             // MainCourseListPrice
             // 
             this.MainCourseListPrice.Text = "Price";
-            this.MainCourseListPrice.Width = 95;
             // 
             // DrinkAddBtn
             // 
-            //this.DrinkAddBtn.Location = new System.Drawing.Point(3, 359);
-            //this.DrinkAddBtn.Name = "DrinkAddBtn";
-            //this.DrinkAddBtn.Size = new System.Drawing.Size(494, 43);
-            //this.DrinkAddBtn.TabIndex = 4;
-            //this.DrinkAddBtn.Text = "Add";
-            //this.DrinkAddBtn.UseVisualStyleBackColor = true;
-            //this.DrinkAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
-            //// 
+            this.DrinkAddBtn.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.DrinkAddBtn.Location = new System.Drawing.Point(4, 359);
+            this.DrinkAddBtn.Name = "DrinkAddBtn";
+            this.DrinkAddBtn.Size = new System.Drawing.Size(494, 40);
+            this.DrinkAddBtn.TabIndex = 6;
+            this.DrinkAddBtn.Text = "Add";
+            this.DrinkAddBtn.UseVisualStyleBackColor = false;
+            this.DrinkAddBtn.Click += new System.EventHandler(this.DrinkAddBtn_Click_1);
+            // 
             // CommentDrink
             // 
             this.CommentDrink.Location = new System.Drawing.Point(4, 287);
@@ -102,5 +109,6 @@
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
         private System.Windows.Forms.Button DrinkAddBtn;
         private System.Windows.Forms.TextBox CommentDrink;
+        private System.Windows.Forms.ColumnHeader ItemId;
     }
 }

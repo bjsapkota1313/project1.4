@@ -23,8 +23,10 @@ namespace UI
             TimeSpan endLuch = new TimeSpan(17, 0, 0); //17 o'clock
             TimeSpan startDinner = new TimeSpan(17, 0, 0); //17 o'clock
             TimeSpan endDinner = new TimeSpan(22, 0, 0); //22 o'clock
-                                                         //Testing
-                                                         // TimeSpan now = new TimeSpan(18, 0, 0);
+            string closed = "Restaurant is closed!";
+
+            //Testing
+            // TimeSpan now = new TimeSpan(18, 0, 0);
 
             TimeSpan now = DateTime.Now.TimeOfDay;
 
@@ -52,6 +54,10 @@ namespace UI
                     MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
                 }
             }
+            else
+            {
+                MessageBox.Show(closed);
+            }
 
 
             this.orderform = orderform;
@@ -67,7 +73,8 @@ namespace UI
 
             foreach (MenuItem o in items)
             {
-                ListViewItem li = new ListViewItem(o.Name.ToString());
+                ListViewItem li = new ListViewItem(o.ItemId.ToString());
+                li.SubItems.Add(o.Name.ToString());
                 li.SubItems.Add(o.Price.ToString());
                 li.Tag = o;
                 DessertListView.Items.Add(li);
@@ -93,13 +100,25 @@ namespace UI
             string feedback = GetFeedback();
 
             OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+            AddToListOrderItems(item);
 
-            ListViewItem li = new ListViewItem(item.MenuItem.Name);
-            li.Tag = item;
-            li.SubItems.Add(item.Quantity.ToString());
-            li.SubItems.Add(item.Feedback.ToString());
+        }
+        private void AddToListOrderItems(OrderItem item)
+        {
+            try
+            {
+                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
+                li.SubItems.Add(item.MenuItem.Name);
+                li.SubItems.Add(item.Quantity.ToString());
+                li.SubItems.Add(item.Feedback.ToString());
+                li.Tag = item;
 
-            orderform.OrderListView.Items.Add(li);
+                orderform.OrderListView.Items.Add(li);
+            }
+            catch
+            {
+                MessageBox.Show("Ups.Something went wrong. While adding the Item.");
+            }
 
         }
         private string GetFeedback()
