@@ -119,7 +119,7 @@ namespace UI
                 MenuItem menuItem = (MenuItem)LvStarterList.SelectedItems[0].Tag;
                 string feedback = GetFeedback();
 
-                //OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+                OrderItem item1 = new OrderItem(Quantity, menuItem, feedback);
                 ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
                 li.SubItems.Add(item.MenuItem.Name);
                 li.SubItems.Add(item.Quantity.ToString());

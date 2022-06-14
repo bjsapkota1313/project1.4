@@ -13,18 +13,8 @@ namespace DataAccessLayer
     public class OrderDAO : BaseDAO
 
     {          //Getting the list of orderItem having the same order
-        public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
-        {
-            string query = "Select O.OrderItemId,O.OrderStatus,o.Feedback,o.Quantity,o.OrderItemDateTime,M.ItemId,M.[Name],M.Price,M.ItemType,M.ItemCategory From [OrderItem] As [O] "
-                + " JOIN [Menu_Item] As [M] on M.ItemID= O.MenuItemId "
-                + " Where O.OrderId= @Id ";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            // preventing from sql injections
-            sqlParameters[0] = new SqlParameter("@ID", OrderId);
-            return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
-        }
-        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr )
+        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PaymentStatus = 0;";
 
@@ -33,9 +23,9 @@ namespace DataAccessLayer
             // preventing from sql injections
             sqlParameters[0] = new SqlParameter("@TableNr", TableNr);
 
-            int orderId = RunningOrder(ExecuteSelectQuery(query,sqlParameters));
+            int orderId = RunningOrder(ExecuteSelectQuery(query, sqlParameters));
             // if order id is not 0 add to orderid else create a new order
-            if(orderId != 0)
+            if (orderId != 0)
             {
                 AddToExisting(list, orderId);
             }
@@ -46,11 +36,12 @@ namespace DataAccessLayer
 
 
         }
+
         private int RunningOrder(DataTable dataTable)
         {
             if (dataTable != null)
             {
-                if(dataTable.Rows.Count > 0)
+                if (dataTable.Rows.Count > 0)
                 {
                     return int.Parse(dataTable.Rows[0]["OrderID"].ToString());
                 }
@@ -64,6 +55,7 @@ namespace DataAccessLayer
                 throw new Exception("Error");
             }
         }
+
         private void AddToExisting(List<OrderItem> orderItems, int orderID)
         {
             foreach (OrderItem item in orderItems)
@@ -79,6 +71,7 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
+
         private void AddNew(List<OrderItem> orderItem, int TableNr)
         {
             string query = "INSERT INTO [Order] (TableNr) VALUES (@TableNr)";
@@ -87,7 +80,7 @@ namespace DataAccessLayer
             {
                 new SqlParameter("@TableNr", TableNr)
             };
-            ExecuteEditQuery(query,sqlParameters);
+            ExecuteEditQuery(query, sqlParameters);
 
             int highestID = GetHighId();
 
@@ -102,18 +95,19 @@ namespace DataAccessLayer
                     new SqlParameter("@datetime",DateTime.Now),
                     new SqlParameter("@feedback",item.Feedback)
                 };
-                ExecuteEditQuery(query2,sqlParameters1);
+                ExecuteEditQuery(query2, sqlParameters1);
             }
-
         }
+
         private int GetHighId()
         {
             string query = "SELECT MAX(OrderId) AS 'MAXID' from [Order]";
             return ReadHighestID(ExecuteSelectQuery(query, new SqlParameter[0]));
         }
+
         private int ReadHighestID(DataTable dataTable)
         {
-            if(dataTable != null && dataTable.Rows.Count > 0)
+            if (dataTable != null && dataTable.Rows.Count > 0)
             {
                 return int.Parse(dataTable.Rows[0]["MAXID"].ToString());
             }
@@ -122,6 +116,7 @@ namespace DataAccessLayer
                 return 0;
             }
         }
+
         public List<OrderItem> GetOrderTableNotPayed(Table table)
         {
             string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [OrderItem].OrderStatus, [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=2;";
@@ -130,6 +125,7 @@ namespace DataAccessLayer
             sqlParameters[0] = new SqlParameter("@TableNr", table);
             return ReadingOrderofSpecificTableOrder(ExecuteSelectQuery(query, sqlParameters));
         }
+
         private List<OrderItem> ReadingOrderofSpecificTableOrder(DataTable dataTable)
         {
             List<OrderItem> orderlist = new List<OrderItem>();
@@ -145,55 +141,8 @@ namespace DataAccessLayer
             }
             return orderlist;
         }
-        public Order GetOrderForSpecificTableWhichisNotPaidYet(int tableNr, PayementStatus payementStatus)
-        {
-            string query = "Select O.OrderID,T.TableNr,T.[Status],O.[Date],o.[Time],o.PayementStatus  From [Order] AS O "
-                + " join [Table] as T On O.TableNr=T.TableNr " + " where O.TableNr=@TableNr AND o.PayementStatus=@PayementStatus ";
-            SqlParameter[] sqlParameters = new SqlParameter[2];
-            // preventing from sql injections
-            sqlParameters[0] = new SqlParameter("@TableNr", tableNr);
-            sqlParameters[1] = new SqlParameter("@PayementStatus", (int)payementStatus);
-            return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
-        }
-        private Order ReadingOrderofSpecificTable(DataTable dataTable)
-        {
-            Order order = new Order();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                order.OrderId = (int)dr["OrderID"];
-                order.Time = Convert.ToDateTime(dr["Time"].ToString());
-                order.Table.Number = (int)dr["TableNr"];
-                order.Table.Status = (TableStatus)dr["Status"];
-                order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-               
-                order.OrderItems = ListOfOrderItemsInOneOrder(order.OrderId);
-            }
-            return order;
-        }
 
-        private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)
-        {
-            List<OrderItem> list = new List<OrderItem>();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                OrderItem item= new OrderItem();
-                item.OrderItemId = (int)dr["OrderItemId"];
-                item.OrderState = (OrderState)dr["OrderStatus"];
-                item.Feedback = (string)dr["Feedback"];
-                item.Quantity = (int)dr["Quantity"];
-                item.DateTime = (DateTime)dr["OrderItemDateTime"];
-                item.MenuItem.ItemId = (int)dr["ItemId"];
-                item.MenuItem.Name = (string)dr["Name"];
-                item.MenuItem.Price = (decimal)dr["Price"];
-                item.MenuItem.Category = (MenuItemCategory)dr["ItemCategory"];
-                item.MenuItem.TypeMenuItem=(TypeMenuItem)dr["ItemType"];
-                list.Add(item); 
-            }
-            return list;    
-        }
-
-        // 
-
+      
 
         public Order GetOrder(int tableNr)
         {
@@ -202,6 +151,7 @@ namespace DataAccessLayer
             sqlParamenters[1] = new SqlParameter("@TableNR", tableNr);
             return ReadTable(ExecuteSelectQuery(query, sqlParamenters));
         }
+
         private Order ReadTable(DataTable dataTable)
         {
             Order order = new Order();
@@ -216,14 +166,15 @@ namespace DataAccessLayer
             }
             return order;
         }
-        public List<MenuItem> GetAllStarters(MenuItemCategory category)
 
+        public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
             string query = "Select Name,ItemId,Price from [Menu_Item] WHERE ItemCategory = @itemCategory;";
             SqlParameter[] sqlParamenters = new SqlParameter[1];
             sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));
         }
+
         public void AddToOrderItems(OrderItem item)
         {
             string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback','@Quantity','@Time');";
@@ -237,6 +188,7 @@ namespace DataAccessLayer
 
             ExecuteEditQuery(query, parameters);
         }
+
         public void RemoveFromOrder(OrderItem order)
         {
             string query = "Delete OrderItem FROM OrderItem INNER JOIN[Order] ON OrderItem.OrderId = [Order].OrderID WHERE [Order].OrderID = @ItemId AND OrderItem.OrderId = @ItemId;";
@@ -247,7 +199,6 @@ namespace DataAccessLayer
             ExecuteEditQuery(query, parameters);
         }
 
-
         private List<MenuItem> ReadTables(DataTable dataTable)
         {
             List<MenuItem> items = new List<MenuItem>();
@@ -257,11 +208,12 @@ namespace DataAccessLayer
                 MenuItem item = new MenuItem();
                 item.Name = (string)dr["name"];
                 item.Price = (decimal)dr["Price"];
-               
-            items.Add(item);
+
+                items.Add(item);
             }
             return items;
         }
+
         public Order SearchByID(int ID)
         {
             string query = "Select OrderID, Time, TableNr, ItemID from [Order] WHERE OrderID = @OrderID";
@@ -271,6 +223,7 @@ namespace DataAccessLayer
             };
             return ReadID(ExecuteSelectQuery(query, sqlParamenters));
         }
+
         public void EditOrder(string query)
         {
             SqlParameter[] sqlParameters = new SqlParameter[0];
@@ -288,45 +241,17 @@ namespace DataAccessLayer
             return order;
         }
 
-        public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
-        {
-            // updating the time whenever order item is updated 
-            string query = "UPDATE [OrderItem] set OrderItemDateTime= GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' , OrderStatus=@OrderStatus " 
-                + " WHERE orderItemId =@orderItemId";
-            SqlParameter[] parameters = new SqlParameter[2];
-            parameters[0] = new SqlParameter("@orderItemId", orderItem.OrderItemId);
-            parameters[1] = new SqlParameter("OrderStatus",(int)orderItem.OrderState);
-            ExecuteEditQuery(query, parameters);
-        }
-
-
         // Getting all the orders for kitchenAndBar
-        public List<OrderItem> GetAllRunningOrder(TypeMenuItem menuItem, OrderState orderState, int orderId)
-        {
-            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
-            + " Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
-
-            SqlParameter[] sqlParameters = new SqlParameter[3];
-            sqlParameters[0] = new SqlParameter("@itemType", (int)menuItem);
-            sqlParameters[1] = new SqlParameter("@orderState", (int)orderState);
-            sqlParameters[2] = new SqlParameter("@orderId", orderId);
-            return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
-        }
-<<<<<<< Updated upstream
-        public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderState orderState)
-=======
-
-
-        public List<Order> GetAllOrdersByTableNumber(TypeMenuItem menuItem, OrderState orderState)
->>>>>>> Stashed changes
+        public List<Order> GetAllOrders(TypeMenuItem menuItem, OrderState orderState)
         {
             string query = "SELECT o.OrderID, o.TableNr, o.Time, o.PayementStatus,t.Status, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
             SqlParameter[] sqlParameters = new SqlParameter[0];
-            return ReadOrdersForKitchenBar(ExecuteSelectQuery(query, sqlParameters),menuItem,orderState);
+            return ReadOrdersForKitchenBar(ExecuteSelectQuery(query, sqlParameters), menuItem, orderState);
         }
-        private List<Order> ReadOrdersForKitchenBar (DataTable dataTable, TypeMenuItem menuItem, OrderState orderState)
+
+        private List<Order> ReadOrdersForKitchenBar(DataTable dataTable, TypeMenuItem menuItem, OrderState orderState)
         {
-          List<Order> orders = new List<Order>();   
+            List<Order> orders = new List<Order>();
             foreach (DataRow dr in dataTable.Rows)
             {
                 Order order = new Order();
@@ -335,23 +260,23 @@ namespace DataAccessLayer
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
                 order.PayementStatus = (PayementStatus)dr["PayementStatus"];
-                order.OrderItems = GetAllRunningOrder( menuItem, orderState, order.OrderId);
+                order.OrderItems = GetAllRunningOrderItems(menuItem, orderState, order.OrderId);
                 orders.Add(order);
             }
             return orders;
         }
-
-        //update the order status from Preparing to ReadyToDeliver
-        public void UpdateOrderStatusReadyToDeliver(int orderItemId)
+        public List<OrderItem> GetAllRunningOrderItems(TypeMenuItem menuItem, OrderState orderState, int orderId)
         {
-            string query = $@"update OrderItem SET OrderStatus = {(int)OrderState.ReadyToDeliver}
-                WHERE OrderItemId = @orderItemId";
+            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId,m.ItemType From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
+            + " Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
-            sqlParameters[0] = new SqlParameter("@orderItemId", orderItemId);
-
-            ExecuteEditQuery(query, sqlParameters);
+            SqlParameter[] sqlParameters = new SqlParameter[3];
+            sqlParameters[0] = new SqlParameter("@itemType", (int)menuItem);
+            sqlParameters[1] = new SqlParameter("@orderState", (int)orderState);
+            sqlParameters[2] = new SqlParameter("@orderId", orderId);
+            return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
+
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
             // arranding it so that ready to deliver order doesnot get missed 
@@ -365,6 +290,36 @@ namespace DataAccessLayer
             sqlParameters[1] = new SqlParameter("@PayementStatus", payementStatus);
 
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
+        }
+        private List<OrderItem> ReadingTableForOrderItemsList(DataTable dataTable)
+        {
+            List<OrderItem> list = new List<OrderItem>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem item = new OrderItem();
+                item.OrderItemId = (int)dr["OrderItemId"];
+                item.OrderState = (OrderState)dr["OrderStatus"];
+                item.Feedback = (string)dr["Feedback"];
+                item.Quantity = (int)dr["Quantity"];
+                item.DateTime = (DateTime)dr["OrderItemDateTime"];
+                item.MenuItem.ItemId = (int)dr["ItemId"];
+                item.MenuItem.Name = (string)dr["Name"];
+                item.MenuItem.Price = (decimal)dr["Price"];
+                item.MenuItem.Category = (MenuItemCategory)dr["ItemCategory"];
+                item.MenuItem.TypeMenuItem = (TypeMenuItem)dr["ItemType"];
+                list.Add(item);
+            }
+            return list;
+        }
+        public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
+        {
+            // updating the time whenever order item is updated 
+            string query = "UPDATE [OrderItem] set OrderItemDateTime= GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' , OrderStatus=@OrderStatus "
+                + " WHERE orderItemId =@orderItemId";
+            SqlParameter[] parameters = new SqlParameter[2];
+            parameters[0] = new SqlParameter("@orderItemId", orderItem.OrderItemId);
+            parameters[1] = new SqlParameter("OrderStatus", (int)orderItem.OrderState);
+            ExecuteEditQuery(query, parameters);
         }
     }
 }
