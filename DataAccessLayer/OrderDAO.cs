@@ -34,7 +34,6 @@ namespace DataAccessLayer
             {
                 AddNew(list, orderId);
             }
-
         }
 
         private int RunningOrder(DataTable dataTable)

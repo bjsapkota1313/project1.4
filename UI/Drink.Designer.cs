@@ -44,7 +44,7 @@
             this.MainCourseListPrice});
             this.DrinkListView.FullRowSelect = true;
             this.DrinkListView.HideSelection = false;
-            this.DrinkListView.Location = new System.Drawing.Point(4, 13);
+            this.DrinkListView.Location = new System.Drawing.Point(12, 13);
             this.DrinkListView.Name = "DrinkListView";
             this.DrinkListView.Size = new System.Drawing.Size(494, 268);
             this.DrinkListView.TabIndex = 3;
@@ -67,7 +67,8 @@
             // 
             // CommentDrink
             // 
-            this.CommentDrink.Location = new System.Drawing.Point(4, 287);
+            this.CommentDrink.ForeColor = System.Drawing.Color.Silver;
+            this.CommentDrink.Location = new System.Drawing.Point(12, 287);
             this.CommentDrink.Multiline = true;
             this.CommentDrink.Name = "CommentDrink";
             this.CommentDrink.Size = new System.Drawing.Size(495, 66);
@@ -76,7 +77,7 @@
             // 
             // AddDrinksBtn
             // 
-            this.AddDrinksBtn.Location = new System.Drawing.Point(4, 359);
+            this.AddDrinksBtn.Location = new System.Drawing.Point(12, 359);
             this.AddDrinksBtn.Name = "AddDrinksBtn";
             this.AddDrinksBtn.Size = new System.Drawing.Size(495, 40);
             this.AddDrinksBtn.TabIndex = 6;
@@ -89,7 +90,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClientSize = new System.Drawing.Size(503, 411);
+            this.ClientSize = new System.Drawing.Size(519, 450);
             this.Controls.Add(this.AddDrinksBtn);
             this.Controls.Add(this.CommentDrink);
             this.Controls.Add(this.DrinkListView);

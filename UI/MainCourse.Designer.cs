@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.MainCourseList = new System.Windows.Forms.ListView();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.MainCourseAdd = new System.Windows.Forms.Button();
             this.CommentMainCourse = new System.Windows.Forms.TextBox();
-            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label1
@@ -63,6 +63,11 @@
             this.MainCourseList.UseCompatibleStateImageBehavior = false;
             this.MainCourseList.View = System.Windows.Forms.View.Details;
             // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            this.ItemId.Width = 30;
+            // 
             // MainCourseListName
             // 
             this.MainCourseListName.Text = "Name";
@@ -71,7 +76,6 @@
             // MainCourseListPrice
             // 
             this.MainCourseListPrice.Text = "Price";
-            this.MainCourseListPrice.Width = 65;
             // 
             // MainCourseAdd
             // 
@@ -92,11 +96,6 @@
             this.CommentMainCourse.Size = new System.Drawing.Size(493, 79);
             this.CommentMainCourse.TabIndex = 3;
             this.CommentMainCourse.Text = "Comment...";
-            // 
-            // ItemId
-            // 
-            this.ItemId.Text = "Id";
-            this.ItemId.Width = 30;
             // 
             // MainCourse
             // 

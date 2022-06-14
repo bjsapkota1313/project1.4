@@ -45,8 +45,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.mainpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // BackBtnOrder
@@ -154,6 +157,7 @@
             this.ItemId,
             this.Name,
             this.Price});
+            this.OrderLIstView.FullRowSelect = true;
             this.OrderLIstView.HideSelection = false;
             this.OrderLIstView.Location = new System.Drawing.Point(3, 331);
             this.OrderLIstView.Name = "OrderLIstView";
@@ -202,10 +206,21 @@
             // 
             // mainpanel
             // 
+            this.mainpanel.Controls.Add(this.pictureBox1);
             this.mainpanel.Location = new System.Drawing.Point(212, 68);
             this.mainpanel.Name = "mainpanel";
             this.mainpanel.Size = new System.Drawing.Size(517, 993);
             this.mainpanel.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.Logo_inverted;
+            this.pictureBox1.Location = new System.Drawing.Point(127, 129);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(289, 162);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // OrderForm
             // 
@@ -222,6 +237,9 @@
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.mainpanel.ResumeLayout(false);
+            this.mainpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -244,5 +262,6 @@
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ColumnHeader ItemId;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

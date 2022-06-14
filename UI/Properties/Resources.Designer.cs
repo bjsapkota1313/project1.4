@@ -243,6 +243,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_inverted {
+            get {
+                object obj = ResourceManager.GetObject("Logo inverted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OrderRunning3030 {
             get {
                 object obj = ResourceManager.GetObject("OrderRunning3030", resourceCulture);

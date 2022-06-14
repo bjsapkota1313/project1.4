@@ -178,6 +178,9 @@
   <data name="PrepCoffee5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrepCoffee5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ArrowFatLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowFatLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -196,11 +199,11 @@
   <data name="DrinkReadyToBeserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DrinkReadyToBeserved.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="EyesOpened6040" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EyesOpened6040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="EyesOpen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EyesOpen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ArrowFatLeftNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ArrowFatLeftNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OrderRunning3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OrderRunning3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,13 +217,13 @@
   <data name="RunningOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RunningOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ArrowFatLeftNew" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ArrowFatLeftNew.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="prepdrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prepdrink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EyesOpened6040" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EyesOpened6040.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo inverted" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo inverted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

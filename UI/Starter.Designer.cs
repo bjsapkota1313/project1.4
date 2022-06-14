@@ -31,9 +31,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.StarterAddBtn = new System.Windows.Forms.Button();
             this.LvStarterList = new System.Windows.Forms.ListView();
+            this.Id = new System.Windows.Forms.ColumnHeader();
             this.StarterListName = new System.Windows.Forms.ColumnHeader("(none)");
             this.StarterListPrice = new System.Windows.Forms.ColumnHeader();
-            this.Id = new System.Windows.Forms.ColumnHeader();
             this.CommentStarters = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
@@ -75,18 +75,19 @@
             this.LvStarterList.View = System.Windows.Forms.View.Details;
             this.LvStarterList.SelectedIndexChanged += new System.EventHandler(this.StarterList_SelectedIndexChanged);
             // 
+            // Id
+            // 
+            this.Id.Text = "Id";
+            this.Id.Width = 30;
+            // 
             // StarterListName
             // 
             this.StarterListName.Text = "Name";
-            this.StarterListName.Width = 370;
+            this.StarterListName.Width = 395;
             // 
             // StarterListPrice
             // 
             this.StarterListPrice.Text = "Price";
-            // 
-            // Id
-            // 
-            this.Id.Text = "ItemId";
             // 
             // CommentStarters
             // 
