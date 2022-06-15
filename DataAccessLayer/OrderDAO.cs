@@ -357,5 +357,55 @@ namespace DataAccessLayer
 
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
+        //Updating the feedback of an order
+        public void AddFeedback(int id, string feedback)
+        {
+            string query = $"UPDATE [Order] SET Feedback = '{feedback}' WHERE OrderID = '{id}'";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            // Preventing SQL from injections
+            sqlParameters[0] = new SqlParameter("@ID", id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+        //Getting the bill of an order
+        public List<OrderItem> GetBill(int OrderId)
+        {
+            string query = $"SELECT O.OrderId, O.Quantity,M.[Name],M.Price, M.VAT FROM OrderItem AS O INNER JOIN Menu_Item AS M ON M.ItemID = O.MenuItemId WHERE O.OrderId = '{OrderId}'";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            // Preventing SQL from injections
+            sqlParameters[0] = new SqlParameter("@ID", OrderId);
+            return ReadingTableForBill(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<OrderItem> ReadingTableForBill(DataTable dataTable)
+        {
+            List<OrderItem> list = new List<OrderItem>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem item = new OrderItem();
+                item.OrderID = (int)dr["OrderId"];
+                item.Quantity = (int)dr["Quantity"];
+                item.MenuItem.Name = (string)dr["Name"];
+                item.MenuItem.Price = (decimal)dr["Price"];
+                item.MenuItem.VAT = (decimal)dr["VAT"];
+                list.Add(item);
+            }
+            return list;
+        }
+        private Order ReadingOrderFeedback(DataTable dataTable)
+        {
+            Order order = new Order();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                order.OrderId = (int)dr["OrderID"];
+                order.Feedback = (string)dr["Feedback"];
+
+            }
+            return order;
+        }
     }
 }

@@ -10,7 +10,7 @@ using Model;
 
 namespace DataAccessLayer
 {
-    public class BillDAO:BaseDAO
+    public class BillDAO : BaseDAO
     {
         public Bill GetBill(int tableNr)
         {

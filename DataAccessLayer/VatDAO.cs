@@ -1,47 +1,47 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Model;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-using Model;
+using System.Configuration;
 
 namespace DataAccessLayer
 {
-    public class PaymentTypeDAO : BaseDAO
+    public class VatDAO : BaseDAO
     {
-        public PaymentType GetType(int id)
+        public VAT GetVAT(int vatId)
         {
             //Create query
-            string query = $"SELECT ID, Type  WHERE ID ='{id}'";
+            string query = $"SELECT VatID, VAT  WHERE VatID ='{vatId}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
         }
-        private PaymentType ReadTables(DataTable dataTable)
+        private VAT ReadTables(DataTable dataTable)
         {
-            PaymentType type = new PaymentType();
+            VAT vat = new VAT();
 
             try
             {
-                // For each data row, set all data to new type object
+                // For each data row, set all data to new vat object
                 foreach (DataRow dr in dataTable.Rows)
                 {
 
                     {
-                        type.ID = (int)dr["ID"];
-                        type.Type = (string)dr["Type"];
+                        vat.VatID = (int)dr["VatID"];
+                        vat.ValueVAT = (decimal)dr["VAT"];
                     }
                 }
-                return type;
+                return vat;
             }
             catch (Exception e)
             {
-                throw new Exception("There is an issue reading the Payment Method data from the database.", e);
+                throw new Exception("There is an issue reading the VAT data from the database.", e);
             }
         }
     }

@@ -15,19 +15,10 @@ namespace ServiceLayer
         {
             paymentdb = new PaymentDAO();
         }
-        //public Payment GetPayment(int billID)
-        //{
-        //   // return paymentdb.GetPayment(billID);
-        //}
-        //public Payment SearchByID(int ID)
-        //{
-        //    return paymentdb.SearchByID(ID);
-        //}
-
-        //public List<Payment> GetAllOrderedItems(int orderID)
-        //{
-        //    //return paymentdb.GetAllOrderedItems(orderID);
-        //}
+        public Payment AddPaymentMethod(int id, int type)
+        {
+            return paymentdb.AddPaymentMethod(id, type);
+        }
 
         public void AddFeedback(int id, string feedback)
         {
@@ -74,6 +65,8 @@ namespace ServiceLayer
             paymentdb.EditPayment(query);
 
         }
+
+
 
     }
 }

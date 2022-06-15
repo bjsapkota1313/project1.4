@@ -50,44 +50,16 @@ namespace DataAccessLayer
                 throw new Exception("There is an issue reading the payments data from the database.", e);
             }
         }
+        public Payment AddPaymentMethod(int id, int type)
+        {
+            //Create query
+            string query = $"INSERT INTO OrderPayment(BillID, [Type]) VALUES ('{id}', '{type}')";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
-        //public List<Payment> GetAllOrderedItems(int orderID)
-        //{
-        //    //Create query
-        //    string query = $"SELECT Quantity, OrderID, M.[Name], M.Price, M.VAT FROM OrderItem O JOIN Menu_Item M ON O.OrderItemId = M.ItemID WHERE OrderID = '{orderID}'";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+            // Return result of query
+            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
-        //    // Return result of query
-        //    return ReadingTableBill(ExecuteSelectQuery(query, sqlParameters));
-
-        //}
-        //private List<OrderItem> ReadingTableBill(DataTable dataTable)
-        //{
-        //    List<OrderItem> o = new List<OrderItem>();
-
-        //    foreach (DataRow dr in dataTable.Rows)
-        //    {
-        //        MenuItem menu = new MenuItem();
-
-
-        //        OrderItem.OrderID = (int)dr["OrderID"];
-        //        order.Quantity = (int)dr["Quantity"];
-        //        menu.Name = (string)dr["Name"];
-        //        menu.Price = (decimal)dr["Price"];
-        //        menu.VAT = (decimal)dr["VAT"];
-        //        o.Add(order);
-
-        //    }
-        //    return ;
-        //}
-        //public Payment SearchByID(int ID)
-        //{
-        //    string query = $"SELECT BillID, Type FROM PAYMENT WHERE BillID='{ID}'";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-
-        //    // Return result of query
-        //    return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
-        //}
+        }
         public void EditPayment(string query)
         {
             SqlParameter[] sqlParameters = new SqlParameter[0];

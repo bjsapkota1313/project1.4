@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.lblTableNum = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.listViewBill = new System.Windows.Forms.ListView();
             this.Item = new System.Windows.Forms.ColumnHeader();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
@@ -56,18 +55,6 @@
             this.lblTableNum.TabIndex = 6;
             this.lblTableNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Gray;
-            this.label2.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-15, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(744, 82);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "\'Hamb menu\'";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // listViewBill
             // 
             this.listViewBill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -77,7 +64,7 @@
             this.columnHeader2});
             this.listViewBill.HideSelection = false;
             this.listViewBill.Location = new System.Drawing.Point(14, 159);
-            this.listViewBill.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.listViewBill.Margin = new System.Windows.Forms.Padding(5);
             this.listViewBill.Name = "listViewBill";
             this.listViewBill.Size = new System.Drawing.Size(695, 422);
             this.listViewBill.TabIndex = 9;
@@ -204,7 +191,6 @@
             this.Controls.Add(this.btnCash);
             this.Controls.Add(this.btnAddComment);
             this.Controls.Add(this.listViewBill);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTableNum);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Payment";
@@ -218,7 +204,6 @@
         #endregion
 
         private System.Windows.Forms.Label lblTableNum;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ListView listViewBill;
         private System.Windows.Forms.Button btnAddComment;
         private System.Windows.Forms.Button btnCash;

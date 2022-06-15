@@ -17,7 +17,7 @@ namespace UI
             Application.SetCompatibleTextRenderingDefault(false);
 
              //Application.Run(new OrderForm());  
-          Application.Run(new LoginForm());
+          Application.Run(new Tip(1, 2));
             // Application.Run(new TableView());
 
             // Application.Run(new LoginForm());

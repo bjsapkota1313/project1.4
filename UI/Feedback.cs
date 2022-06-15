@@ -21,15 +21,17 @@ namespace UI
         private Payment payment;
         private BillService billService;
         private int TableNr;
+        OrderService orderService;
+        Order order;
      
 
 
-        public AddFeedback(int tableNr)
+        public AddFeedback()
         {
             InitializeComponent();
 
-            this.TableNr = tableNr;
-            this.bill = billService.GetBill(TableNr);
+            //this.TableNr = tableNr;
+            //this.bill = billService.GetBill(TableNr);
 
             btnSubmit.Click += new EventHandler(btnSubmit_Click);
         }
@@ -41,6 +43,12 @@ namespace UI
             LoadNewForm(new Payment(1));
             
         }
+  
+        private void SubmitFeedback()
+        {
+            orderService = new OrderService();
+            orderService.AddFeedback(1, txtBoxComment.Text);
+        }
         private void LoadNewForm(object Form)
         {
             Form frm = Form as Form;
@@ -50,9 +58,4 @@ namespace UI
             frm.Show();
             this.Hide();
         }
-        private void SubmitFeedback()
-        {
-            
-            paymentService.AddFeedback(bill.BillID, txtBoxComment.Text);
-        }
-    } }
+    }   }

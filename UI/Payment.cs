@@ -20,10 +20,12 @@ namespace UI
         Model.Payment payment;
         List<OrderItem> orderItems;
         private int TableNr;
-        OrderService orderService;
+        //OrderService orderService;
         Order orderSeectedTable;
         PaymentType paymentType;
         PaymentTypeService paymentTypeService;
+        Order order;
+        private int PaymentMethod;
 
 
 
@@ -31,7 +33,6 @@ namespace UI
         {
             InitializeComponent();
 
-            //ListOrderedItems();
             this.TableNr = tableNr;
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
@@ -40,49 +41,84 @@ namespace UI
             btnPIN.Click += new EventHandler(btnPIN_Click);
         }
 
+        private void Payment_Load(object sender, EventArgs e)
+        {
+            //this.bill = billService.GetBill(TableNr);
 
-                // For each Order object in the list, create a new List Item and fill details before adding it
-                //foreach (Order o in orderItems)
-                //{
-                //    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
-                //    li.SubItems.Add(o.TotalPrice.ToString());
-                //    listViewBill.Items.Add(li);
-                //}
-            
-            //catch (Exception ex)
-            //{
-            //    // Write error to log and get file path
-            //    string filePath = ErrorLogger.LogError(ex);
+            // Display a lable with the table number 
+            lblTableNum.Text = $"Table Number {TableNr.ToString()}";
 
-            //    // Display message box when an error occured with the appropiate error
-            //    MessageBox.Show("Something went wrong while loading the Bill: " + ex.Message + Environment.NewLine
-            //        + Environment.NewLine + "Error log location: " + filePath);
-            //}
+            // Display the bill in a listView
+            ListViewItemsOnBill();
 
-        
-       
+        }
+        private void ListViewItemsOnBill()
+        {
+
+            try
+            {
+                OrderService orderService = new OrderService();
+                List<OrderItem> bill = orderService.GetBill(1);
+
+
+                // clear the listview ITEMS before filling it again !!Using list.Clear() will remove the column headers too.
+                listViewBill.Items.Clear();
+
+                
+
+                foreach (OrderItem item in bill)
+                {
+
+                    ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
+                    li.SubItems.Add(item.Quantity.ToString());
+                    li.SubItems.Add(item.MenuItem.Price.ToString());
+                    li.SubItems.Add(item.MenuItem.VAT.ToString());
+                    listViewBill.Items.Add(li);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                // Write error to log and get file path
+                string filePath = ErrorLogger.LogError(ex);
+
+                // Display message box when an error occured with the appropiate error
+                MessageBox.Show("Something went wrong while loading the bill: " + ex.Message + Environment.NewLine
+                    + Environment.NewLine + "Error log location: " + filePath);
+            }
+        }
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-           // LoadNewForm(new AddFeedback());
+             LoadNewForm(new AddFeedback());
         }
 
         private void btnCash_Click(object sender, System.EventArgs e)
         {
-            paymentTypeService.Type(0);
-            LoadNewForm(new PaymentConfirmation());       
+            //payment.Type = 0;
+
+            //paymentService.AddPaymentMethod(1, payment.Type);
+
+
+            LoadNewForm(new PaymentConfirmation());
         }
 
         private void btnCreditCard_Click(object sender, System.EventArgs e)
         {
-            paymentTypeService.Type(1);
+            //paymentService = new PaymentService();
+
+            //paymentService.AddPaymentMethod(1, 1);
+            //paymentTypeService.GetType(1);
             LoadNewForm(new PaymentConfirmation());
         }
 
         private void btnPIN_Click(object sender, System.EventArgs e)
         {
-            paymentTypeService.Type(2);
+            //payment.Type = 2;
+
+            //paymentService.AddPaymentMethod(1, payment.Type);
             LoadNewForm(new PaymentConfirmation());
         }
+
         private void LoadNewForm(object Form)
         {
             Form frm = Form as Form;
@@ -92,33 +128,8 @@ namespace UI
             frm.Show();
             this.Hide();
         }
-
-        private void Payment_Load(object sender, EventArgs e)
-        {
-            this.bill = billService.GetBill(TableNr);
-            lblTableNum.Text = $"Table Number {bill.TableNr.ToString()}";
-            ListViewItemsOnBill();
-
-        }
-        private void ListViewItemsOnBill()
-        {
-
-            orderService = new OrderService();
-
-            //orderSeectedTable = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.UnPaid);
-
-
-            foreach (OrderItem item in orderSeectedTable.OrderItems)
-            {
-
-                ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
-                li.SubItems.Add(item.Quantity.ToString());
-                li.SubItems.Add(item.MenuItem.Price.ToString());
-                li.SubItems.Add(item.MenuItem.VAT.ToString("0.00"));
-                listViewBill.Items.Add(li);
-            }
-        }
+    }
     }
           
-}
+
 

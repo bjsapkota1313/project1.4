@@ -15,17 +15,9 @@ namespace ServiceLayer
         {
             paymentTypedb = new PaymentTypeDAO();
         }
-        public List<PaymentType> GetAllPaymentTypes()
+        public PaymentType GetType(int id)
         {
-            return paymentTypedb.GetAllPaymentTypes();
-        }
-        //public PaymentType SearchByID(int ID)
-        //{
-        //    return paymentTypeDAO.SearchByID(ID);
-        //}
-        public PaymentType Type(int id)
-        {
-            return paymentTypedb.Type(id);
+            return paymentTypedb.GetType(id);
         }
 
     }

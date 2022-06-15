@@ -15,6 +15,7 @@ namespace Model
         public int Quantity { get; set; }   
         public DateTime DateTime { get; set; }
         public OrderState OrderState { get; set; }
+
         public OrderItem()
         {
             MenuItem = new MenuItem();  
