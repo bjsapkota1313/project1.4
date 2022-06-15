@@ -54,6 +54,7 @@
             this.ItemId,
             this.MainCourseListName,
             this.MainCourseListPrice});
+            this.MainCourseList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.MainCourseList.FullRowSelect = true;
             this.MainCourseList.HideSelection = false;
             this.MainCourseList.Location = new System.Drawing.Point(12, 12);
@@ -79,12 +80,15 @@
             // 
             // MainCourseAdd
             // 
+            this.MainCourseAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.MainCourseAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MainCourseAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.MainCourseAdd.Location = new System.Drawing.Point(12, 371);
             this.MainCourseAdd.Name = "MainCourseAdd";
             this.MainCourseAdd.Size = new System.Drawing.Size(494, 37);
             this.MainCourseAdd.TabIndex = 2;
             this.MainCourseAdd.Text = "Add";
-            this.MainCourseAdd.UseVisualStyleBackColor = true;
+            this.MainCourseAdd.UseVisualStyleBackColor = false;
             this.MainCourseAdd.Click += new System.EventHandler(this.MainCourseAdd_Click);
             // 
             // CommentMainCourse

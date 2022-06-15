@@ -42,14 +42,16 @@
             this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.Name = new System.Windows.Forms.ColumnHeader();
             this.Price = new System.Windows.Forms.ColumnHeader();
-            this.button1 = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
-            this.mainpanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.mainpanel = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.mainpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel3.SuspendLayout();
+            this.mainpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // BackBtnOrder
@@ -94,9 +96,10 @@
             // 
             this.StarterBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.StarterBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.StarterBtn.Location = new System.Drawing.Point(1, 41);
+            this.StarterBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.StarterBtn.Location = new System.Drawing.Point(18, 6);
             this.StarterBtn.Name = "StarterBtn";
-            this.StarterBtn.Size = new System.Drawing.Size(210, 51);
+            this.StarterBtn.Size = new System.Drawing.Size(159, 51);
             this.StarterBtn.TabIndex = 4;
             this.StarterBtn.Text = "Starter";
             this.StarterBtn.UseVisualStyleBackColor = false;
@@ -106,9 +109,10 @@
             // 
             this.MainCourseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.MainCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.MainCourseBtn.Location = new System.Drawing.Point(1, 116);
+            this.MainCourseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.MainCourseBtn.Location = new System.Drawing.Point(198, 6);
             this.MainCourseBtn.Name = "MainCourseBtn";
-            this.MainCourseBtn.Size = new System.Drawing.Size(210, 51);
+            this.MainCourseBtn.Size = new System.Drawing.Size(159, 51);
             this.MainCourseBtn.TabIndex = 5;
             this.MainCourseBtn.Text = "Main Course";
             this.MainCourseBtn.UseVisualStyleBackColor = false;
@@ -118,9 +122,10 @@
             // 
             this.DessertBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.DessertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.DessertBtn.Location = new System.Drawing.Point(1, 185);
+            this.DessertBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.DessertBtn.Location = new System.Drawing.Point(378, 6);
             this.DessertBtn.Name = "DessertBtn";
-            this.DessertBtn.Size = new System.Drawing.Size(210, 51);
+            this.DessertBtn.Size = new System.Drawing.Size(159, 51);
             this.DessertBtn.TabIndex = 6;
             this.DessertBtn.Text = "Dessert";
             this.DessertBtn.UseVisualStyleBackColor = false;
@@ -131,24 +136,23 @@
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.OrderLIstView);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
-            this.panel1.Controls.Add(this.StarterBtn);
-            this.panel1.Controls.Add(this.MainCourseBtn);
-            this.panel1.Controls.Add(this.DessertBtn);
-            this.panel1.Location = new System.Drawing.Point(0, 68);
+            this.panel1.Location = new System.Drawing.Point(514, 135);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 993);
+            this.panel1.Size = new System.Drawing.Size(214, 927);
             this.panel1.TabIndex = 7;
             // 
             // SubmitOrder
             // 
-            this.SubmitOrder.Location = new System.Drawing.Point(3, 686);
+            this.SubmitOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.SubmitOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SubmitOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.SubmitOrder.Location = new System.Drawing.Point(3, 379);
             this.SubmitOrder.Name = "SubmitOrder";
-            this.SubmitOrder.Size = new System.Drawing.Size(208, 23);
+            this.SubmitOrder.Size = new System.Drawing.Size(208, 39);
             this.SubmitOrder.TabIndex = 12;
             this.SubmitOrder.Text = "Submit";
-            this.SubmitOrder.UseVisualStyleBackColor = true;
+            this.SubmitOrder.UseVisualStyleBackColor = false;
             this.SubmitOrder.Click += new System.EventHandler(this.SubmitOrder_Click);
             // 
             // OrderLIstView
@@ -159,7 +163,7 @@
             this.Price});
             this.OrderLIstView.FullRowSelect = true;
             this.OrderLIstView.HideSelection = false;
-            this.OrderLIstView.Location = new System.Drawing.Point(3, 331);
+            this.OrderLIstView.Location = new System.Drawing.Point(3, 8);
             this.OrderLIstView.Name = "OrderLIstView";
             this.OrderLIstView.Size = new System.Drawing.Size(208, 320);
             this.OrderLIstView.TabIndex = 11;
@@ -182,45 +186,62 @@
             this.Price.Text = "Quantity";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // RemoveOrderBtn
+            // 
+            this.RemoveOrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.RemoveOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RemoveOrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 334);
+            this.RemoveOrderBtn.Name = "RemoveOrderBtn";
+            this.RemoveOrderBtn.Size = new System.Drawing.Size(208, 39);
+            this.RemoveOrderBtn.TabIndex = 8;
+            this.RemoveOrderBtn.Text = "Remove";
+            this.RemoveOrderBtn.UseVisualStyleBackColor = false;
+            this.RemoveOrderBtn.Click += new System.EventHandler(this.RemoveOrderBtn_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(1, 257);
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(558, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 51);
+            this.button1.Size = new System.Drawing.Size(159, 51);
             this.button1.TabIndex = 10;
             this.button1.Text = "Drink";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // RemoveOrderBtn
-            // 
-            this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 657);
-            this.RemoveOrderBtn.Name = "RemoveOrderBtn";
-            this.RemoveOrderBtn.Size = new System.Drawing.Size(208, 23);
-            this.RemoveOrderBtn.TabIndex = 8;
-            this.RemoveOrderBtn.Text = "Remove";
-            this.RemoveOrderBtn.UseVisualStyleBackColor = true;
-            this.RemoveOrderBtn.Click += new System.EventHandler(this.RemoveOrderBtn_Click);
-            // 
-            // mainpanel
-            // 
-            this.mainpanel.Controls.Add(this.pictureBox1);
-            this.mainpanel.Location = new System.Drawing.Point(212, 68);
-            this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(517, 993);
-            this.mainpanel.TabIndex = 8;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.Logo_inverted;
-            this.pictureBox1.Location = new System.Drawing.Point(127, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(115, 151);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(289, 162);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DarkGray;
+            this.panel3.Controls.Add(this.StarterBtn);
+            this.panel3.Controls.Add(this.MainCourseBtn);
+            this.panel3.Controls.Add(this.button1);
+            this.panel3.Controls.Add(this.DessertBtn);
+            this.panel3.Location = new System.Drawing.Point(0, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(728, 68);
+            this.panel3.TabIndex = 3;
+            // 
+            // mainpanel
+            // 
+            this.mainpanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainpanel.Controls.Add(this.pictureBox1);
+            this.mainpanel.Location = new System.Drawing.Point(0, 135);
+            this.mainpanel.Name = "mainpanel";
+            this.mainpanel.Size = new System.Drawing.Size(511, 568);
+            this.mainpanel.TabIndex = 8;
             // 
             // OrderForm
             // 
@@ -229,17 +250,18 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(728, 1061);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.mainpanel);
             this.MaximumSize = new System.Drawing.Size(744, 1133);
-            //this.Name = "OrderForm";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.mainpanel.ResumeLayout(false);
             this.mainpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,7 +275,6 @@
         private System.Windows.Forms.Button MainCourseBtn;
         private System.Windows.Forms.Button DessertBtn;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel mainpanel;
         private System.Windows.Forms.Button RemoveOrderBtn;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView OrderLIstView;
@@ -263,5 +284,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel mainpanel;
     }
 }

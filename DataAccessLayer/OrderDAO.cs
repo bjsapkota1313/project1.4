@@ -17,12 +17,12 @@ namespace DataAccessLayer
         public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             // get the Order Id from table where order(s) have not beeen payed yet
-            string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PaymentStatus = 0;";
+            string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PayementStatus = 0;";
 
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // security sql layer
-            sqlParameters[0] = new SqlParameter("@TableNr", TableNr);
+            sqlParameters[0] = new SqlParameter("@TableNr", TableNr.Number);
 
             int orderId = RunningOrder(ExecuteSelectQuery(query, sqlParameters));
             // if order id is not 0 add to orderid else create a new order

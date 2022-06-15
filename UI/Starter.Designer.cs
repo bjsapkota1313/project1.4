@@ -51,12 +51,15 @@
             // 
             // StarterAddBtn
             // 
+            this.StarterAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.StarterAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.StarterAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.StarterAddBtn.Location = new System.Drawing.Point(11, 357);
             this.StarterAddBtn.Name = "StarterAddBtn";
             this.StarterAddBtn.Size = new System.Drawing.Size(494, 43);
             this.StarterAddBtn.TabIndex = 2;
             this.StarterAddBtn.Text = "Add";
-            this.StarterAddBtn.UseVisualStyleBackColor = true;
+            this.StarterAddBtn.UseVisualStyleBackColor = false;
             this.StarterAddBtn.Click += new System.EventHandler(this.StarterAddBtn_Click);
             // 
             // LvStarterList
@@ -65,6 +68,7 @@
             this.Id,
             this.StarterListName,
             this.StarterListPrice});
+            this.LvStarterList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.LvStarterList.FullRowSelect = true;
             this.LvStarterList.HideSelection = false;
             this.LvStarterList.Location = new System.Drawing.Point(12, 12);

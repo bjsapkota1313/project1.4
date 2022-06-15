@@ -42,6 +42,7 @@
             this.ItemId,
             this.MainCourseListName,
             this.MainCourseListPrice});
+            this.DrinkListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DrinkListView.FullRowSelect = true;
             this.DrinkListView.HideSelection = false;
             this.DrinkListView.Location = new System.Drawing.Point(12, 13);
@@ -77,12 +78,15 @@
             // 
             // AddDrinksBtn
             // 
+            this.AddDrinksBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.AddDrinksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddDrinksBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.AddDrinksBtn.Location = new System.Drawing.Point(12, 359);
             this.AddDrinksBtn.Name = "AddDrinksBtn";
             this.AddDrinksBtn.Size = new System.Drawing.Size(495, 40);
             this.AddDrinksBtn.TabIndex = 6;
             this.AddDrinksBtn.Text = "Add";
-            this.AddDrinksBtn.UseVisualStyleBackColor = true;
+            this.AddDrinksBtn.UseVisualStyleBackColor = false;
             this.AddDrinksBtn.Click += new System.EventHandler(this.AddDrinksBtn_Click);
             // 
             // Drink
