@@ -14,19 +14,8 @@ namespace UI
 {   
     public partial class Payment : Form
     {
-        PaymentService paymentService;
-        BillService billService;
-        Model.Bill bill;
-        Model.Payment payment;
-        List<OrderItem> orderItems;
-        private int TableNr;
-        //OrderService orderService;
-        Order orderSeectedTable;
-        PaymentType paymentType;
-        PaymentTypeService paymentTypeService;
-        Order order;
-        private int PaymentMethod;
 
+        private int TableNr;
 
 
         public Payment(int tableNr)
@@ -36,9 +25,7 @@ namespace UI
             this.TableNr = tableNr;
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
-            btnCash.Click += new EventHandler(btnCash_Click);
-            btnCreditCard.Click += new EventHandler(btnCreditCard_Click);
-            btnPIN.Click += new EventHandler(btnPIN_Click);
+            btnPay.Click += new EventHandler(btnPay_Click);
         }
 
         private void Payment_Load(object sender, EventArgs e)
@@ -92,31 +79,10 @@ namespace UI
              LoadNewForm(new AddFeedback());
         }
 
-        private void btnCash_Click(object sender, System.EventArgs e)
+        private void btnPay_Click(object sender, System.EventArgs e)
         {
-            //payment.Type = 0;
 
-            //paymentService.AddPaymentMethod(1, payment.Type);
-
-
-            LoadNewForm(new PaymentConfirmation());
-        }
-
-        private void btnCreditCard_Click(object sender, System.EventArgs e)
-        {
-            //paymentService = new PaymentService();
-
-            //paymentService.AddPaymentMethod(1, 1);
-            //paymentTypeService.GetType(1);
-            LoadNewForm(new PaymentConfirmation());
-        }
-
-        private void btnPIN_Click(object sender, System.EventArgs e)
-        {
-            //payment.Type = 2;
-
-            //paymentService.AddPaymentMethod(1, payment.Type);
-            LoadNewForm(new PaymentConfirmation());
+            LoadNewForm(new Tip(TableNr, 2));
         }
 
         private void LoadNewForm(object Form)

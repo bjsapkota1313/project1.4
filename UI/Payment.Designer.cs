@@ -36,9 +36,7 @@
             this.Price = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.btnAddComment = new System.Windows.Forms.Button();
-            this.btnCash = new System.Windows.Forms.Button();
-            this.btnCreditCard = new System.Windows.Forms.Button();
-            this.btnPIN = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -104,44 +102,18 @@
             this.btnAddComment.Text = "Add comment";
             this.btnAddComment.UseVisualStyleBackColor = false;
             // 
-            // btnCash
+            // btnPay
             // 
-            this.btnCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnCash.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCash.ForeColor = System.Drawing.Color.Black;
-            this.btnCash.Location = new System.Drawing.Point(120, 670);
-            this.btnCash.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
-            this.btnCash.Name = "btnCash";
-            this.btnCash.Size = new System.Drawing.Size(470, 51);
-            this.btnCash.TabIndex = 11;
-            this.btnCash.Text = "Cash";
-            this.btnCash.UseVisualStyleBackColor = false;
-            // 
-            // btnCreditCard
-            // 
-            this.btnCreditCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnCreditCard.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCreditCard.ForeColor = System.Drawing.Color.Black;
-            this.btnCreditCard.Location = new System.Drawing.Point(120, 746);
-            this.btnCreditCard.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
-            this.btnCreditCard.Name = "btnCreditCard";
-            this.btnCreditCard.Size = new System.Drawing.Size(470, 51);
-            this.btnCreditCard.TabIndex = 12;
-            this.btnCreditCard.Text = "Credit Card";
-            this.btnCreditCard.UseVisualStyleBackColor = false;
-            // 
-            // btnPIN
-            // 
-            this.btnPIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnPIN.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPIN.ForeColor = System.Drawing.Color.Black;
-            this.btnPIN.Location = new System.Drawing.Point(120, 821);
-            this.btnPIN.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
-            this.btnPIN.Name = "btnPIN";
-            this.btnPIN.Size = new System.Drawing.Size(470, 51);
-            this.btnPIN.TabIndex = 13;
-            this.btnPIN.Text = "PIN";
-            this.btnPIN.UseVisualStyleBackColor = false;
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnPay.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Location = new System.Drawing.Point(120, 743);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(470, 51);
+            this.btnPay.TabIndex = 13;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = false;
             // 
             // label3
             // 
@@ -186,9 +158,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnPIN);
-            this.Controls.Add(this.btnCreditCard);
-            this.Controls.Add(this.btnCash);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnAddComment);
             this.Controls.Add(this.listViewBill);
             this.Controls.Add(this.lblTableNum);
@@ -206,9 +176,7 @@
         private System.Windows.Forms.Label lblTableNum;
         private System.Windows.Forms.ListView listViewBill;
         private System.Windows.Forms.Button btnAddComment;
-        private System.Windows.Forms.Button btnCash;
-        private System.Windows.Forms.Button btnCreditCard;
-        private System.Windows.Forms.Button btnPIN;
+        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;

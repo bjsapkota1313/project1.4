@@ -396,16 +396,10 @@ namespace DataAccessLayer
             }
             return list;
         }
-        private Order ReadingOrderFeedback(DataTable dataTable)
+        public void AddValue(MenuItem item)
         {
-            Order order = new Order();
-            foreach (DataRow dr in dataTable.Rows)
-            {
-                order.OrderId = (int)dr["OrderID"];
-                order.Feedback = (string)dr["Feedback"];
-
-            }
-            return order;
+            string query = 
         }
+   
     }
 }
