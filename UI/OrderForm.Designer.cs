@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.BackBtnOrder = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.StarterBtn = new System.Windows.Forms.Button();
             this.MainCourseBtn = new System.Windows.Forms.Button();
             this.DessertBtn = new System.Windows.Forms.Button();
@@ -270,7 +268,6 @@
 
         private System.Windows.Forms.Button BackBtnOrder;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button StarterBtn;
         private System.Windows.Forms.Button MainCourseBtn;
         private System.Windows.Forms.Button DessertBtn;

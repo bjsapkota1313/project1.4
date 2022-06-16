@@ -32,7 +32,7 @@ namespace DataAccessLayer
             }
             else
             {
-                AddNew(list, orderId);
+                AddNew(list, TableNr);
             }
         }
 
@@ -71,13 +71,16 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-        private void AddNew(List<OrderItem> orderItem, int TableNr)// no order existing create new one and add into it
+        private void AddNew(List<OrderItem> orderItem, Table TableNr)// no order existing create new one and add into it
         {
-            string query = "INSERT INTO [Order] (TableNr) VALUES (@TableNr)";// add new
+            string date = DateTime.Now.ToString("yyyy-MM-dd");
+            string time = DateTime.Now.ToString("h:mm:ss");
+            string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr, getdate(),getdate());";// add new
 
-            SqlParameter[] sqlParameters =
+            SqlParameter[] sqlParameters = 
             {
-                new SqlParameter("@TableNr", TableNr)
+                new SqlParameter("@TableNr", TableNr.Number),
+
             };
             ExecuteEditQuery(query, sqlParameters);
 

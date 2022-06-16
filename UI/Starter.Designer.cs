@@ -35,6 +35,7 @@
             this.StarterListName = new System.Windows.Forms.ColumnHeader("(none)");
             this.StarterListPrice = new System.Windows.Forms.ColumnHeader();
             this.CommentStarters = new System.Windows.Forms.TextBox();
+            this.AllStarterMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -103,12 +104,26 @@
             this.CommentStarters.TabIndex = 4;
             this.CommentStarters.Text = "Comment...";
             // 
+            // AllStarterMenu
+            // 
+            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.AllStarterMenu.Location = new System.Drawing.Point(135, 431);
+            this.AllStarterMenu.Name = "AllStarterMenu";
+            this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
+            this.AllStarterMenu.TabIndex = 15;
+            this.AllStarterMenu.Text = "Show Luch and Dinner menu";
+            this.AllStarterMenu.UseVisualStyleBackColor = false;
+            this.AllStarterMenu.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StarterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(530, 474);
+            this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.CommentStarters);
             this.Controls.Add(this.LvStarterList);
             this.Controls.Add(this.StarterAddBtn);
@@ -132,5 +147,6 @@
         private System.Windows.Forms.TextBox CommentStarters;
         private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.Button AllStarterMenu;
     }
 }
