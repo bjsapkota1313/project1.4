@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.DessertListView = new System.Windows.Forms.ListView();
+            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.DessertAddBtn = new System.Windows.Forms.Button();
             this.CommentDessert = new System.Windows.Forms.TextBox();
-            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.SuspendLayout();
             // 
             // label1
@@ -54,6 +54,7 @@
             this.ItemId,
             this.MainCourseListName,
             this.MainCourseListPrice});
+            this.DessertListView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.DessertListView.FullRowSelect = true;
             this.DessertListView.HideSelection = false;
             this.DessertListView.Location = new System.Drawing.Point(12, 12);
@@ -62,6 +63,12 @@
             this.DessertListView.TabIndex = 2;
             this.DessertListView.UseCompatibleStateImageBehavior = false;
             this.DessertListView.View = System.Windows.Forms.View.Details;
+            // 
+            // ItemId
+            // 
+            this.ItemId.Text = "Id";
+            this.ItemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ItemId.Width = 30;
             // 
             // MainCourseListName
             // 
@@ -74,12 +81,15 @@
             // 
             // DessertAddBtn
             // 
+            this.DessertAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.DessertAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.DessertAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.DessertAddBtn.Location = new System.Drawing.Point(12, 357);
             this.DessertAddBtn.Name = "DessertAddBtn";
             this.DessertAddBtn.Size = new System.Drawing.Size(494, 43);
             this.DessertAddBtn.TabIndex = 3;
             this.DessertAddBtn.Text = "Add";
-            this.DessertAddBtn.UseVisualStyleBackColor = true;
+            this.DessertAddBtn.UseVisualStyleBackColor = false;
             this.DessertAddBtn.Click += new System.EventHandler(this.DessertAddBtn_Click);
             // 
             // CommentDessert
@@ -91,12 +101,6 @@
             this.CommentDessert.Size = new System.Drawing.Size(494, 65);
             this.CommentDessert.TabIndex = 4;
             this.CommentDessert.Text = "Comment...";
-            // 
-            // ItemId
-            // 
-            this.ItemId.Text = "Id";
-            this.ItemId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.ItemId.Width = 30;
             // 
             // Dessert
             // 

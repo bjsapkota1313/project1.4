@@ -78,14 +78,6 @@ namespace UI
         {
             loadform(new Drink(this));
         }
-        private void OrderDBView_Click(object sender, EventArgs e)
-        {
-            //loadform(new OrderDisplay(this));
-        }
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }
         private void BillOrderBtn_Click(object sender, EventArgs e)
         {
             var frm = new Payment();
@@ -122,23 +114,23 @@ namespace UI
 
             //    orderService.AddToOrderItem(orderItem);
             //}
-            //CreateOrder();
-            OrderLIstView.Clear();
+            CreateOrder();
+           // OrderLIstView.Clear();
 
         }
         private void CreateOrder()
         {
             List<OrderItem> orders = new List<OrderItem>();
 
-            try
-            {
+            //try
+            //{
                 orderService1.GetIdFromUnpaied(orders, selectedTable);
 
-            }
-            catch
-            {
-                MessageBox.Show("Ups something went wrong");
-            }
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Ups something went wrong");
+            //}
         }
         public List<OrderItem> GetOrderItem()
         {

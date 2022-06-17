@@ -34,7 +34,7 @@ namespace UI
             {
                 try
                 {
-                    ShowMenu(MenuItemCategory.LuchStarter);
+                        ShowMenu(MenuItemCategory.LuchStarter);
                 }
                 catch
                 {
@@ -44,7 +44,8 @@ namespace UI
             {
                 try
                 {
-                ShowMenu(MenuItemCategory.DinnerStarter);
+                        ShowMenu(MenuItemCategory.DinnerStarter);
+
                 }
                 catch 
                 {
@@ -145,6 +146,15 @@ namespace UI
         private void StarterForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void DisplayAllCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
