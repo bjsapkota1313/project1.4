@@ -96,5 +96,7 @@ namespace UI
             // whenever form exit button is pressed it closes the application
             Application.Exit();
         }
+
+       
     }
 }

@@ -130,9 +130,9 @@
             this.lblEmployeeId.ForeColor = System.Drawing.Color.White;
             this.lblEmployeeId.Location = new System.Drawing.Point(87, 401);
             this.lblEmployeeId.Name = "lblEmployeeId";
-            this.lblEmployeeId.Size = new System.Drawing.Size(248, 33);
+            this.lblEmployeeId.Size = new System.Drawing.Size(170, 33);
             this.lblEmployeeId.TabIndex = 7;
-            this.lblEmployeeId.Text = "Employee ID";
+            this.lblEmployeeId.Text = "Full Name";
             // 
             // lblPassword
             // 

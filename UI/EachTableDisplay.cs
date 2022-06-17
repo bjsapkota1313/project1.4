@@ -18,8 +18,8 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
-        private  List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
-        public EachTableDisplay( Table selectedTable)
+        private List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
+        public EachTableDisplay(Table selectedTable)
         {
             // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
@@ -114,6 +114,7 @@ namespace UI
                 li.SubItems.Add(item.MenuItem.Category.ToString());
                 li.Tag = item;
                 ListViewOfOrderItems.Items.Add(li);
+
             }
         }
 
@@ -169,7 +170,7 @@ namespace UI
                         // Changing the status of order and storing on list and preventing other state cannot be updated 
                         item.OrderState = OrderState.OrderServed;
                         SelectedOrderItems.Add(item);
-                    }                   
+                    }
                 }
             }
             else
@@ -181,7 +182,7 @@ namespace UI
         private void BtnMakeTableFree_Click(object sender, EventArgs e)
         {
             // changing the status 
-            selectedTable.Status=TableStatus.Free;
+            selectedTable.Status = TableStatus.Free;
             // updating in database
             tableService.UpdateTheStatusOfTable(selectedTable);
             // refreshing the tab
@@ -204,6 +205,6 @@ namespace UI
             OrderForm orderForm = new OrderForm(selectedTable);
             orderForm.Show();
         }
-        
+
     }
 }
