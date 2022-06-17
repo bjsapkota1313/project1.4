@@ -63,7 +63,7 @@ namespace DataAccessLayer
                 string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
 
                 SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
-                    new SqlParameter("MenuItemId", item.OrderItemId),
+                    new SqlParameter("MenuItemId", item.MenuItem.ItemId),
                     new SqlParameter("@Quantity", item.Quantity),
                     new SqlParameter("@datetime", DateTime.Now),
                     new SqlParameter("@feedback", item.Feedback)
@@ -86,14 +86,13 @@ namespace DataAccessLayer
 
             foreach (OrderItem item in orderItem)
             {
-                string query2 = "INSERT INTO OrderItem (OrderId, MenuItemId, OrderItemDateTime,Feedback) VALUES (@HighOrderId, @MenuItemId, @datetime,@feedback)";
+                string query2 = "INSERT INTO OrderItem (OrderId, MenuItemId,Feedback) VALUES (@HighOrderId, @MenuItemId,@feedback)";
                 // insert into newly created order highest Id is the lastest created order which means all these vallues will be inserted into the newst order.
 
                 SqlParameter[] sqlParameters1 =
                 {
                     new SqlParameter("@HighOrderId",highestID ),
-                    new SqlParameter(" @MenuItemId", item.OrderItemId),
-                    new SqlParameter("@datetime",DateTime.Now),
+                    new SqlParameter("@MenuItemId", item.MenuItem.ItemId),
                     new SqlParameter("@feedback",item.Feedback)
                 };
                 ExecuteEditQuery(query2, sqlParameters1);
@@ -174,13 +173,13 @@ namespace DataAccessLayer
 
         public void AddToOrderItems(OrderItem item)
         {
-            string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,OrderItemDateTime) values (@OrderStatus,'@Feedback',@Quantity,@Time);";
+            string query = " INSERT into [OrderItem] (OrderStatus,Feedback,Quantity,MenuItemId) values (@OrderStatus,@Feedback,@Quantity,@MenuItemID);";
             SqlParameter[] parameters = new SqlParameter[]
             {
                 new SqlParameter("@OrderStatus",(int)OrderState.RunningOrder),
                 new SqlParameter("@Feedback",item.Feedback),
                  new SqlParameter("@Quantity",item.Quantity),
-                new SqlParameter("@Time", item.DateTime.ToString("HH:mm"))
+                new SqlParameter("@MenuItemID",item.MenuItem.ItemId)
             };
 
             ExecuteEditQuery(query, parameters);

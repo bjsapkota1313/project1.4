@@ -119,6 +119,7 @@ namespace UI
         }
         private void ChangingtheStatusOfDrink(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
+            pictureBox.Show();
             switch (orderItem.OrderState)
             {
                 case OrderState.PreparingOrder:
@@ -151,6 +152,7 @@ namespace UI
         }
         private void ChangingtheStatusOfFood(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
+            pictureBox.Show();
             switch (orderItem.OrderState)
             {
                 case OrderState.PreparingOrder:
@@ -169,14 +171,13 @@ namespace UI
                     }
                     break;
                 case OrderState.RunningOrder:
-                    pictureBox.Image = Properties.Resources.ReadyToDeliver5050;
+                    pictureBox.Image = Properties.Resources.RunningOrder5050;
                     pictureBoxLateServing.Hide();
                     break;
                 default:
                     pictureBox.Hide();
                     pictureBoxLateServing.Hide();
                     break;
-
             }
         }
         // Getting the table from database using this method because the list of table is only got when constructor is called 

@@ -27,7 +27,6 @@ namespace UI
             loggedEmployee = null;
             // default setting 
             DefaultSettingForShowHideFunction();
-
         }
 
         private void DefaultSettingForShowHideFunction()
@@ -96,7 +95,5 @@ namespace UI
             // whenever form exit button is pressed it closes the application
             Application.Exit();
         }
-
-       
     }
 }

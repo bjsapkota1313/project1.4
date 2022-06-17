@@ -106,15 +106,17 @@ namespace UI
 
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
-            //List<Order> orders = new List<Order>();
-            //OrderService orderService = new OrderService();
-            //foreach (ListViewItem item in OrderListView.Items)
-            //{
-            //    OrderItem orderItem = (OrderItem)item.Tag;
-
-            //    orderService.AddToOrderItem(orderItem);
-            //}
-            CreateOrder();
+            List<OrderItem> orders = new List<OrderItem>();
+            OrderService orderService = new OrderService();
+            foreach (ListViewItem item in OrderListView.Items)
+            {
+                OrderItem orderItem = (OrderItem)item.Tag;
+               orderItem.DateTime= DateTime.Now;   
+                orders.Add(orderItem);
+                //orderService.AddToOrderItem(orderItem);
+            }
+            orderService.GetIdFromUnpaied(orders, selectedTable);
+           // CreateOrder();
            // OrderLIstView.Clear();
 
         }
