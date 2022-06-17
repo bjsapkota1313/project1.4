@@ -24,7 +24,8 @@ namespace UI
         OrderService orderService;
         Order order;
         private MenuItem menuItem;
-        private decimal tip;
+        private decimal tip = (decimal)0.00;
+        private decimal total;
 
 
         public Tip(int tableNr, int billID)
@@ -42,6 +43,7 @@ namespace UI
             //btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
             txtTip.KeyPress += new KeyPressEventHandler(txtTip_KeyPress);
+            txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
 
         }
 
@@ -49,10 +51,18 @@ namespace UI
         {
             if (txtTip != null)
             {
-                lblTip.Text = $"€{txtTip.Text}";
+                
+                tip = Convert.ToDecimal(txtTip.Text);
+
+                lblTip.Text = $"€{tip.ToString("0.00")}";
+
+                total = tip + OrderPrice();
+
+                lblTotal.Text = $"€{total.ToString("0.00")}";
             }
             else
-                btnSubmitTip.Enabled = false;
+                MessageBox.Show("Enter tip");
+       
 
             //paymentService.AddTip(bill.BillID, Convert.ToDecimal(txtTip.Text));
 
@@ -61,10 +71,13 @@ namespace UI
         {
             if (txtTotal != null)
             {
+
                 lblTotal.Text = $"€{txtTotal.Text}";
+
             }
             else
-                btnSubmitTotal.Enabled = false;
+                MessageBox.Show("enter total");
+
 
             //paymentService.AddTotal(bill.BillID, Convert.ToDecimal(txtTotal.Text));
 
@@ -105,7 +118,8 @@ namespace UI
             lblVatHigh.Text = $"€{HighVAT().ToString("0.00")}";
             lblVatTotal.Text = $"€{TotalVAT().ToString("0.00")}";
             lblPrice.Text = $"€{OrderPrice().ToString("0.00")}";
-            //lblTotal.Text = $"€{OrderPrice + }";
+            lblTip.Text = $"€{tip.ToString("0.00")}";
+            lblTotal.Text = $"€{OrderPrice().ToString("0.00")}";
 
         }
         private void LoadNewForm(object Form)
@@ -183,22 +197,50 @@ namespace UI
         private void txtTip_KeyPress(object sender, KeyPressEventArgs e)
         {
             OnlyNumbersInput(sender, e);
+
+            if(txtTip.Text != null)
+            {
+                btnSubmitTip.Enabled = true;
+            }
         }
         private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
         {
             OnlyNumbersInput(sender, e);
 
+            if (txtTotal.Text != null)
+            {
+                btnSubmitTotal.Enabled = true;
+            }
+
         }
+
+        //ADD COMMENTS
         private void OnlyNumbersInput(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+            string senderText = (sender as TextBox).Text;
+            string senderName = (sender as TextBox).Name;
+            string[] splitByDecimal = senderText.Split('.');
+            int cursorPosition = (sender as TextBox).SelectionStart;
+
+            if (!char.IsControl(e.KeyChar)
+                && !char.IsDigit(e.KeyChar)
+                && (e.KeyChar != '.'))
             {
                 e.Handled = true;
             }
 
-            // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+
+            if (e.KeyChar == '.'
+                && senderText.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+
+
+            if (!char.IsControl(e.KeyChar)
+                && senderText.IndexOf('.') < cursorPosition
+                && splitByDecimal.Length > 1
+                && splitByDecimal[1].Length == 2)
             {
                 e.Handled = true;
             }

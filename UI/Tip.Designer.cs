@@ -121,6 +121,7 @@
             // btnSubmitTip
             // 
             this.btnSubmitTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnSubmitTip.Enabled = false;
             this.btnSubmitTip.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSubmitTip.ForeColor = System.Drawing.Color.Black;
             this.btnSubmitTip.Location = new System.Drawing.Point(321, 610);
@@ -135,6 +136,7 @@
             // btnSubmitTotal
             // 
             this.btnSubmitTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnSubmitTotal.Enabled = false;
             this.btnSubmitTotal.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSubmitTotal.ForeColor = System.Drawing.Color.Black;
             this.btnSubmitTotal.Location = new System.Drawing.Point(321, 724);
