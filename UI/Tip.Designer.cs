@@ -130,6 +130,7 @@
             this.btnSubmitTip.TabIndex = 20;
             this.btnSubmitTip.Text = "Submit";
             this.btnSubmitTip.UseVisualStyleBackColor = false;
+            this.btnSubmitTip.Click += new System.EventHandler(this.btnSubmitTip_Click);
             // 
             // btnSubmitTotal
             // 

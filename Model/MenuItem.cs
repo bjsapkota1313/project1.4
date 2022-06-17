@@ -19,67 +19,67 @@ namespace Model
         public decimal VAT { get; set; }
         public List<OrderItem> orderItems;
 
-        public decimal OrderPrice
-        {
-            get
-            {
-                orderItems = new List<OrderItem>();
-                decimal orderPrice = 0;
-                foreach (OrderItem item in orderItems)
-                {
-                    orderPrice += Price * item.Quantity;
-                }
-                return orderPrice;
-            }
+        //public decimal OrderPrice
+        //{
+        //    get
+        //    {
+        //        orderItems = new List<OrderItem>();
+        //        decimal orderPrice = 0;
+        //        foreach (OrderItem item in orderItems)
+        //        {
+        //            orderPrice += Price * item.Quantity;
+        //        }
+        //        return orderPrice;
+        //    }
 
-        }
-        public decimal HighVAT
-        {
+        //}
+        //public decimal HighVAT
+        //{
             
-            get
-            {
-                orderItems = new List<OrderItem>();
-                decimal highlVat = 0;
-                foreach (OrderItem item in orderItems)
-                {
-                    if(item.MenuItem.VAT == (decimal)0.21)
-                    {
-                        highlVat += (Price * (decimal)0.21) * item.Quantity;
-                    }
-                }
-                return highlVat;
-            }
-        }
-        public decimal LowVAT
-        {
+        //    get
+        //    {
+        //        orderItems = new List<OrderItem>();
+        //        decimal highlVat = 0;
+        //        foreach (OrderItem item in orderItems)
+        //        {
+        //            if(item.MenuItem.VAT == (decimal)0.21)
+        //            {
+        //                highlVat += (Price * (decimal)0.21) * item.Quantity;
+        //            }
+        //        }
+        //        return highlVat;
+        //    }
+        //}
+        //public decimal LowVAT
+        //{
 
-            get
-            {
-                orderItems = new List<OrderItem>();
-                decimal lowVat = 0;
-                foreach (OrderItem item in orderItems)
-                {
-                    if (item.MenuItem.VAT == (decimal)0.06)
-                    {
-                        lowVat += (Price * (decimal)0.06) * item.Quantity;
-                    }
-                }
-                return lowVat;
-            }
-        }
-        public decimal TotalVAT
-        {
-            get
-            {
-                orderItems = new List<OrderItem>();
-                decimal totalVat = 0;
-                foreach (OrderItem item in orderItems)
-                {
-                    totalVat += Price * VAT * item.Quantity;
-                }
-                return totalVat;
-            }
-        }
+        //    get
+        //    {
+        //        orderItems = new List<OrderItem>();
+        //        decimal lowVat = 0;
+        //        foreach (OrderItem item in orderItems)
+        //        {
+        //            if (item.MenuItem.VAT == (decimal)0.06)
+        //            {
+        //                lowVat += (Price * (decimal)0.06) * item.Quantity;
+        //            }
+        //        }
+        //        return lowVat;
+        //    }
+        //}
+        //public decimal TotalVAT
+        //{
+        //    get
+        //    {
+        //        orderItems = new List<OrderItem>();
+        //        decimal totalVat = 0;
+        //        foreach (OrderItem item in orderItems)
+        //        {
+        //            totalVat += Price * VAT * item.Quantity;
+        //        }
+        //        return totalVat;
+        //    }
+        //}
 
     }
     public enum TypeMenuItem

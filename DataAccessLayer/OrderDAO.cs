@@ -396,10 +396,6 @@ namespace DataAccessLayer
             }
             return list;
         }
-        public void AddValue(MenuItem item)
-        {
-            string query = 
-        }
-   
+      
     }
 }
