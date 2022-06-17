@@ -73,8 +73,6 @@ namespace DataAccessLayer
         }
         private void AddNew(List<OrderItem> orderItem, Table TableNr)// no order existing create new one and add into it
         {
-            string date = DateTime.Now.ToString("yyyy-MM-dd");
-            string time = DateTime.Now.ToString("h:mm:ss");
             string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr, getdate(),getdate());";// add new
 
             SqlParameter[] sqlParameters = 
