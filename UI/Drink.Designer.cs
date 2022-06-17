@@ -34,6 +34,7 @@
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
             this.CommentDrink = new System.Windows.Forms.TextBox();
             this.AddDrinksBtn = new System.Windows.Forms.Button();
+            this.AllStarterMenu = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DrinkListView
@@ -89,12 +90,25 @@
             this.AddDrinksBtn.UseVisualStyleBackColor = false;
             this.AddDrinksBtn.Click += new System.EventHandler(this.AddDrinksBtn_Click);
             // 
+            // AllStarterMenu
+            // 
+            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.AllStarterMenu.Location = new System.Drawing.Point(140, 407);
+            this.AllStarterMenu.Name = "AllStarterMenu";
+            this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
+            this.AllStarterMenu.TabIndex = 17;
+            this.AllStarterMenu.Text = "Show Luch and Dinner menu";
+            this.AllStarterMenu.UseVisualStyleBackColor = false;
+            // 
             // Drink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(519, 450);
+            this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.AddDrinksBtn);
             this.Controls.Add(this.CommentDrink);
             this.Controls.Add(this.DrinkListView);
@@ -114,5 +128,6 @@
         private System.Windows.Forms.TextBox CommentDrink;
         private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.Button AddDrinksBtn;
+        private System.Windows.Forms.Button AllStarterMenu;
     }
 }

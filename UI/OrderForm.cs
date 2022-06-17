@@ -124,15 +124,15 @@ namespace UI
         {
             List<OrderItem> orders = new List<OrderItem>();
 
-            //try
-            //{
+            try
+            {
                 orderService1.GetIdFromUnpaied(orders, selectedTable);
 
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Ups something went wrong");
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Ups something went wrong");
+            }
         }
         public List<OrderItem> GetOrderItem()
         {
