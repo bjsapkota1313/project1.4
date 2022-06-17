@@ -41,6 +41,7 @@ namespace UI
 
             //btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
+            txtTip.KeyPress += new KeyPressEventHandler(txtTip_KeyPress);
 
         }
 
@@ -48,7 +49,7 @@ namespace UI
         {
             if (txtTip != null)
             {
-                lblTip.Text = txtTip.Text;
+                lblTip.Text = $"€{txtTip.Text}";
             }
             else
                 btnSubmitTip.Enabled = false;
@@ -60,7 +61,7 @@ namespace UI
         {
             if (txtTotal != null)
             {
-                lblTotal.Text = txtTotal.Text;
+                lblTotal.Text = $"€{txtTotal.Text}";
             }
             else
                 btnSubmitTotal.Enabled = false;
