@@ -14,16 +14,9 @@ namespace UI
 {
     public partial class Tip : Form
     {
-        private PaymentService paymentService;
-        private Model.Bill bill;
-        private BillService billService;
-        private int TableNr;
-        private int BillID;
-        private Model.Payment payment;
-        private int Type;
-        OrderService orderService;
-        Order order;
-        private MenuItem menuItem;
+
+        //private Model.Payment payment;
+ 
         private decimal tip = (decimal)0.00;
         private decimal total;
 
@@ -63,9 +56,6 @@ namespace UI
             else
                 MessageBox.Show("Enter tip");
        
-
-            //paymentService.AddTip(bill.BillID, Convert.ToDecimal(txtTip.Text));
-
         }
         private void btnSubmitTotal_Click(object sender, EventArgs e)
         {
@@ -77,9 +67,6 @@ namespace UI
             }
             else
                 MessageBox.Show("enter total");
-
-
-            //paymentService.AddTotal(bill.BillID, Convert.ToDecimal(txtTotal.Text));
 
         }
         //private void btnPay_Click(object sender, System.EventArgs e)
