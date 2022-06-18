@@ -9,7 +9,7 @@ namespace Model
     public  class Payment
     {
         public int Id { get; set; } 
-        public int Type { get; set; } 
+        public PaymentType Type { get; set; } 
         public Bill Bill { get; set; }
         public string Feedback { get; set; }    
         public bool PaymentStatus { get; set; }

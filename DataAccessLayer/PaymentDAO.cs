@@ -33,7 +33,7 @@ namespace DataAccessLayer
                     {
 
                         payment.Bill = (Bill)dr["BillID"];
-                        payment.Type = (int)dr["Type"];
+                        payment.Type = (PaymentType)dr["ID"];
                         payment.Feedback = (string)dr["Feedback"];
                         payment.PaymentStatus = (bool)dr["PaymentStatus"];
                         payment.Tip = (decimal)dr["Tip"];
@@ -50,15 +50,25 @@ namespace DataAccessLayer
                 throw new Exception("There is an issue reading the payments data from the database.", e);
             }
         }
-        public Payment AddPaymentMethod(int id, int type)
+        public void AddPayment(int id, decimal total, decimal tip, int paymentType)
         {
-            //Create query
-            string query = $"INSERT INTO OrderPayment(BillID, [Type]) VALUES ('{id}', '{type}')";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = $"UPDATE OrderPayment SET Total = '{total}', Tip = '{tip}', [Type] = '{paymentType}' WHERE BillID='{id}'";
 
-            // Return result of query
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            // Preventing SQL from injections
+            sqlParameters[0] = new SqlParameter("@ID", id);
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public Payment GetPaymentMethod(int id)
+        {
+            string query = $"SELECT T.Type FROM OrderPayment AS P INNER JOIN PaymentType AS T ON P.Type = T.ID WHERE P.Type = '{id}'";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+
+            // Preventing SQL from injections
+            sqlParameters[0] = new SqlParameter("@ID", id);
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-
         }
         public void EditPayment(string query)
         {

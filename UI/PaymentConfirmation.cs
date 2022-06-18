@@ -16,5 +16,12 @@ namespace UI
         {
             InitializeComponent();
         }
+        //private void Paid()
+        //{
+
+        //    //order = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.Paid);
+        //    paymentService.ChangePaymentStatus(BillID, true);
+
+        //}
     }
 }

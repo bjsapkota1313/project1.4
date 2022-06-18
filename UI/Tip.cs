@@ -34,7 +34,7 @@ namespace UI
             //this.bill = billService.GetBill(TableNr);
             // this.payment = paymentService.GetPayment(BillID);
 
-            //btnPay.Click += new EventHandler(btnPay_Click);
+            btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
             btnSubmitTotal.Click += new EventHandler(btnSubmitTotal_Click);
 
@@ -55,54 +55,50 @@ namespace UI
                         
             
         }
-        //private void btnPay_Click(object sender, System.EventArgs e)
-        //{
-        //    if (Convert.ToDecimal(txtTotal.Text) >= payment.Total)
-        //    {
-        //        SubmitPayment();
-        //        Paid();
-        //        LoadNewForm(new PaymentConfirmation());
-        //    }
-        //    else if(Convert.ToDecimal(txtTotal.Text) < payment.Total)
-        //    {
-        //        //LoadNewForm(new Payment(TableNr));
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Error");
-        //    }          
-        //}
-        //private void Paid()
-        //{
+        private void btnPay_Click(object sender, System.EventArgs e)
+        {
+            if (total >= OrderPrice())
+            {
+                SubmitPayment();
 
-        //    //order = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.Paid);
-        //    paymentService.ChangePaymentStatus(BillID, true);
-
-        //}
+                LoadNewForm(new PaymentConfirmation());
+            }
+            else if(total < OrderPrice())
+            {
+                total = OrderPrice() - total;
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }          
+        }
+       
         private void SubmitPayment()
         {
-            paymentService.AddPayment(2, total, tip, PaymentMethod());
+            paymentService = new PaymentService();
+
+            paymentService.AddPayment(1, total, tip, PaymentMethod());
         }
         public int PaymentMethod()
         {
-            paymentTypeService = new PaymentTypeService();
+            paymentService = new PaymentService();
 
-            int value;
+            int value = 0;
 
             if (radBtnCash.Checked)
             {
-                value = 0;
-                paymentTypeService.GetType(value);
+
+                paymentService.GetPaymentMethod(value);
             }
             else if (radBtnCreditCard.Checked)
             {
                 value = 1;
-                paymentTypeService.GetType(value);
+                paymentService.GetPaymentMethod(value);
             }
             else if (radBtnPIN.Checked)
             {
                 value = 2;
-                paymentTypeService.GetType(value);
+                paymentService.GetPaymentMethod(value);
             }
             else
                 MessageBox.Show("Please choose payment method");
