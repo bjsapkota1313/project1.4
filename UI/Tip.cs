@@ -16,8 +16,8 @@ namespace UI
     {
 
         //private Model.Payment payment;
- 
-        private decimal tip = (decimal)0.00;
+
+        private decimal tip;
         private decimal total;
 
 
@@ -35,38 +35,47 @@ namespace UI
 
             //btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
+            btnSubmitTotal.Click += new EventHandler(btnSubmitTotal_Click);
+
             txtTip.KeyPress += new KeyPressEventHandler(txtTip_KeyPress);
             txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
 
         }
+        private void TIP()
+        {
+            tip = Convert.ToDecimal(txtTip.Text);
 
+            lblTip.Text = $"€{tip.ToString("0.00")}";
+
+            total = tip + OrderPrice();
+
+            lblTotal.Text = $"€{total.ToString("0.00")}";
+
+
+            txtTip.Text = "";
+
+        }
         private void btnSubmitTip_Click(object sender, EventArgs e)
         {
-            if (txtTip != null)
-            {
-                
-                tip = Convert.ToDecimal(txtTip.Text);
+            TIP();
 
-                lblTip.Text = $"€{tip.ToString("0.00")}";
+            
 
-                total = tip + OrderPrice();
-
-                lblTotal.Text = $"€{total.ToString("0.00")}";
-            }
-            else
-                MessageBox.Show("Enter tip");
-       
         }
         private void btnSubmitTotal_Click(object sender, EventArgs e)
         {
-            if (txtTotal != null)
-            {
+            
+            
+                total = Convert.ToDecimal(txtTotal.Text);
 
-                lblTotal.Text = $"€{txtTotal.Text}";
+                lblTotal.Text = $"€{total.ToString("0.00")}";
 
-            }
-            else
-                MessageBox.Show("enter total");
+                tip = total - OrderPrice(); 
+
+                lblTip.Text = $"€{tip.ToString("0.00")}";
+
+            
+
 
         }
         //private void btnPay_Click(object sender, System.EventArgs e)
@@ -100,13 +109,15 @@ namespace UI
 
         private void Tip_Load(object sender, EventArgs e)
         {
+            tip = 0;
+            total = OrderPrice();
 
             lblVatLow.Text = $"€{LowVAT().ToString("0.00")}";
             lblVatHigh.Text = $"€{HighVAT().ToString("0.00")}";
             lblVatTotal.Text = $"€{TotalVAT().ToString("0.00")}";
             lblPrice.Text = $"€{OrderPrice().ToString("0.00")}";
             lblTip.Text = $"€{tip.ToString("0.00")}";
-            lblTotal.Text = $"€{OrderPrice().ToString("0.00")}";
+            lblTotal.Text = $"€{total.ToString("0.00")}";
 
         }
         private void LoadNewForm(object Form)
@@ -185,7 +196,7 @@ namespace UI
         {
             OnlyNumbersInput(sender, e);
 
-            if(txtTip.Text != null)
+            if(txtTip.Text != null && (char.IsDigit(e.KeyChar)))
             {
                 btnSubmitTip.Enabled = true;
             }
@@ -194,7 +205,7 @@ namespace UI
         {
             OnlyNumbersInput(sender, e);
 
-            if (txtTotal.Text != null)
+            if ((txtTotal.Text != null ) && (char.IsDigit(e.KeyChar)))
             {
                 btnSubmitTotal.Enabled = true;
             }
