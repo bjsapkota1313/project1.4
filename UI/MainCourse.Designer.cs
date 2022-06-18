@@ -81,12 +81,12 @@
             // 
             // MainCourseAdd
             // 
-            this.MainCourseAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
+            this.MainCourseAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.MainCourseAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MainCourseAdd.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.MainCourseAdd.Location = new System.Drawing.Point(12, 371);
+            this.MainCourseAdd.Location = new System.Drawing.Point(11, 357);
             this.MainCourseAdd.Name = "MainCourseAdd";
-            this.MainCourseAdd.Size = new System.Drawing.Size(494, 37);
+            this.MainCourseAdd.Size = new System.Drawing.Size(494, 43);
             this.MainCourseAdd.TabIndex = 2;
             this.MainCourseAdd.Text = "Add";
             this.MainCourseAdd.UseVisualStyleBackColor = false;
@@ -98,16 +98,16 @@
             this.CommentMainCourse.Location = new System.Drawing.Point(13, 286);
             this.CommentMainCourse.Multiline = true;
             this.CommentMainCourse.Name = "CommentMainCourse";
-            this.CommentMainCourse.Size = new System.Drawing.Size(493, 79);
+            this.CommentMainCourse.Size = new System.Drawing.Size(493, 65);
             this.CommentMainCourse.TabIndex = 3;
             this.CommentMainCourse.Text = "Comment...";
             // 
             // AllStarterMenu
             // 
-            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
+            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(130, 414);
+            this.AllStarterMenu.Location = new System.Drawing.Point(135, 407);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 16;
