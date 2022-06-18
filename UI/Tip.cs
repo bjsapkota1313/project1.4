@@ -16,7 +16,8 @@ namespace UI
     {
 
         //private Model.Payment payment;
-
+        PaymentService paymentService;
+        PaymentTypeService paymentTypeService;
         private decimal tip;
         private decimal total;
 
@@ -41,42 +42,18 @@ namespace UI
             txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
 
         }
-        private void TIP()
-        {
-            tip = Convert.ToDecimal(txtTip.Text);
 
-            lblTip.Text = $"€{tip.ToString("0.00")}";
-
-            total = tip + OrderPrice();
-
-            lblTotal.Text = $"€{total.ToString("0.00")}";
-
-
-            txtTip.Text = "";
-
-        }
         private void btnSubmitTip_Click(object sender, EventArgs e)
         {
-            TIP();
+            AddTip();
 
             
-
         }
         private void btnSubmitTotal_Click(object sender, EventArgs e)
         {
+            AddTotal();
+                        
             
-            
-                total = Convert.ToDecimal(txtTotal.Text);
-
-                lblTotal.Text = $"€{total.ToString("0.00")}";
-
-                tip = total - OrderPrice(); 
-
-                lblTip.Text = $"€{tip.ToString("0.00")}";
-
-            
-
-
         }
         //private void btnPay_Click(object sender, System.EventArgs e)
         //{
@@ -102,12 +79,43 @@ namespace UI
         //    paymentService.ChangePaymentStatus(BillID, true);
 
         //}
-        //private void SubmitPayment()
-        //{
-        //    paymentService.AddPayment(BillID, Convert.ToDecimal(txtTotal.Text), Convert.ToDecimal(txtTip.Text), Type);
-        //}
+        private void SubmitPayment()
+        {
+            paymentService.AddPayment(2, total, tip, PaymentMethod());
+        }
+        public int PaymentMethod()
+        {
+            paymentTypeService = new PaymentTypeService();
+
+            int value;
+
+            if (radBtnCash.Checked)
+            {
+                value = 0;
+                paymentTypeService.GetType(value);
+            }
+            else if (radBtnCreditCard.Checked)
+            {
+                value = 1;
+                paymentTypeService.GetType(value);
+            }
+            else if (radBtnPIN.Checked)
+            {
+                value = 2;
+                paymentTypeService.GetType(value);
+            }
+            else
+                MessageBox.Show("Please choose payment method");
+
+            return value;
+        }
 
         private void Tip_Load(object sender, EventArgs e)
+        {
+            FillBillOverview();
+
+        }
+        private void FillBillOverview()
         {
             tip = 0;
             total = OrderPrice();
@@ -118,16 +126,29 @@ namespace UI
             lblPrice.Text = $"€{OrderPrice().ToString("0.00")}";
             lblTip.Text = $"€{tip.ToString("0.00")}";
             lblTotal.Text = $"€{total.ToString("0.00")}";
+        }
+        private void AddTip()
+        {
+
+            tip = Convert.ToDecimal(txtTip.Text);
+
+            lblTip.Text = $"€{tip.ToString("0.00")}";
+
+            total = tip + OrderPrice();
+
+            lblTotal.Text = $"€{total.ToString("0.00")}";
 
         }
-        private void LoadNewForm(object Form)
+        private void AddTotal()
         {
-            Form frm = Form as Form;
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
-            frm.Show();
-            this.Hide();
+            total = Convert.ToDecimal(txtTotal.Text);
+
+            lblTotal.Text = $"€{total.ToString("0.00")}";
+
+            tip = total - OrderPrice();
+
+            lblTip.Text = $"€{tip.ToString("0.00")}";
+
         }
         public decimal HighVAT()
         {
@@ -228,8 +249,8 @@ namespace UI
             }
 
 
-            if (e.KeyChar == '.'
-                && senderText.IndexOf('.') > -1)
+            if ((e.KeyChar == '.'
+                && senderText.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
@@ -243,6 +264,15 @@ namespace UI
                 e.Handled = true;
             }
 
+        }
+        private void LoadNewForm(object Form)
+        {
+            Form frm = Form as Form;
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
         }
     }
 }
