@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Tip));
             this.label1 = new System.Windows.Forms.Label();
-            this.btnPay = new System.Windows.Forms.Button();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtTip = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -54,80 +53,76 @@
             this.radBtnCreditCard = new System.Windows.Forms.RadioButton();
             this.radBtnCash = new System.Windows.Forms.RadioButton();
             this.radBtnPIN = new System.Windows.Forms.RadioButton();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.cBoxSplitBill = new System.Windows.Forms.CheckBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.tableLayoutPayment.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.label1.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-14, 97);
+            this.label1.Location = new System.Drawing.Point(-15, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(744, 47);
             this.label1.TabIndex = 11;
             this.label1.Text = "Payment";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnPay
-            // 
-            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnPay.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPay.ForeColor = System.Drawing.Color.Black;
-            this.btnPay.Location = new System.Drawing.Point(138, 974);
-            this.btnPay.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
-            this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(425, 50);
-            this.btnPay.TabIndex = 13;
-            this.btnPay.Text = "Pay";
-            this.btnPay.UseVisualStyleBackColor = false;
-            // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(12, 730);
+            this.txtTotal.Location = new System.Drawing.Point(416, 619);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(242, 39);
+            this.txtTotal.Size = new System.Drawing.Size(290, 39);
             this.txtTotal.TabIndex = 14;
             // 
             // txtTip
             // 
-            this.txtTip.Location = new System.Drawing.Point(12, 616);
+            this.txtTip.Location = new System.Drawing.Point(12, 619);
             this.txtTip.Name = "txtTip";
-            this.txtTip.Size = new System.Drawing.Size(242, 39);
+            this.txtTip.Size = new System.Drawing.Size(290, 39);
             this.txtTip.TabIndex = 15;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(12, 574);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(12, 577);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 39);
+            this.label3.Size = new System.Drawing.Size(88, 39);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Enter tip";
+            this.label3.Text = "Enter";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 688);
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(410, 577);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 39);
+            this.label4.Size = new System.Drawing.Size(302, 39);
             this.label4.TabIndex = 17;
-            this.label4.Text = "Enter total price";
+            this.label4.Text = "Enter            to be Paid";
             // 
             // btnSubmitTip
             // 
-            this.btnSubmitTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnSubmitTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(160)))), ((int)(((byte)(96)))));
             this.btnSubmitTip.Enabled = false;
             this.btnSubmitTip.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSubmitTip.ForeColor = System.Drawing.Color.Black;
-            this.btnSubmitTip.Location = new System.Drawing.Point(321, 610);
+            this.btnSubmitTip.Location = new System.Drawing.Point(153, 665);
             this.btnSubmitTip.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnSubmitTip.Name = "btnSubmitTip";
-            this.btnSubmitTip.Size = new System.Drawing.Size(209, 45);
+            this.btnSubmitTip.Size = new System.Drawing.Size(149, 44);
             this.btnSubmitTip.TabIndex = 20;
             this.btnSubmitTip.Text = "Submit";
             this.btnSubmitTip.UseVisualStyleBackColor = false;
@@ -135,14 +130,14 @@
             // 
             // btnSubmitTotal
             // 
-            this.btnSubmitTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnSubmitTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(160)))), ((int)(((byte)(96)))));
             this.btnSubmitTotal.Enabled = false;
             this.btnSubmitTotal.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSubmitTotal.ForeColor = System.Drawing.Color.Black;
-            this.btnSubmitTotal.Location = new System.Drawing.Point(321, 724);
+            this.btnSubmitTotal.Location = new System.Drawing.Point(557, 665);
             this.btnSubmitTotal.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnSubmitTotal.Name = "btnSubmitTotal";
-            this.btnSubmitTotal.Size = new System.Drawing.Size(209, 45);
+            this.btnSubmitTotal.Size = new System.Drawing.Size(149, 44);
             this.btnSubmitTotal.TabIndex = 21;
             this.btnSubmitTotal.Text = "Submit";
             this.btnSubmitTotal.UseVisualStyleBackColor = false;
@@ -167,7 +162,7 @@
             this.tableLayoutPayment.Controls.Add(this.lbl5, 0, 4);
             this.tableLayoutPayment.Controls.Add(this.lbl6, 0, 5);
             this.tableLayoutPayment.ForeColor = System.Drawing.Color.White;
-            this.tableLayoutPayment.Location = new System.Drawing.Point(-2, 158);
+            this.tableLayoutPayment.Location = new System.Drawing.Point(-3, 161);
             this.tableLayoutPayment.Name = "tableLayoutPayment";
             this.tableLayoutPayment.RowCount = 6;
             this.tableLayoutPayment.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.63504F));
@@ -325,10 +320,10 @@
             // 
             // label2
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.label2.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(-14, 790);
+            this.label2.Location = new System.Drawing.Point(-15, 796);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(744, 47);
             this.label2.TabIndex = 23;
@@ -338,50 +333,165 @@
             // radBtnCreditCard
             // 
             this.radBtnCreditCard.AutoSize = true;
-            this.radBtnCreditCard.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radBtnCreditCard.ForeColor = System.Drawing.Color.White;
-            this.radBtnCreditCard.Location = new System.Drawing.Point(271, 884);
+            this.radBtnCreditCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.radBtnCreditCard.Font = new System.Drawing.Font("Calibri", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radBtnCreditCard.ForeColor = System.Drawing.Color.Black;
+            this.radBtnCreditCard.Location = new System.Drawing.Point(257, 890);
             this.radBtnCreditCard.Name = "radBtnCreditCard";
-            this.radBtnCreditCard.Size = new System.Drawing.Size(212, 49);
+            this.radBtnCreditCard.Size = new System.Drawing.Size(218, 49);
             this.radBtnCreditCard.TabIndex = 24;
             this.radBtnCreditCard.TabStop = true;
             this.radBtnCreditCard.Text = "Credit Card";
-            this.radBtnCreditCard.UseVisualStyleBackColor = true;
+            this.radBtnCreditCard.UseVisualStyleBackColor = false;
             // 
             // radBtnCash
             // 
             this.radBtnCash.AutoSize = true;
-            this.radBtnCash.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radBtnCash.ForeColor = System.Drawing.Color.White;
-            this.radBtnCash.Location = new System.Drawing.Point(48, 884);
+            this.radBtnCash.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.radBtnCash.Font = new System.Drawing.Font("Calibri", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radBtnCash.ForeColor = System.Drawing.Color.Black;
+            this.radBtnCash.Location = new System.Drawing.Point(56, 890);
             this.radBtnCash.Name = "radBtnCash";
-            this.radBtnCash.Size = new System.Drawing.Size(119, 49);
+            this.radBtnCash.Size = new System.Drawing.Size(122, 49);
             this.radBtnCash.TabIndex = 25;
             this.radBtnCash.TabStop = true;
             this.radBtnCash.Text = "Cash";
-            this.radBtnCash.UseVisualStyleBackColor = true;
+            this.radBtnCash.UseVisualStyleBackColor = false;
             // 
             // radBtnPIN
             // 
             this.radBtnPIN.AutoSize = true;
-            this.radBtnPIN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radBtnPIN.ForeColor = System.Drawing.Color.White;
-            this.radBtnPIN.Location = new System.Drawing.Point(569, 884);
+            this.radBtnPIN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.radBtnPIN.Font = new System.Drawing.Font("Calibri", 13.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radBtnPIN.ForeColor = System.Drawing.Color.Black;
+            this.radBtnPIN.Location = new System.Drawing.Point(538, 890);
             this.radBtnPIN.Name = "radBtnPIN";
-            this.radBtnPIN.Size = new System.Drawing.Size(102, 49);
+            this.radBtnPIN.Size = new System.Drawing.Size(103, 49);
             this.radBtnPIN.TabIndex = 26;
             this.radBtnPIN.TabStop = true;
             this.radBtnPIN.Text = "PIN";
-            this.radBtnPIN.UseVisualStyleBackColor = true;
+            this.radBtnPIN.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(133)))), ((int)(((byte)(114)))));
+            this.button1.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(27, 12);
+            this.button1.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 40);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(97)))), ((int)(((byte)(97)))));
+            this.label5.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(-15, -4);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(744, 63);
+            this.label5.TabIndex = 27;
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(89, 577);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 39);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Tip";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Black;
+            this.label7.Location = new System.Drawing.Point(489, 577);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(82, 39);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Total";
+            // 
+            // btnPay
+            // 
+            this.btnPay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
+            this.btnPay.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnPay.ForeColor = System.Drawing.Color.Black;
+            this.btnPay.Location = new System.Drawing.Point(118, 979);
+            this.btnPay.Margin = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(469, 52);
+            this.btnPay.TabIndex = 31;
+            this.btnPay.Text = "Pay";
+            this.btnPay.UseVisualStyleBackColor = false;
+            // 
+            // cBoxSplitBill
+            // 
+            this.cBoxSplitBill.AutoSize = true;
+            this.cBoxSplitBill.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cBoxSplitBill.Location = new System.Drawing.Point(27, 735);
+            this.cBoxSplitBill.Name = "cBoxSplitBill";
+            this.cBoxSplitBill.Size = new System.Drawing.Size(166, 43);
+            this.cBoxSplitBill.TabIndex = 32;
+            this.cBoxSplitBill.Text = "Split bill?";
+            this.cBoxSplitBill.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.label8.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(7, 882);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(230, 57);
+            this.label8.TabIndex = 33;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label9
+            // 
+            this.label9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.label9.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(243, 882);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(230, 57);
+            this.label9.TabIndex = 34;
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label10
+            // 
+            this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.label10.Font = new System.Drawing.Font("Calibri", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(482, 882);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(230, 57);
+            this.label10.TabIndex = 35;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Tip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(718, 1062);
-            this.Controls.Add(this.radBtnPIN);
             this.Controls.Add(this.radBtnCash);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cBoxSplitBill);
+            this.Controls.Add(this.btnPay);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.radBtnPIN);
             this.Controls.Add(this.radBtnCreditCard);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tableLayoutPayment);
@@ -391,8 +501,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtTip);
             this.Controls.Add(this.txtTotal);
-            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label10);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Tip";
             this.Text = "Tip";
@@ -405,7 +516,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtTip;
         private System.Windows.Forms.Label label3;
@@ -429,5 +539,14 @@
         private System.Windows.Forms.RadioButton radBtnCreditCard;
         private System.Windows.Forms.RadioButton radBtnCash;
         private System.Windows.Forms.RadioButton radBtnPIN;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.CheckBox cBoxSplitBill;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

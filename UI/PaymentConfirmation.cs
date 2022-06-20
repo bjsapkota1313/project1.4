@@ -51,5 +51,19 @@ namespace UI
             Paid();
             FreeTable();
         }
+
+        private void btnBackTableView_Click(object sender, EventArgs e)
+        {
+            LoadNewForm(new TableView(Employee employee))
+;        }
+        private void LoadNewForm(object Form)
+        {
+            Form frm = Form as Form;
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
+        }
     }
 }

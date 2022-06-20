@@ -37,16 +37,17 @@
             // 
             // btnBackTableView
             // 
-            this.btnBackTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnBackTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
             this.btnBackTableView.Font = new System.Drawing.Font("Calibri", 10.875F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnBackTableView.ForeColor = System.Drawing.Color.Black;
-            this.btnBackTableView.Location = new System.Drawing.Point(70, 715);
+            this.btnBackTableView.Location = new System.Drawing.Point(140, 669);
             this.btnBackTableView.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.btnBackTableView.Name = "btnBackTableView";
-            this.btnBackTableView.Size = new System.Drawing.Size(571, 64);
+            this.btnBackTableView.Size = new System.Drawing.Size(436, 52);
             this.btnBackTableView.TabIndex = 14;
             this.btnBackTableView.Text = "Back to Table View";
             this.btnBackTableView.UseVisualStyleBackColor = false;
+            this.btnBackTableView.Click += new System.EventHandler(this.btnBackTableView_Click);
             // 
             // lblConfirmation
             // 
@@ -74,7 +75,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(718, 1062);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblConfirmation);
