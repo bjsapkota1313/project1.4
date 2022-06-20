@@ -28,5 +28,9 @@ namespace ServiceLayer
         {
             tableDAO.UpdateTheStatusOfTable(UpdatingTable); 
         }
+        public void ChangeTableToFree(int tableNr)
+        {
+            tableDAO.ChangeTableToFree(tableNr);
+        }
     }
 }

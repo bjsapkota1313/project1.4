@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentConfirmation));
             this.btnBackTableView = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblConfirmation = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -48,17 +48,17 @@
             this.btnBackTableView.Text = "Back to Table View";
             this.btnBackTableView.UseVisualStyleBackColor = false;
             // 
-            // label3
+            // lblConfirmation
             // 
-            this.label3.BackColor = System.Drawing.Color.White;
-            this.label3.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(70, 266);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(583, 353);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Order nr. XXXX was successfully paid";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConfirmation.BackColor = System.Drawing.Color.White;
+            this.lblConfirmation.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblConfirmation.ForeColor = System.Drawing.Color.Black;
+            this.lblConfirmation.Location = new System.Drawing.Point(70, 266);
+            this.lblConfirmation.Name = "lblConfirmation";
+            this.lblConfirmation.Size = new System.Drawing.Size(583, 353);
+            this.lblConfirmation.TabIndex = 15;
+            this.lblConfirmation.Text = "Order nr. XXXX was successfully paid";
+            this.lblConfirmation.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -77,11 +77,12 @@
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(718, 1062);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblConfirmation);
             this.Controls.Add(this.btnBackTableView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaymentConfirmation";
             this.Text = "PaymentConfirmation";
+            this.Load += new System.EventHandler(this.PaymentConfirmation_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -90,7 +91,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnBackTableView;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblConfirmation;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

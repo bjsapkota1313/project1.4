@@ -11,10 +11,10 @@ namespace DataAccessLayer
 {
     public  class PaymentDAO : BaseDAO
     {
-        public Payment GetPayment(int billID)
+        public Payment GetPayment(int orderId)
         {
             //Create query
-            string query = $"SELECT BillID, Type, Feedback, PaymentStatus, Tip, Total, ID FROM OrderPayment WHERE BillID = '{billID}'";
+            string query = $"SELECT OrderID, Type, Feedback, PaymentStatus, Tip, Total, ID FROM OrderPayment WHERE OrderID = '{orderId}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
@@ -31,14 +31,11 @@ namespace DataAccessLayer
                 {
                     
                     {
-
-                        payment.Bill = (Bill)dr["BillID"];
+                        payment.BillID = (int)dr["BillID"];
+                        payment.Order = (Order)dr["OrderID"];
                         payment.Type = (PaymentType)dr["ID"];
-                        payment.Feedback = (string)dr["Feedback"];
-                        payment.PaymentStatus = (bool)dr["PaymentStatus"];
                         payment.Tip = (decimal)dr["Tip"];
                         payment.Total = (decimal)dr["Total"];
-                        payment.Id = (int)dr["ID"];
 
                     }
 
@@ -52,12 +49,11 @@ namespace DataAccessLayer
         }
         public void AddPayment(int id, decimal total, decimal tip, int paymentType)
         {
-            string query = $"UPDATE OrderPayment SET Total = '{total}', Tip = '{tip}', [Type] = '{paymentType}' WHERE BillID='{id}'";
+            string query = $"INSERT INTO OrderPayment (OrderID, Total, Tip, [Type]) VALUES ('{id}', '{total}', '{tip}', '{paymentType}')";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            // Preventing SQL from injections
-            sqlParameters[0] = new SqlParameter("@ID", id);
+            // Execute query
             ExecuteEditQuery(query, sqlParameters);
         }
         public Payment GetPaymentMethod(int id)

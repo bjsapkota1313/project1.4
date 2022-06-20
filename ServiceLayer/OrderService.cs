@@ -68,6 +68,10 @@ namespace ServiceLayer
         {
             return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);
         }
+        //public Order GetOrderID(int tableNr)
+        //{
+        //    return orderdb.GetOrderID(tableNr);
+        //}
         public void AddFeedback(int id, string feedback)
         {
              orderdb.AddFeedback(id, feedback);
@@ -75,6 +79,14 @@ namespace ServiceLayer
         public List<OrderItem> GetBill(int OrderId)
         {
             return orderdb.GetBill(OrderId);
+        }
+        public Order GetOrderByTableNumber(int tableNr)
+        {
+            return orderdb.GetOrderByTableNumber(tableNr);
+        }
+        public void ChangeOrderPaymentStatus(int id)
+        {
+            orderdb.ChangeOrderPaymentStatus(id);
         }
 
     }

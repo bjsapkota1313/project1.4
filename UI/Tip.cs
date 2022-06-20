@@ -17,14 +17,17 @@ namespace UI
 
         //private Model.Payment payment;
         PaymentService paymentService;
-        PaymentTypeService paymentTypeService;
+        //BillService billService;
         private decimal tip;
         private decimal total;
+        private Order order = new Order();
 
 
-        public Tip(int tableNr, int billID)
+        public Tip(Order order)
         {
             InitializeComponent();
+
+            this.order = order;
 
             //menuItem = orderService.getallor
             //this.TableNr = tableNr;
@@ -42,18 +45,17 @@ namespace UI
             txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
 
         }
-
+      
         private void btnSubmitTip_Click(object sender, EventArgs e)
         {
             AddTip();
-
             
         }
         private void btnSubmitTotal_Click(object sender, EventArgs e)
         {
             AddTotal();
                         
-            
+           
         }
         private void btnPay_Click(object sender, System.EventArgs e)
         {
@@ -61,7 +63,7 @@ namespace UI
             {
                 SubmitPayment();
 
-                LoadNewForm(new PaymentConfirmation());
+                LoadNewForm(new PaymentConfirmation(order));
             }
             else if(total < OrderPrice())
             {
@@ -77,7 +79,7 @@ namespace UI
         {
             paymentService = new PaymentService();
 
-            paymentService.AddPayment(1, total, tip, PaymentMethod());
+            paymentService.AddPayment(order.OrderId, total, tip, PaymentMethod());
         }
         public int PaymentMethod()
         {
@@ -150,7 +152,7 @@ namespace UI
         {
 
             OrderService orderService = new OrderService();
-            List<OrderItem> orderItems = orderService.GetBill(1);
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal highlVat = 0;
             foreach (OrderItem item in orderItems)
@@ -167,7 +169,7 @@ namespace UI
         {
 
             OrderService orderService = new OrderService();
-            List<OrderItem> orderItems = orderService.GetBill(1);
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal lowVat = 0;
             foreach (OrderItem item in orderItems)
@@ -185,7 +187,7 @@ namespace UI
 
 
             OrderService orderService = new OrderService();
-            List<OrderItem> orderItems = orderService.GetBill(1);
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal totalVat = 0;
             foreach (OrderItem item in orderItems)
@@ -199,7 +201,7 @@ namespace UI
         {
 
             OrderService orderService = new OrderService();
-            List<OrderItem> orderItems = orderService.GetBill(1);
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal orderPrice = 0;
             foreach (OrderItem item in orderItems)

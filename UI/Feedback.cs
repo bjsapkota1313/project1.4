@@ -19,14 +19,17 @@ namespace UI
 
         OrderService orderService;
         private int orderId;
+        private Order order = new Order();
      
 
 
-        public AddFeedback()
+        public AddFeedback(Order order)
         {
             InitializeComponent();
 
-            this.orderId = orderId;
+            this.order = order;
+
+            //this.orderId = orderID;
             //this.bill = billService.GetBill(TableNr);
 
             btnSubmit.Click += new EventHandler(btnSubmit_Click);
@@ -43,7 +46,7 @@ namespace UI
         private void SubmitFeedback()
         {
             orderService = new OrderService();
-            orderService.AddFeedback(orderId, txtBoxComment.Text);
+            orderService.AddFeedback(order.OrderId, txtBoxComment.Text);
         }
         private void LoadNewForm(object Form)
         {

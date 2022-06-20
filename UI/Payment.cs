@@ -14,15 +14,22 @@ namespace UI
 {   
     public partial class Payment : Form
     {
-
-        private int TableNr;
-
-
-        public Payment(int tableNr)
+        private Table table;
+        private OrderService orderService = new OrderService();
+        private int OrderID;
+        private int tablenr;
+        private Order order;
+       
+        public Payment(int tablenr)//Table table)
         {
             InitializeComponent();
 
-            this.TableNr = tableNr;
+            this.tablenr = tablenr;
+           
+
+            order = orderService.GetOrderByTableNumber(tablenr);
+
+            //orderService.GetOrderByTableNumber(table.Number);
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
             btnPay.Click += new EventHandler(btnPay_Click);
@@ -33,7 +40,7 @@ namespace UI
             //this.bill = billService.GetBill(TableNr);
 
             // Display a lable with the table number 
-            lblTableNum.Text = $"Table Number {TableNr.ToString()}";
+            lblTableNum.Text = $"Table Number {tablenr.ToString()}";
 
             // Display the bill in a listView
             ListViewItemsOnBill();
@@ -44,8 +51,11 @@ namespace UI
 
             try
             {
-                OrderService orderService = new OrderService();
-                List<OrderItem> bill = orderService.GetBill(1);
+                //orderService = new OrderService();
+
+                order = orderService.GetOrderByTableNumber(tablenr);
+
+                List<OrderItem> bill = orderService.GetBill(order.OrderId);
 
 
                 // clear the listview ITEMS before filling it again !!Using list.Clear() will remove the column headers too.
@@ -76,13 +86,19 @@ namespace UI
         }
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-             LoadNewForm(new AddFeedback());
+            //orderService = new OrderService();
+
+            //order = orderService.GetOrderByTableNumber(tablenr);
+            LoadNewForm(new AddFeedback(order));
         }
 
         private void btnPay_Click(object sender, System.EventArgs e)
         {
+            //orderService = new OrderService();
 
-            LoadNewForm(new Tip(TableNr, 2));
+            //order = orderService.GetOrderByTableNumber(tablenr);
+
+            LoadNewForm(new Tip(order));
         }
 
         private void LoadNewForm(object Form)

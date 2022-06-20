@@ -12,14 +12,24 @@ namespace DataAccessLayer
 {
     public class BillDAO : BaseDAO
     {
-        public Bill GetBill(int tableNr)
+        //public Bill GetBill(int tableNr)
+        //{
+        //    //Create query
+        //    string query = $"SELECT BillId, TableNr, OrderID FROM TableBill WHERE TableNr ='{tableNr}'";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+
+        //    // Return result of query
+        //    return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+
+        //}
+        public void CreateBill(int orderId)
         {
             //Create query
-            string query = $"SELECT BillId, TableNr, OrderID FROM TableBill WHERE TableNr ='{tableNr}'";
+            string query = $"INSERT INTO TableBill (OrderID) VALUES ('{orderId}'); ";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
+            ExecuteEditQuery(query, sqlParameters);
 
         }
         private Bill ReadTables(DataTable dataTable)
