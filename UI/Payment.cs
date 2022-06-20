@@ -25,7 +25,7 @@ namespace UI
             InitializeComponent();
 
             this.tablenr = tablenr;
-           
+            //orderService = new OrderService();
 
             order = orderService.GetOrderByTableNumber(tablenr);
 
@@ -54,6 +54,11 @@ namespace UI
                 //orderService = new OrderService();
 
                 order = orderService.GetOrderByTableNumber(tablenr);
+
+
+
+
+
 
                 List<OrderItem> bill = orderService.GetBill(order.OrderId);
 

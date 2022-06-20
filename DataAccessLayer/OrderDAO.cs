@@ -367,7 +367,7 @@ namespace DataAccessLayer
         //}
         public Order GetOrderByTableNumber(int tableNr)
         {
-            string query = $"SELECT O.OrderID FROM[Order] AS O INNER JOIN[Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND T.TableNr = '{tableNr}''";
+            string query = $"SELECT O.OrderID FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = '{tableNr}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             return ReadOrdersForUnpaidOrder(ExecuteSelectQuery(query, sqlParameters));
@@ -423,17 +423,21 @@ namespace DataAccessLayer
         private Order ReadOrdersForUnpaidOrder(DataTable dataTable)
         {
             Order orders = new Order();
-
-            foreach (DataRow dr in dataTable.Rows)
+            
+            if(dataTable != null)
             {
-                Order order = new Order();
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Order order = new Order();
 
-                order.OrderId = (int)dr["OrderID"];
-                order.Table.Number = (int)dr["TableNr"];
-                order.PayementStatus = (PayementStatus)dr["PayementStatus"];
+                    order.OrderId = (int)dr["OrderID"];
+                    //order.Table.Number = (int)dr["TableNr"];
+                    //order.PayementStatus = (PayementStatus)dr["PayementStatus"];
+                }               
             }
             return orders;
         }
+           
 
     }
 }
