@@ -113,11 +113,20 @@ namespace UI
                 OrderItem orderItem = (OrderItem)item.Tag;
                orderItem.DateTime= DateTime.Now;   
                 orders.Add(orderItem);
-                //orderService.AddToOrderItem(orderItem);
             }
-            orderService.GetIdFromUnpaied(orders, selectedTable);
-           // CreateOrder();
-           // OrderLIstView.Clear();
+
+            try
+            {
+                orderService.GetIdFromUnpaied(orders, selectedTable);
+                OrderLIstView.Items.Clear();
+                OrderLIstView.Refresh();
+
+            }
+            catch
+            {
+                MessageBox.Show("Ups something went wrong");
+            }
+            // CreateOrder();
 
         }
         private void CreateOrder()
