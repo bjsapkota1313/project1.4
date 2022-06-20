@@ -54,7 +54,7 @@ namespace UI
 
         private void btnBackTableView_Click(object sender, EventArgs e)
         {
-            LoadNewForm(new TableView(Employee employee))
+            //LoadNewForm(new TableView(Employee employee))
 ;        }
         private void LoadNewForm(object Form)
         {

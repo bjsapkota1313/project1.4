@@ -65,9 +65,15 @@ namespace UI
 
                 LoadNewForm(new PaymentConfirmation(order));
             }
-            else if(total < OrderPrice())
+            else if(total < OrderPrice() && cBoxSplitBill.Checked)
             {
                 total = OrderPrice() - total;
+
+                SubmitPayment();
+            }
+            else if(total < OrderPrice())
+            {
+                MessageBox.Show("Please choose the right amount to be paid", "Payment amount not sufficient.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

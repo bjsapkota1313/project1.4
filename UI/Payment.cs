@@ -15,8 +15,7 @@ namespace UI
     public partial class Payment : Form
     {
         private Table table;
-        private OrderService orderService = new OrderService();
-        private int OrderID;
+        private OrderService orderService; 
         private int tablenr;
         private Order order;
        
@@ -25,7 +24,7 @@ namespace UI
             InitializeComponent();
 
             this.tablenr = tablenr;
-            //orderService = new OrderService();
+            orderService = new OrderService();
 
             order = orderService.GetOrderByTableNumber(tablenr);
 
@@ -51,13 +50,10 @@ namespace UI
 
             try
             {
-                //orderService = new OrderService();
 
-                order = orderService.GetOrderByTableNumber(tablenr);
+                orderService = new OrderService();
 
-
-
-
+                order = orderService.GetOrderByTableNumber(1);
 
 
                 List<OrderItem> bill = orderService.GetBill(order.OrderId);
