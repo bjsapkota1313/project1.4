@@ -49,7 +49,8 @@ namespace UI
 
         }
 
-        private void DrinkAddBtn_Click(object sender, EventArgs e)
+
+        private void AddDrinksBtn_Click(object sender, EventArgs e)
         {
             int Quantity = 1;
             MenuItem menuItem = (MenuItem)DrinkListView.SelectedItems[0].Tag;
@@ -75,7 +76,6 @@ namespace UI
             {
                 MessageBox.Show("Ups.Something went wrong. While adding the Item.");
             }
-
         }
         private string GetFeedback()
         {
@@ -90,18 +90,10 @@ namespace UI
                 feedback = CommentDrink.Text;
             }
             return feedback;
-        }
 
-        private void AddDrinksBtn_Click(object sender, EventArgs e)
-        {
-            int Quantity = 1;
-            MenuItem menuItem = (MenuItem)DrinkListView.SelectedItems[0].Tag;
-            string feedback = GetFeedback();
-
-            OrderItem item = new OrderItem(Quantity, menuItem, feedback);
-            AddToListOrderItems(item);
 
         }
+
     }
 }
 

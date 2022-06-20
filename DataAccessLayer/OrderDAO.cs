@@ -73,7 +73,7 @@ namespace DataAccessLayer
         }
         private void AddNew(List<OrderItem> orderItem, Table TableNr)// no order existing create new one and add into it
         {
-            string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr, getdate(),getdate());";// add new
+            string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' ,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' );";// add new
 
             SqlParameter[] sqlParameters = 
             {
