@@ -17,8 +17,45 @@ namespace UI
             InitializeComponent();
             orderService = new OrderService();
             loggedEmployee = employee;
-            checkEmployee();
             btnRunningOrder.Visible = false;
+
+            DisplayKitchenBarView();
+        }
+
+        private void DisplayKitchenBarView()
+        {
+            //Display screen title based on employee type
+            if (loggedEmployee.EmployeeType == EmployeeType.Chef)
+            {
+                lblKitchenAndBarView.Text = "Kitchen View";
+            }
+            else
+                lblKitchenAndBarView.Text = "Bar View";
+
+            //Get orders by for kitchen or bar, depends on employee type
+            List<Order> orders = GetOrders(loggedEmployee);
+
+            //Fill in the listview with orders
+            FillInKitchenAndBarView(orders);
+        }
+        
+        //Get orders for kitchen or bar based on employee type
+        private List<Order> GetOrders(Employee employee)
+        {
+            List<Order> orders = new List<Order>();
+
+            switch (employee.EmployeeType)
+            {
+                case EmployeeType.Chef:
+                    typeMenuItem = TypeMenuItem.Food;
+                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.PreparingOrder);
+                    break;
+                case EmployeeType.BarTender:
+                    typeMenuItem = TypeMenuItem.Drink;
+                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.PreparingOrder);
+                    break;
+            }
+            return orders;
         }
 
         // Display Orders In Listview
@@ -26,6 +63,8 @@ namespace UI
         {
             lstViewKitchenAndBar.Items.Clear();
             lstViewKitchenAndBar.View = View.Details;
+            
+            //Create listview item for each orderitem in every order
             foreach (Order order in orders)
             {
                 foreach (OrderItem item in order.OrderItems)
@@ -36,11 +75,11 @@ namespace UI
                     li.SubItems.Add(item.DateTime.ToString("HH:mm"));
                     li.SubItems.Add(order.Table.Number.ToString());
 
-                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    if (item.OrderState == OrderItemState.ReadyToDeliver)
                     {
                         li.SubItems.Add("Ready");
                     }
-                    else if (item.OrderState == OrderState.PreparingOrder)
+                    else if (item.OrderState == OrderItemState.PreparingOrder)
                     {
                         li.SubItems.Add("Preparing");
                     }
@@ -50,31 +89,9 @@ namespace UI
             }
         }
 
-        // Check if the employee is chef then show KitchenView and if the employee is Bartender then show BarView
-        private  void checkEmployee()
-        {
-            List<Order> orders;
-            switch (loggedEmployee.EmployeeType)
-            {
-                case EmployeeType.Chef:
-                    typeMenuItem = TypeMenuItem.Food;
-                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
-                    FillInKitchenAndBarView(orders);
-                    lblKitchenAndBarView.Text = "Kitchen View";
-                    break;
-                case EmployeeType.BarTender:
-                    typeMenuItem = TypeMenuItem.Drink;    
-                    orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
-                    FillInKitchenAndBarView(orders);
-                    lblKitchenAndBarView.Text = "Bar View";
-                    break;
-            }
-        }
-
-
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            checkEmployee();
+            DisplayKitchenBarView();
         }
 
         //Ready Button For kitchenandBar
@@ -84,10 +101,10 @@ namespace UI
             foreach(ListViewItem lvI in lstViewKitchenAndBar.SelectedItems)
             {
                 orderItem = (OrderItem)lvI.Tag;
-                orderItem.OrderState = OrderState.ReadyToDeliver;
+                orderItem.OrderState = OrderItemState.ReadyToDeliver;
                 orderService.UpdateStatusOfSpecficOrderItem(orderItem); 
-            } 
-            checkEmployee();    
+            }
+            DisplayKitchenBarView();    
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -100,19 +117,21 @@ namespace UI
         private void btnRunningOrder_Click(object sender, EventArgs e)
         {
             List<Order> orders;
-            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.PreparingOrder);
+            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.PreparingOrder);
             FillInKitchenAndBarView(orders);
             btnRunningOrder.Visible = false;
             btnCompletedOrder.Visible = true;
+            btnKitchenReady.Visible = true;
         }
 
         private void btnCompletedOrder_Click_1(object sender, EventArgs e)
         {
             btnRunningOrder.Visible = true;
             btnCompletedOrder.Visible = false;
+            btnKitchenReady.Visible = false;
 
             List<Order> orders;
-            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderState.ReadyToDeliver);
+            orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.ReadyToDeliver);
             FillInKitchenAndBarView(orders);
         }
     }

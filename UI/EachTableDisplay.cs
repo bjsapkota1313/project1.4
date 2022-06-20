@@ -131,7 +131,7 @@ namespace UI
         //  checking if order is either preparing or ready to deliver 
         private bool CheckOrderTime(OrderItem orderItem)
         {
-            return orderItem.OrderState == OrderState.PreparingOrder || orderItem.OrderState == OrderState.ReadyToDeliver;
+            return orderItem.OrderState == OrderItemState.PreparingOrder || orderItem.OrderState == OrderItemState.ReadyToDeliver;
 
         }
 
@@ -165,10 +165,10 @@ namespace UI
                 {
                     OrderItem item = (OrderItem)ListViewOfOrderItems.SelectedItems[i].Tag;
                     // only adding to list which have state ready to deliver 
-                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    if (item.OrderState == OrderItemState.ReadyToDeliver)
                     {
                         // Changing the status of order and storing on list and preventing other state cannot be updated 
-                        item.OrderState = OrderState.OrderServed;
+                        item.OrderState = OrderItemState.OrderServed;
                         SelectedOrderItems.Add(item);
                     }
                 }

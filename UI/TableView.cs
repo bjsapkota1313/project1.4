@@ -122,10 +122,10 @@ namespace UI
             pictureBox.Show();
             switch (orderItem.OrderState)
             {
-                case OrderState.PreparingOrder:
+                case OrderItemState.PreparingOrder:
                     pictureBox.Image = Properties.Resources.PrepCoffee5050;
                     break;
-                case OrderState.ReadyToDeliver:
+                case OrderItemState.ReadyToDeliver:
                     pictureBox.Image = Properties.Resources.coffeeReadyToDeliver;
                     if (CheckTimeForReadyToDeliverStatus(orderItem))
                     {
@@ -136,7 +136,7 @@ namespace UI
                         pictureBoxLateServing.Hide();
                     }
                     break;
-                case OrderState.RunningOrder:
+                case OrderItemState.RunningOrder:
                     pictureBox.Image = Properties.Resources.CoffeeRunning5050;
                     break;
                 default:
@@ -155,11 +155,11 @@ namespace UI
             pictureBox.Show();
             switch (orderItem.OrderState)
             {
-                case OrderState.PreparingOrder:
+                case OrderItemState.PreparingOrder:
                     pictureBox.Image = Properties.Resources.PrepOrder5050;
                     pictureBoxLateServing.Hide(); // Need to find a way to remove this duplicate code 
                     break;
-                case OrderState.ReadyToDeliver:
+                case OrderItemState.ReadyToDeliver:
                     pictureBox.Image = Properties.Resources.ReadyToDeliver5050;
                     if (CheckTimeForReadyToDeliverStatus(orderItem))
                     {
@@ -170,7 +170,7 @@ namespace UI
                         pictureBoxLateServing.Hide();
                     }
                     break;
-                case OrderState.RunningOrder:
+                case OrderItemState.RunningOrder:
                     pictureBox.Image = Properties.Resources.RunningOrder5050;
                     pictureBoxLateServing.Hide();
                     break;
