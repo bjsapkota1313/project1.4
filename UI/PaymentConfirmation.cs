@@ -17,7 +17,7 @@ namespace UI
         private int orderID;
         private OrderService orderService;
         private TableService tableService;
-        private Order order = new Order();
+        private Order order;
 
         public PaymentConfirmation(Order order)
         {

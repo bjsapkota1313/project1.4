@@ -19,8 +19,10 @@ namespace UI
 
         OrderService orderService;
         private int orderId;
-        private Order order = new Order();
-     
+        private Order order;
+        //private List<Order> orders;
+
+
 
 
         public AddFeedback(Order order)
@@ -47,6 +49,8 @@ namespace UI
         {
             orderService = new OrderService();
             orderService.AddFeedback(order.OrderId, txtBoxComment.Text);
+
+            txtBoxComment.Text = "";
         }
         private void LoadNewForm(object Form)
         {

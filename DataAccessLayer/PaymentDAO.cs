@@ -14,7 +14,7 @@ namespace DataAccessLayer
         public Payment GetPayment(int orderId)
         {
             //Create query
-            string query = $"SELECT OrderID, Type, Feedback, PaymentStatus, Tip, Total, ID FROM OrderPayment WHERE OrderID = '{orderId}'";
+            string query = $"SELECT OrderID, Type, Tip, Total, BillID  FROM OrderPayment WHERE OrderID = '{orderId}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             // Return result of query
@@ -31,11 +31,11 @@ namespace DataAccessLayer
                 {
                     
                     {
-                        payment.BillID = (int)dr["BillID"];
-                        payment.Order = (Order)dr["OrderID"];
+                        //payment.BillID = (int)dr["BillID"];
+                        //payment.Order = (Order)dr["OrderID"];
                         payment.Type = (PaymentType)dr["ID"];
-                        payment.Tip = (decimal)dr["Tip"];
-                        payment.Total = (decimal)dr["Total"];
+                        //payment.Tip = (decimal)dr["Tip"];
+                        //payment.Total = (decimal)dr["Total"];
 
                     }
 
@@ -58,12 +58,11 @@ namespace DataAccessLayer
         }
         public Payment GetPaymentMethod(int id)
         {
-            string query = $"SELECT T.Type FROM OrderPayment AS P INNER JOIN PaymentType AS T ON P.Type = T.ID WHERE P.Type = '{id}'";
+            string query = $"SELECT P.Type FROM OrderPayment AS P INNER JOIN PaymentType AS T ON P.Type = T.ID WHERE P.Type = '{id}'";
 
-            SqlParameter[] sqlParameters = new SqlParameter[1];
+            SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            // Preventing SQL from injections
-            sqlParameters[0] = new SqlParameter("@ID", id);
+
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
         public void EditPayment(string query)

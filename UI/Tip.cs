@@ -20,12 +20,16 @@ namespace UI
         //BillService billService;
         private decimal tip;
         private decimal total;
-        private Order order = new Order();
+        private Order order;
+        private OrderService orderService;
 
 
         public Tip(Order order)
         {
             InitializeComponent();
+
+            paymentService = new PaymentService();
+            orderService = new OrderService();
 
             this.order = order;
 
@@ -83,35 +87,34 @@ namespace UI
        
         private void SubmitPayment()
         {
-            paymentService = new PaymentService();
+            int payementmethod = PaymentMethod();
+            if (payementmethod == 5)
+            {
+                MessageBox.Show("Please choose payment method");
+            }
 
             paymentService.AddPayment(order.OrderId, total, tip, PaymentMethod());
         }
         public int PaymentMethod()
         {
-            paymentService = new PaymentService();
-
-            int value = 0;
 
             if (radBtnCash.Checked)
             {
-
-                paymentService.GetPaymentMethod(value);
+                return 0;
+                //paymentService.GetPaymentMethod(value);
             }
             else if (radBtnCreditCard.Checked)
             {
-                value = 1;
-                paymentService.GetPaymentMethod(value);
+                return 1;
+                //paymentService.GetPaymentMethod(value);
             }
             else if (radBtnPIN.Checked)
             {
-                value = 2;
-                paymentService.GetPaymentMethod(value);
+                return 2;
+                //paymentService.GetPaymentMethod(value);
             }
-            else
-                MessageBox.Show("Please choose payment method");
 
-            return value;
+            return 5;
         }
 
         private void Tip_Load(object sender, EventArgs e)
@@ -157,7 +160,6 @@ namespace UI
         public decimal HighVAT()
         {
 
-            OrderService orderService = new OrderService();
             List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal highlVat = 0;
@@ -173,8 +175,6 @@ namespace UI
         }
         public decimal LowVAT()
         {
-
-            OrderService orderService = new OrderService();
             List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal lowVat = 0;
@@ -191,8 +191,6 @@ namespace UI
         public decimal TotalVAT()
         {
 
-
-            OrderService orderService = new OrderService();
             List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal totalVat = 0;
@@ -206,7 +204,6 @@ namespace UI
         public decimal OrderPrice()
         {
 
-            OrderService orderService = new OrderService();
             List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
 
             decimal orderPrice = 0;

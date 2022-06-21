@@ -15,10 +15,10 @@ namespace ServiceLayer
         {
             paymentTypedb = new PaymentTypeDAO();
         }
-        public PaymentType GetType(int id)
-        {
-            return paymentTypedb.GetType(id);
-        }
+        //public PaymentType GetType(int id)
+        //{
+        //    return paymentTypedb.GetType(id);
+        //}
 
     }
 }

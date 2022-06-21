@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class PaymentType
-    {
-        public int ID { get; set; }
 
-        public string Type { get; set; }
-    }
-    public enum PaymentTypes
+    public enum PaymentType
     {
         Cash = 0, CreditCard, PIN
     }

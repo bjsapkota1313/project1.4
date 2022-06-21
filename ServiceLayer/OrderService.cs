@@ -80,7 +80,7 @@ namespace ServiceLayer
         {
             return orderdb.GetBill(OrderId);
         }
-        public Order GetOrderByTableNumber(int tableNr)
+        public List<Order> GetOrderByTableNumber(int tableNr)
         {
             return orderdb.GetOrderByTableNumber(tableNr);
         }

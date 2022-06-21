@@ -365,9 +365,9 @@ namespace DataAccessLayer
         //    // Preventing SQL from injections
         //    return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
         //}
-        public Order GetOrderByTableNumber(int tableNr)
+        public List<Order> GetOrderByTableNumber(int tableNr)
         {
-            string query = $"SELECT O.OrderID FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = '{tableNr}'";
+            string query = $"SELECT O.OrderID, T.TableNr FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = '{tableNr}'";
             SqlParameter[] sqlParameters = new SqlParameter[0];
 
             return ReadOrdersForUnpaidOrder(ExecuteSelectQuery(query, sqlParameters));
@@ -420,9 +420,9 @@ namespace DataAccessLayer
             }
             return list;
         }
-        private Order ReadOrdersForUnpaidOrder(DataTable dataTable)
+        private List<Order> ReadOrdersForUnpaidOrder(DataTable dataTable)
         {
-            Order orders = new Order();
+            List<Order> orders = new List<Order>();
             
             if(dataTable != null)
             {
@@ -431,7 +431,9 @@ namespace DataAccessLayer
                     Order order = new Order();
 
                     order.OrderId = (int)dr["OrderID"];
-                    //order.Table.Number = (int)dr["TableNr"];
+                    order.Table.Number = (int)dr["TableNr"];
+                    orders.Add(order);
+                    
                     //order.PayementStatus = (PayementStatus)dr["PayementStatus"];
                 }               
             }

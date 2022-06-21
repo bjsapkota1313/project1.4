@@ -17,8 +17,9 @@ namespace UI
         private Table table;
         private OrderService orderService; 
         private int tablenr;
-        private Order order;
-       
+        List<Order> orders;
+        Order order;
+
         public Payment(int tablenr)//Table table)
         {
             InitializeComponent();
@@ -26,9 +27,10 @@ namespace UI
             this.tablenr = tablenr;
             orderService = new OrderService();
 
-            order = orderService.GetOrderByTableNumber(tablenr);
+            orders = new List<Order>();
 
-            //orderService.GetOrderByTableNumber(table.Number);
+            orders = orderService.GetOrderByTableNumber(tablenr);
+
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
             btnPay.Click += new EventHandler(btnPay_Click);
@@ -36,7 +38,6 @@ namespace UI
 
         private void Payment_Load(object sender, EventArgs e)
         {
-            //this.bill = billService.GetBill(TableNr);
 
             // Display a lable with the table number 
             lblTableNum.Text = $"Table Number {tablenr.ToString()}";
@@ -52,11 +53,15 @@ namespace UI
             {
 
                 orderService = new OrderService();
+                List<OrderItem> bill = new List<OrderItem>();
 
-                order = orderService.GetOrderByTableNumber(1);
 
-
-                List<OrderItem> bill = orderService.GetBill(order.OrderId);
+                orders = orderService.GetOrderByTableNumber(tablenr);
+                foreach (Order item in orders)
+                {
+                    bill = orderService.GetBill(item.OrderId);
+                    order = item;
+                }
 
 
                 // clear the listview ITEMS before filling it again !!Using list.Clear() will remove the column headers too.
@@ -87,9 +92,7 @@ namespace UI
         }
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-            //orderService = new OrderService();
 
-            //order = orderService.GetOrderByTableNumber(tablenr);
             LoadNewForm(new AddFeedback(order));
         }
 
@@ -111,6 +114,7 @@ namespace UI
             frm.Show();
             this.Hide();
         }
+
     }
     }
           
