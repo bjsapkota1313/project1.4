@@ -67,7 +67,7 @@
             // 
             this.btnCompletedOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
             this.btnCompletedOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCompletedOrder.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCompletedOrder.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnCompletedOrder.ForeColor = System.Drawing.Color.Black;
             this.btnCompletedOrder.Location = new System.Drawing.Point(24, 878);
             this.btnCompletedOrder.Name = "btnCompletedOrder";
@@ -81,7 +81,7 @@
             // 
             this.btnKitchenReady.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
             this.btnKitchenReady.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnKitchenReady.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnKitchenReady.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnKitchenReady.ForeColor = System.Drawing.Color.Black;
             this.btnKitchenReady.Location = new System.Drawing.Point(1349, 878);
             this.btnKitchenReady.Name = "btnKitchenReady";
@@ -101,7 +101,7 @@
             this.time,
             this.table,
             this.status});
-            this.lstViewKitchenAndBar.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lstViewKitchenAndBar.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstViewKitchenAndBar.ForeColor = System.Drawing.Color.Black;
             this.lstViewKitchenAndBar.FullRowSelect = true;
             this.lstViewKitchenAndBar.GridLines = true;
@@ -131,22 +131,22 @@
             // comment
             // 
             this.comment.Text = "Comment";
-            this.comment.Width = 250;
+            this.comment.Width = 260;
             // 
             // time
             // 
             this.time.Text = "Time";
-            this.time.Width = 250;
+            this.time.Width = 260;
             // 
             // table
             // 
             this.table.Text = "Table";
-            this.table.Width = 250;
+            this.table.Width = 260;
             // 
             // status
             // 
             this.status.Text = "Status";
-            this.status.Width = 250;
+            this.status.Width = 260;
             // 
             // btnRefresh
             // 
@@ -164,9 +164,9 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(125)))), ((int)(((byte)(111)))));
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogOut.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
             this.btnLogOut.Location = new System.Drawing.Point(1608, 37);
             this.btnLogOut.Name = "btnLogOut";
@@ -180,7 +180,7 @@
             // 
             this.btnRunningOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
             this.btnRunningOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRunningOrder.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRunningOrder.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRunningOrder.ForeColor = System.Drawing.Color.Black;
             this.btnRunningOrder.Location = new System.Drawing.Point(707, 878);
             this.btnRunningOrder.Name = "btnRunningOrder";
@@ -192,7 +192,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(57)))), ((int)(((byte)(57)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.btnLogOut);
             this.panel1.Controls.Add(this.lblKitchenAndBarView);
