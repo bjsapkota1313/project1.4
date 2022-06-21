@@ -215,16 +215,16 @@ namespace UI
             string message = "";
             switch (orderItem.OrderState)
             {
-                case OrderState.OrderServed:
+                case OrderItemState.OrderServed:
                     message = "Served";
                     break;
-                case OrderState.ReadyToDeliver:
+                case OrderItemState.ReadyToDeliver:
                     message = "Ready TO Serve ";
                     break;
-                case OrderState.PreparingOrder:
+                case OrderItemState.PreparingOrder:
                     message = "Preparing";
                     break;
-                case OrderState.RunningOrder:
+                case OrderItemState.RunningOrder:
                     message = "Running";
                     break;
             }
