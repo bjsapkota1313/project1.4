@@ -47,13 +47,13 @@ namespace UI
             switch (table.Status)
             {
                 case TableStatus.Reserved:
-                    btnTable.BackColor = Color.DarkRed;
+                    btnTable.BackColor = Color.FromArgb(210,83,43);
                     break;
                 case TableStatus.Free:
-                    btnTable.BackColor = Color.FromArgb(67, 165, 51);
+                    btnTable.BackColor = Color.FromArgb(117, 154, 40);
                     break;
                 case TableStatus.Occupied:
-                    btnTable.BackColor = Color.FromArgb(172, 115, 73);
+                    btnTable.BackColor = Color.FromArgb(229, 160, 96);
                     break;
             }
         }
@@ -65,6 +65,7 @@ namespace UI
                 string PicboxNameForFood = "PicBoxFoodForTable" + $"{i + 1}";
                 string buttonName = "BtnTableNumber" + $"{i + 1}";
                 string picboxNameForLateServing = "PicBoxFoodForTable" + $"{i + 1}";
+
                 DisplayingTheStatusOfTable(tables[i], dictionaryForButton[buttonName]);
 
                 // always getting the unpaid orderItems and using the button's text   which have table number   
@@ -120,13 +121,16 @@ namespace UI
         private void ChangingtheStatusOfDrink(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
             pictureBox.Show();
+            pictureBoxLateServing.Show();
             switch (orderItem.OrderState)
             {
                 case OrderState.PreparingOrder:
                     pictureBox.Image = Properties.Resources.PrepCoffee5050;
+                    pictureBoxLateServing.Hide();
                     break;
                 case OrderState.ReadyToDeliver:
-                    pictureBox.Image = Properties.Resources.coffeeReadyToDeliver;
+                    //pictureBox.Image = Properties.Resources.coffeeReadyToDeliver;
+                    pictureBox.Image = Properties.Resources.coffeeeready50402;
                     if (CheckTimeForReadyToDeliverStatus(orderItem))
                     {
                         pictureBoxLateServing.Image = Properties.Resources.BellNotification;
@@ -138,9 +142,11 @@ namespace UI
                     break;
                 case OrderState.RunningOrder:
                     pictureBox.Image = Properties.Resources.CoffeeRunning5050;
+                    pictureBoxLateServing.Hide();
                     break;
                 default:
                     pictureBox.Hide();
+                    pictureBoxLateServing.Hide();
                     break;
             }
         }
@@ -153,6 +159,7 @@ namespace UI
         private void ChangingtheStatusOfFood(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
             pictureBox.Show();
+            pictureBoxLateServing.Show();   
             switch (orderItem.OrderState)
             {
                 case OrderState.PreparingOrder:
@@ -288,7 +295,8 @@ namespace UI
         private void OpenEachTableDisplay(Table table)
         {
             EachTableDisplay eachTableDisplay = new EachTableDisplay(table);
-            eachTableDisplay.ShowDialog();
+            eachTableDisplay.Show();
+            FormAppearnce(eachTableDisplay);
         }
 
         private void TimerForTableView_Tick(object sender, EventArgs e)
@@ -299,9 +307,18 @@ namespace UI
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-            this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            FormAppearnce(loginForm);
+            this.Close();
+        }
+
+        private void FormAppearnce(Form loginForm)
+        {
+            loginForm.StartPosition= FormStartPosition.Manual;  
+            loginForm.Location = this.Location;
+            loginForm.Top = this.Top;
+            loginForm.Left=this.Left;
         }
     }
 }

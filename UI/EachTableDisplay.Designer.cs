@@ -48,7 +48,7 @@
             // 
             // lblFormName
             // 
-            this.lblFormName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
+            this.lblFormName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.lblFormName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblFormName.Location = new System.Drawing.Point(1, 66);
             this.lblFormName.Name = "lblFormName";
@@ -57,11 +57,11 @@
             // 
             // BtnBackToTableView
             // 
-            this.BtnBackToTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(133)))), ((int)(((byte)(114)))));
+            this.BtnBackToTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.BtnBackToTableView.FlatAppearance.BorderSize = 0;
             this.BtnBackToTableView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnBackToTableView.Font = new System.Drawing.Font("Segoe UI", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnBackToTableView.ForeColor = System.Drawing.Color.White;
+            this.BtnBackToTableView.Font = new System.Drawing.Font("Calibri", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnBackToTableView.ForeColor = System.Drawing.Color.Black;
             this.BtnBackToTableView.Image = global::UI.Properties.Resources.ArrowFatLeftNew;
             this.BtnBackToTableView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnBackToTableView.Location = new System.Drawing.Point(4, 8);
@@ -75,10 +75,10 @@
             // 
             // lblTableNumber
             // 
-            this.lblTableNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
-            this.lblTableNumber.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTableNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
+            this.lblTableNumber.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTableNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTableNumber.Location = new System.Drawing.Point(1, 66);
+            this.lblTableNumber.Location = new System.Drawing.Point(24, 72);
             this.lblTableNumber.Name = "lblTableNumber";
             this.lblTableNumber.Size = new System.Drawing.Size(256, 40);
             this.lblTableNumber.TabIndex = 4;
@@ -86,9 +86,9 @@
             // 
             // lblForUserInfoTomarkServe
             // 
-            this.lblForUserInfoTomarkServe.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblForUserInfoTomarkServe.ForeColor = System.Drawing.Color.White;
-            this.lblForUserInfoTomarkServe.Location = new System.Drawing.Point(12, 533);
+            this.lblForUserInfoTomarkServe.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblForUserInfoTomarkServe.ForeColor = System.Drawing.Color.Black;
+            this.lblForUserInfoTomarkServe.Location = new System.Drawing.Point(26, 829);
             this.lblForUserInfoTomarkServe.Name = "lblForUserInfoTomarkServe";
             this.lblForUserInfoTomarkServe.Size = new System.Drawing.Size(365, 71);
             this.lblForUserInfoTomarkServe.TabIndex = 6;
@@ -101,7 +101,7 @@
             this.btnMarkAsServed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMarkAsServed.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMarkAsServed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMarkAsServed.Location = new System.Drawing.Point(402, 524);
+            this.btnMarkAsServed.Location = new System.Drawing.Point(421, 829);
             this.btnMarkAsServed.Name = "btnMarkAsServed";
             this.btnMarkAsServed.Size = new System.Drawing.Size(293, 80);
             this.btnMarkAsServed.TabIndex = 7;
@@ -115,7 +115,7 @@
             this.BtnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnCheckout.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.BtnCheckout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCheckout.Location = new System.Drawing.Point(12, 629);
+            this.BtnCheckout.Location = new System.Drawing.Point(24, 940);
             this.BtnCheckout.Name = "BtnCheckout";
             this.BtnCheckout.Size = new System.Drawing.Size(293, 76);
             this.BtnCheckout.TabIndex = 8;
@@ -128,7 +128,7 @@
             this.btnTakeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnTakeOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnTakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTakeOrder.Location = new System.Drawing.Point(402, 628);
+            this.btnTakeOrder.Location = new System.Drawing.Point(420, 937);
             this.btnTakeOrder.Name = "btnTakeOrder";
             this.btnTakeOrder.Size = new System.Drawing.Size(293, 76);
             this.btnTakeOrder.TabIndex = 9;
@@ -138,10 +138,10 @@
             // 
             // lblCurrentTableStatus
             // 
-            this.lblCurrentTableStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
-            this.lblCurrentTableStatus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCurrentTableStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
+            this.lblCurrentTableStatus.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCurrentTableStatus.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentTableStatus.Location = new System.Drawing.Point(475, 67);
+            this.lblCurrentTableStatus.Location = new System.Drawing.Point(487, 69);
             this.lblCurrentTableStatus.Name = "lblCurrentTableStatus";
             this.lblCurrentTableStatus.Size = new System.Drawing.Size(220, 40);
             this.lblCurrentTableStatus.TabIndex = 11;
@@ -153,16 +153,16 @@
             this.pnlForOtherInfo.Controls.Add(this.btnOccupyTable);
             this.pnlForOtherInfo.Controls.Add(this.LblInfoAboveButton);
             this.pnlForOtherInfo.Controls.Add(this.BtnMakeTableFree);
-            this.pnlForOtherInfo.Location = new System.Drawing.Point(12, 153);
+            this.pnlForOtherInfo.Location = new System.Drawing.Point(22, 153);
             this.pnlForOtherInfo.Name = "pnlForOtherInfo";
-            this.pnlForOtherInfo.Size = new System.Drawing.Size(683, 341);
+            this.pnlForOtherInfo.Size = new System.Drawing.Size(683, 620);
             this.pnlForOtherInfo.TabIndex = 12;
             // 
             // lblInfoOccupyTable
             // 
-            this.lblInfoOccupyTable.BackColor = System.Drawing.Color.Black;
-            this.lblInfoOccupyTable.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblInfoOccupyTable.ForeColor = System.Drawing.Color.White;
+            this.lblInfoOccupyTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.lblInfoOccupyTable.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblInfoOccupyTable.ForeColor = System.Drawing.Color.Black;
             this.lblInfoOccupyTable.Location = new System.Drawing.Point(114, 63);
             this.lblInfoOccupyTable.Name = "lblInfoOccupyTable";
             this.lblInfoOccupyTable.Size = new System.Drawing.Size(444, 46);
@@ -185,9 +185,9 @@
             // 
             // LblInfoAboveButton
             // 
-            this.LblInfoAboveButton.BackColor = System.Drawing.Color.Black;
-            this.LblInfoAboveButton.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfoAboveButton.ForeColor = System.Drawing.Color.White;
+            this.LblInfoAboveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.LblInfoAboveButton.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.LblInfoAboveButton.ForeColor = System.Drawing.Color.Black;
             this.LblInfoAboveButton.Location = new System.Drawing.Point(50, 63);
             this.LblInfoAboveButton.Name = "LblInfoAboveButton";
             this.LblInfoAboveButton.Size = new System.Drawing.Size(561, 46);
@@ -211,11 +211,11 @@
             // 
             // ListViewOfOrderItems
             // 
-            this.ListViewOfOrderItems.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ListViewOfOrderItems.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ListViewOfOrderItems.HideSelection = false;
             this.ListViewOfOrderItems.Location = new System.Drawing.Point(26, 153);
             this.ListViewOfOrderItems.Name = "ListViewOfOrderItems";
-            this.ListViewOfOrderItems.Size = new System.Drawing.Size(669, 341);
+            this.ListViewOfOrderItems.Size = new System.Drawing.Size(679, 608);
             this.ListViewOfOrderItems.TabIndex = 13;
             this.ListViewOfOrderItems.UseCompatibleStateImageBehavior = false;
             this.ListViewOfOrderItems.SelectedIndexChanged += new System.EventHandler(this.ListViewOfOrderItems_SelectedIndexChanged);
@@ -224,8 +224,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.ClientSize = new System.Drawing.Size(726, 729);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.ClientSize = new System.Drawing.Size(726, 1055);
             this.Controls.Add(this.lblCurrentTableStatus);
             this.Controls.Add(this.btnTakeOrder);
             this.Controls.Add(this.BtnCheckout);
@@ -238,6 +238,7 @@
             this.Controls.Add(this.ListViewOfOrderItems);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EachTableDisplay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.pnlForOtherInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
