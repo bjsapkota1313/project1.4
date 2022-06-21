@@ -294,7 +294,7 @@ namespace UI
         }
         private void OpenEachTableDisplay(Table table)
         {
-            EachTableDisplay eachTableDisplay = new EachTableDisplay(table);
+            EachTableDisplay eachTableDisplay = new EachTableDisplay(table, loggedEmployee);
             eachTableDisplay.Show();
             FormAppearnce(eachTableDisplay);
         }

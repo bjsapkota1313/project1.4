@@ -18,13 +18,14 @@ namespace UI
         private OrderService orderService;
         private TableService tableService;
         private Order order;
+        private Employee loggedEmployee;
 
-        public PaymentConfirmation(Order order)
+        public PaymentConfirmation(Order order, Employee loggedEmployee)
         {
             InitializeComponent();
 
             //this.orderID = orderID;
-
+            this.loggedEmployee = loggedEmployee;
             this.order = order;
 
         }      
@@ -54,7 +55,8 @@ namespace UI
 
         private void btnBackTableView_Click(object sender, EventArgs e)
         {
-            //LoadNewForm(new TableView(Employee employee))
+            
+            LoadNewForm(new TableView(loggedEmployee))
 ;        }
         private void LoadNewForm(object Form)
         {
@@ -63,7 +65,8 @@ namespace UI
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
-            this.Hide();
+            //this.Hide();
+            this.Close();
         }
     }
 }

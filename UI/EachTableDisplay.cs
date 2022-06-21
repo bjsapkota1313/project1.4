@@ -14,12 +14,13 @@ namespace UI
 {
     public partial class EachTableDisplay : Form
     {
+        private Employee employee;
         private List<OrderItem> SelectedOrderItems;
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
         private List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
-        public EachTableDisplay(Table selectedTable)
+        public EachTableDisplay(Table selectedTable, Employee employee)
         {
             // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace UI
             orderService = new OrderService();
             tableService = new TableService();
             this.selectedTable = selectedTable;
+            this.employee = employee;
             RefreshDisplay(selectedTable);
 
         }
@@ -231,5 +233,15 @@ namespace UI
            return message;
         }
 
+        private void BtnCheckout_Click(object sender, EventArgs e)
+        {
+            UI.Payment payment = new Payment(selectedTable, employee);
+            payment.Show();
+            this.Close();
+            payment.BringToFront();
+            payment.StartPosition = this.StartPosition;
+            payment.Location = this.Location;
+            payment.Top = this.Top;
+        }
     }
 }

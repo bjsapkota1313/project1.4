@@ -16,20 +16,21 @@ namespace UI
     {
         private Table table;
         private OrderService orderService; 
-        private int tablenr;
         List<Order> orders;
         Order order;
+        private Employee loggedEmployee;
 
-        public Payment(int tablenr)//Table table)
+        public Payment(Table table, Employee loggedEmployee)
         {
             InitializeComponent();
 
-            this.tablenr = tablenr;
+            this.loggedEmployee = loggedEmployee;
+            this.table = table;
             orderService = new OrderService();
 
             orders = new List<Order>();
 
-            orders = orderService.GetOrderByTableNumber(tablenr);
+            orders = orderService.GetOrderByTableNumber(table.Number);
 
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
@@ -40,7 +41,7 @@ namespace UI
         {
 
             // Display a lable with the table number 
-            lblTableNum.Text = $"Table Number {tablenr.ToString()}";
+            lblTableNum.Text = $"Table Number {table.Number.ToString()}";
 
             // Display the bill in a listView
             ListViewItemsOnBill();
@@ -56,7 +57,7 @@ namespace UI
                 List<OrderItem> bill = new List<OrderItem>();
 
 
-                orders = orderService.GetOrderByTableNumber(tablenr);
+                orders = orderService.GetOrderByTableNumber(table.Number);
                 foreach (Order item in orders)
                 {
                     bill = orderService.GetBill(item.OrderId);
@@ -102,7 +103,7 @@ namespace UI
 
             //order = orderService.GetOrderByTableNumber(tablenr);
 
-            LoadNewForm(new Tip(order));
+            LoadNewForm(new Tip(order, loggedEmployee));
         }
 
         private void LoadNewForm(object Form)
@@ -112,7 +113,7 @@ namespace UI
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
-            this.Hide();
+            this.Close();
         }
 
     }

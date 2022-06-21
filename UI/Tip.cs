@@ -22,9 +22,10 @@ namespace UI
         private decimal total;
         private Order order;
         private OrderService orderService;
+        private Employee loggedEmployee;
 
 
-        public Tip(Order order)
+        public Tip(Order order, Employee loggedEmployee)
         {
             InitializeComponent();
 
@@ -32,6 +33,7 @@ namespace UI
             orderService = new OrderService();
 
             this.order = order;
+            this.loggedEmployee = loggedEmployee;
 
             //menuItem = orderService.getallor
             //this.TableNr = tableNr;
@@ -67,7 +69,7 @@ namespace UI
             {
                 SubmitPayment();
 
-                LoadNewForm(new PaymentConfirmation(order));
+                LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
             }
             else if(total < OrderPrice() && cBoxSplitBill.Checked)
             {
