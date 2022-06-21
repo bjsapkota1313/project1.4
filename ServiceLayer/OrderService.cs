@@ -15,19 +15,6 @@ namespace ServiceLayer
         {
             orderdb = new OrderDAO();
         }
-
-        public List<OrderItem> GetOrderTableNotPayed(Table table)
-        {
-            return orderdb.GetOrderTableNotPayed(table);
-        }
-
-        /* public Order GetOrderForSpecificTableWhichisNotPaidYet(Order order)
-
-         {
-
-             return orderdb.GetOrderForSpecificTableWhichisNotPaidYet(order);
-
-         }*/
         public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             orderdb.GetIdFromUnpaied(list, TableNr);
@@ -49,21 +36,16 @@ namespace ServiceLayer
         {
             return orderdb.SearchByID(ID);
         }
-
-        public List<OrderItem> ListOfOrderItemsInOneOrder(int OrderId)
-        {
-            return orderdb.ListOfOrderItemsInOneOrder(OrderId);
-        }
-
         public void UpdateStatusOfSpecficOrderItem(OrderItem orderItem)
         {
             orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
         }
 
-        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderItemState orderItemState)
         {
-            return orderdb.GetAllOrdersByTableNumber(menuItem, orderState);
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderItemState);
         }
+
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
             return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);

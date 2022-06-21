@@ -27,7 +27,6 @@ namespace UI
             loggedEmployee = null;
             // default setting 
             DefaultSettingForShowHideFunction();
-
         }
 
         private void DefaultSettingForShowHideFunction()
@@ -37,15 +36,13 @@ namespace UI
             picBoxShowPass.BackColor = txtBoxPassword.BackColor;
             picBoxHidePass.BackColor = txtBoxPassword.BackColor;
         }
+
         private void Login()
         {
             try
             {
                 // gettting the logged employee 
                 loggedEmployee = employeeService.LogEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text);
-
-                    //whenever password is verified login form is hidden
-                    this.Hide();
 
                 // opening the forms according to logged employee type 
                 if (loggedEmployee.EmployeeType==EmployeeType.Chef || loggedEmployee.EmployeeType==EmployeeType.BarTender)
@@ -57,7 +54,13 @@ namespace UI
                 {
                     TableView tableView = new TableView(loggedEmployee);    
                     tableView.Show();
+                    tableView.StartPosition = this.StartPosition;
+                    tableView.Location = this.Location;
+                    tableView.Top = this.Top;
+
                 }
+                //whenever password is verified login form is hidden
+                this.Hide();
             }
             catch (Exception e)
             {
@@ -66,6 +69,7 @@ namespace UI
             }
 
         }
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Login();
@@ -88,6 +92,7 @@ namespace UI
             txtBoxPassword.PasswordChar = '*';
             picBoxShowPass.Show();
         }
+
         private void LoginForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // whenever form exit button is pressed it closes the application

@@ -18,8 +18,8 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
-        private  List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
-        public EachTableDisplay( Table selectedTable)
+        private List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
+        public EachTableDisplay(Table selectedTable)
         {
             // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
@@ -57,6 +57,7 @@ namespace UI
                 pnlForOtherInfo.Visible = true;
                 btnMarkAsServed.Hide();
                 BtnCheckout.Enabled = false;
+                btnTakeOrder.Enabled = true;
                 BtnMakeTableFree.Show();
             }
             else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrderItems.Count == 0)
@@ -92,9 +93,10 @@ namespace UI
             ListViewOfOrderItems.FullRowSelect = true;
             ListViewOfOrderItems.MultiSelect = true;
 
-            foreach (OrderItem item in orderItems)
+            for (int i = orderItems.Count-1; i >= 0; i--)
             {
                 string dateTimeToShow;
+                OrderItem item = orderItems[i];
                 // showing the waiting time if order is preparing or ready to serve and if it is serve then showiing the full time
                 if (CheckOrderTime(item))
                 {
@@ -105,16 +107,15 @@ namespace UI
                 {
                     dateTimeToShow = item.DateTime.ToString("HH:mm");
                 }
-
-                // )
                 ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString()); //first column
                 li.SubItems.Add(item.Quantity.ToString());
                 li.SubItems.Add(dateTimeToShow);
-                li.SubItems.Add(item.OrderState.ToString());
                 li.SubItems.Add(item.MenuItem.TypeMenuItem.ToString());
                 li.SubItems.Add(item.MenuItem.Category.ToString());
+                li.SubItems.Add(JustDisplay(item));
                 li.Tag = item;
                 ListViewOfOrderItems.Items.Add(li);
+
             }
         }
 
@@ -122,16 +123,16 @@ namespace UI
         {
             ListViewOfOrderItems.Columns.Add("Name", 150);
             ListViewOfOrderItems.Columns.Add("Quantity", 80);
-            ListViewOfOrderItems.Columns.Add("Ordered Time", 100);
-            ListViewOfOrderItems.Columns.Add("Order State", 130);
+            ListViewOfOrderItems.Columns.Add("Time", 100);
             ListViewOfOrderItems.Columns.Add("Menu Type", 100);
             ListViewOfOrderItems.Columns.Add("Category", 100);
+            ListViewOfOrderItems.Columns.Add("Status", 130);
         }
 
         //  checking if order is either preparing or ready to deliver 
         private bool CheckOrderTime(OrderItem orderItem)
         {
-            return orderItem.OrderState == OrderState.PreparingOrder || orderItem.OrderState == OrderState.ReadyToDeliver;
+            return orderItem.OrderState == OrderItemState.PreparingOrder || orderItem.OrderState == OrderItemState.ReadyToDeliver;
 
         }
 
@@ -139,8 +140,6 @@ namespace UI
         {
             this.Close();
         }
-
-
 
         private void btnMarkAsServed_Click(object sender, EventArgs e)
         {
@@ -167,12 +166,12 @@ namespace UI
                 {
                     OrderItem item = (OrderItem)ListViewOfOrderItems.SelectedItems[i].Tag;
                     // only adding to list which have state ready to deliver 
-                    if (item.OrderState == OrderState.ReadyToDeliver)
+                    if (item.OrderState == OrderItemState.ReadyToDeliver)
                     {
                         // Changing the status of order and storing on list and preventing other state cannot be updated 
-                        item.OrderState = OrderState.OrderServed;
+                        item.OrderState = OrderItemState.OrderServed;
                         SelectedOrderItems.Add(item);
-                    }                   
+                    }
                 }
             }
             else
@@ -184,7 +183,7 @@ namespace UI
         private void BtnMakeTableFree_Click(object sender, EventArgs e)
         {
             // changing the status 
-            selectedTable.Status=TableStatus.Free;
+            selectedTable.Status = TableStatus.Free;
             // updating in database
             tableService.UpdateTheStatusOfTable(selectedTable);
             // refreshing the tab
@@ -203,10 +202,34 @@ namespace UI
 
         private void btnTakeOrder_Click(object sender, EventArgs e)
         {
-            this.Close();
             OrderForm orderForm = new OrderForm(selectedTable);
             orderForm.Show();
+            this.Close();
+            orderForm.BringToFront();
+            orderForm.StartPosition = this.StartPosition;
+            orderForm.Location = this.Location;
+            orderForm.Top = this.Top;
         }
-        
+        private string JustDisplay(OrderItem orderItem)
+        {
+            string message = "";
+            switch (orderItem.OrderState)
+            {
+                case OrderItemState.OrderServed:
+                    message = "Served";
+                    break;
+                case OrderItemState.ReadyToDeliver:
+                    message = "Ready TO Serve ";
+                    break;
+                case OrderItemState.PreparingOrder:
+                    message = "Preparing";
+                    break;
+                case OrderItemState.RunningOrder:
+                    message = "Running";
+                    break;
+            }
+           return message;
+        }
+
     }
 }

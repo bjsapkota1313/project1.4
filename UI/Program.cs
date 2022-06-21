@@ -15,9 +15,7 @@ namespace UI
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
-            Application.Run(new Payment(8));
-
+            Application.Run(new LoginForm());
         }
     }
 }

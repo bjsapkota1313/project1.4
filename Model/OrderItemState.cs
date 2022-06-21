@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public enum OrderState
+    public enum OrderItemState
     {
         ReadyToDeliver=1,PreparingOrder, RunningOrder, OrderServed
     }

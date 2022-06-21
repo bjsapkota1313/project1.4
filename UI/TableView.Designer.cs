@@ -112,29 +112,30 @@
             // 
             // lblNavBar
             // 
-            this.lblNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.lblNavBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
+            this.lblNavBar.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblNavBar.Location = new System.Drawing.Point(1, 3);
             this.lblNavBar.Name = "lblNavBar";
-            this.lblNavBar.Size = new System.Drawing.Size(725, 66);
+            this.lblNavBar.Size = new System.Drawing.Size(725, 59);
             this.lblNavBar.TabIndex = 0;
             // 
             // lblFormName
             // 
-            this.lblFormName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
+            this.lblFormName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.lblFormName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFormName.Location = new System.Drawing.Point(1, 80);
+            this.lblFormName.Location = new System.Drawing.Point(-13, 72);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(744, 47);
+            this.lblFormName.Size = new System.Drawing.Size(750, 42);
             this.lblFormName.TabIndex = 1;
             // 
             // lblTableView
             // 
-            this.lblTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(71)))), ((int)(((byte)(58)))));
-            this.lblTableView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
+            this.lblTableView.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTableView.ForeColor = System.Drawing.Color.White;
-            this.lblTableView.Location = new System.Drawing.Point(274, 89);
+            this.lblTableView.Location = new System.Drawing.Point(303, 80);
             this.lblTableView.Name = "lblTableView";
-            this.lblTableView.Size = new System.Drawing.Size(104, 25);
+            this.lblTableView.Size = new System.Drawing.Size(104, 29);
             this.lblTableView.TabIndex = 2;
             this.lblTableView.Text = "Table View";
             // 
@@ -143,11 +144,11 @@
             this.BtnTableNumber1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber1.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber1.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber1.Location = new System.Drawing.Point(71, 163);
+            this.BtnTableNumber1.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber1.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber1.Location = new System.Drawing.Point(59, 147);
             this.BtnTableNumber1.Name = "BtnTableNumber1";
-            this.BtnTableNumber1.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber1.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber1.TabIndex = 23;
             this.BtnTableNumber1.Text = "1";
             this.BtnTableNumber1.UseVisualStyleBackColor = false;
@@ -158,11 +159,11 @@
             this.BtnTableNumber2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber2.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber2.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber2.Location = new System.Drawing.Point(427, 158);
+            this.BtnTableNumber2.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber2.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber2.Location = new System.Drawing.Point(433, 147);
             this.BtnTableNumber2.Name = "BtnTableNumber2";
-            this.BtnTableNumber2.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber2.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber2.TabIndex = 24;
             this.BtnTableNumber2.Text = "2";
             this.BtnTableNumber2.UseVisualStyleBackColor = false;
@@ -173,11 +174,11 @@
             this.BtnTableNumber3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber3.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber3.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber3.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber3.Location = new System.Drawing.Point(73, 345);
+            this.BtnTableNumber3.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber3.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber3.Location = new System.Drawing.Point(59, 310);
             this.BtnTableNumber3.Name = "BtnTableNumber3";
-            this.BtnTableNumber3.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber3.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber3.TabIndex = 25;
             this.BtnTableNumber3.Text = "3";
             this.BtnTableNumber3.UseVisualStyleBackColor = false;
@@ -188,11 +189,11 @@
             this.BtnTableNumber4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber4.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber4.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber4.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber4.Location = new System.Drawing.Point(430, 338);
+            this.BtnTableNumber4.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber4.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber4.Location = new System.Drawing.Point(432, 304);
             this.BtnTableNumber4.Name = "BtnTableNumber4";
-            this.BtnTableNumber4.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber4.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber4.TabIndex = 26;
             this.BtnTableNumber4.Text = "4";
             this.BtnTableNumber4.UseVisualStyleBackColor = false;
@@ -203,11 +204,11 @@
             this.BtnTableNumber5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber5.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber5.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber5.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber5.Location = new System.Drawing.Point(78, 525);
+            this.BtnTableNumber5.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber5.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber5.Location = new System.Drawing.Point(59, 472);
             this.BtnTableNumber5.Name = "BtnTableNumber5";
-            this.BtnTableNumber5.Size = new System.Drawing.Size(236, 154);
+            this.BtnTableNumber5.Size = new System.Drawing.Size(236, 139);
             this.BtnTableNumber5.TabIndex = 27;
             this.BtnTableNumber5.Text = "5";
             this.BtnTableNumber5.UseVisualStyleBackColor = false;
@@ -218,11 +219,11 @@
             this.BtnTableNumber6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber6.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber6.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber6.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber6.Location = new System.Drawing.Point(432, 519);
+            this.BtnTableNumber6.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber6.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber6.Location = new System.Drawing.Point(433, 467);
             this.BtnTableNumber6.Name = "BtnTableNumber6";
-            this.BtnTableNumber6.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber6.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber6.TabIndex = 28;
             this.BtnTableNumber6.Text = "6";
             this.BtnTableNumber6.UseVisualStyleBackColor = false;
@@ -233,11 +234,11 @@
             this.BtnTableNumber7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber7.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber7.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber7.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber7.Location = new System.Drawing.Point(81, 719);
+            this.BtnTableNumber7.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber7.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber7.Location = new System.Drawing.Point(59, 647);
             this.BtnTableNumber7.Name = "BtnTableNumber7";
-            this.BtnTableNumber7.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber7.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber7.TabIndex = 29;
             this.BtnTableNumber7.Text = "7";
             this.BtnTableNumber7.UseVisualStyleBackColor = false;
@@ -248,11 +249,11 @@
             this.BtnTableNumber8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber8.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber8.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber8.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber8.Location = new System.Drawing.Point(430, 713);
+            this.BtnTableNumber8.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber8.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber8.Location = new System.Drawing.Point(432, 642);
             this.BtnTableNumber8.Name = "BtnTableNumber8";
-            this.BtnTableNumber8.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber8.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber8.TabIndex = 30;
             this.BtnTableNumber8.Text = "8";
             this.BtnTableNumber8.UseVisualStyleBackColor = false;
@@ -263,11 +264,11 @@
             this.BtnTableNumber9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber9.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber9.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber9.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber9.Location = new System.Drawing.Point(84, 892);
+            this.BtnTableNumber9.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber9.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber9.Location = new System.Drawing.Point(59, 803);
             this.BtnTableNumber9.Name = "BtnTableNumber9";
-            this.BtnTableNumber9.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber9.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber9.TabIndex = 31;
             this.BtnTableNumber9.Text = "9";
             this.BtnTableNumber9.UseVisualStyleBackColor = false;
@@ -278,11 +279,11 @@
             this.BtnTableNumber10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BtnTableNumber10.FlatAppearance.BorderSize = 0;
             this.BtnTableNumber10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTableNumber10.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnTableNumber10.ForeColor = System.Drawing.Color.White;
-            this.BtnTableNumber10.Location = new System.Drawing.Point(430, 887);
+            this.BtnTableNumber10.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnTableNumber10.ForeColor = System.Drawing.Color.Black;
+            this.BtnTableNumber10.Location = new System.Drawing.Point(432, 798);
             this.BtnTableNumber10.Name = "BtnTableNumber10";
-            this.BtnTableNumber10.Size = new System.Drawing.Size(236, 144);
+            this.BtnTableNumber10.Size = new System.Drawing.Size(236, 130);
             this.BtnTableNumber10.TabIndex = 32;
             this.BtnTableNumber10.Text = "10";
             this.BtnTableNumber10.UseVisualStyleBackColor = false;
@@ -291,16 +292,16 @@
             // picBoxDrinkTable1
             // 
             this.picBoxDrinkTable1.Image = global::UI.Properties.Resources.PrepCoffee5050;
-            this.picBoxDrinkTable1.Location = new System.Drawing.Point(72, 163);
+            this.picBoxDrinkTable1.Location = new System.Drawing.Point(60, 147);
             this.picBoxDrinkTable1.Name = "picBoxDrinkTable1";
-            this.picBoxDrinkTable1.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable1.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable1.TabIndex = 33;
             this.picBoxDrinkTable1.TabStop = false;
             // 
             // picBoxFoodTable1
             // 
             this.picBoxFoodTable1.Image = global::UI.Properties.Resources.RunningOrder5050;
-            this.picBoxFoodTable1.Location = new System.Drawing.Point(255, 163);
+            this.picBoxFoodTable1.Location = new System.Drawing.Point(241, 147);
             this.picBoxFoodTable1.Name = "picBoxFoodTable1";
             this.picBoxFoodTable1.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable1.TabIndex = 34;
@@ -308,7 +309,7 @@
             // 
             // picBoxFoodTable2
             // 
-            this.picBoxFoodTable2.Location = new System.Drawing.Point(613, 158);
+            this.picBoxFoodTable2.Location = new System.Drawing.Point(619, 147);
             this.picBoxFoodTable2.Name = "picBoxFoodTable2";
             this.picBoxFoodTable2.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable2.TabIndex = 36;
@@ -316,15 +317,15 @@
             // 
             // picBoxDrinkTable3
             // 
-            this.picBoxDrinkTable3.Location = new System.Drawing.Point(74, 345);
+            this.picBoxDrinkTable3.Location = new System.Drawing.Point(60, 310);
             this.picBoxDrinkTable3.Name = "picBoxDrinkTable3";
-            this.picBoxDrinkTable3.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable3.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable3.TabIndex = 37;
             this.picBoxDrinkTable3.TabStop = false;
             // 
             // picBoxFoodTable3
             // 
-            this.picBoxFoodTable3.Location = new System.Drawing.Point(259, 345);
+            this.picBoxFoodTable3.Location = new System.Drawing.Point(245, 310);
             this.picBoxFoodTable3.Name = "picBoxFoodTable3";
             this.picBoxFoodTable3.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable3.TabIndex = 38;
@@ -332,15 +333,15 @@
             // 
             // picBoxDrinkTable4
             // 
-            this.picBoxDrinkTable4.Location = new System.Drawing.Point(431, 338);
+            this.picBoxDrinkTable4.Location = new System.Drawing.Point(433, 304);
             this.picBoxDrinkTable4.Name = "picBoxDrinkTable4";
-            this.picBoxDrinkTable4.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable4.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable4.TabIndex = 39;
             this.picBoxDrinkTable4.TabStop = false;
             // 
             // picBoxFoodTable4
             // 
-            this.picBoxFoodTable4.Location = new System.Drawing.Point(618, 338);
+            this.picBoxFoodTable4.Location = new System.Drawing.Point(620, 304);
             this.picBoxFoodTable4.Name = "picBoxFoodTable4";
             this.picBoxFoodTable4.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable4.TabIndex = 40;
@@ -348,15 +349,15 @@
             // 
             // picBoxDrinkTable5
             // 
-            this.picBoxDrinkTable5.Location = new System.Drawing.Point(79, 525);
+            this.picBoxDrinkTable5.Location = new System.Drawing.Point(60, 472);
             this.picBoxDrinkTable5.Name = "picBoxDrinkTable5";
-            this.picBoxDrinkTable5.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable5.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable5.TabIndex = 41;
             this.picBoxDrinkTable5.TabStop = false;
             // 
             // picBoxFoodTable5
             // 
-            this.picBoxFoodTable5.Location = new System.Drawing.Point(264, 525);
+            this.picBoxFoodTable5.Location = new System.Drawing.Point(245, 472);
             this.picBoxFoodTable5.Name = "picBoxFoodTable5";
             this.picBoxFoodTable5.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable5.TabIndex = 42;
@@ -364,15 +365,15 @@
             // 
             // picBoxDrinkTable6
             // 
-            this.picBoxDrinkTable6.Location = new System.Drawing.Point(433, 519);
+            this.picBoxDrinkTable6.Location = new System.Drawing.Point(434, 467);
             this.picBoxDrinkTable6.Name = "picBoxDrinkTable6";
-            this.picBoxDrinkTable6.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable6.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable6.TabIndex = 43;
             this.picBoxDrinkTable6.TabStop = false;
             // 
             // picBoxFoodTable6
             // 
-            this.picBoxFoodTable6.Location = new System.Drawing.Point(618, 519);
+            this.picBoxFoodTable6.Location = new System.Drawing.Point(619, 467);
             this.picBoxFoodTable6.Name = "picBoxFoodTable6";
             this.picBoxFoodTable6.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable6.TabIndex = 44;
@@ -380,15 +381,15 @@
             // 
             // picBoxDrinkTable7
             // 
-            this.picBoxDrinkTable7.Location = new System.Drawing.Point(82, 719);
+            this.picBoxDrinkTable7.Location = new System.Drawing.Point(60, 647);
             this.picBoxDrinkTable7.Name = "picBoxDrinkTable7";
-            this.picBoxDrinkTable7.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable7.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable7.TabIndex = 45;
             this.picBoxDrinkTable7.TabStop = false;
             // 
             // picBoxFoodTable7
             // 
-            this.picBoxFoodTable7.Location = new System.Drawing.Point(267, 719);
+            this.picBoxFoodTable7.Location = new System.Drawing.Point(245, 647);
             this.picBoxFoodTable7.Name = "picBoxFoodTable7";
             this.picBoxFoodTable7.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable7.TabIndex = 46;
@@ -396,15 +397,15 @@
             // 
             // picBoxDrinkTable8
             // 
-            this.picBoxDrinkTable8.Location = new System.Drawing.Point(431, 713);
+            this.picBoxDrinkTable8.Location = new System.Drawing.Point(433, 642);
             this.picBoxDrinkTable8.Name = "picBoxDrinkTable8";
-            this.picBoxDrinkTable8.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable8.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable8.TabIndex = 47;
             this.picBoxDrinkTable8.TabStop = false;
             // 
             // picBoxFoodTable8
             // 
-            this.picBoxFoodTable8.Location = new System.Drawing.Point(616, 713);
+            this.picBoxFoodTable8.Location = new System.Drawing.Point(618, 642);
             this.picBoxFoodTable8.Name = "picBoxFoodTable8";
             this.picBoxFoodTable8.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable8.TabIndex = 48;
@@ -412,23 +413,23 @@
             // 
             // picBoxDrinkTable9
             // 
-            this.picBoxDrinkTable9.Location = new System.Drawing.Point(85, 892);
+            this.picBoxDrinkTable9.Location = new System.Drawing.Point(60, 803);
             this.picBoxDrinkTable9.Name = "picBoxDrinkTable9";
-            this.picBoxDrinkTable9.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable9.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable9.TabIndex = 49;
             this.picBoxDrinkTable9.TabStop = false;
             // 
             // picBoxDrinkTable10
             // 
-            this.picBoxDrinkTable10.Location = new System.Drawing.Point(431, 887);
+            this.picBoxDrinkTable10.Location = new System.Drawing.Point(433, 798);
             this.picBoxDrinkTable10.Name = "picBoxDrinkTable10";
-            this.picBoxDrinkTable10.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable10.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable10.TabIndex = 50;
             this.picBoxDrinkTable10.TabStop = false;
             // 
             // picBoxFoodTable10
             // 
-            this.picBoxFoodTable10.Location = new System.Drawing.Point(616, 887);
+            this.picBoxFoodTable10.Location = new System.Drawing.Point(618, 798);
             this.picBoxFoodTable10.Name = "picBoxFoodTable10";
             this.picBoxFoodTable10.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable10.TabIndex = 51;
@@ -436,7 +437,7 @@
             // 
             // picBoxFoodTable9
             // 
-            this.picBoxFoodTable9.Location = new System.Drawing.Point(270, 892);
+            this.picBoxFoodTable9.Location = new System.Drawing.Point(245, 803);
             this.picBoxFoodTable9.Name = "picBoxFoodTable9";
             this.picBoxFoodTable9.Size = new System.Drawing.Size(50, 50);
             this.picBoxFoodTable9.TabIndex = 52;
@@ -445,89 +446,89 @@
             // PicBoxLateTable2
             // 
             this.PicBoxLateTable2.Image = global::UI.Properties.Resources.Late;
-            this.PicBoxLateTable2.Location = new System.Drawing.Point(569, 217);
+            this.PicBoxLateTable2.Location = new System.Drawing.Point(571, 200);
             this.PicBoxLateTable2.Name = "PicBoxLateTable2";
-            this.PicBoxLateTable2.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable2.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable2.TabIndex = 54;
             this.PicBoxLateTable2.TabStop = false;
             // 
             // PicBoxLateTable1
             // 
             this.PicBoxLateTable1.Image = global::UI.Properties.Resources.BellNotification;
-            this.PicBoxLateTable1.Location = new System.Drawing.Point(202, 217);
+            this.PicBoxLateTable1.Location = new System.Drawing.Point(190, 195);
             this.PicBoxLateTable1.Name = "PicBoxLateTable1";
-            this.PicBoxLateTable1.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable1.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable1.TabIndex = 55;
             this.PicBoxLateTable1.TabStop = false;
             // 
             // PicBoxLateTable3
             // 
-            this.PicBoxLateTable3.Location = new System.Drawing.Point(202, 393);
+            this.PicBoxLateTable3.Location = new System.Drawing.Point(188, 354);
             this.PicBoxLateTable3.Name = "PicBoxLateTable3";
-            this.PicBoxLateTable3.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable3.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable3.TabIndex = 56;
             this.PicBoxLateTable3.TabStop = false;
             // 
             // PicBoxLateTable4
             // 
             this.PicBoxLateTable4.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable4.Location = new System.Drawing.Point(569, 393);
+            this.PicBoxLateTable4.Location = new System.Drawing.Point(569, 352);
             this.PicBoxLateTable4.Name = "PicBoxLateTable4";
-            this.PicBoxLateTable4.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable4.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable4.TabIndex = 57;
             this.PicBoxLateTable4.TabStop = false;
             // 
             // PicBoxLateTable5
             // 
             this.PicBoxLateTable5.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable5.Location = new System.Drawing.Point(206, 583);
+            this.PicBoxLateTable5.Location = new System.Drawing.Point(187, 525);
             this.PicBoxLateTable5.Name = "PicBoxLateTable5";
-            this.PicBoxLateTable5.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable5.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable5.TabIndex = 58;
             this.PicBoxLateTable5.TabStop = false;
             // 
             // PicBoxLateTable6
             // 
             this.PicBoxLateTable6.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable6.Location = new System.Drawing.Point(569, 583);
+            this.PicBoxLateTable6.Location = new System.Drawing.Point(568, 517);
             this.PicBoxLateTable6.Name = "PicBoxLateTable6";
-            this.PicBoxLateTable6.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable6.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable6.TabIndex = 59;
             this.PicBoxLateTable6.TabStop = false;
             // 
             // PicBoxLateTable7
             // 
             this.PicBoxLateTable7.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable7.Location = new System.Drawing.Point(216, 779);
+            this.PicBoxLateTable7.Location = new System.Drawing.Point(184, 693);
             this.PicBoxLateTable7.Name = "PicBoxLateTable7";
-            this.PicBoxLateTable7.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable7.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable7.TabIndex = 60;
             this.PicBoxLateTable7.TabStop = false;
             // 
             // PicBoxLateTable8
             // 
             this.PicBoxLateTable8.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable8.Location = new System.Drawing.Point(569, 779);
+            this.PicBoxLateTable8.Location = new System.Drawing.Point(567, 690);
             this.PicBoxLateTable8.Name = "PicBoxLateTable8";
-            this.PicBoxLateTable8.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable8.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable8.TabIndex = 61;
             this.PicBoxLateTable8.TabStop = false;
             // 
             // PicBoxLateTable9
             // 
             this.PicBoxLateTable9.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable9.Location = new System.Drawing.Point(216, 948);
+            this.PicBoxLateTable9.Location = new System.Drawing.Point(192, 853);
             this.PicBoxLateTable9.Name = "PicBoxLateTable9";
-            this.PicBoxLateTable9.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable9.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable9.TabIndex = 62;
             this.PicBoxLateTable9.TabStop = false;
             // 
             // PicBoxLateTable10
             // 
             this.PicBoxLateTable10.Image = global::UI.Properties.Resources.SandTimer20X20;
-            this.PicBoxLateTable10.Location = new System.Drawing.Point(574, 946);
+            this.PicBoxLateTable10.Location = new System.Drawing.Point(569, 849);
             this.PicBoxLateTable10.Name = "PicBoxLateTable10";
-            this.PicBoxLateTable10.Size = new System.Drawing.Size(40, 40);
+            this.PicBoxLateTable10.Size = new System.Drawing.Size(40, 36);
             this.PicBoxLateTable10.TabIndex = 63;
             this.PicBoxLateTable10.TabStop = false;
             // 
@@ -538,21 +539,22 @@
             // 
             // picBoxProfilePic
             // 
-            this.picBoxProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.picBoxProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.picBoxProfilePic.Image = ((System.Drawing.Image)(resources.GetObject("picBoxProfilePic.Image")));
-            this.picBoxProfilePic.Location = new System.Drawing.Point(12, 13);
+            this.picBoxProfilePic.Location = new System.Drawing.Point(12, 12);
             this.picBoxProfilePic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.picBoxProfilePic.Name = "picBoxProfilePic";
             this.picBoxProfilePic.Size = new System.Drawing.Size(40, 40);
+            this.picBoxProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.picBoxProfilePic.TabIndex = 1;
             this.picBoxProfilePic.TabStop = false;
             // 
             // lblEmployeeName
             // 
-            this.lblEmployeeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            this.lblEmployeeName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.lblEmployeeName.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblEmployeeName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblEmployeeName.Location = new System.Drawing.Point(58, 14);
+            this.lblEmployeeName.ForeColor = System.Drawing.Color.White;
+            this.lblEmployeeName.Location = new System.Drawing.Point(58, 13);
             this.lblEmployeeName.Name = "lblEmployeeName";
             this.lblEmployeeName.Size = new System.Drawing.Size(327, 39);
             this.lblEmployeeName.TabIndex = 64;
@@ -560,21 +562,23 @@
             // 
             // picBoxDrinkTable2
             // 
-            this.picBoxDrinkTable2.Location = new System.Drawing.Point(428, 159);
+            this.picBoxDrinkTable2.Image = global::UI.Properties.Resources.coffeeeready50402;
+            this.picBoxDrinkTable2.Location = new System.Drawing.Point(434, 148);
             this.picBoxDrinkTable2.Name = "picBoxDrinkTable2";
-            this.picBoxDrinkTable2.Size = new System.Drawing.Size(50, 50);
+            this.picBoxDrinkTable2.Size = new System.Drawing.Size(50, 45);
             this.picBoxDrinkTable2.TabIndex = 65;
             this.picBoxDrinkTable2.TabStop = false;
             // 
             // BtnLogOut
             // 
             this.BtnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.BtnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnLogOut.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnLogOut.ForeColor = System.Drawing.Color.Snow;
-            this.BtnLogOut.Location = new System.Drawing.Point(613, 14);
+            this.BtnLogOut.FlatAppearance.BorderSize = 0;
+            this.BtnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLogOut.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnLogOut.ForeColor = System.Drawing.Color.Black;
+            this.BtnLogOut.Location = new System.Drawing.Point(613, 15);
             this.BtnLogOut.Name = "BtnLogOut";
-            this.BtnLogOut.Size = new System.Drawing.Size(95, 36);
+            this.BtnLogOut.Size = new System.Drawing.Size(95, 32);
             this.BtnLogOut.TabIndex = 66;
             this.BtnLogOut.Text = "Log Out";
             this.BtnLogOut.UseVisualStyleBackColor = false;
@@ -582,10 +586,10 @@
             // 
             // TableView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(726, 1055);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
+            this.ClientSize = new System.Drawing.Size(726, 950);
             this.Controls.Add(this.BtnLogOut);
             this.Controls.Add(this.picBoxDrinkTable2);
             this.Controls.Add(this.lblEmployeeName);
@@ -632,8 +636,11 @@
             this.Controls.Add(this.lblTableView);
             this.Controls.Add(this.lblFormName);
             this.Controls.Add(this.lblNavBar);
+            this.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TableView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "TableViewForm";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxDrinkTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxFoodTable1)).EndInit();
@@ -667,6 +674,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxDrinkTable2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

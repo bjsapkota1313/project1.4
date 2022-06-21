@@ -15,26 +15,26 @@ namespace UI
 {
     public partial class TableView : Form
     {
-        private Employee loggedEmployee; 
+        private Employee loggedEmployee;
         private TableService tableService;
         private OrderService orderService;
-        private Dictionary<string, PictureBox> dictionaryForPictureBoxDrink; 
-        private Dictionary<string, PictureBox> dictionaryForPictureBoxFood; 
+        private Dictionary<string, PictureBox> dictionaryForPictureBoxDrink;
+        private Dictionary<string, PictureBox> dictionaryForPictureBoxFood;
         private Dictionary<string, PictureBox> dictionaryForPictureBoxLate;
         private Dictionary<string, Button> dictionaryForButton;
-        public TableView( Employee loggedEmployee)
+        public TableView(Employee loggedEmployee)
         {
             InitializeComponent();
-            this.loggedEmployee=loggedEmployee;
+            this.loggedEmployee = loggedEmployee;
             tableService = new TableService();
-            orderService = new OrderService();  
-            List<Table> tables= tableService.GetAllTables();
+            orderService = new OrderService();
+            List<Table> tables = tableService.GetAllTables();
 
             // getting logged employee name 
             lblEmployeeName.Text = loggedEmployee.FullName;
             // Filling all the dictionaries that i will be using 
-           dictionaryForPictureBoxDrink= FillingDictionaryOfPictureBoxForDrink();
-            dictionaryForPictureBoxFood= FillingDictionaryofPictureBoxForFood();
+            dictionaryForPictureBoxDrink = FillingDictionaryOfPictureBoxForDrink();
+            dictionaryForPictureBoxFood = FillingDictionaryofPictureBoxForFood();
             dictionaryForButton = ButtonsDictionary();
             dictionaryForPictureBoxLate = FillingDictionaryofPictureBoxForLateServing();
 
@@ -47,13 +47,13 @@ namespace UI
             switch (table.Status)
             {
                 case TableStatus.Reserved:
-                    btnTable.BackColor = Color.DarkRed;
+                    btnTable.BackColor = Color.FromArgb(210,83,43);
                     break;
                 case TableStatus.Free:
-                    btnTable.BackColor = Color.FromArgb(67, 165, 51);
+                    btnTable.BackColor = Color.FromArgb(117, 154, 40);
                     break;
                 case TableStatus.Occupied:
-                    btnTable.BackColor = Color.FromArgb(172, 115, 73);
+                    btnTable.BackColor = Color.FromArgb(229, 160, 96);
                     break;
             }
         }
@@ -61,21 +61,22 @@ namespace UI
         {
             for (int i = 0; i < tables.Count; i++)
             {
-                string PicboxNameForDrink = "PicBoxDrinkForTable" +$"{i+1}";
-                string PicboxNameForFood = "PicBoxFoodForTable" + $"{i+1}";
-                string buttonName = "BtnTableNumber" + $"{i+1}";
-                string picboxNameForLateServing = "PicBoxFoodForTable" + $"{ i + 1}";
+                string PicboxNameForDrink = "PicBoxDrinkForTable" + $"{i + 1}";
+                string PicboxNameForFood = "PicBoxFoodForTable" + $"{i + 1}";
+                string buttonName = "BtnTableNumber" + $"{i + 1}";
+                string picboxNameForLateServing = "PicBoxFoodForTable" + $"{i + 1}";
+
                 DisplayingTheStatusOfTable(tables[i], dictionaryForButton[buttonName]);
 
                 // always getting the unpaid orderItems and using the button's text   which have table number   
-                List<OrderItem> getOrderItems = orderService.ListOfOrderItemsInSelectedTable(tables[i],PayementStatus.UnPaid);
+                List<OrderItem> getOrderItems = orderService.ListOfOrderItemsInSelectedTable(tables[i], PayementStatus.UnPaid);
 
                 // setting up the color of picbox with their respective table status color
                 dictionaryForPictureBoxDrink[PicboxNameForDrink].BackColor = dictionaryForButton[buttonName].BackColor;
                 dictionaryForPictureBoxFood[PicboxNameForFood].BackColor = dictionaryForButton[buttonName].BackColor;
                 dictionaryForPictureBoxLate[picboxNameForLateServing].BackColor = dictionaryForButton[buttonName].BackColor;
 
-                    ChangeTheNotificationsfOrderInTable(getOrderItems, dictionaryForPictureBoxDrink[PicboxNameForDrink], dictionaryForPictureBoxFood[PicboxNameForFood], dictionaryForPictureBoxLate[picboxNameForLateServing]);
+                ChangeTheNotificationsfOrderInTable(getOrderItems, dictionaryForPictureBoxDrink[PicboxNameForDrink], dictionaryForPictureBoxFood[PicboxNameForFood], dictionaryForPictureBoxLate[picboxNameForLateServing]);
             }
         }
         private Dictionary<string, Button> ButtonsDictionary()
@@ -93,12 +94,12 @@ namespace UI
             listOfLabel.Add("BtnTableNumber10", BtnTableNumber10);
             return listOfLabel;
         }
-        private void ChangeTheNotificationsfOrderInTable(List<OrderItem> items, PictureBox pictureBoxDrink, PictureBox pictureBoxFood,PictureBox pictureBoxLateServing)
+        private void ChangeTheNotificationsfOrderInTable(List<OrderItem> items, PictureBox pictureBoxDrink, PictureBox pictureBoxFood, PictureBox pictureBoxLateServing)
         {
             if (items.Count == 0)
             {
                 pictureBoxFood.Hide();
-                 pictureBoxDrink.Hide();
+                pictureBoxDrink.Hide();
                 pictureBoxLateServing.Hide();
             }
             else
@@ -108,23 +109,27 @@ namespace UI
                     if (item.MenuItem.TypeMenuItem == TypeMenuItem.Drink)
                     {
                         ChangingtheStatusOfDrink(item, pictureBoxDrink, pictureBoxLateServing);
-                        
+
                     }
-                    else 
+                    else
                     {
                         ChangingtheStatusOfFood(item, pictureBoxFood, pictureBoxLateServing);
                     }
                 }
             }
         }
-        private void ChangingtheStatusOfDrink(OrderItem orderItem,PictureBox pictureBox,PictureBox pictureBoxLateServing)
+        private void ChangingtheStatusOfDrink(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
+            pictureBox.Show();
+            pictureBoxLateServing.Show();
             switch (orderItem.OrderState)
             {
-                case OrderState.PreparingOrder:
+                case OrderItemState.PreparingOrder:
                     pictureBox.Image = Properties.Resources.PrepCoffee5050;
+                    pictureBoxLateServing.Hide();
                     break;
-                case OrderState.ReadyToDeliver:
+
+                case OrderItemState.ReadyToDeliver:
                     pictureBox.Image = Properties.Resources.coffeeReadyToDeliver;
                     if (CheckTimeForReadyToDeliverStatus(orderItem))
                     {
@@ -135,11 +140,13 @@ namespace UI
                         pictureBoxLateServing.Hide();
                     }
                     break;
-                case OrderState.RunningOrder:
+                case OrderItemState.RunningOrder:
                     pictureBox.Image = Properties.Resources.CoffeeRunning5050;
+                    pictureBoxLateServing.Hide();
                     break;
-                    default:
+                default:
                     pictureBox.Hide();
+                    pictureBoxLateServing.Hide();
                     break;
             }
         }
@@ -149,15 +156,17 @@ namespace UI
             // supposing that restaurant waitier should serve the rady order in 5 minutes  
             return dateTime.Minutes > 5;
         }
-        private void ChangingtheStatusOfFood(OrderItem orderItem, PictureBox pictureBox,PictureBox pictureBoxLateServing)
+        private void ChangingtheStatusOfFood(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
+            pictureBox.Show();
+            pictureBoxLateServing.Show();   
             switch (orderItem.OrderState)
             {
-                case OrderState.PreparingOrder:
+                case OrderItemState.PreparingOrder:
                     pictureBox.Image = Properties.Resources.PrepOrder5050;
                     pictureBoxLateServing.Hide(); // Need to find a way to remove this duplicate code 
                     break;
-                case OrderState.ReadyToDeliver:
+                case OrderItemState.ReadyToDeliver:
                     pictureBox.Image = Properties.Resources.ReadyToDeliver5050;
                     if (CheckTimeForReadyToDeliverStatus(orderItem))
                     {
@@ -168,25 +177,24 @@ namespace UI
                         pictureBoxLateServing.Hide();
                     }
                     break;
-                case OrderState.RunningOrder:
-                    pictureBox.Image = Properties.Resources.ReadyToDeliver5050;
+                case OrderItemState.RunningOrder:
+                    pictureBox.Image = Properties.Resources.RunningOrder5050;
                     pictureBoxLateServing.Hide();
                     break;
                 default:
                     pictureBox.Hide();
                     pictureBoxLateServing.Hide();
                     break;
-               
             }
         }
         // Getting the table from database using this method because the list of table is only got when constructor is called 
         private Table GetDesireTable(int TableNr)
         {
-           return  tableService.SearchTable(TableNr);
+            return tableService.SearchTable(TableNr);
         }
-        private Dictionary<string,PictureBox> FillingDictionaryOfPictureBoxForDrink()
+        private Dictionary<string, PictureBox> FillingDictionaryOfPictureBoxForDrink()
         {
-            Dictionary<string,PictureBox> dictionaryPicBoxDrink = new Dictionary<string,PictureBox>();
+            Dictionary<string, PictureBox> dictionaryPicBoxDrink = new Dictionary<string, PictureBox>();
             dictionaryPicBoxDrink.Add("PicBoxDrinkForTable1", picBoxDrinkTable1);
             dictionaryPicBoxDrink.Add("PicBoxDrinkForTable2", picBoxDrinkTable2);
             dictionaryPicBoxDrink.Add("PicBoxDrinkForTable3", picBoxDrinkTable3);
@@ -199,7 +207,7 @@ namespace UI
             dictionaryPicBoxDrink.Add("PicBoxDrinkForTable10", picBoxDrinkTable10);
             return dictionaryPicBoxDrink;
         }
-        private Dictionary<string,PictureBox> FillingDictionaryofPictureBoxForFood()
+        private Dictionary<string, PictureBox> FillingDictionaryofPictureBoxForFood()
         {
             Dictionary<string, PictureBox> dictionaryPicBoxFood = new Dictionary<string, PictureBox>();
             dictionaryPicBoxFood.Add("PicBoxFoodForTable1", picBoxFoodTable1);
@@ -227,80 +235,90 @@ namespace UI
             dictioDictionaryofPictureBoxForLateServing.Add("PicBoxFoodForTable8", PicBoxLateTable8);
             dictioDictionaryofPictureBoxForLateServing.Add("PicBoxFoodForTable9", PicBoxLateTable9);
             dictioDictionaryofPictureBoxForLateServing.Add("PicBoxFoodForTable10", PicBoxLateTable10);
-            return dictioDictionaryofPictureBoxForLateServing;  
+            return dictioDictionaryofPictureBoxForLateServing;
         }
         // opening each selected table to see its 
 
         private void BtnTableNumber1_Click(object sender, EventArgs e)
         {
-            
-             OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber1.Text)));
+
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber1.Text)));
         }
 
         private void BtnTableNumber2_Click(object sender, EventArgs e)
         {
-                OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber2.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber2.Text)));
         }
 
         private void BtnTableNumber3_Click(object sender, EventArgs e)
         {
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber3.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber3.Text)));
         }
 
         private void BtnTableNumber4_Click(object sender, EventArgs e)
         {
-             OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber4.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber4.Text)));
         }
 
         private void BtnTableNumber5_Click(object sender, EventArgs e)
         {
 
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber5.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber5.Text)));
         }
 
         private void BtnTableNumber6_Click(object sender, EventArgs e)
         {
 
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber6.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber6.Text)));
         }
 
         private void BtnTableNumber7_Click(object sender, EventArgs e)
         {
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber7.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber7.Text)));
 
         }
 
         private void BtnTableNumber8_Click(object sender, EventArgs e)
         {
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber8.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber8.Text)));
         }
 
         private void BtnTableNumber9_Click(object sender, EventArgs e)
         {
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber9.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber9.Text)));
         }
 
         private void BtnTableNumber10_Click(object sender, EventArgs e)
         {
-            OpenEachTableDisplay( GetDesireTable(int.Parse(BtnTableNumber10.Text)));
+            OpenEachTableDisplay(GetDesireTable(int.Parse(BtnTableNumber10.Text)));
         }
         private void OpenEachTableDisplay(Table table)
         {
             EachTableDisplay eachTableDisplay = new EachTableDisplay(table);
-            eachTableDisplay.ShowDialog();
+            eachTableDisplay.Show();
+            FormAppearnce(eachTableDisplay);
         }
 
         private void TimerForTableView_Tick(object sender, EventArgs e)
         {
             // refreshing it in timers interval
-            DisplayTables(tableService.GetAllTables()); 
+            DisplayTables(tableService.GetAllTables());
         }
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
-                this.Close();
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
+            FormAppearnce(loginForm);
+            this.Close();
+        }
+
+        private void FormAppearnce(Form loginForm)
+        {
+            loginForm.StartPosition= FormStartPosition.Manual;  
+            loginForm.Location = this.Location;
+            loginForm.Top = this.Top;
+            loginForm.Left=this.Left;
         }
     }
 }

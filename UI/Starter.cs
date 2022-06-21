@@ -24,7 +24,7 @@ namespace UI
         public StarterForm(OrderForm orderForm)
         {
             InitializeComponent();
-            TimeSpan startLuch = new TimeSpan(10, 0, 0); //10 o'clock
+            TimeSpan startLuch = new TimeSpan(9, 0, 0); //10 o'clock
             TimeSpan endLuch = new TimeSpan(17, 0, 0); //17 o'clock
             TimeSpan startDinner = new TimeSpan(17, 0, 0); //17 o'clock
             TimeSpan endDinner = new TimeSpan(23, 0, 0); //22 o'clock
@@ -34,7 +34,7 @@ namespace UI
             {
                 try
                 {
-                    ShowMenu(MenuItemCategory.LuchStarter);
+                        ShowMenu(MenuItemCategory.LuchStarter);
                 }
                 catch
                 {
@@ -44,7 +44,8 @@ namespace UI
             {
                 try
                 {
-                ShowMenu(MenuItemCategory.DinnerStarter);
+                        ShowMenu(MenuItemCategory.DinnerStarter);
+
                 }
                 catch 
                 {
@@ -54,7 +55,7 @@ namespace UI
             }
             else
             {
-                    LvStarterList.Items.Add(closed);
+                MessageBox.Show(closed);
             }
             this.orderform = orderForm;
         }
@@ -103,23 +104,11 @@ namespace UI
 
             OrderItem item = new OrderItem(Quantity, menuItem, feedback);
             AddToListOrderItems(item);
-            ListViewItem li = new ListViewItem(item.MenuItem.Name);
-            li.SubItems.Add(item.Quantity.ToString());
-            li.SubItems.Add(item.Feedback.ToString());
-            li.Tag = item;
-
-            orderform.OrderListView.Items.Add(li);
-            
 
         }
         private void  AddToListOrderItems(OrderItem item)
         {            try
             {
-                int Quantity = 1;
-                MenuItem menuItem = (MenuItem)LvStarterList.SelectedItems[0].Tag;
-                string feedback = GetFeedback();
-
-                //OrderItem item = new OrderItem(Quantity, menuItem, feedback);
                 ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
                 li.SubItems.Add(item.MenuItem.Name);
                 li.SubItems.Add(item.Quantity.ToString());
@@ -153,6 +142,15 @@ namespace UI
         private void StarterForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void DisplayAllCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

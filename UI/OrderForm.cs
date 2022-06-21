@@ -47,6 +47,7 @@ namespace UI
         private void OrderView_Load(object sender, EventArgs e)
         {
 
+
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace UI
         private void FoodBtn_Click(object sender, EventArgs e)
         {
 
-           // loadform(new StarterForm(this));
+           loadform(new StarterForm(this));
 
 
         }
@@ -76,14 +77,6 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             loadform(new Drink(this));
-        }
-        private void OrderDBView_Click(object sender, EventArgs e)
-        {
-            //loadform(new OrderDisplay(this));
-        }
-        private void listView1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
         private void BillOrderBtn_Click(object sender, EventArgs e)
         {
@@ -113,13 +106,27 @@ namespace UI
 
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
-            List<Order> orders = new List<Order>();
+            List<OrderItem> orders = new List<OrderItem>();
             OrderService orderService = new OrderService();
             foreach (ListViewItem item in OrderListView.Items)
             {
-                OrderItem orderItem = new OrderItem();
-                orderService.AddToOrderItem(orderItem);
+                OrderItem orderItem = (OrderItem)item.Tag;
+               orderItem.DateTime= DateTime.Now;   
+                orders.Add(orderItem);
             }
+
+            try
+            {
+                orderService.GetIdFromUnpaied(orders, selectedTable);
+                OrderLIstView.Items.Clear();
+                OrderLIstView.Refresh();
+
+            }
+            catch
+            {
+                MessageBox.Show("Ups something went wrong");
+            }
+            // CreateOrder();
 
         }
         private void CreateOrder()
@@ -133,7 +140,7 @@ namespace UI
             }
             catch
             {
-                MessageBox.Show("uPs SoMeThInG wEnT wRoNg");
+                MessageBox.Show("Ups something went wrong");
             }
         }
         public List<OrderItem> GetOrderItem()
@@ -154,10 +161,15 @@ namespace UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show(); 
         }
 
-
+        private void BackBtnOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 
 
