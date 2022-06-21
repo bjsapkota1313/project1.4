@@ -41,10 +41,11 @@ namespace ServiceLayer
             orderdb.UpdateStatusOfSpecficOrderItem(orderItem);
         }
 
-        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderState orderState)
+        public List<Order> ReadOrdersForKitchenBar(TypeMenuItem menuItem, OrderItemState orderItemState)
         {
-            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderState);
+            return orderdb.GetAllOrderForKitchenAndBar(menuItem, orderItemState);
         }
+
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
            return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);

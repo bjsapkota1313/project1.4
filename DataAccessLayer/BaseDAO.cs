@@ -109,5 +109,31 @@ namespace DataAccessLayer
             return dataTable;
         }
 
+        protected DataTable ExecuteSelectQuery(string query)
+        {
+            SqlCommand command = new SqlCommand();
+            DataTable dataTable;
+            DataSet dataSet = new DataSet();
+
+            try
+            {
+                command.Connection = OpenConnection();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                adapter.SelectCommand = command;
+                adapter.Fill(dataSet);
+                dataTable = dataSet.Tables[0];
+            }
+            catch (SqlException e)
+            {
+                return null;
+            }
+            finally
+            {
+                CloseConnection();
+            }
+            return dataTable;
+        }
+
     }
 }
