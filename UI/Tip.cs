@@ -72,8 +72,10 @@ namespace UI
             else if(total < OrderPrice() && cBoxSplitBill.Checked)
             {
                 total = OrderPrice() - total;
+                tip = 0;
 
-                SubmitPayment();
+
+                //SubmitPayment();
             }
             else if(total < OrderPrice())
             {
