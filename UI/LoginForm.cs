@@ -42,7 +42,7 @@ namespace UI
             try
             {
                 // gettting the logged employee 
-                loggedEmployee = employeeService.LogEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text);
+                loggedEmployee = employeeService.LogEmployee(txtBoxEmployeeId.Text.ToString(), txtBoxPassword.Text);
 
                 // opening the forms according to logged employee type 
                 if (loggedEmployee.EmployeeType==EmployeeType.Chef || loggedEmployee.EmployeeType==EmployeeType.BarTender)

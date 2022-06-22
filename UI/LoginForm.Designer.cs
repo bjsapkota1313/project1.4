@@ -137,7 +137,7 @@
             this.lblEmployeeId.Name = "lblEmployeeId";
             this.lblEmployeeId.Size = new System.Drawing.Size(170, 33);
             this.lblEmployeeId.TabIndex = 7;
-            this.lblEmployeeId.Text = "Employee ID ";
+            this.lblEmployeeId.Text = "UserName";
             // 
             // lblPassword
             // 

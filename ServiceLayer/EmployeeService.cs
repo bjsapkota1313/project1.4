@@ -19,7 +19,7 @@ namespace ServiceLayer
         {
             return employeeDAO.SearchById(id);
         }
-        public Employee LogEmployee(int employeeId,string enteredPassword)
+        public Employee LogEmployee(string employeeId,string enteredPassword)
         {
             return employeeDAO.VerifyPassword(employeeId, enteredPassword);
         }
