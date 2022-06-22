@@ -164,7 +164,7 @@ namespace DataAccessLayer
 
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
-            string query = "Select Name,ItemId,Price from [Menu_Item] WHERE ItemCategory = @itemCategory;";
+            string query = "Select Name,ItemId,Price,InStock from [Menu_Item] WHERE ItemCategory = @itemCategory AND InStock>0;";
             SqlParameter[] sqlParamenters = new SqlParameter[1];
             sqlParamenters[0] = new SqlParameter("@itemCategory", (int)category);
             return ReadTables(ExecuteSelectQuery(query, sqlParamenters));

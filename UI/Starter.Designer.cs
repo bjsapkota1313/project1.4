@@ -31,7 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.StarterAddBtn = new System.Windows.Forms.Button();
             this.LvStarterList = new System.Windows.Forms.ListView();
-            this.Id = new System.Windows.Forms.ColumnHeader();
+            this.Stock = new System.Windows.Forms.ColumnHeader();
             this.StarterListName = new System.Windows.Forms.ColumnHeader("(none)");
             this.StarterListPrice = new System.Windows.Forms.ColumnHeader();
             this.CommentStarters = new System.Windows.Forms.TextBox();
@@ -44,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(211, 68);
+            this.label1.Location = new System.Drawing.Point(211, 293);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 0;
@@ -55,9 +55,9 @@
             this.StarterAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.StarterAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StarterAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.StarterAddBtn.Location = new System.Drawing.Point(11, 357);
+            this.StarterAddBtn.Location = new System.Drawing.Point(11, 799);
             this.StarterAddBtn.Name = "StarterAddBtn";
-            this.StarterAddBtn.Size = new System.Drawing.Size(494, 43);
+            this.StarterAddBtn.Size = new System.Drawing.Size(495, 43);
             this.StarterAddBtn.TabIndex = 2;
             this.StarterAddBtn.Text = "Add";
             this.StarterAddBtn.UseVisualStyleBackColor = false;
@@ -66,7 +66,7 @@
             // LvStarterList
             // 
             this.LvStarterList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Id,
+            this.Stock,
             this.StarterListName,
             this.StarterListPrice});
             this.LvStarterList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -74,33 +74,34 @@
             this.LvStarterList.HideSelection = false;
             this.LvStarterList.Location = new System.Drawing.Point(12, 12);
             this.LvStarterList.Name = "LvStarterList";
-            this.LvStarterList.Size = new System.Drawing.Size(494, 268);
+            this.LvStarterList.Size = new System.Drawing.Size(494, 710);
             this.LvStarterList.TabIndex = 3;
             this.LvStarterList.UseCompatibleStateImageBehavior = false;
             this.LvStarterList.View = System.Windows.Forms.View.Details;
             this.LvStarterList.SelectedIndexChanged += new System.EventHandler(this.StarterList_SelectedIndexChanged);
             // 
-            // Id
+            // Stock
             // 
-            this.Id.Text = "Id";
-            this.Id.Width = 30;
+            this.Stock.Text = "In Stock";
+            this.Stock.Width = 70;
             // 
             // StarterListName
             // 
             this.StarterListName.Text = "Name";
-            this.StarterListName.Width = 395;
+            this.StarterListName.Width = 355;
             // 
             // StarterListPrice
             // 
             this.StarterListPrice.Text = "Price";
+            this.StarterListPrice.Width = 65;
             // 
             // CommentStarters
             // 
             this.CommentStarters.ForeColor = System.Drawing.Color.Silver;
-            this.CommentStarters.Location = new System.Drawing.Point(12, 286);
+            this.CommentStarters.Location = new System.Drawing.Point(12, 728);
             this.CommentStarters.Multiline = true;
             this.CommentStarters.Name = "CommentStarters";
-            this.CommentStarters.Size = new System.Drawing.Size(493, 65);
+            this.CommentStarters.Size = new System.Drawing.Size(494, 65);
             this.CommentStarters.TabIndex = 4;
             this.CommentStarters.Text = "Comment...";
             // 
@@ -109,11 +110,11 @@
             this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(135, 407);
+            this.AllStarterMenu.Location = new System.Drawing.Point(135, 849);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 15;
-            this.AllStarterMenu.Text = "Show Luch and Dinner menu";
+            this.AllStarterMenu.Text = "Show Lunch and Dinner menu";
             this.AllStarterMenu.UseVisualStyleBackColor = false;
             this.AllStarterMenu.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -122,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(530, 450);
+            this.ClientSize = new System.Drawing.Size(530, 900);
             this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.CommentStarters);
             this.Controls.Add(this.LvStarterList);
@@ -146,7 +147,7 @@
         private System.Windows.Forms.ColumnHeader StarterListPrice;
         private System.Windows.Forms.TextBox CommentStarters;
         private System.Windows.Forms.ColumnHeader ItemId;
-        private System.Windows.Forms.ColumnHeader Id;
+        private System.Windows.Forms.ColumnHeader Stock;
         private System.Windows.Forms.Button AllStarterMenu;
     }
 }
