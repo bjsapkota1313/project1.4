@@ -40,11 +40,11 @@
             this.time = new System.Windows.Forms.ColumnHeader();
             this.table = new System.Windows.Forms.ColumnHeader();
             this.status = new System.Windows.Forms.ColumnHeader();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnRunningOrder = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -148,20 +148,6 @@
             this.status.Text = "Status";
             this.status.Width = 260;
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(154)))), ((int)(((byte)(154)))), ((int)(((byte)(154)))));
-            this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnRefresh.ForeColor = System.Drawing.Color.Black;
-            this.btnRefresh.Location = new System.Drawing.Point(707, 878);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(410, 80);
-            this.btnRefresh.TabIndex = 7;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
@@ -182,7 +168,7 @@
             this.btnRunningOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnRunningOrder.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnRunningOrder.ForeColor = System.Drawing.Color.Black;
-            this.btnRunningOrder.Location = new System.Drawing.Point(707, 878);
+            this.btnRunningOrder.Location = new System.Drawing.Point(24, 878);
             this.btnRunningOrder.Name = "btnRunningOrder";
             this.btnRunningOrder.Size = new System.Drawing.Size(410, 80);
             this.btnRunningOrder.TabIndex = 9;
@@ -211,15 +197,26 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRefresh.Location = new System.Drawing.Point(707, 878);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(410, 80);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // KitchenAndBarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(1792, 973);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRunningOrder);
-            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lstViewKitchenAndBar);
             this.Controls.Add(this.btnKitchenReady);
             this.Controls.Add(this.btnCompletedOrder);
@@ -240,7 +237,6 @@
         private System.Windows.Forms.Button btnKitchenReady;
         private System.Windows.Forms.ListView lstViewKitchenAndBar;
         private System.Windows.Forms.ColumnHeader itemName;
-        private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.ColumnHeader quantity;
         private System.Windows.Forms.ColumnHeader comment;
@@ -250,5 +246,6 @@
         private System.Windows.Forms.Button btnRunningOrder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

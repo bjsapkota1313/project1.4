@@ -48,7 +48,7 @@
             this.DrinkListView.HideSelection = false;
             this.DrinkListView.Location = new System.Drawing.Point(12, 13);
             this.DrinkListView.Name = "DrinkListView";
-            this.DrinkListView.Size = new System.Drawing.Size(494, 268);
+            this.DrinkListView.Size = new System.Drawing.Size(494, 710);
             this.DrinkListView.TabIndex = 3;
             this.DrinkListView.UseCompatibleStateImageBehavior = false;
             this.DrinkListView.View = System.Windows.Forms.View.Details;
@@ -70,7 +70,7 @@
             // CommentDrink
             // 
             this.CommentDrink.ForeColor = System.Drawing.Color.Silver;
-            this.CommentDrink.Location = new System.Drawing.Point(12, 287);
+            this.CommentDrink.Location = new System.Drawing.Point(11, 729);
             this.CommentDrink.Multiline = true;
             this.CommentDrink.Name = "CommentDrink";
             this.CommentDrink.Size = new System.Drawing.Size(495, 66);
@@ -82,7 +82,7 @@
             this.AddDrinksBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.AddDrinksBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddDrinksBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AddDrinksBtn.Location = new System.Drawing.Point(12, 359);
+            this.AddDrinksBtn.Location = new System.Drawing.Point(11, 801);
             this.AddDrinksBtn.Name = "AddDrinksBtn";
             this.AddDrinksBtn.Size = new System.Drawing.Size(495, 40);
             this.AddDrinksBtn.TabIndex = 6;
@@ -92,10 +92,10 @@
             // 
             // AllStarterMenu
             // 
-            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(207)))), ((int)(((byte)(175)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(140, 407);
+            this.AllStarterMenu.Location = new System.Drawing.Point(126, 847);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 17;
@@ -107,7 +107,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(519, 450);
+            this.ClientSize = new System.Drawing.Size(530, 900);
             this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.AddDrinksBtn);
             this.Controls.Add(this.CommentDrink);

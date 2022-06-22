@@ -32,8 +32,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.StarterBtn = new System.Windows.Forms.Button();
-            this.MainCourseBtn = new System.Windows.Forms.Button();
-            this.DessertBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SubmitOrder = new System.Windows.Forms.Button();
             this.OrderLIstView = new System.Windows.Forms.ListView();
@@ -94,37 +92,11 @@
             this.StarterBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.StarterBtn.Location = new System.Drawing.Point(18, 6);
             this.StarterBtn.Name = "StarterBtn";
-            this.StarterBtn.Size = new System.Drawing.Size(159, 51);
+            this.StarterBtn.Size = new System.Drawing.Size(329, 51);
             this.StarterBtn.TabIndex = 4;
-            this.StarterBtn.Text = "Starter";
+            this.StarterBtn.Text = "Food";
             this.StarterBtn.UseVisualStyleBackColor = false;
             this.StarterBtn.Click += new System.EventHandler(this.FoodBtn_Click);
-            // 
-            // MainCourseBtn
-            // 
-            this.MainCourseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
-            this.MainCourseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.MainCourseBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.MainCourseBtn.Location = new System.Drawing.Point(198, 6);
-            this.MainCourseBtn.Name = "MainCourseBtn";
-            this.MainCourseBtn.Size = new System.Drawing.Size(159, 51);
-            this.MainCourseBtn.TabIndex = 5;
-            this.MainCourseBtn.Text = "Main Course";
-            this.MainCourseBtn.UseVisualStyleBackColor = false;
-            this.MainCourseBtn.Click += new System.EventHandler(this.MainCourseBtn_Click);
-            // 
-            // DessertBtn
-            // 
-            this.DessertBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
-            this.DessertBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.DessertBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.DessertBtn.Location = new System.Drawing.Point(378, 6);
-            this.DessertBtn.Name = "DessertBtn";
-            this.DessertBtn.Size = new System.Drawing.Size(159, 51);
-            this.DessertBtn.TabIndex = 6;
-            this.DessertBtn.Text = "Dessert";
-            this.DessertBtn.UseVisualStyleBackColor = false;
-            this.DessertBtn.Click += new System.EventHandler(this.DessertBtn_Click);
             // 
             // panel1
             // 
@@ -199,9 +171,9 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(558, 6);
+            this.button1.Location = new System.Drawing.Point(374, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 51);
+            this.button1.Size = new System.Drawing.Size(329, 51);
             this.button1.TabIndex = 10;
             this.button1.Text = "Drink";
             this.button1.UseVisualStyleBackColor = false;
@@ -211,9 +183,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.StarterBtn);
-            this.panel3.Controls.Add(this.MainCourseBtn);
             this.panel3.Controls.Add(this.button1);
-            this.panel3.Controls.Add(this.DessertBtn);
             this.panel3.Location = new System.Drawing.Point(0, 68);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(728, 68);
@@ -224,7 +194,7 @@
             this.mainpanel.BackColor = System.Drawing.Color.Transparent;
             this.mainpanel.Location = new System.Drawing.Point(0, 135);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(511, 568);
+            this.mainpanel.Size = new System.Drawing.Size(511, 927);
             this.mainpanel.TabIndex = 8;
             // 
             // OrderForm
@@ -238,7 +208,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.mainpanel);
             this.MaximumSize = new System.Drawing.Size(744, 1133);
-           // this.Name = "OrderForm";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.panel2.ResumeLayout(false);
@@ -253,8 +222,6 @@
         private System.Windows.Forms.Button BackBtnOrder;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button StarterBtn;
-        private System.Windows.Forms.Button MainCourseBtn;
-        private System.Windows.Forms.Button DessertBtn;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button RemoveOrderBtn;
         private System.Windows.Forms.Button button1;

@@ -85,7 +85,7 @@
             this.DessertAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.DessertAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.DessertAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.DessertAddBtn.Location = new System.Drawing.Point(12, 357);
+            this.DessertAddBtn.Location = new System.Drawing.Point(12, 801);
             this.DessertAddBtn.Name = "DessertAddBtn";
             this.DessertAddBtn.Size = new System.Drawing.Size(494, 43);
             this.DessertAddBtn.TabIndex = 3;
@@ -96,7 +96,7 @@
             // CommentDessert
             // 
             this.CommentDessert.ForeColor = System.Drawing.Color.DarkGray;
-            this.CommentDessert.Location = new System.Drawing.Point(12, 286);
+            this.CommentDessert.Location = new System.Drawing.Point(12, 712);
             this.CommentDessert.Multiline = true;
             this.CommentDessert.Name = "CommentDessert";
             this.CommentDessert.Size = new System.Drawing.Size(494, 65);
@@ -108,7 +108,7 @@
             this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(140, 407);
+            this.AllStarterMenu.Location = new System.Drawing.Point(140, 851);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 17;
@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(519, 450);
+            this.ClientSize = new System.Drawing.Size(530, 900);
             this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.CommentDessert);
             this.Controls.Add(this.DessertAddBtn);

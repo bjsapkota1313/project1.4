@@ -35,6 +35,9 @@ namespace UI
                 try
                 {
                         ShowMenu(MenuItemCategory.LuchStarter);
+                        ShowMenu(MenuItemCategory.LuchMainCourse);
+                        ShowMenu(MenuItemCategory.LuchDessert);
+
                 }
                 catch
                 {
@@ -45,12 +48,14 @@ namespace UI
                 try
                 {
                         ShowMenu(MenuItemCategory.DinnerStarter);
+                    ShowMenu(MenuItemCategory.DinnerMainCourse);
+                    ShowMenu(MenuItemCategory.DinnerDessert);
+
 
                 }
                 catch 
                 {
                     MessageBox.Show("Ups. Something when wrong. While loading the menu Items");
-
                 }
             }
             else
@@ -65,7 +70,7 @@ namespace UI
            OrderService orderService = new OrderService(); ;
            List<MenuItem> items = orderService.GetAllStarters(category);
 
-            LvStarterList.Items.Clear();
+            //LvStarterList.Items.Clear();
 
             foreach (MenuItem o in items)
             {
@@ -150,7 +155,14 @@ namespace UI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            LvStarterList.Items.Clear();
+            ShowMenu(MenuItemCategory.LuchStarter);
+            ShowMenu(MenuItemCategory.DinnerStarter);
+            ShowMenu(MenuItemCategory.LuchMainCourse);
+            ShowMenu(MenuItemCategory.DinnerMainCourse);
+            ShowMenu(MenuItemCategory.LuchMainCourse);
+            ShowMenu(MenuItemCategory.DinnerMainCourse);
+
         }
     }
 }

@@ -221,7 +221,7 @@ namespace UI
                     message = "Served";
                     break;
                 case OrderItemState.ReadyToDeliver:
-                    message = "Ready TO Serve ";
+                    message = "Ready";
                     break;
                 case OrderItemState.PreparingOrder:
                     message = "Preparing";
