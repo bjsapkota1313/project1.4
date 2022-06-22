@@ -15,6 +15,10 @@ namespace ServiceLayer
         {
             orderdb = new OrderDAO();
         }
+        public void UpdateStock(List<OrderItem> orderItems)
+        {
+            orderdb.UpdateStock(orderItems);
+        }
         public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             orderdb.GetIdFromUnpaied(list, TableNr);

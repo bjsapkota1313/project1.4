@@ -14,7 +14,19 @@ namespace DataAccessLayer
 
     {          //Getting the list of orderItem having the same order
 
-        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
+        public void UpdateStock(List<OrderItem> orderItems)
+        {
+            foreach (OrderItem item in orderItems) {
+                string query = "Update Menu_Item Set InStock = InStock - @Quantity WHERE ItemID = @ItemId; ";
+
+                SqlParameter[] sqlParameters =
+                    {new SqlParameter("@OrderID", orderID),
+                    new SqlParameter("@ItemId", item.MenuItem.ItemId),
+                    new SqlParameter("@Quantity", item.Quantity) };
+                ExecuteEditQuery(query, sqlParameters);
+            }
+        }
+    public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             // get the Order Id from table where order(s) have not beeen payed yet
             string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PayementStatus = 0;";

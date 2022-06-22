@@ -113,6 +113,7 @@ namespace UI
                 OrderItem orderItem = (OrderItem)item.Tag;
                orderItem.DateTime= DateTime.Now;   
                 orders.Add(orderItem);
+                orderService.UpdateStock(orders);
             }
 
             try
