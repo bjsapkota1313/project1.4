@@ -16,7 +16,7 @@ namespace UI
 {
     public partial class AddFeedback : Form
     {
-
+        Employee loggedEmployee;
         OrderService orderService;
         private int orderId;
         private Order order;
@@ -60,5 +60,10 @@ namespace UI
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }   }

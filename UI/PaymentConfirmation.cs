@@ -14,7 +14,7 @@ namespace UI
 {
     public partial class PaymentConfirmation : Form
     {
-        private int orderID;
+
         private OrderService orderService;
         private TableService tableService;
         private Order order;
@@ -34,8 +34,6 @@ namespace UI
             orderService = new OrderService();
 
             orderService.ChangeOrderPaymentStatus(order.OrderId);
-            //order = orderService.GetOrderForSpecificTableWhichisNotPaidYet(1, PayementStatus.Paid);
-            //paymentService.ChangePaymentStatus(BillID, true);
 
         }
         private void FreeTable()
@@ -65,8 +63,7 @@ namespace UI
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
-            //this.Hide();
-            this.Close();
+            this.Hide();
         }
     }
 }

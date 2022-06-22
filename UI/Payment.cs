@@ -46,6 +46,8 @@ namespace UI
             // Display the bill in a listView
             ListViewItemsOnBill();
 
+            PaymentDetails();
+
         }
         private void ListViewItemsOnBill()
         {
@@ -75,8 +77,8 @@ namespace UI
 
                     ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
                     li.SubItems.Add(item.Quantity.ToString());
-                    li.SubItems.Add(item.MenuItem.Price.ToString());
-                    li.SubItems.Add(item.MenuItem.VAT.ToString());
+                    li.SubItems.Add($"€{item.MenuItem.Price.ToString("0.00")}");
+                    li.SubItems.Add($"{item.MenuItem.VAT.ToString("#0.##%")}");
                     listViewBill.Items.Add(li);
                 }
 
@@ -99,9 +101,6 @@ namespace UI
 
         private void btnPay_Click(object sender, System.EventArgs e)
         {
-            //orderService = new OrderService();
-
-            //order = orderService.GetOrderByTableNumber(tablenr);
 
             LoadNewForm(new Tip(order, loggedEmployee));
         }
@@ -113,9 +112,77 @@ namespace UI
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
-            this.Close();
+            this.Hide();
+        }
+        private void PaymentDetails()
+        {
+            lblVatLow.Text = $"€{LowVAT().ToString("0.00")}";
+            lblVatHigh.Text = $"€{HighVAT().ToString("0.00")}";
+            lblVatTotal.Text = $"€{TotalVAT().ToString("0.00")}";
+            lblPrice.Text = $"€{OrderPrice().ToString("0.00")}";
+        }
+        public decimal HighVAT()
+        {
+
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
+
+            decimal highlVat = 0;
+            foreach (OrderItem item in orderItems)
+            {
+                if (item.MenuItem.VAT == (decimal)0.21)
+                {
+                    highlVat += (item.MenuItem.Price * (decimal)0.21) * item.Quantity;
+                }
+            }
+            return highlVat;
+
+        }
+        public decimal LowVAT()
+        {
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
+
+            decimal lowVat = 0;
+            foreach (OrderItem item in orderItems)
+            {
+                if (item.MenuItem.VAT == (decimal)0.06)
+                {
+                    lowVat += (item.MenuItem.Price * (decimal)0.06) * item.Quantity;
+                }
+            }
+            return lowVat;
+
+        }
+        public decimal TotalVAT()
+        {
+
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
+
+            decimal totalVat = 0;
+            foreach (OrderItem item in orderItems)
+            {
+                totalVat += item.MenuItem.Price * item.MenuItem.VAT * item.Quantity;
+            }
+            return totalVat;
+
+        }
+        public decimal OrderPrice()
+        {
+
+            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
+
+            decimal orderPrice = 0;
+            foreach (OrderItem item in orderItems)
+            {
+                orderPrice += item.MenuItem.Price * item.Quantity;
+            }
+            return orderPrice;
+
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
     }
           
