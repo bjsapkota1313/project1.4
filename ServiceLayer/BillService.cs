@@ -13,9 +13,13 @@ namespace ServiceLayer
             billdb = new BillDAO();    
         }
 
-        public Bill GetBill(int tableNr)
+        //public Bill GetBill(int tableNr)
+        //{
+        //    return billdb.GetBill(tableNr);
+        //}
+        public void CreateBill(int orderId)
         {
-            return billdb.GetBill(tableNr);
+            billdb.CreateBill(orderId);
         }
 
     }

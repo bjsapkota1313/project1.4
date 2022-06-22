@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Bill
+    public class VAT
     {
-        public int BillID { get; set; }
-        public int TableNr { get; set; }
-        public int OrderID { get; set; }
-       
+        public int VatID { get; set; }
+        public decimal ValueVAT { get; set; }
+
     }
 }

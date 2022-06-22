@@ -14,42 +14,72 @@ namespace UI
 {   
     public partial class Payment : Form
     {
-        PaymentService paymentService;
-        
-        Model.Bill bill;
+        private Table table;
+        private OrderService orderService; 
+        List<Order> orders;
+        Order order;
+        private Employee loggedEmployee;
 
-        
-
-        public Payment()
+        public Payment(Table table, Employee loggedEmployee)
         {
             InitializeComponent();
 
-            //ListOrderedItems();
+            this.loggedEmployee = loggedEmployee;
+            this.table = table;
+            orderService = new OrderService();
 
-            
+            orders = new List<Order>();
+
+            orders = orderService.GetOrderByTableNumber(table.Number);
+
 
             btnAddComment.Click += new EventHandler(btnAddComment_Click);
-            btnCash.Click += new EventHandler(btnCash_Click);
-            btnCreditCard.Click += new EventHandler(btnCreditCard_Click);
-            btnPIN.Click += new EventHandler(btnPIN_Click);
+            btnPay.Click += new EventHandler(btnPay_Click);
         }
-        private void ListOrderedItems()
+
+        private void Payment_Load(object sender, EventArgs e)
         {
+
+            // Display a lable with the table number 
+            lblTableNum.Text = $"Table Number {table.Number.ToString()}";
+
+            // Display the bill in a listView
+            ListViewItemsOnBill();
+
+        }
+        private void ListViewItemsOnBill()
+        {
+
             try
             {
-                // fill the bill listview with a list of ordered items
-        
 
-                // clear the listview items before filling it again
+                orderService = new OrderService();
+                List<OrderItem> bill = new List<OrderItem>();
+
+
+                orders = orderService.GetOrderByTableNumber(table.Number);
+                foreach (Order item in orders)
+                {
+                    bill = orderService.GetBill(item.OrderId);
+                    order = item;
+                }
+
+
+                // clear the listview ITEMS before filling it again !!Using list.Clear() will remove the column headers too.
                 listViewBill.Items.Clear();
 
-                // For each Order object in the list, create a new List Item and fill details before adding it
-                //foreach (Order o in orderItems)
-                //{
-                //    ListViewItem li = new ListViewItem(o.OrderItems.ToString());
-                //    li.SubItems.Add(o.TotalPrice.ToString());
-                //    listViewBill.Items.Add(li);
-                //}
+                
+
+                foreach (OrderItem item in bill)
+                {
+
+                    ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
+                    li.SubItems.Add(item.Quantity.ToString());
+                    li.SubItems.Add(item.MenuItem.Price.ToString());
+                    li.SubItems.Add(item.MenuItem.VAT.ToString());
+                    listViewBill.Items.Add(li);
+                }
+
             }
             catch (Exception ex)
             {
@@ -57,31 +87,25 @@ namespace UI
                 string filePath = ErrorLogger.LogError(ex);
 
                 // Display message box when an error occured with the appropiate error
-                MessageBox.Show("Something went wrong while loading the Bill: " + ex.Message + Environment.NewLine
+                MessageBox.Show("Something went wrong while loading the bill: " + ex.Message + Environment.NewLine
                     + Environment.NewLine + "Error log location: " + filePath);
             }
-
         }
-       
         private void btnAddComment_Click(object sender, System.EventArgs e)
         {
-           // LoadNewForm(new AddFeedback());
+
+            LoadNewForm(new AddFeedback(order));
         }
 
-        private void btnCash_Click(object sender, System.EventArgs e)
+        private void btnPay_Click(object sender, System.EventArgs e)
         {
-            LoadNewForm(new PaymentConfirmation());       
+            //orderService = new OrderService();
+
+            //order = orderService.GetOrderByTableNumber(tablenr);
+
+            LoadNewForm(new Tip(order, loggedEmployee));
         }
 
-        private void btnCreditCard_Click(object sender, System.EventArgs e)
-        {
-            LoadNewForm(new PaymentConfirmation());
-        }
-
-        private void btnPIN_Click(object sender, System.EventArgs e)
-        {
-            LoadNewForm(new PaymentConfirmation());
-        }
         private void LoadNewForm(object Form)
         {
             Form frm = Form as Form;
@@ -89,25 +113,11 @@ namespace UI
             frm.StartPosition = FormStartPosition.Manual;
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
-            this.Hide();
+            this.Close();
         }
-
-        private void Payment_Load(object sender, EventArgs e)
-        {
-
-        }
-        //private void txtTip_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        //}
-        //private void txtVAT_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        //}
-        //private void txtTotal_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        //}
 
     }
-}
+    }
+          
+
+

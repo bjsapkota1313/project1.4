@@ -139,7 +139,6 @@ namespace DataAccessLayer
             }
             return orderlist;
         }
-
         public Order GetOrder(int tableNr)
         {
             string query = "Select  [OrderItem].OrderID,[Menu_Item].[Name], [Order].[Time], [Table].[Status], [OrderItem].Feedback from [Order] Join [Table] on [Order].TableNr=[Table].TableNr Join [OrderItem] ON [Order].OrderId = [OrderItem].OrderId join Menu_Item ON [OrderItem]. MenuItemId = [Menu_Item].ItemID WHERE [Order].PayementStatus=0 ANd [Table].TableNr=@TableNr;";
@@ -338,6 +337,89 @@ namespace DataAccessLayer
 
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
-       
+        //public Order GetOrderID(int tableNr)
+        //{
+        //    string query = $"SELECT OrderID, TableNr WHERE TableNr = '{tableNr}'";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
+
+        //    // Preventing SQL from injections
+        //    return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
+        //}
+        public List<Order> GetOrderByTableNumber(int tableNr)
+        {
+            string query = $"SELECT O.OrderID, T.TableNr FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = '{tableNr}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            return ReadOrdersForUnpaidOrder(ExecuteSelectQuery(query, sqlParameters));
+        }
+        //Updating the feedback of an order
+        public void AddFeedback(int id, string feedback)
+        {
+            string query = $"UPDATE [Order] SET Feedback = '{feedback}' WHERE OrderID = '{id}'";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Execute query
+            ExecuteEditQuery(query, sqlParameters);
+        }
+        public void ChangeOrderPaymentStatus(int id)
+        {
+            string query = $"UPDATE [Order] SET PayementStatus = '1' WHERE OrderID = '{id}'; ";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Execute query
+            ExecuteEditQuery(query, sqlParameters);
+        }
+
+
+
+        //Getting the bill of an order
+        public List<OrderItem> GetBill(int OrderId)
+        {
+            string query = $"SELECT O.OrderId, O.Quantity,M.[Name],M.Price, M.VAT FROM OrderItem AS O INNER JOIN Menu_Item AS M ON M.ItemID = O.MenuItemId WHERE O.OrderId = '{OrderId}'";
+
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+
+            // Preventing SQL from injections
+            return ReadingTableForBill(ExecuteSelectQuery(query, sqlParameters));
+        }
+
+        private List<OrderItem> ReadingTableForBill(DataTable dataTable)
+        {
+            List<OrderItem> list = new List<OrderItem>();
+            foreach (DataRow dr in dataTable.Rows)
+            {
+                OrderItem item = new OrderItem();
+                item.OrderID = (int)dr["OrderId"];
+                item.Quantity = (int)dr["Quantity"];
+                item.MenuItem.Name = (string)dr["Name"];
+                item.MenuItem.Price = (decimal)dr["Price"];
+                item.MenuItem.VAT = (decimal)dr["VAT"];
+                list.Add(item);
+            }
+            return list;
+        }
+        private List<Order> ReadOrdersForUnpaidOrder(DataTable dataTable)
+        {
+            List<Order> orders = new List<Order>();
+            
+            if(dataTable != null)
+            {
+                foreach (DataRow dr in dataTable.Rows)
+                {
+                    Order order = new Order();
+
+                    order.OrderId = (int)dr["OrderID"];
+                    order.Table.Number = (int)dr["TableNr"];
+                    orders.Add(order);
+                    
+                    //order.PayementStatus = (PayementStatus)dr["PayementStatus"];
+                }               
+            }
+            return orders;
+        }
+           
+
     }
 }
