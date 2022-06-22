@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenAndBarView));
             this.lblKitchenAndBarView = new System.Windows.Forms.Label();
@@ -45,7 +44,7 @@
             this.btnRunningOrder = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timerForKitchenBar = new System.Windows.Forms.Timer(this.components);
+            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -198,10 +197,16 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // timerForKitchenBar
+            // btnRefresh
             // 
-            this.timerForKitchenBar.Enabled = true;
-            this.timerForKitchenBar.Tick += new System.EventHandler(this.timerForKitchenBar_Tick);
+            this.btnRefresh.Font = new System.Drawing.Font("Calibri", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnRefresh.Location = new System.Drawing.Point(707, 878);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(410, 80);
+            this.btnRefresh.TabIndex = 11;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // KitchenAndBarView
             // 
@@ -209,6 +214,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(1792, 973);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRunningOrder);
             this.Controls.Add(this.lstViewKitchenAndBar);
@@ -240,6 +246,6 @@
         private System.Windows.Forms.Button btnRunningOrder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timerForKitchenBar;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

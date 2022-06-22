@@ -120,7 +120,7 @@ namespace UI
             btnRunningOrder.Visible = false;
             btnCompletedOrder.Visible = true;
             btnKitchenReady.Visible = true;
-            timerForKitchenBar.Enabled = true; 
+            btnRefresh.Visible = true;
         }
 
         private void btnCompletedOrder_Click_1(object sender, EventArgs e)
@@ -128,14 +128,14 @@ namespace UI
             btnRunningOrder.Visible = true;
             btnCompletedOrder.Visible = false;
             btnKitchenReady.Visible = false;
-            timerForKitchenBar.Enabled = false; 
+            btnRefresh.Visible = false;
 
             List<Order> orders;
             orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.ReadyToDeliver);
             FillInKitchenAndBarView(orders);
         }
 
-        private void timerForKitchenBar_Tick(object sender, EventArgs e)
+        private void btnRefresh_Click(object sender, EventArgs e)
         {
             DisplayKitchenBarView();
         }
