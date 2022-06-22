@@ -42,10 +42,7 @@ namespace UI
             try
             {
                 // gettting the logged employee 
-                loggedEmployee = employeeService.LogEmployee(int.Parse(txtBoxEmployeeId.Text), txtBoxPassword.Text);
-
-                    //whenever password is verified login form is hidden
-                    this.Hide();
+                loggedEmployee = employeeService.LogEmployee(txtBoxEmployeeId.Text.ToString(), txtBoxPassword.Text);
 
                 // opening the forms according to logged employee type 
                 if (loggedEmployee.EmployeeType==EmployeeType.Chef || loggedEmployee.EmployeeType==EmployeeType.BarTender)
@@ -57,7 +54,13 @@ namespace UI
                 {
                     TableView tableView = new TableView(loggedEmployee);    
                     tableView.Show();
+                    tableView.StartPosition = this.StartPosition;
+                    tableView.Location = this.Location;
+                    tableView.Top = this.Top;
+
                 }
+                //whenever password is verified login form is hidden
+                this.Hide();
             }
             catch (Exception e)
             {

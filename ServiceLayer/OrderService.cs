@@ -15,6 +15,10 @@ namespace ServiceLayer
         {
             orderdb = new OrderDAO();
         }
+        public void UpdateStock(List<OrderItem> orderItems)
+        {
+            orderdb.UpdateStock(orderItems);
+        }
         public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
         {
             orderdb.GetIdFromUnpaied(list, TableNr);
@@ -29,7 +33,7 @@ namespace ServiceLayer
         }
         public void AddToOrderItem(OrderItem item)
         {
-             orderdb.AddToOrderItems(item);
+            orderdb.AddToOrderItems(item);
         }
 
         public Order SearchByID(int ID)
@@ -48,8 +52,29 @@ namespace ServiceLayer
 
         public List<OrderItem> ListOfOrderItemsInSelectedTable(Table selectedTable, PayementStatus payementStatus)
         {
-           return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);
+            return orderdb.ListOfOrderItemsInSelectedTable(selectedTable, payementStatus);
+        }
+        //public Order GetOrderID(int tableNr)
+        //{
+        //    return orderdb.GetOrderID(tableNr);
+        //}
+        public void AddFeedback(int id, string feedback)
+        {
+             orderdb.AddFeedback(id, feedback);
+        }
+        public List<OrderItem> GetBill(int OrderId)
+        {
+            return orderdb.GetBill(OrderId);
+        }
+        public List<Order> GetOrderByTableNumber(int tableNr)
+        {
+            return orderdb.GetOrderByTableNumber(tableNr);
+        }
+        public void ChangeOrderPaymentStatus(int id)
+        {
+            orderdb.ChangeOrderPaymentStatus(id);
         }
 
     }
 }
+

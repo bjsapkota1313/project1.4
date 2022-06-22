@@ -8,9 +8,9 @@ namespace Model
 {
     public  class Payment
     {
-        public int Id { get; set; } 
-        public int Type { get; set; } 
-        public Bill Bill { get; set; }
+        public int BillID { get; set; } 
+        public PaymentType Type { get; set; } 
+        public Order Order { get; set; }
         public string Feedback { get; set; }    
         public bool PaymentStatus { get; set; }
         public decimal Tip { get; set; }    

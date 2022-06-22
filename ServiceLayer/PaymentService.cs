@@ -15,50 +15,21 @@ namespace ServiceLayer
         {
             paymentdb = new PaymentDAO();
         }
-        //public Payment GetPayment(int billID)
-        //{
-        //   // return paymentdb.GetPayment(billID);
-        //}
-        //public Payment SearchByID(int ID)
-        //{
-        //    return paymentdb.SearchByID(ID);
-        //}
-       
-        public void AddFeedback(int id, string feedback)
+
+
+        public Payment GetPaymentMethod(int id)
         {
-            //Create query
-            string query = $"UPDATE OrderPayment SET Feedback = '{feedback}' WHERE BillID = '{id}'";
-
-            // Add Feedback to the database
-            paymentdb.EditPayment(query);
-
-        }      
-        public void AddTip(int id, decimal tip)
-        {
-            //Create query
-            string query = $"UPDATE OrderPayment SET Tip = '{tip}' WHERE BillID='{id}'";
-
-            // Add Tip to the database
-            paymentdb.EditPayment(query);
-
-        }
-        public void AddTotal(int id, decimal total)
-        {
-            //Create query
-            string query = $"UPDATE OrderPayment SET Total = '{total}' WHERE BillID='{id}'";
-
-            // Add Tip to the database
-            paymentdb.EditPayment(query);
-
+            return paymentdb.GetPaymentMethod(id);
         }
         public void AddPayment(int id, decimal total, decimal tip, int paymentType)
         {
-            //Create query
-            string query = $"UPDATE OrderPayment SET Total = '{total}', Tip = '{tip}', [Type] = '{paymentType}' WHERE BillID='{id}'";
-
-            // Add Payment to the database
-            paymentdb.EditPayment(query);
+            paymentdb.AddPayment(id, total, tip, paymentType);
 
         }
+   
+
+
+
     }
 }
+

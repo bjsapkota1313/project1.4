@@ -58,5 +58,12 @@ namespace DataAccessLayer
             ExecuteEditQuery(query, sqlParameters);
 
         }
-   }
+        public void ChangeTableToFree(int tableNr)
+        {
+            string query = $"UPDATE [Table] SET  [Status] = '1' WHERE TableNr = '{tableNr}'";
+            SqlParameter[] sqlParameters = new SqlParameter[0];
+           
+            ExecuteEditQuery(query, sqlParameters);
+        }
+    }
 }

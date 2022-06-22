@@ -21,10 +21,10 @@ namespace DataAccessLayer
             sqlParameters[0] = new SqlParameter("@ID", id);
             return ReadTableRows(ExecuteSelectQuery(query, sqlParameters));
         }
-        public Employee VerifyPassword(int employeeId,string enteredPassword)
+        public Employee VerifyPassword(string employeeId,string enteredPassword)
         {
             // first getting the stored salt from the database to compare with it 
-            String query = "SELECT Salt FROM Employee WHERE EmployeeID=@ID";
+            String query = "SELECT Salt FROM Employee WHERE UserName=@ID";
             SqlParameter[] sqlParameters = new SqlParameter[1];
             // preventing from sql injections
             sqlParameters[0] = new SqlParameter("@ID", employeeId);
@@ -40,7 +40,7 @@ namespace DataAccessLayer
             Employee loggedEmployee = ComparingPasswordWithEnteredPassword(employeeId, hashedPassword);
             if (loggedEmployee == null)
             {
-                throw new Exception("Somethings wrong with your credentials");
+                throw new Exception("Somethings wrong with your password");
             }
             return loggedEmployee;
         }
@@ -52,9 +52,9 @@ namespace DataAccessLayer
            return Convert.ToBase64String(rfc2898DeriveBytes.GetBytes(32)); // using 32 bits 
         }
 
-        private Employee ComparingPasswordWithEnteredPassword(int employeeId,string converetedPassword)
+        private Employee ComparingPasswordWithEnteredPassword(string employeeId,string converetedPassword)
         {
-            string query = "SELECT EmployeeID, FirstName, LastName,EmployeeType, [Password] FROM Employee WHERE EmployeeID=@ID AND [Password]=@password";
+            string query = "SELECT EmployeeID, FirstName, LastName,EmployeeType, [Password] FROM Employee WHERE UserName=@ID AND [Password]=@password";
             SqlParameter[] sqlParameters = new SqlParameter[2];
             // preventing from sql injections
             sqlParameters[0] = new SqlParameter("@ID", employeeId);
@@ -75,6 +75,10 @@ namespace DataAccessLayer
         {
             // first making the employee null later on it will be set
             Employee employee=null;
+            if (dataTable==null)
+            {
+                return null;
+            }
             foreach (DataRow dr in dataTable.Rows)
             {
                 int id = (int)dr["EmployeeID"];

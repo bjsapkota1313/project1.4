@@ -12,49 +12,37 @@ namespace DataAccessLayer
 {
     public class PaymentTypeDAO : BaseDAO
     {
-        public List<PaymentType> GetAllPaymentTypes()
-        {
-            string query = "SELECT ID, Type FROM PAYMENTTYPE";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+        //public PaymentType GetType(int id)
+        //{
+        //    //Create query
+        //    string query = $"SELECT ID, Type  WHERE ID ='{id}'";
+        //    SqlParameter[] sqlParameters = new SqlParameter[0];
 
-            // Return result of query
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters));
-        }
+        //    // Return result of query
+        //    return ReadTables(ExecuteSelectQuery(query, sqlParameters));
 
-        private List<PaymentType> ReadTables(DataTable dataTable)
-        {
-            List<PaymentType> PaymentTypes = new List<PaymentType>();
+        //}
+        //private PaymentType ReadTables(DataTable dataTable)
+        //{
+        //    PaymentType type = new PaymentType();
 
-            try
-            {
-                // For each data row, set all data to new Drink object
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    PaymentType paymentType = new PaymentType()
-                    {
-                        ID = (int)dr["ID"],
-                        Type = (string)dr["Tyoe"]
+        //    try
+        //    {
+        //        // For each data row, set all data to new type object
+        //        foreach (DataRow dr in dataTable.Rows)
+        //        {
 
-                    };
-                    // Add new Drink object to list of Drinks
-                    PaymentTypes.Add(paymentType);
-                }
-                return PaymentTypes;
-            }
-            catch (Exception e)
-            {
-                throw new Exception("There is an issue reading the payments data from the database.", e);
-            }
-        }
-
-        public PaymentType SearchByID(int ID)
-        {
-            string query = $"SELECT ID, Type FROM BILL WHERE ID='{ID}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-
-            // Return result of query
-            return ReadTables(ExecuteSelectQuery(query, sqlParameters))[0];
-        }
-
+        //            {
+        //                type.ID = (int)dr["ID"];
+        //                type.Type = (string)dr["Type"];
+        //            }
+        //        }
+        //        return type;
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new Exception("There is an issue reading the Payment Method data from the database.", e);
+        //    }
+        //}
     }
 }
