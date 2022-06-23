@@ -85,7 +85,7 @@
             this.btnMarkAsServed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(129)))), ((int)(((byte)(36)))));
             this.btnMarkAsServed.FlatAppearance.BorderSize = 0;
             this.btnMarkAsServed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMarkAsServed.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMarkAsServed.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnMarkAsServed.ForeColor = System.Drawing.Color.Black;
             this.btnMarkAsServed.Location = new System.Drawing.Point(410, 823);
             this.btnMarkAsServed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

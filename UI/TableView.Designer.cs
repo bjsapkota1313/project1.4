@@ -773,7 +773,7 @@
             this.lblBold.Name = "lblBold";
             this.lblBold.Size = new System.Drawing.Size(182, 50);
             this.lblBold.TabIndex = 3;
-            this.lblBold.Text = "legenda";
+            this.lblBold.Text = "Legenda";
             // 
             // label11
             // 

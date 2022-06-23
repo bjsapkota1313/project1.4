@@ -40,7 +40,7 @@ namespace DataAccessLayer
             Employee loggedEmployee = ComparingPasswordWithEnteredPassword(employeeId, hashedPassword);
             if (loggedEmployee == null)
             {
-                throw new Exception("Somethings wrong with your password");
+                throw new Exception("Something is  wrong with your password");
             }
             return loggedEmployee;
         }
