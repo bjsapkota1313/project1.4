@@ -104,9 +104,9 @@
             this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.OrderLIstView);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
-            this.panel1.Location = new System.Drawing.Point(514, 135);
+            this.panel1.Location = new System.Drawing.Point(443, 135);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 927);
+            this.panel1.Size = new System.Drawing.Size(285, 927);
             this.panel1.TabIndex = 7;
             // 
             // SubmitOrder
@@ -116,7 +116,7 @@
             this.SubmitOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.SubmitOrder.Location = new System.Drawing.Point(3, 379);
             this.SubmitOrder.Name = "SubmitOrder";
-            this.SubmitOrder.Size = new System.Drawing.Size(208, 39);
+            this.SubmitOrder.Size = new System.Drawing.Size(270, 39);
             this.SubmitOrder.TabIndex = 12;
             this.SubmitOrder.Text = "Submit";
             this.SubmitOrder.UseVisualStyleBackColor = false;
@@ -128,11 +128,12 @@
             this.ItemId,
             this.Name,
             this.Price});
+            this.OrderLIstView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderLIstView.FullRowSelect = true;
             this.OrderLIstView.HideSelection = false;
             this.OrderLIstView.Location = new System.Drawing.Point(3, 8);
             this.OrderLIstView.Name = "OrderLIstView";
-            this.OrderLIstView.Size = new System.Drawing.Size(208, 320);
+            this.OrderLIstView.Size = new System.Drawing.Size(270, 320);
             this.OrderLIstView.TabIndex = 11;
             this.OrderLIstView.UseCompatibleStateImageBehavior = false;
             this.OrderLIstView.View = System.Windows.Forms.View.Details;
@@ -146,11 +147,11 @@
             // Name
             // 
             this.Name.Text = "Name";
-            this.Name.Width = 100;
+            this.Name.Width = 165;
             // 
             // Price
             // 
-            this.Price.Text = "Quantity";
+            this.Price.Text = "Price";
             this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // RemoveOrderBtn
@@ -160,7 +161,7 @@
             this.RemoveOrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 334);
             this.RemoveOrderBtn.Name = "RemoveOrderBtn";
-            this.RemoveOrderBtn.Size = new System.Drawing.Size(208, 39);
+            this.RemoveOrderBtn.Size = new System.Drawing.Size(270, 39);
             this.RemoveOrderBtn.TabIndex = 8;
             this.RemoveOrderBtn.Text = "Remove";
             this.RemoveOrderBtn.UseVisualStyleBackColor = false;
@@ -194,7 +195,7 @@
             this.mainpanel.BackColor = System.Drawing.Color.Transparent;
             this.mainpanel.Location = new System.Drawing.Point(0, 135);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(511, 927);
+            this.mainpanel.Size = new System.Drawing.Size(440, 927);
             this.mainpanel.TabIndex = 8;
             // 
             // OrderForm

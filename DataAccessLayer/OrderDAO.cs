@@ -71,7 +71,7 @@ namespace DataAccessLayer
             foreach (OrderItem item in orderItems)
             {
                 // if exists add 1 to the quantity else insert new OrderItem
-                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
+                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId  AND OrderStatus=2) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
 
                 SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
                     new SqlParameter("MenuItemId", item.MenuItem.ItemId),
@@ -215,6 +215,8 @@ namespace DataAccessLayer
                 item.ItemId = (int)dr["ItemId"];
                 item.Name = (string)dr["name"];
                 item.Price = (decimal)dr["Price"];
+                item.InStock = (int)dr["InStock"];
+
 
                 items.Add(item);
             }

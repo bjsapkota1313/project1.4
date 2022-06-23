@@ -74,7 +74,7 @@ namespace UI
 
             foreach (MenuItem o in items)
             {
-                ListViewItem li = new ListViewItem(o.ItemId.ToString());
+                ListViewItem li = new ListViewItem(o.InStock.ToString());
                 li.SubItems.Add(o.Name.ToString());
                 li.SubItems.Add(o.Price.ToString());
                 li.Tag = o;
