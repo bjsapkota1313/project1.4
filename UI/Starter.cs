@@ -34,9 +34,26 @@ namespace UI
             {
                 try
                 {
-                        ShowMenu(MenuItemCategory.LuchStarter);
-                        ShowMenu(MenuItemCategory.LuchMainCourse);
-                        ShowMenu(MenuItemCategory.LuchDessert);
+                    ListViewItem startersHeader = new ListViewItem("---");
+                    startersHeader.SubItems.Add("Starters");
+                    startersHeader.SubItems.Add("---");
+                    LvStarterList.Items.Add(startersHeader);
+
+                    ShowMenu(MenuItemCategory.LuchStarter);
+
+                    ListViewItem MainCourseHeader = new ListViewItem("---");
+                    MainCourseHeader.SubItems.Add("Main Course");
+                    MainCourseHeader.SubItems.Add("---");
+                    LvStarterList.Items.Add(MainCourseHeader);
+
+                    ShowMenu(MenuItemCategory.LuchMainCourse);
+
+                    ListViewItem DessertHeader = new ListViewItem("---");
+                    DessertHeader.SubItems.Add("Dessert");
+                    DessertHeader.SubItems.Add("---");
+                    LvStarterList.Items.Add(DessertHeader);
+
+                    ShowMenu(MenuItemCategory.LuchDessert);
 
                 }
                 catch
@@ -47,7 +64,7 @@ namespace UI
             {
                 try
                 {
-                        ShowMenu(MenuItemCategory.DinnerStarter);
+                    ShowMenu(MenuItemCategory.DinnerStarter);
                     ShowMenu(MenuItemCategory.DinnerMainCourse);
                     ShowMenu(MenuItemCategory.DinnerDessert);
 
@@ -154,10 +171,25 @@ namespace UI
         private void button1_Click(object sender, EventArgs e)
         {
             LvStarterList.Items.Clear();
+            ListViewItem startersHeader = new ListViewItem("---");
+            startersHeader.SubItems.Add("Starters");
+            startersHeader.SubItems.Add("---");
+            LvStarterList.Items.Add(startersHeader);
+
             ShowMenu(MenuItemCategory.LuchStarter);
             ShowMenu(MenuItemCategory.DinnerStarter);
+            ListViewItem MainCourseHeader = new ListViewItem("---");
+            MainCourseHeader.SubItems.Add("Main Course");
+            MainCourseHeader.SubItems.Add("---");
+            LvStarterList.Items.Add(MainCourseHeader);
+
             ShowMenu(MenuItemCategory.LuchMainCourse);
             ShowMenu(MenuItemCategory.DinnerMainCourse);
+            ListViewItem DessertHeader = new ListViewItem("---");
+            DessertHeader.SubItems.Add("Dessert");
+            DessertHeader.SubItems.Add("---");
+            LvStarterList.Items.Add(DessertHeader);
+
             ShowMenu(MenuItemCategory.LuchMainCourse);
             ShowMenu(MenuItemCategory.DinnerMainCourse);
 

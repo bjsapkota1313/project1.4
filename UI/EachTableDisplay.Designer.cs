@@ -32,27 +32,22 @@
             this.lblFormName = new System.Windows.Forms.Label();
             this.BtnBackToTableView = new System.Windows.Forms.Button();
             this.lblTableNumber = new System.Windows.Forms.Label();
-            this.lblForUserInfoTomarkServe = new System.Windows.Forms.Label();
             this.btnMarkAsServed = new System.Windows.Forms.Button();
             this.BtnCheckout = new System.Windows.Forms.Button();
             this.btnTakeOrder = new System.Windows.Forms.Button();
             this.lblCurrentTableStatus = new System.Windows.Forms.Label();
-            this.pnlForOtherInfo = new System.Windows.Forms.Panel();
-            this.lblInfoOccupyTable = new System.Windows.Forms.Label();
             this.btnOccupyTable = new System.Windows.Forms.Button();
-            this.LblInfoAboveButton = new System.Windows.Forms.Label();
-            this.BtnMakeTableFree = new System.Windows.Forms.Button();
             this.ListViewOfOrderItems = new System.Windows.Forms.ListView();
-            this.pnlForOtherInfo.SuspendLayout();
+            this.btnMakeTableFree = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblFormName
             // 
             this.lblFormName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.lblFormName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblFormName.Location = new System.Drawing.Point(1, 50);
+            this.lblFormName.Location = new System.Drawing.Point(1, 68);
             this.lblFormName.Name = "lblFormName";
-            this.lblFormName.Size = new System.Drawing.Size(639, 35);
+            this.lblFormName.Size = new System.Drawing.Size(730, 47);
             this.lblFormName.TabIndex = 2;
             // 
             // BtnBackToTableView
@@ -64,10 +59,10 @@
             this.BtnBackToTableView.ForeColor = System.Drawing.Color.Black;
             this.BtnBackToTableView.Image = global::UI.Properties.Resources.ArrowFatLeftNew;
             this.BtnBackToTableView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBackToTableView.Location = new System.Drawing.Point(3, 6);
+            this.BtnBackToTableView.Location = new System.Drawing.Point(4, 8);
             this.BtnBackToTableView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnBackToTableView.Name = "BtnBackToTableView";
-            this.BtnBackToTableView.Size = new System.Drawing.Size(112, 38);
+            this.BtnBackToTableView.Size = new System.Drawing.Size(128, 51);
             this.BtnBackToTableView.TabIndex = 3;
             this.BtnBackToTableView.Text = "Back";
             this.BtnBackToTableView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -79,33 +74,23 @@
             this.lblTableNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.lblTableNumber.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTableNumber.ForeColor = System.Drawing.Color.White;
-            this.lblTableNumber.Location = new System.Drawing.Point(21, 54);
+            this.lblTableNumber.Location = new System.Drawing.Point(24, 74);
             this.lblTableNumber.Name = "lblTableNumber";
-            this.lblTableNumber.Size = new System.Drawing.Size(224, 30);
+            this.lblTableNumber.Size = new System.Drawing.Size(256, 40);
             this.lblTableNumber.TabIndex = 4;
             this.lblTableNumber.Text = "Table Nr";
-            // 
-            // lblForUserInfoTomarkServe
-            // 
-            this.lblForUserInfoTomarkServe.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblForUserInfoTomarkServe.ForeColor = System.Drawing.Color.Black;
-            this.lblForUserInfoTomarkServe.Location = new System.Drawing.Point(23, 622);
-            this.lblForUserInfoTomarkServe.Name = "lblForUserInfoTomarkServe";
-            this.lblForUserInfoTomarkServe.Size = new System.Drawing.Size(319, 53);
-            this.lblForUserInfoTomarkServe.TabIndex = 6;
-            this.lblForUserInfoTomarkServe.Text = "Selected order will change their  order status to served";
             // 
             // btnMarkAsServed
             // 
             this.btnMarkAsServed.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(129)))), ((int)(((byte)(36)))));
             this.btnMarkAsServed.FlatAppearance.BorderSize = 0;
             this.btnMarkAsServed.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMarkAsServed.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMarkAsServed.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnMarkAsServed.Location = new System.Drawing.Point(368, 622);
+            this.btnMarkAsServed.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMarkAsServed.ForeColor = System.Drawing.Color.Black;
+            this.btnMarkAsServed.Location = new System.Drawing.Point(410, 823);
             this.btnMarkAsServed.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMarkAsServed.Name = "btnMarkAsServed";
-            this.btnMarkAsServed.Size = new System.Drawing.Size(256, 60);
+            this.btnMarkAsServed.Size = new System.Drawing.Size(293, 80);
             this.btnMarkAsServed.TabIndex = 7;
             this.btnMarkAsServed.Text = "Mark as Served";
             this.btnMarkAsServed.UseVisualStyleBackColor = false;
@@ -115,12 +100,12 @@
             // 
             this.BtnCheckout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(167)))));
             this.BtnCheckout.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnCheckout.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnCheckout.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnCheckout.Location = new System.Drawing.Point(21, 705);
+            this.BtnCheckout.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BtnCheckout.ForeColor = System.Drawing.Color.Black;
+            this.BtnCheckout.Location = new System.Drawing.Point(25, 938);
             this.BtnCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.BtnCheckout.Name = "BtnCheckout";
-            this.BtnCheckout.Size = new System.Drawing.Size(256, 57);
+            this.BtnCheckout.Size = new System.Drawing.Size(293, 80);
             this.BtnCheckout.TabIndex = 8;
             this.BtnCheckout.Text = "Check Out";
             this.BtnCheckout.UseVisualStyleBackColor = false;
@@ -130,12 +115,12 @@
             // 
             this.btnTakeOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(22)))), ((int)(((byte)(172)))));
             this.btnTakeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTakeOrder.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnTakeOrder.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnTakeOrder.Location = new System.Drawing.Point(367, 703);
+            this.btnTakeOrder.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTakeOrder.ForeColor = System.Drawing.Color.Black;
+            this.btnTakeOrder.Location = new System.Drawing.Point(410, 938);
             this.btnTakeOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTakeOrder.Name = "btnTakeOrder";
-            this.btnTakeOrder.Size = new System.Drawing.Size(256, 57);
+            this.btnTakeOrder.Size = new System.Drawing.Size(293, 80);
             this.btnTakeOrder.TabIndex = 9;
             this.btnTakeOrder.Text = "Take Order";
             this.btnTakeOrder.UseVisualStyleBackColor = false;
@@ -146,110 +131,76 @@
             this.lblCurrentTableStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(101)))), ((int)(((byte)(50)))));
             this.lblCurrentTableStatus.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCurrentTableStatus.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentTableStatus.Location = new System.Drawing.Point(426, 52);
+            this.lblCurrentTableStatus.Location = new System.Drawing.Point(487, 71);
             this.lblCurrentTableStatus.Name = "lblCurrentTableStatus";
-            this.lblCurrentTableStatus.Size = new System.Drawing.Size(193, 30);
+            this.lblCurrentTableStatus.Size = new System.Drawing.Size(220, 40);
             this.lblCurrentTableStatus.TabIndex = 11;
             this.lblCurrentTableStatus.Text = "Table Status";
-            // 
-            // pnlForOtherInfo
-            // 
-            this.pnlForOtherInfo.Controls.Add(this.lblInfoOccupyTable);
-            this.pnlForOtherInfo.Controls.Add(this.btnOccupyTable);
-            this.pnlForOtherInfo.Controls.Add(this.LblInfoAboveButton);
-            this.pnlForOtherInfo.Controls.Add(this.BtnMakeTableFree);
-            this.pnlForOtherInfo.Location = new System.Drawing.Point(19, 115);
-            this.pnlForOtherInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pnlForOtherInfo.Name = "pnlForOtherInfo";
-            this.pnlForOtherInfo.Size = new System.Drawing.Size(598, 465);
-            this.pnlForOtherInfo.TabIndex = 12;
-            // 
-            // lblInfoOccupyTable
-            // 
-            this.lblInfoOccupyTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.lblInfoOccupyTable.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblInfoOccupyTable.ForeColor = System.Drawing.Color.Black;
-            this.lblInfoOccupyTable.Location = new System.Drawing.Point(100, 47);
-            this.lblInfoOccupyTable.Name = "lblInfoOccupyTable";
-            this.lblInfoOccupyTable.Size = new System.Drawing.Size(389, 35);
-            this.lblInfoOccupyTable.TabIndex = 11;
             // 
             // btnOccupyTable
             // 
             this.btnOccupyTable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(172)))), ((int)(((byte)(115)))), ((int)(((byte)(73)))));
             this.btnOccupyTable.FlatAppearance.BorderSize = 0;
             this.btnOccupyTable.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnOccupyTable.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnOccupyTable.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnOccupyTable.Location = new System.Drawing.Point(168, 179);
+            this.btnOccupyTable.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnOccupyTable.ForeColor = System.Drawing.Color.Black;
+            this.btnOccupyTable.Location = new System.Drawing.Point(25, 823);
             this.btnOccupyTable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOccupyTable.Name = "btnOccupyTable";
-            this.btnOccupyTable.Size = new System.Drawing.Size(256, 60);
+            this.btnOccupyTable.Size = new System.Drawing.Size(293, 80);
             this.btnOccupyTable.TabIndex = 10;
-            this.btnOccupyTable.Text = "Occupy this Table";
+            this.btnOccupyTable.Text = "Occupy This Table";
             this.btnOccupyTable.UseVisualStyleBackColor = false;
             this.btnOccupyTable.Click += new System.EventHandler(this.btnOccupyTable_Click);
-            // 
-            // LblInfoAboveButton
-            // 
-            this.LblInfoAboveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.LblInfoAboveButton.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.LblInfoAboveButton.ForeColor = System.Drawing.Color.Black;
-            this.LblInfoAboveButton.Location = new System.Drawing.Point(44, 47);
-            this.LblInfoAboveButton.Name = "LblInfoAboveButton";
-            this.LblInfoAboveButton.Size = new System.Drawing.Size(491, 35);
-            this.LblInfoAboveButton.TabIndex = 9;
-            this.LblInfoAboveButton.Text = "There are no orders currently in this table ";
-            // 
-            // BtnMakeTableFree
-            // 
-            this.BtnMakeTableFree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(129)))), ((int)(((byte)(36)))));
-            this.BtnMakeTableFree.FlatAppearance.BorderSize = 0;
-            this.BtnMakeTableFree.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnMakeTableFree.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BtnMakeTableFree.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.BtnMakeTableFree.Location = new System.Drawing.Point(157, 115);
-            this.BtnMakeTableFree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.BtnMakeTableFree.Name = "BtnMakeTableFree";
-            this.BtnMakeTableFree.Size = new System.Drawing.Size(256, 60);
-            this.BtnMakeTableFree.TabIndex = 8;
-            this.BtnMakeTableFree.Text = "Make Table Free ";
-            this.BtnMakeTableFree.UseVisualStyleBackColor = false;
-            this.BtnMakeTableFree.Click += new System.EventHandler(this.BtnMakeTableFree_Click);
             // 
             // ListViewOfOrderItems
             // 
             this.ListViewOfOrderItems.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ListViewOfOrderItems.HideSelection = false;
-            this.ListViewOfOrderItems.Location = new System.Drawing.Point(23, 115);
+            this.ListViewOfOrderItems.Location = new System.Drawing.Point(24, 153);
             this.ListViewOfOrderItems.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ListViewOfOrderItems.Name = "ListViewOfOrderItems";
-            this.ListViewOfOrderItems.Size = new System.Drawing.Size(595, 457);
+            this.ListViewOfOrderItems.Size = new System.Drawing.Size(679, 608);
             this.ListViewOfOrderItems.TabIndex = 13;
             this.ListViewOfOrderItems.UseCompatibleStateImageBehavior = false;
             this.ListViewOfOrderItems.SelectedIndexChanged += new System.EventHandler(this.ListViewOfOrderItems_SelectedIndexChanged);
             // 
+            // btnMakeTableFree
+            // 
+            this.btnMakeTableFree.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(117)))), ((int)(((byte)(154)))), ((int)(((byte)(40)))));
+            this.btnMakeTableFree.FlatAppearance.BorderSize = 0;
+            this.btnMakeTableFree.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMakeTableFree.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnMakeTableFree.ForeColor = System.Drawing.Color.Black;
+            this.btnMakeTableFree.Location = new System.Drawing.Point(25, 823);
+            this.btnMakeTableFree.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnMakeTableFree.Name = "btnMakeTableFree";
+            this.btnMakeTableFree.Size = new System.Drawing.Size(293, 80);
+            this.btnMakeTableFree.TabIndex = 14;
+            this.btnMakeTableFree.Text = "Free This Table";
+            this.btnMakeTableFree.UseVisualStyleBackColor = false;
+            this.btnMakeTableFree.Click += new System.EventHandler(this.btnMakeTableFree_Click_1);
+            // 
             // EachTableDisplay
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(635, 771);
+            this.ClientSize = new System.Drawing.Size(726, 1055);
+            this.Controls.Add(this.btnMakeTableFree);
+            this.Controls.Add(this.btnOccupyTable);
             this.Controls.Add(this.lblCurrentTableStatus);
             this.Controls.Add(this.btnTakeOrder);
             this.Controls.Add(this.BtnCheckout);
             this.Controls.Add(this.btnMarkAsServed);
-            this.Controls.Add(this.lblForUserInfoTomarkServe);
             this.Controls.Add(this.lblTableNumber);
             this.Controls.Add(this.BtnBackToTableView);
             this.Controls.Add(this.lblFormName);
-            this.Controls.Add(this.pnlForOtherInfo);
             this.Controls.Add(this.ListViewOfOrderItems);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "EachTableDisplay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.pnlForOtherInfo.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -259,16 +210,12 @@
         private System.Windows.Forms.Label lblFormName;
         private System.Windows.Forms.Button BtnBackToTableView;
         private System.Windows.Forms.Label lblTableNumber;
-        private System.Windows.Forms.Label lblForUserInfoTomarkServe;
         private System.Windows.Forms.Button btnMarkAsServed;
         private System.Windows.Forms.Button BtnCheckout;
         private System.Windows.Forms.Button btnTakeOrder;
         private System.Windows.Forms.Label lblCurrentTableStatus;
-        private System.Windows.Forms.Panel pnlForOtherInfo;
-        private System.Windows.Forms.Button BtnMakeTableFree;
         private System.Windows.Forms.ListView ListViewOfOrderItems;
-        private System.Windows.Forms.Label LblInfoAboveButton;
         private System.Windows.Forms.Button btnOccupyTable;
-        private System.Windows.Forms.Label lblInfoOccupyTable;
+        private System.Windows.Forms.Button btnMakeTableFree;
     }
 }

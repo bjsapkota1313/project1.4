@@ -19,11 +19,19 @@ namespace UI
         private TableService tableService;
         private OrderService orderService;
         private Table selectedTable;
+        private Color btnMarkASServedColor;
+        private Color btnTakeorderColor;
+        private Color btnCheckoutColor;
+        private Color btnoccupyTableColor;
         private List<OrderItem> SelectedTableOrderItems { get { return orderService.ListOfOrderItemsInSelectedTable(selectedTable, PayementStatus.UnPaid); } }
         public EachTableDisplay(Table selectedTable, Employee employee)
         {
             // With passing Table and orders for specific table you can see the whole details for selected table 
             InitializeComponent();
+            btnMarkASServedColor = btnMarkAsServed.BackColor;
+            btnTakeorderColor = btnTakeOrder.BackColor;
+            btnoccupyTableColor=btnOccupyTable.BackColor;
+            btnCheckoutColor = BtnCheckout.BackColor;
 
             //making the new order service when eachdisplay form is called
             orderService = new OrderService();
@@ -31,60 +39,78 @@ namespace UI
             this.selectedTable = selectedTable;
             this.employee = employee;
             RefreshDisplay(selectedTable);
+            btnMakeTableFree.Hide();    
 
         }
 
         private void RefreshDisplay(Table selectedTable)
         {
 
-            //At first disabling the button mark as served and hiding the info
+            //At first disabling the button mark as served 
             btnMarkAsServed.Enabled = false;
-            lblForUserInfoTomarkServe.Hide();
 
             lblTableNumber.Text = "Table Number: " + $"{selectedTable.Number}";
             lblCurrentTableStatus.Text = $"{selectedTable.Status}";
 
             // making some default setting
-            BtnMakeTableFree.Hide();
-            btnMarkAsServed.Hide();
-            btnOccupyTable.Hide();
-            LblInfoAboveButton.Hide();
-            lblInfoOccupyTable.Hide();
-            pnlForOtherInfo.Visible = false;
-            btnTakeOrder.Enabled = false;
-            BtnCheckout.Enabled = false;
-
-            if (selectedTable.Status == TableStatus.Occupied && SelectedTableOrderItems.Count == 0)
+            if (selectedTable.Status == TableStatus.Free || selectedTable.Status==TableStatus.Reserved)
             {
-                pnlForOtherInfo.Visible = true;
-                btnMarkAsServed.Hide();
+                btnMakeTableFree.Hide();
+                btnTakeOrder.Enabled = false;
                 BtnCheckout.Enabled = false;
-                btnTakeOrder.Enabled = true;
-                BtnMakeTableFree.Show();
+                btnMarkAsServed.Enabled = false;
+                btnOccupyTable.Enabled = true;
+                SetEnabledColor(btnOccupyTable);
+                SetColorForButtons(btnTakeOrder);
+                SetColorForButtons(BtnCheckout);
+                SetColorForButtons(btnMarkAsServed);
             }
-            else if (selectedTable.Status == TableStatus.Reserved && SelectedTableOrderItems.Count == 0)
+            else if(selectedTable.Status == TableStatus.Occupied && SelectedTableOrderItems.Count==0)
             {
-                LblInfoAboveButton.Show();
-                BtnMakeTableFree.Show();
-                pnlForOtherInfo.Visible = true;
+                btnMakeTableFree.Show();
+
+                btnTakeOrder.Enabled = true; ;
+                BtnCheckout.Enabled = false;
+                btnMarkAsServed.Enabled = false;
+                btnOccupyTable.Enabled = false;
+                SetColorForButtons(btnOccupyTable);
+                SetColorForButtons(BtnCheckout);
+                SetColorForButtons(btnMarkAsServed);
+                SetEnabledColor(btnTakeOrder);
             }
-            else if (selectedTable.Status == TableStatus.Free)
+            else if (selectedTable.Status == TableStatus.Occupied && SelectedTableOrderItems.Count != 0)
             {
-                lblInfoOccupyTable.Text = "This table is free at the moment. ";
-                lblInfoOccupyTable.Show();
-                pnlForOtherInfo.Visible = true;
-                btnOccupyTable.Visible = true;
-                btnOccupyTable.Location = new Point(180, 153);
-            }
-            else
-            {
-                pnlForOtherInfo.Visible = false;
+                btnOccupyTable.Enabled=false;
+                SetColorForButtons(btnOccupyTable);
+                btnMakeTableFree.Hide();
                 FillListViewItems(SelectedTableOrderItems);
                 DesiredColumnsOfListView();
                 btnTakeOrder.Enabled = true;
                 BtnCheckout.Enabled = true;
-                btnMarkAsServed.Visible = true;
+                btnMarkAsServed.Enabled = true;
+
+                SetEnabledColor(btnTakeOrder);
+                SetEnabledColor(BtnCheckout);
+                SetEnabledColor(btnMarkAsServed);
             }
+            else
+            {
+                btnMakeTableFree.Hide();
+                FillListViewItems(SelectedTableOrderItems);
+                DesiredColumnsOfListView();
+                btnTakeOrder.Enabled = true;
+                BtnCheckout.Enabled = true;
+                btnMarkAsServed.Enabled = true;
+                btnOccupyTable.Show();
+
+                SetEnabledColor(btnTakeOrder);
+                SetEnabledColor(BtnCheckout);
+                SetEnabledColor(btnMarkAsServed);
+                SetEnabledColor(btnOccupyTable);
+
+            }
+
+            
         }
 
         private void FillListViewItems(List<OrderItem> orderItems)
@@ -112,8 +138,8 @@ namespace UI
                 ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString()); //first column
                 li.SubItems.Add(item.Quantity.ToString());
                 li.SubItems.Add(dateTimeToShow);
-                li.SubItems.Add(item.MenuItem.TypeMenuItem.ToString());
-                li.SubItems.Add(item.MenuItem.Category.ToString());
+                //li.SubItems.Add(item.MenuItem.TypeMenuItem.ToString());
+                //li.SubItems.Add(item.MenuItem.Category.ToString());
                 li.SubItems.Add(JustDisplay(item));
                 li.Tag = item;
                 ListViewOfOrderItems.Items.Add(li);
@@ -123,11 +149,11 @@ namespace UI
 
         private void DesiredColumnsOfListView()
         {
-            ListViewOfOrderItems.Columns.Add("Name", 150);
-            ListViewOfOrderItems.Columns.Add("Quantity", 80);
+            ListViewOfOrderItems.Columns.Add("Name", 370);
+            ListViewOfOrderItems.Columns.Add("Qty", 80);
             ListViewOfOrderItems.Columns.Add("Time", 100);
-            ListViewOfOrderItems.Columns.Add("Menu Type", 100);
-            ListViewOfOrderItems.Columns.Add("Category", 100);
+            //ListViewOfOrderItems.Columns.Add("Menu Type", 100);
+            //ListViewOfOrderItems.Columns.Add("Category", 100);
             ListViewOfOrderItems.Columns.Add("Status", 130);
         }
 
@@ -163,7 +189,6 @@ namespace UI
             {
                 // When ever order item is selected then only button marked served can Workable and showing info for user
                 btnMarkAsServed.Enabled = true;
-                lblForUserInfoTomarkServe.Show();
                 for (int i = 0; i < ListViewOfOrderItems.SelectedItems.Count; i++)
                 {
                     OrderItem item = (OrderItem)ListViewOfOrderItems.SelectedItems[i].Tag;
@@ -242,6 +267,38 @@ namespace UI
             payment.StartPosition = this.StartPosition;
             payment.Location = this.Location;
             payment.Top = this.Top;
+        }
+        private void SetColorForButtons(Button btn)
+        {
+            if (!btn.Enabled)
+            {
+                btn.BackColor = Color.Gray;
+            }
+        }
+        private void SetEnabledColor(Button button)
+        {
+            if (button==btnMarkAsServed)
+            {
+                button.BackColor = btnMarkASServedColor;
+            }else if (button == btnTakeOrder)
+            {
+                button.BackColor =btnTakeorderColor;
+            }
+            else if (button == BtnCheckout)
+            {
+                button.BackColor = btnCheckoutColor;
+            }
+            else if(button == btnOccupyTable)
+            {
+                button.BackColor = btnoccupyTableColor;
+            }
+        }
+
+        private void btnMakeTableFree_Click_1(object sender, EventArgs e)
+        {
+            selectedTable.Status = TableStatus.Free;
+            tableService.UpdateTheStatusOfTable(selectedTable);
+            RefreshDisplay(selectedTable);
         }
     }
 }

@@ -32,11 +32,23 @@ namespace UI
 
             // getting logged employee name 
             lblEmployeeName.Text = loggedEmployee.FullName;
+            lblEmployeeId.Text=$"{loggedEmployee.Id}@Chapeau.nl";    
             // Filling all the dictionaries that i will be using 
             dictionaryForPictureBoxDrink = FillingDictionaryOfPictureBoxForDrink();
             dictionaryForPictureBoxFood = FillingDictionaryofPictureBoxForFood();
             dictionaryForButton = ButtonsDictionary();
             dictionaryForPictureBoxLate = FillingDictionaryofPictureBoxForLateServing();
+            pnlLegenda.Visible = false;
+            pnlLogOut.Hide();
+            label1.Hide();
+            label2.Hide();
+            label3.Hide();
+            label4.Hide();
+            label5.Hide();
+            label6.Hide();
+            label7.Hide();  
+            label8.Hide();
+
 
             // filling up the diplays with notification color everything
             DisplayTables(tables);
@@ -106,15 +118,16 @@ namespace UI
             {
                 foreach (OrderItem item in items)
                 {
-                    if (item.MenuItem.TypeMenuItem == TypeMenuItem.Drink)
-                    {
-                        ChangingtheStatusOfDrink(item, pictureBoxDrink, pictureBoxLateServing);
+                    DisplayNotification(item,  pictureBoxFood,  pictureBoxLateServing,  pictureBoxDrink);
+                    //if (item.MenuItem.TypeMenuItem == TypeMenuItem.Drink)
+                    //{
+                    //    ChangingtheStatusOfDrink(item, pictureBoxDrink, pictureBoxLateServing);
 
-                    }
-                    else
-                    {
-                        ChangingtheStatusOfFood(item, pictureBoxFood, pictureBoxLateServing);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    ChangingtheStatusOfFood(item, pictureBoxFood, pictureBoxLateServing);
+                    //}
                 }
             }
         }
@@ -155,6 +168,33 @@ namespace UI
             TimeSpan dateTime = DateTime.Now.Subtract(orderItem.DateTime);
             // supposing that restaurant waitier should serve the rady order in 5 minutes  
             return dateTime.Minutes > 5;
+        }
+        private void DisplayNotification(OrderItem orderItem, PictureBox pictureBoxFood, PictureBox pictureBoxLateServing,PictureBox pictureBoxDrink)
+        {
+
+            if ( orderItem.MenuItem.TypeMenuItem== TypeMenuItem.Food && orderItem.OrderState==OrderItemState.ReadyToDeliver)
+            {
+                pictureBoxFood.Show();
+                pictureBoxLateServing.Show();
+                pictureBoxFood.Image = Properties.Resources.FoodReadyToDeliver50502;
+                pictureBoxLateServing.Image= Properties.Resources.BellNotification;
+                //pictureBoxDrink.Hide();
+            }
+            else if (orderItem.MenuItem.TypeMenuItem == TypeMenuItem.Drink && orderItem.OrderState == OrderItemState.ReadyToDeliver)
+            {
+                pictureBoxDrink.Show();
+                pictureBoxLateServing.Show();
+                pictureBoxLateServing.Image = Properties.Resources.BellNotification;
+                pictureBoxDrink.Image= Properties.Resources.newDrinkReady;
+                // pictureBoxFood.Image = Properties.Resources.FoodReadyToDeliver50502;
+               // pictureBoxFood.Hide();
+            }
+            else
+            {
+                pictureBoxDrink.Hide();
+                pictureBoxFood.Hide();
+                pictureBoxLateServing.Hide();
+            }
         }
         private void ChangingtheStatusOfFood(OrderItem orderItem, PictureBox pictureBox, PictureBox pictureBoxLateServing)
         {
@@ -307,6 +347,7 @@ namespace UI
 
         private void BtnLogOut_Click(object sender, EventArgs e)
         {
+           // DialogResult dialog = MessageBox.Show("Are you sure you want to log out?", "Log out",MessageBoxButtons.YesNo);
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
             FormAppearnce(loginForm);
@@ -319,6 +360,31 @@ namespace UI
             loginForm.Location = this.Location;
             loginForm.Top = this.Top;
             loginForm.Left=this.Left;
+        }
+
+        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pnlLegenda.Visible = true;
+           // pnlLegenda.Show();
+           
+        }
+
+        private void TableView_Click(object sender, EventArgs e)
+        {
+            pnlLegenda.Hide();
+            pnlLogOut.Hide();
+        }
+
+        private void picBoxProfilePic_Click(object sender, EventArgs e)
+        {
+            pnlLogOut.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pnlLegenda.Hide();
         }
     }
 }
