@@ -24,21 +24,22 @@ namespace UI
         {
             InitializeComponent();
 
-            //this.orderID = orderID;
+            orderService = new OrderService();
+            tableService = new TableService();
+
+
             this.loggedEmployee = loggedEmployee;
             this.order = order;
 
         }      
         private void Paid()
         {
-            orderService = new OrderService();
 
             orderService.ChangeOrderPaymentStatus(order.OrderId);
 
         }
         private void FreeTable()
         {
-            tableService = new TableService();
 
             tableService.ChangeTableToFree(order.Table.Number);
         }

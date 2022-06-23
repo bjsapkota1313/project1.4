@@ -16,11 +16,6 @@ namespace ServiceLayer
             paymentdb = new PaymentDAO();
         }
 
-
-        public Payment GetPaymentMethod(int id)
-        {
-            return paymentdb.GetPaymentMethod(id);
-        }
         public void AddPayment(int id, decimal total, decimal tip, int paymentType)
         {
             paymentdb.AddPayment(id, total, tip, paymentType);

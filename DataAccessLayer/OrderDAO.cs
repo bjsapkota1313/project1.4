@@ -235,13 +235,6 @@ namespace DataAccessLayer
             return ReadID(ExecuteSelectQuery(query, sqlParamenters));
         }
 
-        public void EditOrder(string query)
-        {
-            SqlParameter[] sqlParameters = new SqlParameter[0];
-
-            // Execute query
-            ExecuteEditQuery(query, sqlParameters);
-        }
 
         private Order ReadID(DataTable dataTable)
         {
@@ -349,51 +342,43 @@ namespace DataAccessLayer
 
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
-        //public Order GetOrderID(int tableNr)
-        //{
-        //    string query = $"SELECT OrderID, TableNr WHERE TableNr = '{tableNr}'";
-        //    SqlParameter[] sqlParameters = new SqlParameter[0];
-
-        //    // Preventing SQL from injections
-        //    return ReadingOrderofSpecificTable(ExecuteSelectQuery(query, sqlParameters));
-        //}
         public List<Order> GetOrderByTableNumber(int tableNr)
         {
-            string query = $"SELECT O.OrderID, T.TableNr FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = '{tableNr}'";
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            string query = "SELECT O.OrderID, T.TableNr FROM [Order] AS O INNER JOIN [Table] AS T ON T.TableNr = O.TableNr WHERE PayementStatus = '0' AND O.TableNr = @tableNr";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@tableNr", tableNr);
 
             return ReadOrdersForUnpaidOrder(ExecuteSelectQuery(query, sqlParameters));
         }
-        //Updating the feedback of an order
         public void AddFeedback(int id, string feedback)
         {
-            string query = $"UPDATE [Order] SET Feedback = '{feedback}' WHERE OrderID = '{id}'";
+            string query = "UPDATE [Order] SET Feedback = @feedback WHERE OrderID = @id";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[2];
+            sqlParameters[0] = new SqlParameter("@feedback", feedback);
+            sqlParameters[1] = new SqlParameter("@id", id);
 
-            // Execute query
+
             ExecuteEditQuery(query, sqlParameters);
         }
         public void ChangeOrderPaymentStatus(int id)
         {
-            string query = $"UPDATE [Order] SET PayementStatus = '1' WHERE OrderID = '{id}'; ";
+            string query = "UPDATE [Order] SET PayementStatus = '1' WHERE OrderID = @id";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@id", id);
 
-            // Execute query
+
             ExecuteEditQuery(query, sqlParameters);
         }
-
-
-
-        //Getting the bill of an order
         public List<OrderItem> GetBill(int OrderId)
         {
-            string query = $"SELECT O.OrderId, O.Quantity,M.[Name],M.Price, M.VAT FROM OrderItem AS O INNER JOIN Menu_Item AS M ON M.ItemID = O.MenuItemId WHERE O.OrderId = '{OrderId}'";
+            string query = "SELECT O.OrderId, O.Quantity,M.[Name],M.Price, M.VAT FROM OrderItem AS O INNER JOIN Menu_Item AS M ON M.ItemID = O.MenuItemId WHERE O.OrderId = @OrderID";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@OrderID", OrderId);
 
-            // Preventing SQL from injections
             return ReadingTableForBill(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -425,8 +410,7 @@ namespace DataAccessLayer
                     order.OrderId = (int)dr["OrderID"];
                     order.Table.Number = (int)dr["TableNr"];
                     orders.Add(order);
-                    
-                    //order.PayementStatus = (PayementStatus)dr["PayementStatus"];
+
                 }               
             }
             return orders;

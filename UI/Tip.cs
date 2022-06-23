@@ -21,7 +21,6 @@ namespace UI
         private Employee loggedEmployee;
         private decimal tip;
         private decimal total;
-        private decimal splitBill = 0;
 
         public Tip(Order order, Employee loggedEmployee)
         {

@@ -40,10 +40,9 @@ namespace UI
         private void Payment_Load(object sender, EventArgs e)
         {
 
-            // Display a lable with the table number 
+
             lblTableNum.Text = $"Table Number {table.Number.ToString()}";
 
-            // Display the bill in a listView
             ListViewItemsOnBill();
 
             PaymentDetails();
@@ -67,7 +66,6 @@ namespace UI
                 }
 
 
-                // clear the listview ITEMS before filling it again !!Using list.Clear() will remove the column headers too.
                 listViewBill.Items.Clear();
 
                 
@@ -93,27 +91,8 @@ namespace UI
                     + Environment.NewLine + "Error log location: " + filePath);
             }
         }
-        private void btnAddComment_Click(object sender, System.EventArgs e)
-        {
+    
 
-            LoadNewForm(new AddFeedback(order));
-        }
-
-        private void btnPay_Click(object sender, System.EventArgs e)
-        {
-
-            LoadNewForm(new Tip(order, loggedEmployee));
-        }
-
-        private void LoadNewForm(object Form)
-        {
-            Form frm = Form as Form;
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
-            frm.Show();
-            this.Hide();
-        }
         private void PaymentDetails()
         {
             lblVatLow.Text = $"€{LowVAT().ToString("0.00")}";
@@ -178,10 +157,31 @@ namespace UI
             return orderPrice;
 
         }
+        private void btnAddComment_Click(object sender, System.EventArgs e)
+        {
+
+            LoadNewForm(new AddFeedback(order));
+        }
+
+        private void btnPay_Click(object sender, System.EventArgs e)
+        {
+
+            LoadNewForm(new Tip(order, loggedEmployee));
+        }
+
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void LoadNewForm(object Form)
+        {
+            Form frm = Form as Form;
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
         }
     }
     }
