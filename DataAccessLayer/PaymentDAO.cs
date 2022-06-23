@@ -20,6 +20,7 @@ namespace DataAccessLayer
             // Return result of query
             return ReadTables(ExecuteSelectQuery(query, sqlParameters));
         }
+  
         private Payment ReadTables(DataTable dataTable)
         {
             Payment payment = new Payment();

@@ -21,7 +21,7 @@ namespace UI
         private Employee loggedEmployee;
         private decimal tip;
         private decimal total;
-
+        private decimal splitBill = 0;
 
         public Tip(Order order, Employee loggedEmployee)
         {
@@ -38,6 +38,7 @@ namespace UI
             btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
             btnSubmitTotal.Click += new EventHandler(btnSubmitTotal_Click);
+
 
             txtTip.KeyPress += new KeyPressEventHandler(txtTip_KeyPress);
             txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
@@ -74,31 +75,12 @@ namespace UI
 
                 LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
             }
-            else if(cBoxSplitBill.Checked == true)
-            {
-
-
-                SubmitPayment();
-
-                
-                //decimal orderPrice = OrderPrice();
-                //orderPrice = orderPrice - total;
-                
-
-                lblTotal.Text = $"€{OrderPrice().ToString("0.00")}";
-
-                if (lblSplit.Text == lblTotal.Text)
-                {
-                    LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
-                }
-
-            }
             else 
             {
                 MessageBox.Show("Please choose the right amount to be paid", "Payment amount not sufficient.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
           
-        }
+        } 
        
         private void SubmitPayment()
         {
@@ -132,8 +114,6 @@ namespace UI
         {
             FillBillOverview();
 
-            cBoxSplitBill_CheckedChanged(sender, e);
-
         }
         private void FillBillOverview()
         {
@@ -164,26 +144,11 @@ namespace UI
         {
             if(txtTotal.Text != "")
             {
-
-                total = Convert.ToDecimal(txtTotal.Text);
-                lblTotal.Text = $"€{total.ToString("0.00")}";               
-                tip = total - OrderPrice();                    
-                lblTip.Text = $"€{tip.ToString("0.00")}";
-
-                if (cBoxSplitBill.Checked == true)
-                {
-                    tip = 0;
-                    lblTip.Text = $"€{tip.ToString("0.00")}";
-
-                    total = OrderPrice() - total;
-                    lblSplit.Text = $"€{total.ToString("0.00")}";
-
-
-                }
-                else
-                {
-                    MessageBox.Show("Please choose the right amount to be paid", "Payment amount not sufficient.", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                
+                    total = Convert.ToDecimal(txtTotal.Text);
+                    lblTotal.Text = $"€{total.ToString("0.00")}";
+                    tip = total - OrderPrice();
+                    lblTip.Text = $"€{tip.ToString("0.00")}";                
 
             }
         }
@@ -197,11 +162,6 @@ namespace UI
             foreach (OrderItem item in orderItems)
             {
                 orderPrice += item.MenuItem.Price * item.Quantity;
-
-                if(cBoxSplitBill.Checked == true)
-                {
-                    orderPrice = orderPrice - total;
-                }
 
             }
             return orderPrice;
@@ -273,18 +233,9 @@ namespace UI
             this.Close();
         }
 
-        private void cBoxSplitBill_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cBoxSplitBill.Checked == true)
-            {
-                lblSplitBill.Visible = true;
-                lblSplit.Visible = true;
-            }
-            else
-            {
-                lblSplitBill.Visible = false;
-                lblSplit.Visible = false;
-            }
-        }
+       
+        
+
+    
     }
 }
