@@ -114,9 +114,7 @@ namespace UI
         private void  AddToListOrderItems(OrderItem item)
         {            try
             {
-                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
-                li.SubItems.Add(item.MenuItem.Name);
-                li.SubItems.Add(item.Quantity.ToString());
+                ListViewItem li = new ListViewItem(item.MenuItem.Name);
                 li.SubItems.Add(item.Feedback.ToString());
                 li.Tag = item;
 
@@ -133,7 +131,7 @@ namespace UI
         {
             string feedback;
 
-            if (CommentStarters.Text == "")
+            if (CommentStarters.Text == "Comment...")
             {
                 feedback = "N/A";
             }
@@ -162,6 +160,27 @@ namespace UI
             ShowMenu(MenuItemCategory.DinnerMainCourse);
             ShowMenu(MenuItemCategory.LuchMainCourse);
             ShowMenu(MenuItemCategory.DinnerMainCourse);
+
+        }
+
+        private void CommentStarters_Enter(object sender, EventArgs e)
+        {
+            if(CommentStarters.Text == "Comment...")
+            {
+                CommentStarters.Text = "";
+
+                CommentStarters.ForeColor = Color.Black;
+            }
+        }
+
+        private void CommentStarters_Leave(object sender, EventArgs e)
+        {
+            if (CommentStarters.Text == "")
+            {
+                CommentStarters.Text = "Comment...";
+
+                CommentStarters.ForeColor = Color.Silver;
+            }
 
         }
     }

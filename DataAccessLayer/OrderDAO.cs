@@ -25,7 +25,7 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-    public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
+    public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr,Employee employee)
         {
             // get the Order Id from table where order(s) have not beeen payed yet
             string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PayementStatus = 0;";
@@ -43,7 +43,7 @@ namespace DataAccessLayer
             }
             else
             {
-                AddNew(list, TableNr);
+                AddNew(list, TableNr,employee);
             }
         }
 
@@ -82,13 +82,15 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-        private void AddNew(List<OrderItem> orderItem, Table TableNr)// no order existing create new one and add into it
+        private void AddNew(List<OrderItem> orderItem, Table TableNr,Employee EmployeeId)// no order existing create new one and add into it
         {
-            string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' ,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' );";// add new
+            string query = "INSERT INTO [Order] (TableNr,Date,Time,EmployeeID) VALUES (@TableNr,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' ,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time',@EmployeeID );";// add new
 
             SqlParameter[] sqlParameters = 
             {
                 new SqlParameter("@TableNr", TableNr.Number),
+                new SqlParameter("@EmployeeID", EmployeeId.Id),
+
 
             };
             ExecuteEditQuery(query, sqlParameters);

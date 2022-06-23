@@ -23,13 +23,15 @@ namespace UI
         TimeSpan time = DateTime.Now.TimeOfDay;
         OrderService orderService1 = new OrderService();
         DateTime dateTime = DateTime.Now;
+        Employee employee;
 
-        public OrderForm(Table selectedTable)
+        public OrderForm(Table selectedTable, Employee employee)
         {
             this.selectedTable = selectedTable;
             InitializeComponent();
             control = false;
             orders = new List<OrderItem>();
+            this.employee = employee;
         }
         public void loadform(object Form)
         {
@@ -118,7 +120,7 @@ namespace UI
 
             try
             {
-                orderService.GetIdFromUnpaied(orders, selectedTable);
+                orderService.GetIdFromUnpaied(orders, selectedTable,employee);
                 OrderLIstView.Items.Clear();
                 OrderLIstView.Refresh();
 
@@ -130,31 +132,31 @@ namespace UI
             // CreateOrder();
 
         }
-        private void CreateOrder()
-        {
-            List<OrderItem> orders = new List<OrderItem>();
+        //private void CreateOrder()
+        //{
+        //    List<OrderItem> orders = new List<OrderItem>();
 
-            try
-            {
-                orderService1.GetIdFromUnpaied(orders, selectedTable);
+        //    try
+        //    {
+        //        orderService1.GetIdFromUnpaied(orders, selectedTable,employee);
 
-            }
-            catch
-            {
-                MessageBox.Show("Ups something went wrong");
-            }
-        }
-        public List<OrderItem> GetOrderItem()
-        {
-            List<OrderItem> orders = new List<OrderItem>();
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("Ups something went wrong");
+        //    }
+       // }
+        //public List<OrderItem> GetOrderItem()
+        //{
+        //    List<OrderItem> orders = new List<OrderItem>();
 
-            foreach (ListViewItem item in OrderLIstView.Items)
-            {
-                OrderItem order = (OrderItem)item.Tag;
-                orders.Add(order);
-            }
-            return orders;
-        }
+        //    foreach (ListViewItem item in OrderLIstView.Items)
+        //    {
+        //        OrderItem order = (OrderItem)item.Tag;
+        //        orders.Add(order);
+        //    }
+        //    return orders;
+        //}
         public ListView OrderListView
         {
             get { return OrderLIstView; }
@@ -167,7 +169,7 @@ namespace UI
             loginForm.Show(); 
         }
 
-        private void BackBtnOrder_Click(object sender, EventArgs e)
+        private void BtnBackToTableView_Click(object sender, EventArgs e)
         {
             this.Close();
         }

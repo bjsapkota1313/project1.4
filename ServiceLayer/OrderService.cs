@@ -19,9 +19,9 @@ namespace ServiceLayer
         {
             orderdb.UpdateStock(orderItems);
         }
-        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
+        public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr,Employee employee)
         {
-            orderdb.GetIdFromUnpaied(list, TableNr);
+            orderdb.GetIdFromUnpaied(list, TableNr,employee);
         }
         public List<MenuItem> GetAllStarters(MenuItemCategory category)
         {
