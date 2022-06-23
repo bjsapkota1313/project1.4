@@ -20,13 +20,12 @@ namespace DataAccessLayer
                 string query = "Update Menu_Item Set InStock = InStock - @Quantity WHERE ItemID = @ItemId; ";
 
                 SqlParameter[] sqlParameters =
-                    {//new SqlParameter("@OrderID", orderID),
-                    new SqlParameter("@ItemId", item.MenuItem.ItemId),
+                    {new SqlParameter("@ItemId", item.MenuItem.ItemId),
                     new SqlParameter("@Quantity", item.Quantity) };
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-    public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr)
+    public void GetIdFromUnpaied(List<OrderItem> list, Table TableNr,Employee employee)
         {
             // get the Order Id from table where order(s) have not beeen payed yet
             string query = "Select OrderID From [Order] WHERE TableNr = @TableNr AND PayementStatus = 0;";
@@ -44,7 +43,7 @@ namespace DataAccessLayer
             }
             else
             {
-                AddNew(list, TableNr);
+                AddNew(list, TableNr,employee);
             }
         }
 
@@ -72,7 +71,7 @@ namespace DataAccessLayer
             foreach (OrderItem item in orderItems)
             {
                 // if exists add 1 to the quantity else insert new OrderItem
-                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
+                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId  AND OrderStatus=2) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
 
                 SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
                     new SqlParameter("MenuItemId", item.MenuItem.ItemId),
@@ -83,13 +82,15 @@ namespace DataAccessLayer
                 ExecuteEditQuery(query, sqlParameters);
             }
         }
-        private void AddNew(List<OrderItem> orderItem, Table TableNr)// no order existing create new one and add into it
+        private void AddNew(List<OrderItem> orderItem, Table TableNr,Employee EmployeeId)// no order existing create new one and add into it
         {
-            string query = "INSERT INTO [Order] (TableNr,Date,Time) VALUES (@TableNr,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' ,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' );";// add new
+            string query = "INSERT INTO [Order] (TableNr,Date,Time,EmployeeID) VALUES (@TableNr,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time' ,GETDATE() AT TIME ZONE 'UTC' AT TIME ZONE 'Central European Standard Time',@EmployeeID );";// add new
 
             SqlParameter[] sqlParameters = 
             {
                 new SqlParameter("@TableNr", TableNr.Number),
+                new SqlParameter("@EmployeeID", EmployeeId.Id),
+
 
             };
             ExecuteEditQuery(query, sqlParameters);
@@ -216,6 +217,8 @@ namespace DataAccessLayer
                 item.ItemId = (int)dr["ItemId"];
                 item.Name = (string)dr["name"];
                 item.Price = (decimal)dr["Price"];
+                item.InStock = (int)dr["InStock"];
+
 
                 items.Add(item);
             }

@@ -28,48 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.BackBtnOrder = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnBackToTableView = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.StarterBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SubmitOrder = new System.Windows.Forms.Button();
             this.OrderLIstView = new System.Windows.Forms.ListView();
-            this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.Name = new System.Windows.Forms.ColumnHeader();
-            this.Price = new System.Windows.Forms.ColumnHeader();
+            this.Feedback = new System.Windows.Forms.ColumnHeader();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.mainpanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.mainpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BackBtnOrder
-            // 
-            this.BackBtnOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.BackBtnOrder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BackBtnOrder.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.BackBtnOrder.ForeColor = System.Drawing.Color.Snow;
-            this.BackBtnOrder.Location = new System.Drawing.Point(12, 12);
-            this.BackBtnOrder.Name = "BackBtnOrder";
-            this.BackBtnOrder.Size = new System.Drawing.Size(206, 36);
-            this.BackBtnOrder.TabIndex = 0;
-            this.BackBtnOrder.Text = "Back to TableView";
-            this.BackBtnOrder.UseVisualStyleBackColor = false;
-            this.BackBtnOrder.Click += new System.EventHandler(this.BackBtnOrder_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DimGray;
+            this.panel2.Controls.Add(this.BtnBackToTableView);
             this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.BackBtnOrder);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(728, 68);
             this.panel2.TabIndex = 2;
+            // 
+            // BtnBackToTableView
+            // 
+            this.BtnBackToTableView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.BtnBackToTableView.FlatAppearance.BorderSize = 0;
+            this.BtnBackToTableView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnBackToTableView.Font = new System.Drawing.Font("Calibri", 16.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BtnBackToTableView.ForeColor = System.Drawing.Color.Black;
+            this.BtnBackToTableView.Image = global::UI.Properties.Resources.ArrowFatLeftNew;
+            this.BtnBackToTableView.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBackToTableView.Location = new System.Drawing.Point(18, 12);
+            this.BtnBackToTableView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.BtnBackToTableView.Name = "BtnBackToTableView";
+            this.BtnBackToTableView.Size = new System.Drawing.Size(112, 38);
+            this.BtnBackToTableView.TabIndex = 4;
+            this.BtnBackToTableView.Text = "Back";
+            this.BtnBackToTableView.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBackToTableView.UseVisualStyleBackColor = false;
+            this.BtnBackToTableView.Click += new System.EventHandler(this.BtnBackToTableView_Click);
             // 
             // button2
             // 
@@ -104,9 +112,9 @@
             this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.OrderLIstView);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
-            this.panel1.Location = new System.Drawing.Point(514, 135);
+            this.panel1.Location = new System.Drawing.Point(443, 135);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 927);
+            this.panel1.Size = new System.Drawing.Size(285, 927);
             this.panel1.TabIndex = 7;
             // 
             // SubmitOrder
@@ -116,7 +124,7 @@
             this.SubmitOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.SubmitOrder.Location = new System.Drawing.Point(3, 379);
             this.SubmitOrder.Name = "SubmitOrder";
-            this.SubmitOrder.Size = new System.Drawing.Size(208, 39);
+            this.SubmitOrder.Size = new System.Drawing.Size(270, 39);
             this.SubmitOrder.TabIndex = 12;
             this.SubmitOrder.Text = "Submit";
             this.SubmitOrder.UseVisualStyleBackColor = false;
@@ -125,33 +133,29 @@
             // OrderLIstView
             // 
             this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ItemId,
             this.Name,
-            this.Price});
+            this.Feedback});
+            this.OrderLIstView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderLIstView.FullRowSelect = true;
             this.OrderLIstView.HideSelection = false;
             this.OrderLIstView.Location = new System.Drawing.Point(3, 8);
             this.OrderLIstView.Name = "OrderLIstView";
-            this.OrderLIstView.Size = new System.Drawing.Size(208, 320);
+            this.OrderLIstView.Size = new System.Drawing.Size(270, 320);
             this.OrderLIstView.TabIndex = 11;
             this.OrderLIstView.UseCompatibleStateImageBehavior = false;
             this.OrderLIstView.View = System.Windows.Forms.View.Details;
             this.OrderLIstView.SelectedIndexChanged += new System.EventHandler(this.OrderLIstView_SelectedIndexChanged);
             // 
-            // ItemId
-            // 
-            this.ItemId.Text = "Id";
-            this.ItemId.Width = 40;
-            // 
             // Name
             // 
             this.Name.Text = "Name";
-            this.Name.Width = 100;
+            this.Name.Width = 165;
             // 
-            // Price
+            // Feedback
             // 
-            this.Price.Text = "Quantity";
-            this.Price.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Feedback.Text = "Comment";
+            this.Feedback.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.Feedback.Width = 100;
             // 
             // RemoveOrderBtn
             // 
@@ -160,7 +164,7 @@
             this.RemoveOrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 334);
             this.RemoveOrderBtn.Name = "RemoveOrderBtn";
-            this.RemoveOrderBtn.Size = new System.Drawing.Size(208, 39);
+            this.RemoveOrderBtn.Size = new System.Drawing.Size(270, 39);
             this.RemoveOrderBtn.TabIndex = 8;
             this.RemoveOrderBtn.Text = "Remove";
             this.RemoveOrderBtn.UseVisualStyleBackColor = false;
@@ -171,7 +175,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(374, 6);
+            this.button1.Location = new System.Drawing.Point(387, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(329, 51);
             this.button1.TabIndex = 10;
@@ -192,10 +196,20 @@
             // mainpanel
             // 
             this.mainpanel.BackColor = System.Drawing.Color.Transparent;
+            this.mainpanel.Controls.Add(this.pictureBox1);
             this.mainpanel.Location = new System.Drawing.Point(0, 135);
             this.mainpanel.Name = "mainpanel";
-            this.mainpanel.Size = new System.Drawing.Size(511, 927);
+            this.mainpanel.Size = new System.Drawing.Size(440, 927);
             this.mainpanel.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(62, 67);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(316, 274);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // OrderForm
             // 
@@ -208,18 +222,19 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.mainpanel);
             this.MaximumSize = new System.Drawing.Size(744, 1133);
+           // this.Name = "OrderForm";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.mainpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BackBtnOrder;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button StarterBtn;
         private System.Windows.Forms.Panel panel1;
@@ -227,11 +242,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListView OrderLIstView;
         private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Price;
+        private System.Windows.Forms.ColumnHeader Feedback;
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel mainpanel;
+        private System.Windows.Forms.Button BtnBackToTableView;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

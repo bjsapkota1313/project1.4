@@ -40,7 +40,7 @@ namespace UI
 
             foreach (MenuItem o in items)
             {
-                ListViewItem li = new ListViewItem(o.ItemId.ToString());
+                ListViewItem li = new ListViewItem(o.InStock.ToString());
                 li.SubItems.Add(o.Name.ToString());
                 li.SubItems.Add(o.Price.ToString());
                 li.Tag = o;
@@ -64,9 +64,7 @@ namespace UI
         {
             try
             {
-                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
-                li.SubItems.Add(item.MenuItem.Name);
-                li.SubItems.Add(item.Quantity.ToString());
+                ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
                 li.SubItems.Add(item.Feedback.ToString());
                 li.Tag = item;
 
@@ -81,7 +79,7 @@ namespace UI
         {
             string feedback;
 
-            if (CommentDrink.Text == "")
+            if (CommentDrink.Text == "Comment...")
             {
                 feedback = "N/A";
             }
@@ -94,6 +92,27 @@ namespace UI
 
         }
 
+        private void CommentDrink_Enter(object sender, EventArgs e)
+        {
+            if (CommentDrink.Text == "Comment...")
+            {
+                CommentDrink.Text = "";
+
+                CommentDrink.ForeColor = Color.Black;
+            }
+
+        }
+
+        private void CommentDrink_Leave(object sender, EventArgs e)
+        {
+            if (CommentDrink.Text == "")
+            {
+                CommentDrink.Text = "Comment..";
+
+                CommentDrink.ForeColor = Color.Silver;
+            }
+
+        }
     }
 }
 

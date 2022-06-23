@@ -204,7 +204,7 @@ namespace UI
 
         private void btnTakeOrder_Click(object sender, EventArgs e)
         {
-            OrderForm orderForm = new OrderForm(selectedTable);
+            OrderForm orderForm = new OrderForm(selectedTable,employee);
             orderForm.Show();
             this.Close();
             orderForm.BringToFront();
