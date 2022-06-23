@@ -20,8 +20,7 @@ namespace DataAccessLayer
                 string query = "Update Menu_Item Set InStock = InStock - @Quantity WHERE ItemID = @ItemId; ";
 
                 SqlParameter[] sqlParameters =
-                    {//new SqlParameter("@OrderID", orderID),
-                    new SqlParameter("@ItemId", item.MenuItem.ItemId),
+                    {new SqlParameter("@ItemId", item.MenuItem.ItemId),
                     new SqlParameter("@Quantity", item.Quantity) };
                 ExecuteEditQuery(query, sqlParameters);
             }
