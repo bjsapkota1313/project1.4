@@ -16,13 +16,8 @@ namespace UI
 {
     public partial class AddFeedback : Form
     {
-        Employee loggedEmployee;
         OrderService orderService;
-        private int orderId;
         private Order order;
-        //private List<Order> orders;
-
-
 
 
         public AddFeedback(Order order)
@@ -31,9 +26,6 @@ namespace UI
 
             this.order = order;
 
-            //this.orderId = orderID;
-            //this.bill = billService.GetBill(TableNr);
-
             btnSubmit.Click += new EventHandler(btnSubmit_Click);
         }
         private void btnSubmit_Click(object sender, System.EventArgs e)
@@ -41,7 +33,6 @@ namespace UI
 
             SubmitFeedback();
 
-            //LoadNewForm(new Payment(1));
             
         }
   
@@ -51,15 +42,6 @@ namespace UI
             orderService.AddFeedback(order.OrderId, txtBoxComment.Text);
 
             txtBoxComment.Text = "";
-        }
-        private void LoadNewForm(object Form)
-        {
-            Form frm = Form as Form;
-            frm.Location = this.Location;
-            frm.StartPosition = FormStartPosition.Manual;
-            frm.FormClosing += delegate { this.Show(); };
-            frm.Show();
-            this.Hide();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
