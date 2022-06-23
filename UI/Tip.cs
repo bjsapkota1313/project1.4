@@ -15,14 +15,12 @@ namespace UI
     public partial class Tip : Form
     {
 
-        //private Model.Payment payment;
         PaymentService paymentService;
-        //BillService billService;
-        private decimal tip;
-        private decimal total;
         private Order order;
         private OrderService orderService;
         private Employee loggedEmployee;
+        private decimal tip;
+        private decimal total;
 
 
         public Tip(Order order, Employee loggedEmployee)
@@ -35,13 +33,7 @@ namespace UI
             this.order = order;
             this.loggedEmployee = loggedEmployee;
 
-            //menuItem = orderService.getallor
-            //this.TableNr = tableNr;
-            //this.BillID = billID;
 
-
-            //this.bill = billService.GetBill(TableNr);
-            // this.payment = paymentService.GetPayment(BillID);
 
             btnPay.Click += new EventHandler(btnPay_Click);
             btnSubmitTip.Click += new EventHandler(btnSubmitTip_Click);
@@ -49,19 +41,30 @@ namespace UI
 
             txtTip.KeyPress += new KeyPressEventHandler(txtTip_KeyPress);
             txtTotal.KeyPress += new KeyPressEventHandler(txtTotal_KeyPress);
-
         }
       
         private void btnSubmitTip_Click(object sender, EventArgs e)
         {
             AddTip();
-            
+
+            if(lblTip.Text != "")
+            {
+                txtTip.Text = "";   
+                            
+            }
+       
+
         }
         private void btnSubmitTotal_Click(object sender, EventArgs e)
         {
             AddTotal();
-                        
-           
+
+            if(lblTotal.Text != "")
+            {
+                txtTotal.Text = "";
+              
+            }
+                                   
         }
         private void btnPay_Click(object sender, System.EventArgs e)
         {
@@ -71,28 +74,34 @@ namespace UI
 
                 LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
             }
-            else if(total < OrderPrice() && cBoxSplitBill.Checked)
+            else if(total < OrderPrice() && cBoxSplitBill.Checked == true)
             {
-                total = OrderPrice() - total;
-                tip = 0;
 
 
-                //SubmitPayment();
+                SubmitPayment();
+
+                decimal orderPrice = OrderPrice();
+                orderPrice = orderPrice - total;
+                
+
+                lblTotal.Text = $"€{orderPrice.ToString("0.00")}";
+
+                if (orderPrice == total)
+                {
+                    LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
+                }
+
             }
-            else if(total < OrderPrice())
+            else 
             {
                 MessageBox.Show("Please choose the right amount to be paid", "Payment amount not sufficient.", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
-            {
-                MessageBox.Show("Error");
-            }          
+          
         }
        
         private void SubmitPayment()
         {
-            int payementmethod = PaymentMethod();
-            if (payementmethod == 5)
+            if (PaymentMethod() == 5)
             {
                 MessageBox.Show("Please choose payment method");
             }
@@ -105,17 +114,14 @@ namespace UI
             if (radBtnCash.Checked)
             {
                 return 0;
-                //paymentService.GetPaymentMethod(value);
             }
             else if (radBtnCreditCard.Checked)
             {
                 return 1;
-                //paymentService.GetPaymentMethod(value);
             }
             else if (radBtnPIN.Checked)
             {
                 return 2;
-                //paymentService.GetPaymentMethod(value);
             }
 
             return 5;
@@ -125,86 +131,62 @@ namespace UI
         {
             FillBillOverview();
 
+            cBoxSplitBill_CheckedChanged(sender, e);
+
         }
         private void FillBillOverview()
         {
             tip = 0;
             total = OrderPrice();
 
-            lblVatLow.Text = $"€{LowVAT().ToString("0.00")}";
-            lblVatHigh.Text = $"€{HighVAT().ToString("0.00")}";
-            lblVatTotal.Text = $"€{TotalVAT().ToString("0.00")}";
-            lblPrice.Text = $"€{OrderPrice().ToString("0.00")}";
+            
             lblTip.Text = $"€{tip.ToString("0.00")}";
             lblTotal.Text = $"€{total.ToString("0.00")}";
         }
         private void AddTip()
         {
+            if (txtTip.Text != "")
+            {
 
-            tip = Convert.ToDecimal(txtTip.Text);
+                tip = Convert.ToDecimal(txtTip.Text);
 
-            lblTip.Text = $"€{tip.ToString("0.00")}";
+                lblTip.Text = $"€{tip.ToString("0.00")}";
 
-            total = tip + OrderPrice();
+                total = tip + OrderPrice();
 
-            lblTotal.Text = $"€{total.ToString("0.00")}";
+                lblTotal.Text = $"€{total.ToString("0.00")}";          
+
+            }
 
         }
         private void AddTotal()
         {
-            total = Convert.ToDecimal(txtTotal.Text);
-
-            lblTotal.Text = $"€{total.ToString("0.00")}";
-
-            tip = total - OrderPrice();
-
-            lblTip.Text = $"€{tip.ToString("0.00")}";
-
-        }
-        public decimal HighVAT()
-        {
-
-            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
-
-            decimal highlVat = 0;
-            foreach (OrderItem item in orderItems)
+            if(txtTotal.Text != "")
             {
-                if (item.MenuItem.VAT == (decimal)0.21)
+
+                total = Convert.ToDecimal(txtTotal.Text);
+                lblTotal.Text = $"€{total.ToString("0.00")}";               
+                tip = total - OrderPrice();                    
+                lblTip.Text = $"€{tip.ToString("0.00")}";
+
+                if (total <= OrderPrice() && cBoxSplitBill.Checked == true)
                 {
-                    highlVat += (item.MenuItem.Price * (decimal)0.21) * item.Quantity;
+                    tip = 0;
+                    lblTip.Text = $"€{tip.ToString("0.00")}";
+
+                    //total = OrderPrice() - total;
+                    //lblSplit.Text = $"€{total.ToString("0.00")}";
+
+
                 }
-            }
-            return highlVat;
-
-        }
-        public decimal LowVAT()
-        {
-            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
-
-            decimal lowVat = 0;
-            foreach (OrderItem item in orderItems)
-            {
-                if (item.MenuItem.VAT == (decimal)0.06)
+                else
                 {
-                    lowVat += (item.MenuItem.Price * (decimal)0.06) * item.Quantity;
+                    MessageBox.Show("Please choose the right amount to be paid", "Payment amount not sufficient.", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
-            return lowVat;
-
         }
-        public decimal TotalVAT()
-        {
-
-            List<OrderItem> orderItems = orderService.GetBill(order.OrderId);
-
-            decimal totalVat = 0;
-            foreach (OrderItem item in orderItems)
-            {
-                totalVat += item.MenuItem.Price * item.MenuItem.VAT * item.Quantity;
-            }
-            return totalVat;
-
-        }
+      
         public decimal OrderPrice()
         {
 
@@ -214,6 +196,7 @@ namespace UI
             foreach (OrderItem item in orderItems)
             {
                 orderPrice += item.MenuItem.Price * item.Quantity;
+
             }
             return orderPrice;
 
@@ -238,7 +221,6 @@ namespace UI
 
         }
 
-        //ADD COMMENTS
         private void OnlyNumbersInput(object sender, KeyPressEventArgs e)
         {
             string senderText = (sender as TextBox).Text;
@@ -278,6 +260,25 @@ namespace UI
             frm.FormClosing += delegate { this.Show(); };
             frm.Show();
             this.Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cBoxSplitBill_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cBoxSplitBill.Checked == true)
+            {
+                lblSplitBill.Visible = true;
+                lblSplit.Visible = true;
+            }
+            else
+            {
+                lblSplitBill.Visible = false;
+                lblSplit.Visible = false;
+            }
         }
     }
 }

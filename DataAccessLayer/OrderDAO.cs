@@ -248,12 +248,13 @@ namespace DataAccessLayer
             return order;
         }
 
+
         // Getting all the orders for kitchenAndBar
-        public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderItemState orderState)
+        public List<Order> GetAllOrderForKitchenAndBar(TypeMenuItem menuItem, OrderItemState orderItemState)
         {
             string query = "SELECT o.OrderID, o.TableNr, o.Time, t.Status, o.Date From [Order] As o Join [Table] As T On o.tableNr = T.TableNr where o.PayementStatus = 0";
 
-            return ReadOrdersForKitchenBar(ExecuteSelectQuery(query), menuItem, orderState);
+            return ReadOrdersForKitchenBar(ExecuteSelectQuery(query), menuItem, orderItemState);
         }
 
         //Read data to make order objects
@@ -261,19 +262,16 @@ namespace DataAccessLayer
         {
             List<Order> orders = new List<Order>();
 
-            if (dataTable != null)
+            foreach (DataRow dr in dataTable.Rows)
             {
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    Order order = new Order();
-                    order.OrderId = (int)dr["OrderID"];
-                    order.Time = Convert.ToDateTime(dr["Time"].ToString());
-                    order.Table.Number = (int)dr["TableNr"];
-                    order.Table.Status = (TableStatus)dr["Status"];
-                    //Retrieve order items
-                    order.OrderItems = GetOrderItems(menuItem, orderItemState, order.OrderId);
-                    orders.Add(order);
-                }
+                Order order = new Order();
+                order.OrderId = (int)dr["OrderID"];
+                order.Time = Convert.ToDateTime(dr["Time"].ToString());
+                order.Table.Number = (int)dr["TableNr"];
+                order.Table.Status = (TableStatus)dr["Status"];
+                //Retrieve order items
+                order.OrderItems = GetOrderItems(menuItem, orderItemState, order.OrderId);
+                orders.Add(order);
             }
             
             return orders;
@@ -282,14 +280,14 @@ namespace DataAccessLayer
         //Retrieve all order items for an order in specified orderstate
         public List<OrderItem> GetOrderItems(TypeMenuItem menuItem, OrderItemState orderItemState, int orderId)
         {
-            string query = "SELECT o.OrderItemId, o.OrderId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId,m.ItemType From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
+            string query = "SELECT o.OrderItemId, o.OrderStatus, o.Feedback, o.Quantity, o.OrderItemDateTime, m.Name, m.Price, m.ItemCategory, m.ItemId,m.ItemType From OrderItem As O join Menu_Item As[M] on O.MenuItemId = M.ItemID"
             + " Where M.ItemType = @itemType AND o.OrderStatus = @orderState AND OrderId = @orderId";
 
             SqlParameter[] sqlParameters = new SqlParameter[3];
             sqlParameters[0] = new SqlParameter("@itemType", (int)menuItem);
             sqlParameters[1] = new SqlParameter("@orderState", (int)orderItemState);
             sqlParameters[2] = new SqlParameter("@orderId", orderId);
-            
+
             return ReadingTableForOrderItemsList(ExecuteSelectQuery(query, sqlParameters));
         }
 
@@ -298,25 +296,22 @@ namespace DataAccessLayer
         {
             List<OrderItem> list = new List<OrderItem>();
 
-            if (dataTable != null)
+            foreach (DataRow dr in dataTable.Rows)
             {
-                foreach (DataRow dr in dataTable.Rows)
-                {
-                    OrderItem item = new OrderItem();
+                OrderItem item = new OrderItem();
 
-                    item.OrderItemId = (int)dr["OrderItemId"];
-                    item.OrderState = (OrderItemState)dr["OrderStatus"];
-                    item.Feedback = (string)dr["Feedback"];
-                    item.Quantity = (int)dr["Quantity"];
-                    item.DateTime = (DateTime)dr["OrderItemDateTime"];
-                    item.MenuItem.ItemId = (int)dr["ItemId"];
-                    item.MenuItem.Name = (string)dr["Name"];
-                    item.MenuItem.Price = (decimal)dr["Price"];
-                    item.MenuItem.Category = (MenuItemCategory)dr["ItemCategory"];
-                    item.MenuItem.TypeMenuItem = (TypeMenuItem)dr["ItemType"];
+                item.OrderItemId = (int)dr["OrderItemId"];
+                item.OrderState = (OrderItemState)dr["OrderStatus"];
+                item.Feedback = (string)dr["Feedback"];
+                item.Quantity = (int)dr["Quantity"];
+                item.DateTime = (DateTime)dr["OrderItemDateTime"];
+                item.MenuItem.ItemId = (int)dr["ItemId"];
+                item.MenuItem.Name = (string)dr["Name"];
+                item.MenuItem.Price = (decimal)dr["Price"];
+                item.MenuItem.Category = (MenuItemCategory)dr["ItemCategory"];
+                item.MenuItem.TypeMenuItem = (TypeMenuItem)dr["ItemType"];
                     
-                    list.Add(item);
-                }
+                list.Add(item);
             }
             
             return list;

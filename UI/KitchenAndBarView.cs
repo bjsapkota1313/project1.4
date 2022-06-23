@@ -30,7 +30,9 @@ namespace UI
                 lblKitchenAndBarView.Text = "Kitchen View";
             }
             else
+            {
                 lblKitchenAndBarView.Text = "Bar View";
+            }
 
             //Get orders by for kitchen or bar, depends on employee type
             List<Order> orders = GetOrders(loggedEmployee);
@@ -89,11 +91,6 @@ namespace UI
             }
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            DisplayKitchenBarView();
-        }
-
         //Ready Button For kitchenandBar
         private void btnKitchenReady_Click(object sender, EventArgs e)
         {
@@ -119,9 +116,11 @@ namespace UI
             List<Order> orders;
             orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.PreparingOrder);
             FillInKitchenAndBarView(orders);
+
             btnRunningOrder.Visible = false;
             btnCompletedOrder.Visible = true;
             btnKitchenReady.Visible = true;
+            btnRefresh.Visible = true;
         }
 
         private void btnCompletedOrder_Click_1(object sender, EventArgs e)
@@ -129,10 +128,16 @@ namespace UI
             btnRunningOrder.Visible = true;
             btnCompletedOrder.Visible = false;
             btnKitchenReady.Visible = false;
+            btnRefresh.Visible = false;
 
             List<Order> orders;
             orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.ReadyToDeliver);
             FillInKitchenAndBarView(orders);
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            DisplayKitchenBarView();
         }
     }
 }
