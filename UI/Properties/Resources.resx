@@ -121,8 +121,8 @@
   <data name="Getting late1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Getting late1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SandTimer20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SandTimer20X20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="food-tray" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\food-tray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PrepOrder5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrepOrder5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +130,8 @@
   <data name="DrinkReadyToserved" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DrinkReadyToserved.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Drinking Preparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Drinking Preparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DrinkReady5050New1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DrinkReady5050New1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReadyToDeliver5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReadyToDeliver5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,6 +154,12 @@
   <data name="RunningOrder3030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RunningOrder3030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="coffeeeready50402" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\coffeeeready50402.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoodReadyToDeliver505021" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FoodReadyToDeliver505021.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="GotOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GotOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -162,6 +168,12 @@
   </data>
   <data name="Logo inverted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo inverted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newDrinkReady" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\newDrinkReady.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FoodReadyToDeliver50502" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FoodReadyToDeliver50502.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="DrinkingPreparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DrinkingPreparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +193,17 @@
   <data name="PrepCoffee5050" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PrepCoffee5050.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="ArrowFatLeft" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ArrowFatLeft.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="drinkPrep30X17" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\drinkPrep30X17.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="SandTimer20X20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SandTimer20X20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ReadyToBeServedDrink30x30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ReadyToBeServedDrink30x30.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,13 +238,16 @@
   <data name="RunningOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RunningOrder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SandTimer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SandTimer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="DrinkReady5050New" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DrinkReady5050New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Drinking Preparing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drinking Preparing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="prepdrink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\prepdrink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="coffeeeready50402" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\coffeeeready50402.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="output-onlinepngtools (7)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\output-onlinepngtools (7).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

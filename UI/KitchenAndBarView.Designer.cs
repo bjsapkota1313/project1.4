@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
+            System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("ListViewGroup", System.Windows.Forms.HorizontalAlignment.Left);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KitchenAndBarView));
             this.lblKitchenAndBarView = new System.Windows.Forms.Label();
             this.btnCompletedOrder = new System.Windows.Forms.Button();
@@ -40,20 +42,30 @@
             this.time = new System.Windows.Forms.ColumnHeader();
             this.table = new System.Windows.Forms.ColumnHeader();
             this.status = new System.Windows.Forms.ColumnHeader();
-            this.btnLogOut = new System.Windows.Forms.Button();
             this.btnRunningOrder = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblOrderType = new System.Windows.Forms.Label();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlLogOut = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.lblEmployeeName = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblEmployeeId = new System.Windows.Forms.Label();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.lblFOrDisplay = new System.Windows.Forms.Label();
+            this.picBoxProfilePic = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlLogOut.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).BeginInit();
             this.SuspendLayout();
             // 
             // lblKitchenAndBarView
             // 
             this.lblKitchenAndBarView.AccessibleDescription = "";
+            this.lblKitchenAndBarView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.lblKitchenAndBarView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lblKitchenAndBarView.Font = new System.Drawing.Font("Calibri", 40.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblKitchenAndBarView.ForeColor = System.Drawing.Color.White;
@@ -106,14 +118,17 @@
             this.lstViewKitchenAndBar.Font = new System.Drawing.Font("Calibri", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lstViewKitchenAndBar.ForeColor = System.Drawing.Color.Black;
             this.lstViewKitchenAndBar.FullRowSelect = true;
-            this.lstViewKitchenAndBar.GridLines = true;
             listViewGroup1.Header = "ListViewGroup";
             listViewGroup1.Name = "fgdfgdfgdfgdf";
+            listViewGroup2.Header = "ListViewGroup";
+            listViewGroup2.Name = "listViewGroup1";
             this.lstViewKitchenAndBar.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
+            listViewGroup1,
+            listViewGroup2});
             this.lstViewKitchenAndBar.HideSelection = false;
             this.lstViewKitchenAndBar.Location = new System.Drawing.Point(27, 180);
             this.lstViewKitchenAndBar.Name = "lstViewKitchenAndBar";
+            this.lstViewKitchenAndBar.ShowGroups = false;
             this.lstViewKitchenAndBar.Size = new System.Drawing.Size(1735, 674);
             this.lstViewKitchenAndBar.TabIndex = 6;
             this.lstViewKitchenAndBar.UseCompatibleStateImageBehavior = false;
@@ -150,20 +165,6 @@
             this.status.Text = "Status";
             this.status.Width = 295;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Calibri", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(21)))));
-            this.btnLogOut.Location = new System.Drawing.Point(1608, 35);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(151, 52);
-            this.btnLogOut.TabIndex = 8;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
             // btnRunningOrder
             // 
             this.btnRunningOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(117)))), ((int)(((byte)(79)))));
@@ -178,21 +179,11 @@
             this.btnRunningOrder.UseVisualStyleBackColor = false;
             this.btnRunningOrder.Click += new System.EventHandler(this.btnRunningOrder_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.btnLogOut);
-            this.panel1.Controls.Add(this.lblKitchenAndBarView);
-            this.panel1.Location = new System.Drawing.Point(0, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1810, 117);
-            this.panel1.TabIndex = 10;
-            // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(24, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(202, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -229,16 +220,111 @@
             this.label2.Size = new System.Drawing.Size(1810, 44);
             this.label2.TabIndex = 12;
             // 
+            // pnlLogOut
+            // 
+            this.pnlLogOut.BackColor = System.Drawing.Color.Gray;
+            this.pnlLogOut.Controls.Add(this.label18);
+            this.pnlLogOut.Controls.Add(this.lblEmployeeName);
+            this.pnlLogOut.Controls.Add(this.pictureBox4);
+            this.pnlLogOut.Controls.Add(this.lblEmployeeId);
+            this.pnlLogOut.Controls.Add(this.btnLogOut);
+            this.pnlLogOut.Location = new System.Drawing.Point(1541, 100);
+            this.pnlLogOut.Name = "pnlLogOut";
+            this.pnlLogOut.Size = new System.Drawing.Size(250, 121);
+            this.pnlLogOut.TabIndex = 78;
+            // 
+            // label18
+            // 
+            this.label18.BackColor = System.Drawing.Color.Black;
+            this.label18.Location = new System.Drawing.Point(1, 62);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(249, 10);
+            this.label18.TabIndex = 5;
+            // 
+            // lblEmployeeName
+            // 
+            this.lblEmployeeName.Font = new System.Drawing.Font("Calibri", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblEmployeeName.Location = new System.Drawing.Point(59, 3);
+            this.lblEmployeeName.Name = "lblEmployeeName";
+            this.lblEmployeeName.Size = new System.Drawing.Size(188, 30);
+            this.lblEmployeeName.TabIndex = 3;
+            this.lblEmployeeName.Text = "label18";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Gray;
+            this.pictureBox4.Image = global::UI.Properties.Resources.output_onlinepngtools__7_;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 5);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(56, 56);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblEmployeeId
+            // 
+            this.lblEmployeeId.Location = new System.Drawing.Point(62, 35);
+            this.lblEmployeeId.Name = "lblEmployeeId";
+            this.lblEmployeeId.Size = new System.Drawing.Size(181, 18);
+            this.lblEmployeeId.TabIndex = 4;
+            this.lblEmployeeId.Text = "label18";
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnLogOut.ForeColor = System.Drawing.Color.Black;
+            this.btnLogOut.Location = new System.Drawing.Point(14, 77);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(225, 32);
+            this.btnLogOut.TabIndex = 66;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblFOrDisplay
+            // 
+            this.lblFOrDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
+            this.lblFOrDisplay.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFOrDisplay.Location = new System.Drawing.Point(0, 3);
+            this.lblFOrDisplay.Name = "lblFOrDisplay";
+            this.lblFOrDisplay.Size = new System.Drawing.Size(1810, 117);
+            this.lblFOrDisplay.TabIndex = 79;
+            // 
+            // picBoxProfilePic
+            // 
+            this.picBoxProfilePic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(88)))));
+            this.picBoxProfilePic.Image = global::UI.Properties.Resources.output_onlinepngtools__7_;
+            this.picBoxProfilePic.Location = new System.Drawing.Point(1712, 48);
+            this.picBoxProfilePic.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.picBoxProfilePic.Name = "picBoxProfilePic";
+            this.picBoxProfilePic.Size = new System.Drawing.Size(50, 50);
+            this.picBoxProfilePic.TabIndex = 80;
+            this.picBoxProfilePic.TabStop = false;
+            this.picBoxProfilePic.Click += new System.EventHandler(this.picBoxProfilePic_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 10000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // KitchenAndBarView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
             this.ClientSize = new System.Drawing.Size(1792, 973);
+            this.Controls.Add(this.picBoxProfilePic);
+            this.Controls.Add(this.pnlLogOut);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lblKitchenAndBarView);
+            this.Controls.Add(this.lblFOrDisplay);
             this.Controls.Add(this.lblOrderType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRefresh);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRunningOrder);
             this.Controls.Add(this.lstViewKitchenAndBar);
             this.Controls.Add(this.btnKitchenReady);
@@ -247,8 +333,11 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "KitchenAndBarView";
             this.Text = "KitchenAndBarView";
-            this.panel1.ResumeLayout(false);
+            this.Click += new System.EventHandler(this.KitchenAndBarView_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlLogOut.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoxProfilePic)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -260,18 +349,24 @@
         private System.Windows.Forms.Button btnKitchenReady;
         private System.Windows.Forms.ListView lstViewKitchenAndBar;
         private System.Windows.Forms.ColumnHeader itemName;
-        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.ColumnHeader quantity;
         private System.Windows.Forms.ColumnHeader comment;
         private System.Windows.Forms.ColumnHeader time;
         private System.Windows.Forms.ColumnHeader table;
         private System.Windows.Forms.ColumnHeader status;
         private System.Windows.Forms.Button btnRunningOrder;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblFOrDisplay;
         private System.Windows.Forms.Label lblOrderType;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlLogOut;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblEmployeeName;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label lblEmployeeId;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.PictureBox picBoxProfilePic;
+        private System.Windows.Forms.Timer timer1;
     }
 }
