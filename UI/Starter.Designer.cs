@@ -56,7 +56,7 @@
             this.StarterAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.StarterAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StarterAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.StarterAddBtn.Location = new System.Drawing.Point(13, 750);
+            this.StarterAddBtn.Location = new System.Drawing.Point(13, 717);
             this.StarterAddBtn.Name = "StarterAddBtn";
             this.StarterAddBtn.Size = new System.Drawing.Size(415, 43);
             this.StarterAddBtn.TabIndex = 2;
@@ -75,7 +75,7 @@
             this.LvStarterList.HideSelection = false;
             this.LvStarterList.Location = new System.Drawing.Point(12, 58);
             this.LvStarterList.Name = "LvStarterList";
-            this.LvStarterList.Size = new System.Drawing.Size(416, 615);
+            this.LvStarterList.Size = new System.Drawing.Size(416, 582);
             this.LvStarterList.TabIndex = 3;
             this.LvStarterList.UseCompatibleStateImageBehavior = false;
             this.LvStarterList.View = System.Windows.Forms.View.Details;
@@ -89,17 +89,16 @@
             // StarterListName
             // 
             this.StarterListName.Text = "Name";
-            this.StarterListName.Width = 285;
+            this.StarterListName.Width = 280;
             // 
             // StarterListPrice
             // 
             this.StarterListPrice.Text = "Price";
-            this.StarterListPrice.Width = 65;
             // 
             // CommentStarters
             // 
             this.CommentStarters.ForeColor = System.Drawing.Color.Silver;
-            this.CommentStarters.Location = new System.Drawing.Point(12, 679);
+            this.CommentStarters.Location = new System.Drawing.Point(12, 646);
             this.CommentStarters.Multiline = true;
             this.CommentStarters.Name = "CommentStarters";
             this.CommentStarters.Size = new System.Drawing.Size(415, 65);
@@ -111,7 +110,7 @@
             this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(207)))), ((int)(((byte)(175)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(12, 815);
+            this.AllStarterMenu.Location = new System.Drawing.Point(12, 782);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 15;
