@@ -253,7 +253,7 @@
             // 
             this.cBoxSplitBill.AutoSize = true;
             this.cBoxSplitBill.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cBoxSplitBill.Location = new System.Drawing.Point(5, 153);
+            this.cBoxSplitBill.Location = new System.Drawing.Point(15, 151);
             this.cBoxSplitBill.Name = "cBoxSplitBill";
             this.cBoxSplitBill.Size = new System.Drawing.Size(259, 43);
             this.cBoxSplitBill.TabIndex = 33;
@@ -268,7 +268,7 @@
             this.lbl5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl5.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl5.ForeColor = System.Drawing.Color.Black;
-            this.lbl5.Location = new System.Drawing.Point(5, 219);
+            this.lbl5.Location = new System.Drawing.Point(12, 217);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(521, 66);
             this.lbl5.TabIndex = 31;
@@ -281,7 +281,7 @@
             this.lblTip.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTip.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTip.ForeColor = System.Drawing.Color.Black;
-            this.lblTip.Location = new System.Drawing.Point(532, 219);
+            this.lblTip.Location = new System.Drawing.Point(520, 217);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(193, 66);
             this.lblTip.TabIndex = 37;
@@ -293,7 +293,7 @@
             this.lblTotal.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblTotal.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTotal.ForeColor = System.Drawing.Color.Black;
-            this.lblTotal.Location = new System.Drawing.Point(532, 285);
+            this.lblTotal.Location = new System.Drawing.Point(520, 282);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(193, 67);
             this.lblTotal.TabIndex = 38;
@@ -305,7 +305,7 @@
             this.lbl6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lbl6.Font = new System.Drawing.Font("Calibri", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl6.ForeColor = System.Drawing.Color.Black;
-            this.lbl6.Location = new System.Drawing.Point(5, 285);
+            this.lbl6.Location = new System.Drawing.Point(12, 283);
             this.lbl6.Name = "lbl6";
             this.lbl6.Size = new System.Drawing.Size(521, 66);
             this.lbl6.TabIndex = 32;
