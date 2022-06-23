@@ -21,7 +21,7 @@ namespace UI
         private Employee loggedEmployee;
         private decimal tip;
         private decimal total;
-
+        private decimal splitBill;
 
         public Tip(Order order, Employee loggedEmployee)
         {
@@ -81,13 +81,15 @@ namespace UI
                 SubmitPayment();
 
                 
-                //decimal orderPrice = OrderPrice();
-                //orderPrice = orderPrice - total;
+                
+                splitBill = OrderPrice() - total;
+
+               
                 
 
-                lblTotal.Text = $"€{OrderPrice().ToString("0.00")}";
+                lblTotal.Text = $"€{splitBill.ToString("0.00")}";
 
-                if (lblSplit.Text == lblTotal.Text)
+                if (splitBill == 0)
                 {
                     LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
                 }
@@ -175,8 +177,8 @@ namespace UI
                     tip = 0;
                     lblTip.Text = $"€{tip.ToString("0.00")}";
 
-                    total = OrderPrice() - total;
-                    lblSplit.Text = $"€{total.ToString("0.00")}";
+                    //total = OrderPrice() - total;
+                    //lblSplit.Text = $"€{total.ToString("0.00")}";
 
 
                 }
@@ -198,10 +200,10 @@ namespace UI
             {
                 orderPrice += item.MenuItem.Price * item.Quantity;
 
-                if(cBoxSplitBill.Checked == true)
-                {
-                    orderPrice = orderPrice - total;
-                }
+                //if(cBoxSplitBill.Checked == true)
+                //{
+                //    orderPrice = orderPrice - total;
+                //}
 
             }
             return orderPrice;
