@@ -49,9 +49,15 @@ namespace DataAccessLayer
         }
         public void AddPayment(int id, decimal total, decimal tip, int paymentType)
         {
-            string query = $"INSERT INTO OrderPayment (OrderID, Total, Tip, [Type]) VALUES ('{id}', '{total}', '{tip}', '{paymentType}')";
+            string query = "INSERT INTO OrderPayment (OrderID, Total, Tip, [Type]) VALUES (@id, @total, @tip,@payementType)";
 
-            SqlParameter[] sqlParameters = new SqlParameter[0];
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@id",id),
+                new SqlParameter("@total",total),
+                new SqlParameter("@tip",tip),
+                new SqlParameter("@payementType",paymentType)
+            };
 
             // Execute query
             ExecuteEditQuery(query, sqlParameters);

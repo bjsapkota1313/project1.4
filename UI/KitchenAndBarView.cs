@@ -18,6 +18,9 @@ namespace UI
             orderService = new OrderService();
             loggedEmployee = employee;
             btnRunningOrder.Visible = false;
+            lblEmployeeName.Text = loggedEmployee.FullName;
+            lblEmployeeId.Text = $"{loggedEmployee.Id}@Chapeau.nl";
+            pnlLogOut.Hide();
 
             DisplayKitchenBarView();
         }
@@ -72,24 +75,40 @@ namespace UI
             {
                 foreach (OrderItem item in order.OrderItems)
                 {
+                    string dateTimeToShow;
+                    if (CheckOrderTime(item))
+                    {
+                        TimeSpan dateTime = DateTime.Now.Subtract(item.DateTime);
+                        dateTimeToShow = dateTime.Minutes.ToString() + " min ago";
+                    }
+                    else
+                    {
+                        dateTimeToShow = item.DateTime.ToString("HH:mm");
+                    }
                     ListViewItem li = new ListViewItem(item.Quantity.ToString());
                     li.SubItems.Add(item.MenuItem.Name);
                     li.SubItems.Add(item.Feedback.ToString());
-                    li.SubItems.Add(item.DateTime.ToString("HH:mm"));
+                    li.SubItems.Add(dateTimeToShow);
                     li.SubItems.Add(order.Table.Number.ToString());
 
+                   
                     if (item.OrderState == OrderItemState.ReadyToDeliver)
                     {
                         li.SubItems.Add("Completed");
                     }
                     else if (item.OrderState == OrderItemState.PreparingOrder)
                     {
-                        li.SubItems.Add("Preparing");
+                        li.SubItems.Add("Running");
                     }
                     li.Tag = item;
                     lstViewKitchenAndBar.Items.Add(li);
                 }
             }
+        }
+        private bool CheckOrderTime(OrderItem orderItem)
+        {
+            return orderItem.OrderState == OrderItemState.PreparingOrder ;
+
         }
 
         //Ready Button For kitchenandBar
@@ -117,6 +136,7 @@ namespace UI
             List<Order> orders;
             orders = orderService.ReadOrdersForKitchenBar(typeMenuItem, OrderItemState.PreparingOrder);
             FillInKitchenAndBarView(orders);
+            timer1.Enabled = true;
 
             btnRunningOrder.Visible = false;
             btnCompletedOrder.Visible = true;
@@ -131,6 +151,7 @@ namespace UI
             btnCompletedOrder.Visible = false;
             btnKitchenReady.Visible = false;
             btnRefresh.Visible = false;
+            timer1.Enabled = false;
             lblOrderType.Text = "Completed Orders";
 
             List<Order> orders;
@@ -139,6 +160,29 @@ namespace UI
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            DisplayKitchenBarView();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            this.Close();
+            LoginForm loginForm = new LoginForm();
+            loginForm.Show();
+        }
+
+        private void picBoxProfilePic_Click(object sender, EventArgs e)
+        {
+            pnlLogOut.Show();
+        }
+
+        private void KitchenAndBarView_Click(object sender, EventArgs e)
+        {
+            pnlLogOut.Hide();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             DisplayKitchenBarView();
         }

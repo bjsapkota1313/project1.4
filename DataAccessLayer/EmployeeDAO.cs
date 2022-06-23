@@ -31,7 +31,7 @@ namespace DataAccessLayer
             string storedSalt = ReadEmployeeSalt(ExecuteSelectQuery(query, sqlParameters));
             if (storedSalt == null)
             {
-                throw new Exception("No employee found with this employee Id");
+                throw new Exception("No employee found with this employee Name");
             }
             // converting entered password by adding a stored salt from database 
             string hashedPassword = HashingEnteredPassword(enteredPassword, storedSalt);
