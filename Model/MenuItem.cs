@@ -18,6 +18,7 @@ namespace Model
         public MenuItemCategory Category { get; set; }  
         public decimal VAT { get; set; }
         public List<OrderItem> orderItems;
+        public int InStock { get; set; }
 
         //public decimal OrderPrice
         //{

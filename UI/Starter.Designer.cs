@@ -44,7 +44,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(211, 293);
+            this.label1.Location = new System.Drawing.Point(166, 306);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 0;
@@ -55,9 +55,9 @@
             this.StarterAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
             this.StarterAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.StarterAddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.StarterAddBtn.Location = new System.Drawing.Point(11, 799);
+            this.StarterAddBtn.Location = new System.Drawing.Point(11, 584);
             this.StarterAddBtn.Name = "StarterAddBtn";
-            this.StarterAddBtn.Size = new System.Drawing.Size(495, 43);
+            this.StarterAddBtn.Size = new System.Drawing.Size(417, 45);
             this.StarterAddBtn.TabIndex = 2;
             this.StarterAddBtn.Text = "Add";
             this.StarterAddBtn.UseVisualStyleBackColor = false;
@@ -74,7 +74,7 @@
             this.LvStarterList.HideSelection = false;
             this.LvStarterList.Location = new System.Drawing.Point(12, 12);
             this.LvStarterList.Name = "LvStarterList";
-            this.LvStarterList.Size = new System.Drawing.Size(494, 710);
+            this.LvStarterList.Size = new System.Drawing.Size(416, 495);
             this.LvStarterList.TabIndex = 3;
             this.LvStarterList.UseCompatibleStateImageBehavior = false;
             this.LvStarterList.View = System.Windows.Forms.View.Details;
@@ -88,29 +88,29 @@
             // StarterListName
             // 
             this.StarterListName.Text = "Name";
-            this.StarterListName.Width = 355;
+            this.StarterListName.Width = 285;
             // 
             // StarterListPrice
             // 
             this.StarterListPrice.Text = "Price";
-            this.StarterListPrice.Width = 65;
+            this.StarterListPrice.Width = 55;
             // 
             // CommentStarters
             // 
             this.CommentStarters.ForeColor = System.Drawing.Color.Silver;
-            this.CommentStarters.Location = new System.Drawing.Point(12, 728);
+            this.CommentStarters.Location = new System.Drawing.Point(12, 513);
             this.CommentStarters.Multiline = true;
             this.CommentStarters.Name = "CommentStarters";
-            this.CommentStarters.Size = new System.Drawing.Size(494, 65);
+            this.CommentStarters.Size = new System.Drawing.Size(416, 65);
             this.CommentStarters.TabIndex = 4;
             this.CommentStarters.Text = "Comment...";
             // 
             // AllStarterMenu
             // 
-            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(166)))), ((int)(((byte)(143)))));
+            this.AllStarterMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(207)))), ((int)(((byte)(175)))));
             this.AllStarterMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AllStarterMenu.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.AllStarterMenu.Location = new System.Drawing.Point(135, 849);
+            this.AllStarterMenu.Location = new System.Drawing.Point(11, 648);
             this.AllStarterMenu.Name = "AllStarterMenu";
             this.AllStarterMenu.Size = new System.Drawing.Size(247, 31);
             this.AllStarterMenu.TabIndex = 15;
@@ -123,7 +123,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(213)))), ((int)(((byte)(213)))));
-            this.ClientSize = new System.Drawing.Size(530, 900);
+            this.ClientSize = new System.Drawing.Size(440, 927);
             this.Controls.Add(this.AllStarterMenu);
             this.Controls.Add(this.CommentStarters);
             this.Controls.Add(this.LvStarterList);
