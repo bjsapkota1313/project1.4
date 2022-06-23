@@ -34,7 +34,10 @@ namespace UI
             {
                 try
                 {
-                        ShowMenu(MenuItemCategory.LuchStarter);
+                    ListViewItem lvi = new ListViewItem("starters");
+
+                    .Items.Add(lvi);
+                    ShowMenu(MenuItemCategory.LuchStarter);
                         ShowMenu(MenuItemCategory.LuchMainCourse);
                         ShowMenu(MenuItemCategory.LuchDessert);
 
@@ -47,7 +50,7 @@ namespace UI
             {
                 try
                 {
-                        ShowMenu(MenuItemCategory.DinnerStarter);
+                    ShowMenu(MenuItemCategory.DinnerStarter);
                     ShowMenu(MenuItemCategory.DinnerMainCourse);
                     ShowMenu(MenuItemCategory.DinnerDessert);
 
