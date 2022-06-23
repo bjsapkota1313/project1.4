@@ -266,12 +266,14 @@ namespace DataAccessLayer
             foreach (DataRow dr in dataTable.Rows)
             {
                 Order order = new Order();
+
                 order.OrderId = (int)dr["OrderID"];
                 order.Time = Convert.ToDateTime(dr["Time"].ToString());
                 order.Table.Number = (int)dr["TableNr"];
                 order.Table.Status = (TableStatus)dr["Status"];
                 //Retrieve order items
                 order.OrderItems = GetOrderItems(menuItem, orderItemState, order.OrderId);
+
                 orders.Add(order);
             }
             
