@@ -74,19 +74,20 @@ namespace UI
 
                 LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
             }
-            else if(total < OrderPrice() && cBoxSplitBill.Checked == true)
+            else if(cBoxSplitBill.Checked == true)
             {
 
 
                 SubmitPayment();
 
-                decimal orderPrice = OrderPrice();
-                orderPrice = orderPrice - total;
+                
+                //decimal orderPrice = OrderPrice();
+                //orderPrice = orderPrice - total;
                 
 
-                lblTotal.Text = $"€{orderPrice.ToString("0.00")}";
+                lblTotal.Text = $"€{OrderPrice().ToString("0.00")}";
 
-                if (orderPrice == total)
+                if (lblSplit.Text == lblTotal.Text)
                 {
                     LoadNewForm(new PaymentConfirmation(order, loggedEmployee));
                 }
@@ -169,13 +170,13 @@ namespace UI
                 tip = total - OrderPrice();                    
                 lblTip.Text = $"€{tip.ToString("0.00")}";
 
-                if (total <= OrderPrice() && cBoxSplitBill.Checked == true)
+                if (cBoxSplitBill.Checked == true)
                 {
                     tip = 0;
                     lblTip.Text = $"€{tip.ToString("0.00")}";
 
-                    //total = OrderPrice() - total;
-                    //lblSplit.Text = $"€{total.ToString("0.00")}";
+                    total = OrderPrice() - total;
+                    lblSplit.Text = $"€{total.ToString("0.00")}";
 
 
                 }
@@ -196,6 +197,11 @@ namespace UI
             foreach (OrderItem item in orderItems)
             {
                 orderPrice += item.MenuItem.Price * item.Quantity;
+
+                if(cBoxSplitBill.Checked == true)
+                {
+                    orderPrice = orderPrice - total;
+                }
 
             }
             return orderPrice;
