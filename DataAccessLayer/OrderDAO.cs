@@ -175,7 +175,7 @@ namespace DataAccessLayer
             return order;
         }
 
-        public List<MenuItem> GetAllStarters(MenuItemCategory category)
+        public List<MenuItem> GetMenuItems(MenuItemCategory category)
         {
             string query = "Select Name,ItemId,Price,InStock from [Menu_Item] WHERE ItemCategory = @itemCategory AND InStock>0;";
             SqlParameter[] sqlParamenters = new SqlParameter[1];

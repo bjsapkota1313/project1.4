@@ -62,7 +62,7 @@ namespace UI
         private void ShowMenu(MenuItemCategory category)
         {
             OrderService orderService = new OrderService(); ;
-            List<MenuItem> items = orderService.GetAllStarters(category);
+            List<MenuItem> items = orderService.GetMenuItems(category);
 
             MainCourseList.Items.Clear();
 
@@ -121,5 +121,14 @@ namespace UI
             return feedback;
         }
 
+        private void MainCourse_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainCourseList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

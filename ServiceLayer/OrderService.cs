@@ -23,9 +23,9 @@ namespace ServiceLayer
         {
             orderdb.GetIdFromUnpaied(list, TableNr,employee);
         }
-        public List<MenuItem> GetAllStarters(MenuItemCategory category)
+        public List<MenuItem> GetMenuItems(MenuItemCategory category)
         {
-            return orderdb.GetAllStarters(category);
+            return orderdb.GetMenuItems(category);
         }
         public void RemoveFromOrder(OrderItem order)
         {

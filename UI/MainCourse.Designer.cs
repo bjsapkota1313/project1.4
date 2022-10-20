@@ -64,6 +64,7 @@
             this.MainCourseList.TabIndex = 1;
             this.MainCourseList.UseCompatibleStateImageBehavior = false;
             this.MainCourseList.View = System.Windows.Forms.View.Details;
+            this.MainCourseList.SelectedIndexChanged += new System.EventHandler(this.MainCourseList_SelectedIndexChanged);
             // 
             // ItemId
             // 
@@ -128,6 +129,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainCourse";
             this.Text = "MainCourse";
+            this.Load += new System.EventHandler(this.MainCourse_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

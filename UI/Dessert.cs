@@ -67,7 +67,7 @@ namespace UI
         private void ShowMenu(MenuItemCategory category)
         {
             OrderService orderService = new OrderService(); ;
-            List<MenuItem> items = orderService.GetAllStarters(category);
+            List<MenuItem> items = orderService.GetMenuItems(category);
 
             DessertListView.Items.Clear();
 
