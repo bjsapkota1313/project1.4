@@ -26,6 +26,7 @@ namespace UI
         string closed = "Restaurant is closed!";
         //Testing
         // TimeSpan now = new TimeSpan(18, 0, 0);
+        OrderService orderService = new OrderService();//global
 
         public OrderForm(Table selectedTable, Employee employee)
         {
@@ -113,7 +114,7 @@ namespace UI
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
             List<OrderItem> orders = new List<OrderItem>();
-            OrderService orderService = new OrderService();
+            //OrderService orderService = new OrderService();
             foreach (ListViewItem item in OrderListView.Items)
             {
                 OrderItem orderItem = (OrderItem)item.Tag;
@@ -151,7 +152,7 @@ namespace UI
         }
         private void ShowMenu(MenuItemCategory category)
         {
-            OrderService orderService = new OrderService(); ;
+            //OrderService orderService = new OrderService();//global
             List<MenuItem> items = orderService.GetMenuItems(category);
 
             //FoodList.Items.Clear();
@@ -170,10 +171,13 @@ namespace UI
         {
             try
             {
-                ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
+                /*ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
                 li.SubItems.Add(item.MenuItem.Name);
                 li.SubItems.Add(item.Quantity.ToString());
-                li.SubItems.Add(item.Feedback.ToString());
+                li.SubItems.Add(item.Feedback.ToString());*/
+                ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
+                    li.SubItems.Add(item.Quantity.ToString());
+                    li.SubItems.Add(item.Feedback.ToString());
 
                 li.Tag = item;
 
@@ -189,7 +193,7 @@ namespace UI
         {
             string feedback;
 
-            if (CommentMainCourse.Text == "")
+            if (CommentMainCourse.Text == "Comment...")
             {
                 feedback = "N/A";
             }
@@ -213,6 +217,23 @@ namespace UI
 
             OrderItem item = new OrderItem(Quantity, menuItem, feedback);
             AddToListOrderItems(item);
+        }
+
+        private void ShowLunchAndDinner_Click(object sender, EventArgs e)
+        {
+            ShowAllMenu();
+        }
+        public void ShowAllMenu()
+        {
+            FoodList.Items.Clear();
+            ShowMenu(MenuItemCategory.LuchStarter);
+            ShowMenu(MenuItemCategory.LuchMainCourse);
+            ShowMenu(MenuItemCategory.LuchDessert);
+            ShowMenu(MenuItemCategory.DinnerStarter);
+            ShowMenu(MenuItemCategory.DinnerMainCourse);
+            ShowMenu(MenuItemCategory.DinnerDessert);
+
+
         }
     }
 }

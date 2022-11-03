@@ -49,6 +49,7 @@ namespace UI
             this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
+            this.Quantity = new System.Windows.Forms.ColumnHeader();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -102,9 +103,9 @@ namespace UI
             this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.OrderLIstView);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
-            this.panel1.Location = new System.Drawing.Point(443, 135);
+            this.panel1.Location = new System.Drawing.Point(419, 135);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(285, 927);
+            this.panel1.Size = new System.Drawing.Size(309, 927);
             this.panel1.TabIndex = 7;
             // 
             // SubmitOrder
@@ -124,13 +125,14 @@ namespace UI
             // 
             this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Comment,
-            this.Name});
+            this.Name,
+            this.Quantity});
             this.OrderLIstView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.OrderLIstView.FullRowSelect = true;
             this.OrderLIstView.HideSelection = false;
             this.OrderLIstView.Location = new System.Drawing.Point(3, 8);
             this.OrderLIstView.Name = "OrderLIstView";
-            this.OrderLIstView.Size = new System.Drawing.Size(270, 320);
+            this.OrderLIstView.Size = new System.Drawing.Size(303, 320);
             this.OrderLIstView.TabIndex = 11;
             this.OrderLIstView.UseCompatibleStateImageBehavior = false;
             this.OrderLIstView.View = System.Windows.Forms.View.Details;
@@ -140,7 +142,6 @@ namespace UI
             // 
             this.Comment.DisplayIndex = 1;
             this.Comment.Text = "Comment";
-            this.Comment.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.Comment.Width = 100;
             // 
             // Name
@@ -193,7 +194,7 @@ namespace UI
             this.MenuPanel.Controls.Add(this.FoodList);
             this.MenuPanel.Location = new System.Drawing.Point(6, 142);
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(434, 573);
+            this.MenuPanel.Size = new System.Drawing.Size(407, 573);
             this.MenuPanel.TabIndex = 1;
             this.MenuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuPanel_Paint);
             // 
@@ -208,6 +209,7 @@ namespace UI
             this.ShowLunchAndDinner.TabIndex = 17;
             this.ShowLunchAndDinner.Text = "Show Luch and Dinner menu";
             this.ShowLunchAndDinner.UseVisualStyleBackColor = false;
+            this.ShowLunchAndDinner.Click += new System.EventHandler(this.ShowLunchAndDinner_Click);
             // 
             // AddBtn
             // 
@@ -216,7 +218,7 @@ namespace UI
             this.AddBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.AddBtn.Location = new System.Drawing.Point(6, 411);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(416, 43);
+            this.AddBtn.Size = new System.Drawing.Size(393, 43);
             this.AddBtn.TabIndex = 5;
             this.AddBtn.Text = "Add";
             this.AddBtn.UseVisualStyleBackColor = false;
@@ -228,7 +230,7 @@ namespace UI
             this.CommentMainCourse.Location = new System.Drawing.Point(6, 340);
             this.CommentMainCourse.Multiline = true;
             this.CommentMainCourse.Name = "CommentMainCourse";
-            this.CommentMainCourse.Size = new System.Drawing.Size(416, 65);
+            this.CommentMainCourse.Size = new System.Drawing.Size(393, 65);
             this.CommentMainCourse.TabIndex = 4;
             this.CommentMainCourse.Text = "Comment...";
             // 
@@ -243,7 +245,7 @@ namespace UI
             this.FoodList.HideSelection = false;
             this.FoodList.Location = new System.Drawing.Point(6, 3);
             this.FoodList.Name = "FoodList";
-            this.FoodList.Size = new System.Drawing.Size(416, 331);
+            this.FoodList.Size = new System.Drawing.Size(393, 331);
             this.FoodList.TabIndex = 2;
             this.FoodList.UseCompatibleStateImageBehavior = false;
             this.FoodList.View = System.Windows.Forms.View.Details;
@@ -274,7 +276,6 @@ namespace UI
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.MenuPanel);
             this.MaximumSize = new System.Drawing.Size(744, 1131);
-            this.Name = "OrderForm";
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.OrderView_Load);
             this.panel2.ResumeLayout(false);
@@ -306,5 +307,6 @@ namespace UI
         private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
+        private System.Windows.Forms.ColumnHeader Quantity;
     }
 }
