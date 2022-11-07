@@ -12,8 +12,7 @@ namespace DataAccessLayer
 {
     public class OrderDAO : BaseDAO
 
-    {          //Getting the list of orderItem having the same order
-
+    {         
         public void UpdateStock(List<OrderItem> orderItems)
         {
             foreach (OrderItem item in orderItems) {
@@ -70,11 +69,9 @@ namespace DataAccessLayer
         {
             foreach (OrderItem item in orderItems)
             {
-                // if exists add 1 to the quantity else insert new OrderItem
-                string query = "If EXISTS (SELECT * FROM OrderItem WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId  AND OrderStatus=2) UPDATE OrderItem SET Quantity = Quantity + @Quantity WHERE OrderId = @OrderId AND MenuItemId = @MenuItemId ELSE INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback) VALUES(@OrderId, @MenuItemId, @datetime, @feedback); ";
-
+                string query = "INSERT INTO OrderItem(OrderId, MenuItemId, OrderItemDateTime, Feedback,Quantity) VALUES(@OrderID,@MenuItemId,@datetime,@feedback,@Quantity); ";
                 SqlParameter[] sqlParameters = {new SqlParameter("@OrderID", orderID),
-                    new SqlParameter("MenuItemId", item.MenuItem.ItemId),
+                    new SqlParameter("@MenuItemId", item.MenuItem.ItemId),
                     new SqlParameter("@Quantity", item.Quantity),
                     new SqlParameter("@datetime", DateTime.Now),
                     new SqlParameter("@feedback", item.Feedback)

@@ -34,22 +34,22 @@ namespace UI
             this.BtnBackToTableView = new System.Windows.Forms.Button();
             this.FoodBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SubmitOrder = new System.Windows.Forms.Button();
             this.OrderLIstView = new System.Windows.Forms.ListView();
-            this.Comment = new System.Windows.Forms.ColumnHeader();
             this.Name = new System.Windows.Forms.ColumnHeader();
+            this.Comment = new System.Windows.Forms.ColumnHeader();
+            this.Quantity = new System.Windows.Forms.ColumnHeader();
+            this.SubmitOrder = new System.Windows.Forms.Button();
             this.RemoveOrderBtn = new System.Windows.Forms.Button();
             this.DrinkBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.ShowLunchAndDinner = new System.Windows.Forms.Button();
             this.AddBtn = new System.Windows.Forms.Button();
-            this.CommentMainCourse = new System.Windows.Forms.TextBox();
+            this.CommentTb = new System.Windows.Forms.TextBox();
             this.FoodList = new System.Windows.Forms.ListView();
             this.ItemId = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListName = new System.Windows.Forms.ColumnHeader();
             this.MainCourseListPrice = new System.Windows.Forms.ColumnHeader();
-            this.Quantity = new System.Windows.Forms.ColumnHeader();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -100,13 +100,42 @@ namespace UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.OrderLIstView);
+            this.panel1.Controls.Add(this.SubmitOrder);
             this.panel1.Controls.Add(this.RemoveOrderBtn);
             this.panel1.Location = new System.Drawing.Point(419, 135);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 927);
             this.panel1.TabIndex = 7;
+            // 
+            // OrderLIstView
+            // 
+            this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Name,
+            this.Comment,
+            this.Quantity});
+            this.OrderLIstView.HideSelection = false;
+            this.OrderLIstView.Location = new System.Drawing.Point(3, 10);
+            this.OrderLIstView.Name = "OrderLIstView";
+            this.OrderLIstView.Size = new System.Drawing.Size(303, 318);
+            this.OrderLIstView.TabIndex = 13;
+            this.OrderLIstView.UseCompatibleStateImageBehavior = false;
+            this.OrderLIstView.View = System.Windows.Forms.View.Details;
+            // 
+            // Name
+            // 
+            this.Name.Text = "Name";
+            this.Name.Width = 145;
+            // 
+            // Comment
+            // 
+            this.Comment.Text = "Comment";
+            this.Comment.Width = 95;
+            // 
+            // Quantity
+            // 
+            this.Quantity.Text = "Quantity";
+            this.Quantity.Width = 58;
             // 
             // SubmitOrder
             // 
@@ -115,40 +144,11 @@ namespace UI
             this.SubmitOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.SubmitOrder.Location = new System.Drawing.Point(3, 379);
             this.SubmitOrder.Name = "SubmitOrder";
-            this.SubmitOrder.Size = new System.Drawing.Size(270, 39);
+            this.SubmitOrder.Size = new System.Drawing.Size(303, 39);
             this.SubmitOrder.TabIndex = 12;
             this.SubmitOrder.Text = "Submit";
             this.SubmitOrder.UseVisualStyleBackColor = false;
             this.SubmitOrder.Click += new System.EventHandler(this.SubmitOrder_Click);
-            // 
-            // OrderLIstView
-            // 
-            this.OrderLIstView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Comment,
-            this.Name,
-            this.Quantity});
-            this.OrderLIstView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.OrderLIstView.FullRowSelect = true;
-            this.OrderLIstView.HideSelection = false;
-            this.OrderLIstView.Location = new System.Drawing.Point(3, 8);
-            this.OrderLIstView.Name = "OrderLIstView";
-            this.OrderLIstView.Size = new System.Drawing.Size(303, 320);
-            this.OrderLIstView.TabIndex = 11;
-            this.OrderLIstView.UseCompatibleStateImageBehavior = false;
-            this.OrderLIstView.View = System.Windows.Forms.View.Details;
-            this.OrderLIstView.SelectedIndexChanged += new System.EventHandler(this.OrderLIstView_SelectedIndexChanged);
-            // 
-            // Comment
-            // 
-            this.Comment.DisplayIndex = 1;
-            this.Comment.Text = "Comment";
-            this.Comment.Width = 100;
-            // 
-            // Name
-            // 
-            this.Name.DisplayIndex = 0;
-            this.Name.Text = "Name";
-            this.Name.Width = 165;
             // 
             // RemoveOrderBtn
             // 
@@ -157,7 +157,7 @@ namespace UI
             this.RemoveOrderBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.RemoveOrderBtn.Location = new System.Drawing.Point(3, 334);
             this.RemoveOrderBtn.Name = "RemoveOrderBtn";
-            this.RemoveOrderBtn.Size = new System.Drawing.Size(270, 39);
+            this.RemoveOrderBtn.Size = new System.Drawing.Size(303, 39);
             this.RemoveOrderBtn.TabIndex = 8;
             this.RemoveOrderBtn.Text = "Remove";
             this.RemoveOrderBtn.UseVisualStyleBackColor = false;
@@ -190,13 +190,12 @@ namespace UI
             // 
             this.MenuPanel.Controls.Add(this.ShowLunchAndDinner);
             this.MenuPanel.Controls.Add(this.AddBtn);
-            this.MenuPanel.Controls.Add(this.CommentMainCourse);
+            this.MenuPanel.Controls.Add(this.CommentTb);
             this.MenuPanel.Controls.Add(this.FoodList);
             this.MenuPanel.Location = new System.Drawing.Point(6, 142);
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(407, 573);
             this.MenuPanel.TabIndex = 1;
-            this.MenuPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuPanel_Paint);
             // 
             // ShowLunchAndDinner
             // 
@@ -224,15 +223,15 @@ namespace UI
             this.AddBtn.UseVisualStyleBackColor = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_CLick);
             // 
-            // CommentMainCourse
+            // CommentTb
             // 
-            this.CommentMainCourse.ForeColor = System.Drawing.Color.DarkGray;
-            this.CommentMainCourse.Location = new System.Drawing.Point(6, 340);
-            this.CommentMainCourse.Multiline = true;
-            this.CommentMainCourse.Name = "CommentMainCourse";
-            this.CommentMainCourse.Size = new System.Drawing.Size(393, 65);
-            this.CommentMainCourse.TabIndex = 4;
-            this.CommentMainCourse.Text = "Comment...";
+            this.CommentTb.ForeColor = System.Drawing.Color.DarkGray;
+            this.CommentTb.Location = new System.Drawing.Point(6, 340);
+            this.CommentTb.Multiline = true;
+            this.CommentTb.Name = "CommentTb";
+            this.CommentTb.PlaceholderText = "Comment...";
+            this.CommentTb.Size = new System.Drawing.Size(393, 65);
+            this.CommentTb.TabIndex = 4;
             // 
             // FoodList
             // 
@@ -249,7 +248,6 @@ namespace UI
             this.FoodList.TabIndex = 2;
             this.FoodList.UseCompatibleStateImageBehavior = false;
             this.FoodList.View = System.Windows.Forms.View.Details;
-            this.FoodList.SelectedIndexChanged += new System.EventHandler(this.MainCourseList_SelectedIndexChanged);
             // 
             // ItemId
             // 
@@ -259,7 +257,7 @@ namespace UI
             // MainCourseListName
             // 
             this.MainCourseListName.Text = "Name";
-            this.MainCourseListName.Width = 300;
+            this.MainCourseListName.Width = 295;
             // 
             // MainCourseListPrice
             // 
@@ -293,20 +291,20 @@ namespace UI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button RemoveOrderBtn;
         private System.Windows.Forms.Button DrinkBtn;
-        private System.Windows.Forms.ListView OrderLIstView;
-        private System.Windows.Forms.ColumnHeader Name;
-        private System.Windows.Forms.ColumnHeader Comment;
         private System.Windows.Forms.Button SubmitOrder;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnBackToTableView;
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Button ShowLunchAndDinner;
         private System.Windows.Forms.Button AddBtn;
-        private System.Windows.Forms.TextBox CommentMainCourse;
+        private System.Windows.Forms.TextBox CommentTb;
         private System.Windows.Forms.ListView FoodList;
         private System.Windows.Forms.ColumnHeader ItemId;
         private System.Windows.Forms.ColumnHeader MainCourseListName;
         private System.Windows.Forms.ColumnHeader MainCourseListPrice;
+        private System.Windows.Forms.ListView OrderLIstView;
+        private System.Windows.Forms.ColumnHeader Name;
         private System.Windows.Forms.ColumnHeader Quantity;
+        private System.Windows.Forms.ColumnHeader Comment;
     }
 }

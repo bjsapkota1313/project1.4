@@ -18,14 +18,14 @@ namespace UI
     {
         Table selectedTable;
         Employee employee;
-        TimeSpan now = DateTime.Now.TimeOfDay;
+       // TimeSpan now = DateTime.Now.TimeOfDay;
         TimeSpan startLuch = new TimeSpan(10, 0, 0); //10 o'clock
         TimeSpan endLuch = new TimeSpan(17, 0, 0); //17 o'clock
         TimeSpan startDinner = new TimeSpan(17, 0, 0); //17 o'clock
         TimeSpan endDinner = new TimeSpan(22, 0, 0); //22 o'clock
         string closed = "Restaurant is closed!";
         //Testing
-        // TimeSpan now = new TimeSpan(18, 0, 0);
+         TimeSpan now = new TimeSpan(18, 0, 0);
         OrderService orderService = new OrderService();//global
 
         public OrderForm(Table selectedTable, Employee employee)
@@ -34,15 +34,11 @@ namespace UI
             InitializeComponent();
             this.employee = employee;
         }
-        public void loadform(object Form)
-        {
-        }
 
         private void OrderView_Load(object sender, EventArgs e)
         {
             ShowMenu(MenuItemCategory.Drink);
         }
-
 
         private void FoodBtn_Click(object sender, EventArgs e)
         {
@@ -104,28 +100,25 @@ namespace UI
                                                   "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                OrderListView.Items.RemoveAt(Item);
+                OrderLIstView.Items.RemoveAt(Item);
             }
-        }
-        private void OrderLIstView_SelectedIndexChanged(object sender, EventArgs e)
-        {
         }
 
         private void SubmitOrder_Click(object sender, EventArgs e)
         {
             List<OrderItem> orders = new List<OrderItem>();
-            //OrderService orderService = new OrderService();
-            foreach (ListViewItem item in OrderListView.Items)
+            foreach (ListViewItem item in OrderLIstView.Items)
             {
                 OrderItem orderItem = (OrderItem)item.Tag;
+                orderItem.Quantity = int.Parse(item.SubItems[2].Text);
                orderItem.DateTime= DateTime.Now;   
                 orders.Add(orderItem);
-                orderService.UpdateStock(orders);
             }
 
             try
             {
                 orderService.GetIdFromUnpaied(orders, selectedTable,employee);
+                orderService.UpdateStock(orders);
                 OrderLIstView.Items.Clear();
                 OrderLIstView.Refresh();
 
@@ -136,27 +129,15 @@ namespace UI
             }
 
         }
-        public ListView OrderListView
-        {
-            get { return OrderLIstView; }
-        }
 
         private void BtnBackToTableView_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void MainCourseList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         private void ShowMenu(MenuItemCategory category)
         {
-            //OrderService orderService = new OrderService();//global
             List<MenuItem> items = orderService.GetMenuItems(category);
-
-            //FoodList.Items.Clear();
-
             foreach (MenuItem o in items)
             {
                 ListViewItem li = new ListViewItem(o.ItemId.ToString());
@@ -171,17 +152,13 @@ namespace UI
         {
             try
             {
-                /*ListViewItem li = new ListViewItem(item.MenuItem.ItemId.ToString());
-                li.SubItems.Add(item.MenuItem.Name);
-                li.SubItems.Add(item.Quantity.ToString());
-                li.SubItems.Add(item.Feedback.ToString());*/
                 ListViewItem li = new ListViewItem(item.MenuItem.Name.ToString());
-                    li.SubItems.Add(item.Quantity.ToString());
-                    li.SubItems.Add(item.Feedback.ToString());
+                li.SubItems.Add(item.Feedback.ToString());
+                li.SubItems.Add(item.Quantity.ToString());
 
                 li.Tag = item;
 
-                OrderListView.Items.Add(li);
+                OrderLIstView.Items.Add(li);
             }
             catch
             {
@@ -193,29 +170,33 @@ namespace UI
         {
             string feedback;
 
-            if (CommentMainCourse.Text == "Comment...")
+            if (CommentTb.Text == "")
             {
                 feedback = "N/A";
             }
             else
             {
-                feedback = CommentMainCourse.Text;
+                feedback = CommentTb.Text;
             }
             return feedback;
-        }
-
-        private void MenuPanel_Paint(object sender, PaintEventArgs e)
-        {
-            
         }
 
         private void AddBtn_CLick(object sender, EventArgs e)
         {
             int Quantity = 1;
             MenuItem menuItem = (MenuItem)FoodList.SelectedItems[0].Tag;
-            string feedback = GetFeedback();
+            OrderItem item = new OrderItem(Quantity, menuItem, GetFeedback());
+            foreach(ListViewItem listViewItem in OrderLIstView.Items)
+            {
+                OrderItem orderItem = (OrderItem)listViewItem.Tag;
+                if (item.MenuItem == orderItem.MenuItem && item.Feedback == orderItem.Feedback)
+                {
+                    listViewItem.SubItems[2].Text = (int.Parse(listViewItem.SubItems[2].Text)+1).ToString();
+                    listViewItem.SubItems[1].Text = GetFeedback();
+                    return;
+                }
 
-            OrderItem item = new OrderItem(Quantity, menuItem, feedback);
+            }
             AddToListOrderItems(item);
         }
 
@@ -232,8 +213,6 @@ namespace UI
             ShowMenu(MenuItemCategory.DinnerStarter);
             ShowMenu(MenuItemCategory.DinnerMainCourse);
             ShowMenu(MenuItemCategory.DinnerDessert);
-
-
         }
     }
 }
